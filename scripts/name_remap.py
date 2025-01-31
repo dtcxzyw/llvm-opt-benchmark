@@ -61,11 +61,17 @@ for file in patch:
     for hunk in file:
         added = dict()
         removed = dict()
+        src_lineno = 0
+        tgt_lineno = 0
         for line in hunk:
             if line.is_added:
-                added[line.target_line_no - hunk.target_start] = (line.value.strip(), line.target_line_no)
+                added[tgt_lineno] = (line.value.strip(), line.target_line_no)
+                tgt_lineno += 1
             if line.is_removed:
-                removed[line.source_line_no - hunk.source_start] = line.value.strip()
+                removed[src_lineno] = line.value.strip()
+                src_lineno += 1
+            if line.is_context:
+                src_lineno = tgt_lineno = max(src_lineno, tgt_lineno) + 1
         for k, v in added.items():
             tgt, tgt_line = v
             if k in removed:
