@@ -29,19 +29,19 @@ def dist(src, tgt):
     return difflib.SequenceMatcher(lambda x: x.isspace(), src, tgt).ratio()
 
 def replace(line: str, src: str, tgt: str):
-    res = line.replace(src + ' ', tgt + ' ', count=1)
+    res = line.replace(src + ' ', tgt + ' ', 1)
     if line != res:
         return res
-    res = line.replace(src + ',', tgt + ',', count=1)
+    res = line.replace(src + ',', tgt + ',', 1)
     if line != res:
         return res
-    res = line.replace(src + ':', tgt + ':', count=1)
+    res = line.replace(src + ':', tgt + ':', 1)
     if line != res:
         return res
-    res = line.replace(src + ')', tgt + ')', count=1)
+    res = line.replace(src + ')', tgt + ')', 1)
     if line != res:
         return res
-    return line.replace(src + '\n', tgt + '\n', count=1)
+    return line.replace(src + '\n', tgt + '\n', 1)
 
 def remap(line, ref, mapping):
     best_dist = dist(line, ref)
