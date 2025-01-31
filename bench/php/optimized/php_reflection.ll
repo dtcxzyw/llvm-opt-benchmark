@@ -7954,7 +7954,7 @@ define internal fastcc void @reflection_type_factory(ptr %0, i32 %1, ptr noundef
   %6 = and i32 %1, 262141
   %7 = and i32 %1, 4194304
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %11, label %8
+  br i1 %.not.i, label %13, label %8
 
 8:                                                ; preds = %4
   %9 = and i32 %1, 524288
@@ -7963,88 +7963,88 @@ define internal fastcc void @reflection_type_factory(ptr %0, i32 %1, ptr noundef
   %spec.select = select i1 %.not16.i, ptr @reflection_union_type_ptr, ptr @reflection_intersection_type_ptr
   br label %get_type_kind.exit.thread27
 
-11:                                               ; preds = %4
-  %12 = and i32 %1, 25165824
-  %.not12.i = icmp eq i32 %12, 0
-  br i1 %.not12.i, label %19, label %13
+13:                                               ; preds = %4
+  %14 = and i32 %1, 25165824
+  %.not12.i = icmp eq i32 %14, 0
+  br i1 %.not12.i, label %21, label %15
 
-13:                                               ; preds = %11
-  %14 = and i32 %1, 2097152
-  %.not14.i = icmp eq i32 %14, 0
-  br i1 %.not14.i, label %15, label %get_type_kind.exit.thread
+13:                                               ; preds = %13
+  %16 = and i32 %1, 2097152
+  %.not14.i = icmp eq i32 %16, 0
+  br i1 %.not14.i, label %17, label %get_type_kind.exit.thread
 
-15:                                               ; preds = %13
+15:                                               ; preds = %15
   %.not15.i.not = icmp eq i32 %6, 0
-  %16 = icmp eq i32 %5, 1022
-  %17 = and i32 %1, 25427967
-  %18 = icmp ne i32 %17, 2
-  br i1 %.not15.i.not, label %28, label %get_type_kind.exit.thread27
+  %18 = icmp eq i32 %5, 1022
+  %19 = and i32 %1, 25427967
+  %20 = icmp ne i32 %19, 2
+  br i1 %.not15.i.not, label %30, label %get_type_kind.exit.thread27
 
-19:                                               ; preds = %11
-  %20 = icmp eq i32 %6, 12
-  %21 = icmp eq i32 %5, 1022
-  %or.cond.i = or i1 %20, %21
+21:                                               ; preds = %13
+  %22 = icmp eq i32 %6, 12
+  %23 = icmp eq i32 %5, 1022
+  %or.cond.i = or i1 %22, %23
   br i1 %or.cond.i, label %get_type_kind.exit.thread, label %get_type_kind.exit
 
-get_type_kind.exit.thread:                        ; preds = %13, %19
-  %22 = icmp eq i32 %5, 1022
-  %23 = and i32 %1, 25427967
-  %24 = icmp ne i32 %23, 2
-  br label %28
+get_type_kind.exit.thread:                        ; preds = %15, %21
+  %24 = icmp eq i32 %5, 1022
+  %25 = and i32 %1, 25427967
+  %26 = icmp ne i32 %25, 2
+  br label %30
 
-get_type_kind.exit:                               ; preds = %19
-  %25 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
-  %.not13.i = icmp samesign ugt i32 %25, 1
-  %26 = and i32 %1, 262143
-  %27 = icmp ne i32 %26, 2
-  br i1 %.not13.i, label %get_type_kind.exit.thread27, label %28
+get_type_kind.exit:                               ; preds = %21
+  %27 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
+  %.not13.i = icmp samesign ugt i32 %27, 1
+  %28 = and i32 %1, 262143
+  %29 = icmp ne i32 %28, 2
+  br i1 %.not13.i, label %get_type_kind.exit.thread27, label %30
 
-28:                                               ; preds = %15, %get_type_kind.exit, %get_type_kind.exit.thread
-  %29 = phi i1 [ %24, %get_type_kind.exit.thread ], [ %27, %get_type_kind.exit ], [ %18, %15 ]
-  %30 = phi i1 [ %22, %get_type_kind.exit.thread ], [ false, %get_type_kind.exit ], [ %16, %15 ]
+30:                                               ; preds = %17, %get_type_kind.exit, %get_type_kind.exit.thread
+  %29 = phi i1 [ %26, %get_type_kind.exit.thread ], [ %29, %get_type_kind.exit ], [ %20, %17 ]
+  %32 = phi i1 [ %24, %get_type_kind.exit.thread ], [ false, %get_type_kind.exit ], [ %18, %17 ]
   br label %get_type_kind.exit.thread27
 
-get_type_kind.exit.thread27:                      ; preds = %8, %get_type_kind.exit, %15, %28
-  %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %28 ], [ @reflection_union_type_ptr, %15 ], [ @reflection_union_type_ptr, %get_type_kind.exit ], [ %spec.select, %8 ]
-  %31 = phi i1 [ %29, %28 ], [ %18, %15 ], [ %27, %get_type_kind.exit ], [ true, %8 ]
-  %32 = phi i1 [ %30, %28 ], [ %16, %15 ], [ false, %get_type_kind.exit ], [ %10, %8 ]
-  %33 = phi i1 [ true, %28 ], [ false, %15 ], [ false, %get_type_kind.exit ], [ false, %8 ]
-  %34 = load ptr, ptr %reflection_named_type_ptr.sink, align 8
-  %35 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %34) #13
-  %36 = load ptr, ptr %2, align 8
-  %37 = tail call noalias ptr @_emalloc_24() #13
-  store ptr %0, ptr %37, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+get_type_kind.exit.thread27:                      ; preds = %8, %get_type_kind.exit, %17, %30
+  %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %30 ], [ @reflection_union_type_ptr, %17 ], [ @reflection_union_type_ptr, %get_type_kind.exit ], [ %spec.select, %8 ]
+  %33 = phi i1 [ %33, %28 ], [ %18, %15 ], [ %27, %get_type_kind.exit ], [ true, %8 ]
+  %32 = phi i1 [ %32, %28 ], [ %18, %17 ], [ false, %get_type_kind.exit ], [ %10, %8 ]
+  %35 = phi i1 [ true, %30 ], [ false, %17 ], [ false, %get_type_kind.exit ], [ false, %8 ]
+  %36 = load ptr, ptr %reflection_named_type_ptr.sink, align 8
+  %37 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %36) #13
+  %38 = load ptr, ptr %2, align 8
+  %39 = tail call noalias ptr @_emalloc_24() #13
+  store ptr %0, ptr %39, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %or.cond = and i1 %3, %33
-  %not. = xor i1 %32, true
-  %narrow = and i1 %31, %not.
+  %or.cond = and i1 %3, %35
+  %not. = xor i1 %34, true
+  %narrow = and i1 %33, %not.
   %narrow33 = and i1 %narrow, %or.cond
-  %38 = zext i1 %narrow33 to i8
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i8 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 -24
-  store ptr %37, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 -8
-  store i32 5, ptr %41, align 8
-  %42 = and i32 %1, 16777216
-  %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %50, label %43
+  %40 = zext i1 %narrow33 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i8 %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %38, i64 -24
+  store ptr %39, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %38, i64 -8
+  store i32 5, ptr %43, align 8
+  %44 = and i32 %1, 16777216
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %52, label %45
 
-43:                                               ; preds = %get_type_kind.exit.thread27
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = and i32 %45, 64
-  %.not23 = icmp eq i32 %46, 0
-  br i1 %.not23, label %47, label %50
+45:                                               ; preds = %get_type_kind.exit.thread27
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = and i32 %47, 64
+  %.not23 = icmp eq i32 %48, 0
+  br i1 %.not23, label %49, label %52
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %0, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %0, align 4
-  br label %50
+49:                                               ; preds = %45
+  %50 = load i32, ptr %0, align 4
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %0, align 4
+  br label %52
 
-50:                                               ; preds = %43, %47, %get_type_kind.exit.thread27
+52:                                               ; preds = %45, %49, %get_type_kind.exit.thread27
   ret void
 }
 

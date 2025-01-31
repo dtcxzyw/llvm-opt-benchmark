@@ -4846,60 +4846,60 @@ _ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.thread14.i.i.i
   %272 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %273 = load i32, ptr %272, align 8
   %274 = and i32 %273, 14
-  %spec.select.i.i.i.i120.i = icmp eq i32 %274, 2
+  %275 = icmp eq i32 %274, 2
   br i1 %spec.select.i.i.i.i120.i, label %279, label %275
 
 275:                                              ; preds = %_ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.thread14.i.i.i
   %276 = and i32 %273, 15
-  switch i32 %276, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i.i [
+  switch i32 %276, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i.i [
     i32 1, label %277
-    i32 7, label %279
-    i32 8, label %279
+    i32 7, label %281
+    i32 8, label %281
   ]
 
 277:                                              ; preds = %275
   %278 = call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %175, i32 noundef 3) #19
-  br i1 %278, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i, label %._crit_edge16.i.i.i
+  br i1 %278, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i, label %281
 
-._crit_edge16.i.i.i:                              ; preds = %277
+279:                              ; preds = %277
   %.pre.i.i.i = load i32, ptr %272, align 8
-  br label %279
+  br label %281
 
-279:                                              ; preds = %._crit_edge16.i.i.i, %275, %275, %_ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.thread14.i.i.i
-  %280 = phi i32 [ %.pre.i.i.i, %._crit_edge16.i.i.i ], [ %273, %275 ], [ %273, %275 ], [ %273, %_ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.thread14.i.i.i ]
-  %281 = and i32 %280, 15
+281:                                              ; preds = %._crit_edge16.i.i.i, %275, %275, %_ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.thread14.i.i.i
+  %.pre-phi.i.i.i = phi i32 [ %.pre.i.i.i, %._crit_edge16.i.i.i ], [ %273, %275 ], [ %273, %275 ], [ %273, %_ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.thread14.i.i.i ]
+  %282 = and i32 %.pre-phi.i.i.i, 15
   %282 = add nsw i32 %281, -7
   %spec.select.i.i12.i.i.i = icmp ult i32 %282, 2
   br i1 %spec.select.i.i12.i.i.i, label %283, label %286
 
-283:                                              ; preds = %279
+283:                                              ; preds = %281
   %284 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %285 = load ptr, ptr %284, align 8
   %.not15.i.i.i = icmp eq ptr %285, null
   br i1 %.not15.i.i.i, label %286, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i
 
-286:                                              ; preds = %283, %279
+286:                                              ; preds = %283, %281
   %287 = call noundef zeroext i1 @_ZNK4llvm8Function15hasAddressTakenEPPKNS_4UserEbbbbb(ptr noundef nonnull align 8 dereferenceable(136) %175, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #19
   %.pre.i.i = load i32, ptr %272, align 8
   %288 = and i32 %.pre.i.i, 14
   %spec.select.i.i13.i.i.i = icmp eq i32 %288, 2
   %or.cond.i.i = select i1 %287, i1 true, i1 %spec.select.i.i13.i.i.i
-  br i1 %or.cond.i.i, label %._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i_crit_edge.i, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i
+  br i1 %or.cond.i.i, label %._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i_crit_edge.i, label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i
 
-._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i_crit_edge.i: ; preds = %286
+._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i_crit_edge.i: ; preds = %286
   %.pre.i = and i32 %.pre.i.i, 15
-  br label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i.i
+  br label %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i.i
 
 _ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i: ; preds = %286, %283, %277, %_ZN12_GLOBAL__N_124profDataReferencedByCodeERKN4llvm6ModuleE.exit.i.i.i, %262, %260
   %289 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %256) #19
   br label %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i
 
-_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i.i: ; preds = %._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i_crit_edge.i, %275
-  %.pre-phi.i = phi i32 [ %.pre.i, %._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i_crit_edge.i ], [ %276, %275 ]
+_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i.i: ; preds = %._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i_crit_edge.i, %275
+  %.pre-phi.i = phi i32 [ %.pre.i, %._ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i_crit_edge.i ], [ %276, %275 ]
   %290 = icmp eq i32 %.pre-phi.i, 1
   br i1 %290, label %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i, label %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i
 
-_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i: ; preds = %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i.i
+_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i: ; preds = %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i.i
   %291 = call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %175) #19
   br i1 %291, label %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i, label %292
 
@@ -4981,16 +4981,16 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i: ; preds = %_ZNK4
   %330 = or disjoint i32 %329, 16
   store i32 %330, ptr %320, align 8
   %331 = and i32 %328, 15
-  %.not25.i.i = icmp eq i32 %331, 9
-  br i1 %.not25.i.i, label %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i19.i.i
+  %.not26.i.i = icmp eq i32 %331, 9
+  br i1 %.not26.i.i, label %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i20.i.i
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i19.i.i: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i20.i.i: ; preds = %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i
   %332 = or i32 %329, 16400
   store i32 %332, ptr %320, align 8
   br label %_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i
 
-_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i19.i.i, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i, %_ZL21shouldUsePublicSymbolPN4llvm8FunctionE.exit.i.i, %303, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i.i, %292, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i.i, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i
-  %.0.i119.i = phi ptr [ %289, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i ], [ %314, %_ZL21shouldUsePublicSymbolPN4llvm8FunctionE.exit.i.i ], [ %314, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i19.i.i ], [ %175, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i ], [ %175, %292 ], [ %175, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i.i ], [ %175, %303 ], [ %175, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread22.i.i ], [ %314, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i ]
+_ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i20.i.i, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i, %_ZL21shouldUsePublicSymbolPN4llvm8FunctionE.exit.i.i, %303, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i.i, %292, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i.i, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i
+  %.0.i119.i = phi ptr [ %289, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread.i.i ], [ %314, %_ZL21shouldUsePublicSymbolPN4llvm8FunctionE.exit.i.i ], [ %314, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i20.i.i ], [ %175, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.i.i.i ], [ %175, %292 ], [ %175, %_ZNK4llvm5Value11hasMetadataEj.exit.i.i.i ], [ %175, %303 ], [ %175, %_ZL24shouldRecordFunctionAddrPN4llvm8FunctionE.exit.thread23.i.i ], [ %314, %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %333
 
