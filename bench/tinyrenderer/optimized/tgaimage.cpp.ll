@@ -366,17 +366,17 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 .lr.ph70.preheader:                               ; preds = %19
   %21 = add nuw nsw i32 %13, 1
   %22 = and i32 %21, 255
-  %umax87 = call i32 @llvm.umax.i32(i32 %22, i32 1)
-  %.pre89 = load i8, ptr %10, align 8
+  %umax88 = call i32 @llvm.umax.i32(i32 %22, i32 1)
+  %.pre90 = load i8, ptr %10, align 8
   br label %.lr.ph70
 
 23:                                               ; preds = %._crit_edge64
   %24 = add nuw nsw i32 %.03468, 1
-  %exitcond88.not = icmp eq i32 %24, %umax87
-  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph70, !llvm.loop !6
+  %exitcond89.not = icmp eq i32 %24, %umax88
+  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph70, !llvm.loop !6
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %23
-  %25 = phi i8 [ %42, %23 ], [ %.pre89, %.lr.ph70.preheader ]
+  %25 = phi i8 [ %42, %23 ], [ %.pre90, %.lr.ph70.preheader ]
   %.03468 = phi i32 [ %24, %23 ], [ 0, %.lr.ph70.preheader ]
   %.167 = phi i64 [ %.2.lcssa, %23 ], [ %.035, %.lr.ph70.preheader ]
   %.13766 = phi i64 [ %43, %23 ], [ %.036, %.lr.ph70.preheader ]
@@ -391,22 +391,22 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 
 .preheader:                                       ; preds = %.lr.ph70
   %33 = load i8, ptr %10, align 8
-  %.not74 = icmp eq i8 %33, 0
-  br i1 %.not74, label %._crit_edge64, label %.lr.ph63
+  %.not75 = icmp eq i8 %33, 0
+  br i1 %.not75, label %._crit_edge64, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.lr.ph63 ], [ 0, %.preheader ]
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.lr.ph63 ], [ 0, %.preheader ]
   %.261 = phi i64 [ %36, %.lr.ph63 ], [ %.167, %.preheader ]
-  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv84
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv85
   %35 = load i8, ptr %34, align 1
   %36 = add i64 %.261, 1
   %37 = load ptr, ptr %11, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %.261
   store i8 %35, ptr %38, align 1
-  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %39 = load i8, ptr %10, align 8
   %40 = zext i8 %39 to i64
-  %41 = icmp samesign ult i64 %indvars.iv.next85, %40
+  %41 = icmp samesign ult i64 %indvars.iv.next86, %40
   br i1 %41, label %.lr.ph63, label %._crit_edge64, !llvm.loop !8
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %.preheader
@@ -425,23 +425,23 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 %51
   %53 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %52)
-  br i1 %53, label %.preheader44.preheader, label %.loopexit47.sink.split
+  br i1 %53, label %.preheader45, label %.loopexit47.sink.split
 
 .preheader44.preheader:                           ; preds = %45
   %54 = add i32 %13, 129
-  %55 = and i32 %54, 255
-  %umax = call i32 @llvm.umax.i32(i32 %55, i32 1)
+  %.not = and i32 %54, 255
+  %umax = call i32 @llvm.umax.i32(i32 %.not, i32 1)
   %.pre = load i8, ptr %10, align 8
   br label %.preheader44
 
 56:                                               ; preds = %._crit_edge
-  %57 = add nuw nsw i32 %.03258, 1
+  %umax = add nuw nsw i32 %.03258, 1
   %exitcond.not = icmp eq i32 %57, %umax
   br i1 %exitcond.not, label %.loopexit, label %.preheader44, !llvm.loop !9
 
-.preheader44:                                     ; preds = %.preheader44.preheader, %56
-  %58 = phi i8 [ %67, %56 ], [ %.pre, %.preheader44.preheader ]
-  %.03258 = phi i32 [ %57, %56 ], [ 0, %.preheader44.preheader ]
+.preheader44:                                     ; preds = %.preheader45, %56
+  %58 = phi i8 [ %67, %56 ], [ %.pre, %.preheader45 ]
+  %exitcond.not = phi i32 [ %57, %56 ], [ 0, %.preheader45 ]
   %.357 = phi i64 [ %.4.lcssa, %56 ], [ %.035, %.preheader44.preheader ]
   %.23856 = phi i64 [ %68, %56 ], [ %.036, %.preheader44.preheader ]
   %.not = icmp eq i8 %58, 0
@@ -449,29 +449,29 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 
 .lr.ph:                                           ; preds = %.preheader44, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader44 ]
-  %.454 = phi i64 [ %61, %.lr.ph ], [ %.357, %.preheader44 ]
+  %.not73 = phi i64 [ %61, %.lr.ph ], [ %.357, %57 ]
   %59 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv
   %60 = load i8, ptr %59, align 1
   %61 = add i64 %.454, 1
   %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 %.454
+  %.454 = getelementptr inbounds i8, ptr %62, i64 %.not73
   store i8 %60, ptr %63, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = load i8, ptr %10, align 8
-  %65 = zext i8 %64 to i64
-  %66 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  %62 = load i8, ptr %10, align 8
+  %63 = zext i8 %64 to i64
+  %64 = icmp samesign ult i64 %indvars.iv.next, %65
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader44
-  %67 = phi i8 [ 0, %.preheader44 ], [ %64, %.lr.ph ]
-  %.4.lcssa = phi i64 [ %.357, %.preheader44 ], [ %61, %.lr.ph ]
+  %66 = phi i8 [ 0, %57 ], [ %64, %.lr.ph ]
+  %67 = phi i64 [ %.357, %57 ], [ %61, %.lr.ph ]
   %68 = add i64 %.23856, 1
   %69 = icmp ugt i64 %68, %8
   br i1 %69, label %.loopexit47.sink.split, label %56
 
 .loopexit:                                        ; preds = %56, %23
-  %.339 = phi i64 [ %43, %23 ], [ %68, %56 ]
-  %.5 = phi i64 [ %.2.lcssa, %23 ], [ %.4.lcssa, %56 ]
+  %69 = phi i64 [ %43, %23 ], [ %68, %56 ]
+  %70 = phi i64 [ %.2.lcssa, %23 ], [ %67, %56 ]
   %70 = icmp ult i64 %.339, %8
   br i1 %70, label %12, label %.loopexit47, !llvm.loop !11
 

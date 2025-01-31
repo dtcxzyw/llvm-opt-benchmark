@@ -14871,7 +14871,7 @@ sw.bb302:                                         ; preds = %for.body82
 for.inc348:                                       ; preds = %sw.bb, %sw.bb171, %sw.bb184, %sw.bb302, %for.body82
   %indvars.iv.next774 = add nuw nsw i64 %indvars.iv773, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next774, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond354.preheader.lr.ph, label %for.body82, !llvm.loop !260
+  br i1 %exitcond.not, label %while.cond351.preheader, label %for.body82, !llvm.loop !260
 
 for.cond354.preheader:                            ; preds = %for.cond354.preheader.lr.ph, %for.end375
   %362 = phi ptr [ %.pre, %for.cond354.preheader.lr.ph ], [ %369, %for.end375 ]

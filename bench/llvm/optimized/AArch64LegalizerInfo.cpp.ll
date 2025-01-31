@@ -23446,14 +23446,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
 
 18:                                               ; preds = %14
   %19 = and i64 %9, 1
-  %.not5.i.i.i = icmp eq i64 %19, 0
-  %20 = lshr i64 %9, 3
+  %20 = icmp eq i64 %19, 0
+  %21 = lshr i64 %9, 3
   br i1 %.not5.i.i.i, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %18
   %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %20, 65535
   %21 = lshr i64 %9, 19
-  %22 = and i64 %21, 65535
+  %.not.i1.i.i.i.i = and i64 %21, 65535
   %spec.select.i10.i.i.i.i = select i1 %.not.i.i.i.i, i64 %21, i64 %22
   %23 = mul nuw nsw i64 %spec.select.i10.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
@@ -23467,12 +23467,12 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %_ZNK4llvm3LLT19getS
   %24 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = zext i32 %26 to i64
-  %28 = icmp ult i64 %24, %27
+  %29 = zext i32 %26 to i64
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = icmp ult i64 %24, %27
   br label %_ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet30widenVectorEltsToVectorMinSizeEjjEUlRKNS0_13LegalityQueryEE_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
 
 _ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet30widenVectorEltsToVectorMinSizeEjjEUlRKNS0_13LegalityQueryEE_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit: ; preds = %2, %14, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %29 = phi i1 [ false, %14 ], [ false, %2 ], [ %28, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
+  %32 = phi i1 [ false, %14 ], [ false, %2 ], [ %.sroa.0.0.insert.ext.i.i.i.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %29
 }
@@ -23956,7 +23956,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN4llvm15LegalizeRuleSet15minSc
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit
 
 19:                                               ; preds = %13
-  %20 = lshr i64 %9, 3
+  %21 = lshr i64 %9, 3
   %21 = and i64 %20, 65535
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit
 
@@ -24294,7 +24294,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
 
 19:                                               ; preds = %13
-  %20 = lshr i64 %9, 3
+  %21 = lshr i64 %9, 3
   %21 = and i64 %20, 65535
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
 
@@ -25442,7 +25442,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN4llvm15LegalizeRuleSet15maxSc
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit
 
 19:                                               ; preds = %13
-  %20 = lshr i64 %9, 3
+  %21 = lshr i64 %9, 3
   %21 = and i64 %20, 65535
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit
 
@@ -25791,7 +25791,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
 
 19:                                               ; preds = %13
-  %20 = lshr i64 %9, 3
+  %21 = lshr i64 %9, 3
   %21 = and i64 %20, 65535
   br label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit.i.i.i
 
@@ -29109,7 +29109,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 20:                                               ; preds = %18
   %21 = lshr i64 %8, 19
-  %22 = and i64 %21, 65535
+  %.not.i1.i.i.i.i = and i64 %21, 65535
   %spec.select.i.i.i.i.i = select i1 %.not.i.not.i.i.i.i, i64 %21, i64 %22
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
@@ -31370,7 +31370,7 @@ define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERK
 
 20:                                               ; preds = %15
   %21 = lshr i64 %.val.val2, 3
-  %22 = and i64 %21, 65535
+  %.not.i1.i.i.i.i = and i64 %21, 65535
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %2
@@ -31958,7 +31958,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %16
   %20 = and i64 %.val.val, 4
   %.not1.i8.i.i.i.i = icmp eq i64 %20, 0
   %21 = lshr i64 %.val.val, 19
-  %22 = and i64 %21, 65535
+  %.not.i1.i.i.i.i = and i64 %21, 65535
   %spec.select.i10.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %21, i64 %22
   %.0.in.i6.i.i.i.i = select i1 %.not1.i8.i.i.i.i, i64 %19, i64 %spec.select.i10.i.i.i.i
   %23 = mul nuw nsw i64 %.0.in.i6.i.i.i.i, %19

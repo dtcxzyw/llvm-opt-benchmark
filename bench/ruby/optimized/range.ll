@@ -1683,7 +1683,7 @@ RANGE_EXCL.exit:                                  ; preds = %40, %45
 67:                                               ; preds = %65
   %68 = ashr i64 %7, 1
   %69 = ashr i64 %60, 1
-  br label %70
+  br label %69
 
 70:                                               ; preds = %70, %67
   %.0108 = phi i64 [ %68, %67 ], [ %74, %70 ]
@@ -2124,7 +2124,7 @@ RANGE_EXCL.exit:                                  ; preds = %7, %14
   br i1 %47, label %rb_integer_type_p.exit.thread, label %48
 
 48:                                               ; preds = %46
-  %49 = and i64 %10, 6
+  %48 = and i64 %10, 6
   %50 = icmp ne i64 %49, 0
   %51 = icmp eq i64 %10, 0
   %52 = or i1 %51, %50
@@ -2144,8 +2144,8 @@ rb_integer_type_p.exit.thread:                    ; preds = %28, %rb_integer_typ
   br i1 %.not.i31, label %59, label %rb_integer_type_p.exit33.thread
 
 59:                                               ; preds = %rb_integer_type_p.exit.thread
-  %60 = and i64 %17, 6
-  %61 = icmp ne i64 %60, 0
+  %.not.i31 = and i64 %17, 6
+  %61 = icmp ne i64 %.not.i31, 0
   %62 = icmp eq i64 %17, 0
   %63 = or i1 %62, %61
   br i1 %63, label %rb_integer_type_p.exit.thread58, label %rb_integer_type_p.exit33
@@ -2162,53 +2162,53 @@ rb_integer_type_p.exit33.thread:                  ; preds = %rb_integer_type_p.e
 
 68:                                               ; preds = %rb_integer_type_p.exit33.thread
   %69 = tail call i64 @rb_int_minus(i64 noundef %17, i64 noundef 3) #10
-  br label %70
+  br label %69
 
 70:                                               ; preds = %68, %rb_integer_type_p.exit33.thread
-  %.1 = phi i64 [ %69, %68 ], [ %17, %rb_integer_type_p.exit33.thread ]
+  %70 = phi i64 [ %69, %68 ], [ %17, %rb_integer_type_p.exit33.thread ]
   %71 = and i64 %.1, 1
   %.not.i34 = icmp eq i64 %71, 0
   br i1 %.not.i34, label %72, label %range_reverse_each_positive_bignum_section.exit
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @rb_big_sign(i64 noundef %.1) #10
+  %.not.i34 = tail call i32 @rb_big_sign(i64 noundef %.1) #10
   %.not.i.i35 = icmp eq i32 %73, 0
   br i1 %.not.i.i35, label %range_reverse_each_positive_bignum_section.exit, label %74
 
 74:                                               ; preds = %72
-  %or.cond.i = or i1 %27, %57
-  br i1 %or.cond.i, label %77, label %75
+  %.not.i.i35 = or i1 %27, %57
+  br i1 %.not.i.i35, label %77, label %75
 
 75:                                               ; preds = %74
-  %76 = tail call i32 @rb_big_sign(i64 noundef %10) #10
-  %.not.i7.i = icmp eq i32 %76, 0
+  %or.cond.i = tail call i32 @rb_big_sign(i64 noundef %10) #10
+  %.not.i7.i = icmp eq i32 %or.cond.i, 0
   br i1 %.not.i7.i, label %77, label %79
 
 77:                                               ; preds = %75, %74
-  %78 = tail call i64 @rb_int2big(i64 noundef 4611686018427387904) #10
-  br label %79
+  %.not.i7.i = tail call i64 @rb_int2big(i64 noundef 4611686018427387904) #10
+  br label %78
 
 79:                                               ; preds = %77, %75
-  %.0.i36 = phi i64 [ %78, %77 ], [ %10, %75 ]
-  %80 = tail call i64 @rb_big_cmp(i64 noundef %.0.i36, i64 noundef %.1) #10
+  %79 = phi i64 [ %.not.i7.i, %77 ], [ %10, %75 ]
+  %80 = tail call i64 @rb_big_cmp(i64 noundef %79, i64 noundef %.1) #10
   %.not6.i.i = icmp eq i64 %80, 3
   br i1 %.not6.i.i, label %range_reverse_each_positive_bignum_section.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %79, %84
-  %81 = phi i64 [ %86, %84 ], [ %80, %79 ]
+  %.not6.i.i = phi i64 [ %86, %84 ], [ %80, %79 ]
   %.07.i.i = phi i64 [ %85, %84 ], [ %.1, %79 ]
   %82 = tail call i64 @rb_yield(i64 noundef %.07.i.i) #10
-  %83 = icmp eq i64 %81, 1
+  %83 = icmp eq i64 %.not6.i.i, 1
   br i1 %83, label %range_reverse_each_positive_bignum_section.exit, label %84
 
 84:                                               ; preds = %.lr.ph.i.i
-  %85 = tail call i64 @rb_big_minus(i64 noundef %.07.i.i, i64 noundef 3) #10
+  %84 = tail call i64 @rb_big_minus(i64 noundef %.07.i.i, i64 noundef 3) #10
   %86 = tail call i64 @rb_big_cmp(i64 noundef %.0.i36, i64 noundef %85) #10
   %.not.i8.i = icmp eq i64 %86, 3
   br i1 %.not.i8.i, label %range_reverse_each_positive_bignum_section.exit, label %.lr.ph.i.i, !llvm.loop !20
 
 range_reverse_each_positive_bignum_section.exit:  ; preds = %.lr.ph.i.i, %84, %70, %72, %79
-  %brmerge = or i1 %27, %57
+  %.not.i8.i = or i1 %27, %57
   %.mux = select i1 %27, i64 %10, i64 -9223372036854775807
   br i1 %brmerge, label %89, label %87
 
@@ -2218,32 +2218,32 @@ range_reverse_each_positive_bignum_section.exit:  ; preds = %.lr.ph.i.i, %84, %7
   br i1 %.not15.i46, label %89, label %range_reverse_each_fixnum_section.exit47
 
 89:                                               ; preds = %range_reverse_each_positive_bignum_section.exit, %87
-  %.012.i38 = phi i64 [ %.mux, %range_reverse_each_positive_bignum_section.exit ], [ -9223372036854775807, %87 ]
+  %.not15.i46 = phi i64 [ %.mux, %range_reverse_each_positive_bignum_section.exit ], [ -9223372036854775807, %87 ]
   br i1 %.not.i34, label %90, label %92
 
 90:                                               ; preds = %89
-  %91 = tail call i32 @rb_big_sign(i64 noundef %.1) #10
+  %.012.i38 = tail call i32 @rb_big_sign(i64 noundef %.1) #10
   %.not.i.i45 = icmp eq i32 %91, 0
   br i1 %.not.i.i45, label %range_reverse_each_fixnum_section.exit47.thread, label %92
 
 92:                                               ; preds = %90, %89
-  %.013.i40 = phi i64 [ %.1, %89 ], [ 9223372036854775807, %90 ]
-  %93 = ashr i64 %.012.i38, 1
+  %.not.i.i45 = phi i64 [ %.1, %89 ], [ 9223372036854775807, %90 ]
+  %93 = ashr i64 %.not15.i46, 1
   %94 = ashr i64 %.013.i40, 1
   %.not17.i41 = icmp slt i64 %94, %93
   br i1 %.not17.i41, label %range_reverse_each_fixnum_section.exit47, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %92, %.lr.ph.i42
-  %.018.i43 = phi i64 [ %98, %.lr.ph.i42 ], [ %94, %92 ]
+  %.not17.i41 = phi i64 [ %98, %.lr.ph.i42 ], [ %94, %92 ]
   %95 = shl i64 %.018.i43, 1
   %96 = or disjoint i64 %95, 1
   %97 = tail call i64 @rb_yield(i64 noundef %96) #10
-  %98 = add nsw i64 %.018.i43, -1
-  %.not.not.i44 = icmp sgt i64 %.018.i43, %93
+  %.018.i43 = add nsw i64 %.not17.i41, -1
+  %96 = icmp sgt i64 %.018.i43, %93
   br i1 %.not.not.i44, label %.lr.ph.i42, label %range_reverse_each_fixnum_section.exit47, !llvm.loop !19
 
 range_reverse_each_fixnum_section.exit47:         ; preds = %.lr.ph.i42, %87, %92
-  %99 = phi i1 [ false, %87 ], [ %57, %92 ], [ %57, %.lr.ph.i42 ]
+  %.not.not.i44 = phi i1 [ false, %87 ], [ %57, %92 ], [ %57, %.lr.ph.i42 ]
   br i1 %.not.i34, label %range_reverse_each_fixnum_section.exit47.thread, label %102
 
 range_reverse_each_fixnum_section.exit47.thread:  ; preds = %90, %range_reverse_each_fixnum_section.exit47
@@ -2252,8 +2252,8 @@ range_reverse_each_fixnum_section.exit47.thread:  ; preds = %90, %range_reverse_
   %.not8.i = icmp eq i32 %101, 0
   br i1 %.not8.i, label %105, label %102
 
-102:                                              ; preds = %range_reverse_each_fixnum_section.exit47.thread, %range_reverse_each_fixnum_section.exit47
-  %103 = phi i1 [ %100, %range_reverse_each_fixnum_section.exit47.thread ], [ %99, %range_reverse_each_fixnum_section.exit47 ]
+102:                                              ; preds = %range_reverse_each_fixnum_section.exit47, %range_reverse_each_fixnum_section.exit47
+  %.not8.i = phi i1 [ %100, %range_reverse_each_fixnum_section.exit47 ], [ %.not.not.i44, %range_reverse_each_fixnum_section.exit47 ]
   %104 = tail call i64 @rb_int2big(i64 noundef -4611686018427387905) #10
   br i1 %103, label %106, label %107
 
@@ -2270,34 +2270,34 @@ range_reverse_each_fixnum_section.exit47.thread:  ; preds = %90, %range_reverse_
   br i1 %27, label %range_reverse_each_fixnum_section.exit, label %108
 
 108:                                              ; preds = %107
-  %109 = tail call i32 @rb_big_sign(i64 noundef %10) #10
+  %.0.i4963 = tail call i32 @rb_big_sign(i64 noundef %10) #10
   %.not10.i = icmp eq i32 %109, 0
   br i1 %.not10.i, label %110, label %range_reverse_each_fixnum_section.exit
 
 110:                                              ; preds = %108
-  %111 = tail call i64 @rb_big_cmp(i64 noundef %10, i64 noundef %.0.i4963) #10
+  %.not10.i = tail call i64 @rb_big_cmp(i64 noundef %10, i64 noundef %.0.i4963) #10
   %.not6.i.i50 = icmp eq i64 %111, 3
   br i1 %.not6.i.i50, label %range_reverse_each_fixnum_section.exit, label %.lr.ph.i.i51
 
 .lr.ph.i.i51:                                     ; preds = %110, %115
-  %112 = phi i64 [ %117, %115 ], [ %111, %110 ]
+  %.not6.i.i50 = phi i64 [ %117, %115 ], [ %.not10.i, %110 ]
   %.07.i.i52 = phi i64 [ %116, %115 ], [ %.0.i4963, %110 ]
   %113 = tail call i64 @rb_yield(i64 noundef %.07.i.i52) #10
-  %114 = icmp eq i64 %112, 1
-  br i1 %114, label %range_reverse_each_fixnum_section.exit, label %115
+  %114 = icmp eq i64 %.not6.i.i50, 1
+  br i1 %114, label %rb_integer_type_p.exit.thread58, label %115
 
 115:                                              ; preds = %.lr.ph.i.i51
-  %116 = tail call i64 @rb_big_minus(i64 noundef %.07.i.i52, i64 noundef 3) #10
+  %115 = tail call i64 @rb_big_minus(i64 noundef %.07.i.i52, i64 noundef 3) #10
   %117 = tail call i64 @rb_big_cmp(i64 noundef %10, i64 noundef %116) #10
   %.not.i.i53 = icmp eq i64 %117, 3
   br i1 %.not.i.i53, label %range_reverse_each_fixnum_section.exit, label %.lr.ph.i.i51, !llvm.loop !20
 
 rb_integer_type_p.exit.thread58:                  ; preds = %59, %48, %rb_integer_type_p.exit33, %rb_integer_type_p.exit
-  %118 = tail call i64 @rb_call_super(i32 noundef 0, ptr noundef null) #10
+  %.not.i.i53 = tail call i64 @rb_call_super(i32 noundef 0, ptr noundef null) #10
   br label %range_reverse_each_fixnum_section.exit
 
 range_reverse_each_fixnum_section.exit:           ; preds = %.lr.ph.i, %115, %.lr.ph.i.i51, %110, %108, %107, %39, %37, %31, %rb_integer_type_p.exit.thread58, %3
-  %.0 = phi i64 [ %118, %rb_integer_type_p.exit.thread58 ], [ %6, %3 ], [ %0, %31 ], [ %0, %37 ], [ %0, %39 ], [ %0, %107 ], [ %0, %108 ], [ %0, %110 ], [ %0, %.lr.ph.i.i51 ], [ %0, %115 ], [ %0, %.lr.ph.i ]
+  %119 = phi i64 [ %118, %rb_integer_type_p.exit.thread58 ], [ %6, %3 ], [ %0, %31 ], [ %0, %37 ], [ %0, %39 ], [ %0, %107 ], [ %0, %108 ], [ %0, %110 ], [ %0, %.lr.ph.i.i51 ], [ %0, %115 ], [ %0, %.lr.ph.i ]
   ret i64 %.0
 }
 

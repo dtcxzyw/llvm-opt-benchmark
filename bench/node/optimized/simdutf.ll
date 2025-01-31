@@ -24797,10 +24797,10 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inp
   %c.sroa.0.1.i.i.i = or <4 x i64> %c.sroa.22.01221.pn.i.i.i, %c.sroa.0.01219.i.i.i
   %add.i58.i.i.i = add nuw i64 %reader.sroa.11.01218.i.i.i, 64
   %cmp.i16.i.i.i = icmp ult i64 %add.i58.i.i.i, %spec.select.i.i.i
-  br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %if.end.i.i.i.i, !llvm.loop !239
+  br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !239
 
 if.end.i.i.i.i:                                   ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i, %if.else
-  %c.sroa.22.0.lcssa.i.i.i24 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
+  %cmp.i63.i.i.i = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   %c.sroa.17.0.lcssa.i.i.i22 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.17.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   %c.sroa.0.0.lcssa.i.i.i20 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.0.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   %reader.sroa.11.0.lcssa.i.i.i19 = phi i64 [ 0, %if.else ], [ %add.i58.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
@@ -24819,7 +24819,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN7simdutf7haswell
   br i1 %cmp.i296.i.i.i, label %_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %173 = bitcast <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i to <32 x i8>
+  %or.i.i344.i.i.i = bitcast <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i to <32 x i8>
   %vperm.i.i.i.i = shufflevector <4 x i64> %c.sroa.17.0.lcssa.i.i.i22, <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %174 = bitcast <4 x i64> %vperm.i.i.i.i to <32 x i8>
   %palignr.i.i.i.i = shufflevector <32 x i8> %174, <32 x i8> %173, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>

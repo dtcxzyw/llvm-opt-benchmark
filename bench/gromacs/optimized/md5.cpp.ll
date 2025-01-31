@@ -728,7 +728,7 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
 
 28:                                               ; preds = %26, %14
   %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %._crit_edge.i.thread, label %29
+  br i1 %.not.i, label %._crit_edge.i40, label %29
 
 29:                                               ; preds = %28
   %30 = add nuw nsw i32 %19, %20
@@ -745,7 +745,7 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
   br i1 %39, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit, label %.thread
 
 .thread:                                          ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37
+  %41 = getelementptr inbounds nuw i8, ptr @_ZZ14gmx_md5_finishP11md5_state_sE3pad, i64 %37
   %41 = sub nsw i32 %19, %33
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %34)
   %.not41.i = icmp eq i32 %41, 0
@@ -753,24 +753,24 @@ define { i64, i64 } @_Z14gmx_md5_finishP11md5_state_s(ptr noundef %0) local_unna
 
 ._crit_edge.i.thread:                             ; preds = %28, %.thread
   %.1.lcssa.i32 = phi ptr [ %40, %.thread ], [ @_ZZ14gmx_md5_finishP11md5_state_sE3pad, %28 ]
-  %.138.lcssa.i31 = phi i32 [ %41, %.thread ], [ %19, %28 ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = phi i32 [ %41, %.thread ], [ %19, %28 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = sext i32 %.138.lcssa.i31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i32, i64 %43, i1 false)
   br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
 
-_Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %.thread, %._crit_edge.i.thread
-  %44 = load i32, ptr %0, align 4
-  %45 = lshr i32 %44, 3
-  %46 = and i32 %45, 63
-  %47 = load i32, ptr %22, align 4
-  %48 = add i32 %44, 64
+_Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %40, %._crit_edge.i40
+  %.1.lcssa.i32 = load i32, ptr %0, align 4
+  %.138.lcssa.i31 = lshr i32 %.1.lcssa.i32, 3
+  %44 = and i32 %45, 63
+  %45 = load i32, ptr %22, align 4
+  %48 = add i32 %.1.lcssa.i32, 64
   store i32 %48, ptr %0, align 4
   %49 = icmp ugt i32 %44, -65
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit
-  %51 = add i32 %47, 1
+  %48 = add i32 %47, 1
   store i32 %51, ptr %22, align 4
   br label %52
 
@@ -783,48 +783,48 @@ _Z14gmx_md5_appendP11md5_state_sPKhi.exit:        ; preds = %29, %.thread, %._cr
   %55 = sub nuw nsw i32 64, %46
   %56 = select i1 %54, i32 %55, i32 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = zext nneg i32 %46 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
+  %.not.i15 = zext nneg i32 %46 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %.not.i15
   %60 = zext nneg i32 %56 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %60, i1 false)
-  %61 = add nuw nsw i32 %56, %46
-  %62 = icmp samesign ult i32 %61, 64
-  br i1 %62, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18
+  %56 = add nuw nsw i32 %56, %46
+  %57 = icmp samesign ult i32 %61, 64
+  br i1 %62, label %._crit_edge.i18.thread, label %._crit_edge.i18
 
 ._crit_edge.i18:                                  ; preds = %53
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %60
-  %64 = sub nsw i32 8, %56
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
+  %62 = sub nsw i32 8, %56
   tail call fastcc void @_ZL11md5_processP11md5_state_sPKh(ptr noundef nonnull %0, ptr noundef nonnull %57)
-  %.not41.i21 = icmp eq i32 %56, 8
+  %63 = icmp eq i32 %56, 8
   br i1 %.not41.i21, label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, label %._crit_edge.i18.thread
 
 ._crit_edge.i18.thread:                           ; preds = %52, %._crit_edge.i18
   %.1.lcssa.i2037 = phi ptr [ %63, %._crit_edge.i18 ], [ %3, %52 ]
-  %.138.lcssa.i1936 = phi i32 [ %64, %._crit_edge.i18 ], [ 8, %52 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = sext i32 %.138.lcssa.i1936 to i64
+  %65 = phi i32 [ %64, %._crit_edge.i18 ], [ 8, %52 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %66 = sext i32 %65 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %65, ptr nonnull align 1 %.1.lcssa.i2037, i64 %66, i1 false)
   br label %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25
 
-_Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %53, %._crit_edge.i18, %._crit_edge.i18.thread
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_Z14gmx_md5_appendP11md5_state_sPKhi.exit25:      ; preds = %53, %._crit_edge.i18, %._crit_edge.i1840
+  %.1.lcssa.i2037 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %68
 
-68:                                               ; preds = %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25, %68
-  %.039 = phi i64 [ 0, %_Z14gmx_md5_appendP11md5_state_sPKhi.exit25 ], [ %77, %68 ]
+68:                                               ; preds = %._crit_edge.i18.thread, %68
+  %.039 = phi i64 [ 0, %._crit_edge.i18.thread ], [ %77, %68 ]
   %69 = lshr i64 %.039, 2
   %70 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
-  %.0.tr = trunc nuw i64 %.039 to i32
+  %69 = trunc nuw i64 %.039 to i32
   %72 = shl nuw nsw i32 %.0.tr, 3
   %73 = and i32 %72, 24
   %74 = lshr i32 %71, %73
-  %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.039
+  %.040 = trunc i32 %74 to i8
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %.039
   store i8 %75, ptr %76, align 1
-  %77 = add nuw nsw i64 %.039, 1
-  %exitcond41.not = icmp eq i64 %77, 16
-  br i1 %exitcond41.not, label %78, label %68, !llvm.loop !8
+  %73 = add nuw nsw i64 %.039, 1
+  %.0.tr = icmp eq i64 %73, 16
+  br i1 %.0.tr, label %78, label %68, !llvm.loop !8
 
 78:                                               ; preds = %68
   %.fca.0.load = load i64, ptr %2, align 8

@@ -584,7 +584,7 @@ _ZN4llvm5TwineC2EPKc.exit137:                     ; preds = %.thread246, %224
 225:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit124, %_ZN4llvm5TwineC2EPKc.exit132, %_ZN4llvm5TwineC2EPKc.exit137, %218, %_ZN4llvm5TwineC2EPKc.exit128, %_ZN4llvm5TwineC2EPKc.exit
   %226 = load i32, ptr %98, align 4
   %227 = and i32 %226, -9
-  %spec.select.i.i = icmp eq i32 %227, 1
+  %228 = icmp eq i32 %227, 1
   br i1 %spec.select.i.i, label %229, label %228
 
 228:                                              ; preds = %225
@@ -606,7 +606,7 @@ _ZN4llvm5TwineC2EPKc.exit137:                     ; preds = %.thread246, %224
   %233 = getelementptr inbounds nuw i8, ptr %39, i64 33
   store i8 1, ptr %233, align 1
   %234 = load i8, ptr %27, align 1
-  %.not.i139 = icmp eq i8 %234, 0
+  %235 = icmp eq i8 %234, 0
   br i1 %.not.i139, label %_ZN4llvm5TwineC2EPKc.exit141, label %235
 
 235:                                              ; preds = %229

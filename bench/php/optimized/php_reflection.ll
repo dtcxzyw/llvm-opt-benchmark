@@ -7983,7 +7983,7 @@ define internal fastcc void @reflection_type_factory(ptr %0, i32 %1, ptr noundef
 19:                                               ; preds = %11
   %20 = icmp eq i32 %6, 12
   %21 = icmp eq i32 %5, 1022
-  %or.cond.i = or i1 %20, %21
+  %22 = or i1 %20, %21
   br i1 %or.cond.i, label %get_type_kind.exit.thread, label %get_type_kind.exit
 
 get_type_kind.exit.thread:                        ; preds = %13, %19
@@ -7995,8 +7995,8 @@ get_type_kind.exit.thread:                        ; preds = %13, %19
 get_type_kind.exit:                               ; preds = %19
   %25 = tail call range(i32 0, 18) i32 @llvm.ctpop.i32(i32 %6)
   %.not13.i = icmp samesign ugt i32 %25, 1
-  %26 = and i32 %1, 262143
-  %27 = icmp ne i32 %26, 2
+  %27 = and i32 %1, 262143
+  %.not13.i = icmp ne i32 %.not13.i, 2
   br i1 %.not13.i, label %get_type_kind.exit.thread27, label %28
 
 28:                                               ; preds = %15, %get_type_kind.exit, %get_type_kind.exit.thread
@@ -8007,36 +8007,36 @@ get_type_kind.exit:                               ; preds = %19
 get_type_kind.exit.thread27:                      ; preds = %8, %get_type_kind.exit, %15, %28
   %reflection_named_type_ptr.sink = phi ptr [ @reflection_named_type_ptr, %28 ], [ @reflection_union_type_ptr, %15 ], [ @reflection_union_type_ptr, %get_type_kind.exit ], [ %spec.select, %8 ]
   %31 = phi i1 [ %29, %28 ], [ %18, %15 ], [ %27, %get_type_kind.exit ], [ true, %8 ]
-  %32 = phi i1 [ %30, %28 ], [ %16, %15 ], [ false, %get_type_kind.exit ], [ %10, %8 ]
+  %reflection_named_type_ptr.sink = phi i1 [ %30, %28 ], [ %16, %15 ], [ false, %get_type_kind.exit ], [ %10, %8 ]
   %33 = phi i1 [ true, %28 ], [ false, %15 ], [ false, %get_type_kind.exit ], [ false, %8 ]
   %34 = load ptr, ptr %reflection_named_type_ptr.sink, align 8
   %35 = tail call i32 @object_init_ex(ptr noundef %2, ptr noundef %34) #13
   %36 = load ptr, ptr %2, align 8
   %37 = tail call noalias ptr @_emalloc_24() #13
   store ptr %0, ptr %37, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %or.cond = and i1 %3, %33
+  %.sroa.4.0..sroa_idx = and i1 %3, %33
   %not. = xor i1 %32, true
-  %narrow = and i1 %31, %not.
+  %or.cond = and i1 %31, %not.
   %narrow33 = and i1 %narrow, %or.cond
-  %38 = zext i1 %narrow33 to i8
+  %narrow = zext i1 %narrow33 to i8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i8 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 -24
-  store ptr %37, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 -8
-  store i32 5, ptr %41, align 8
-  %42 = and i32 %1, 16777216
-  %.not = icmp eq i32 %42, 0
+  store i8 %narrow, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %36, i64 -24
+  store ptr %37, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %36, i64 -8
+  store i32 5, ptr %42, align 8
+  %43 = and i32 %1, 16777216
+  %.not = icmp eq i32 %43, 0
   br i1 %.not, label %50, label %43
 
 43:                                               ; preds = %get_type_kind.exit.thread27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 64
-  %.not23 = icmp eq i32 %46, 0
-  br i1 %.not23, label %47, label %50
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %47, label %50
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %0, align 4
