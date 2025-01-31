@@ -31,6 +31,8 @@ def dist(src, tgt):
 def replace(line: str, src: str, tgt: str):
     line = line.replace(src + ' ', tgt + ' ')
     line = line.replace(src + ',', tgt + ',')
+    line = line.replace(src + ':', tgt + ':')
+    line = line.replace(src + ')', tgt + ')')
     line = line.replace(src + '\n', tgt + '\n')
     return line
 
@@ -38,12 +40,16 @@ def remap(line, ref, mapping):
     best_dist = dist(line, ref)
     for k, v in mapping.items():
         if k in line:
+            local_best_dist = best_dist
+            local_best = line
             for rep in v:
                 cur = replace(line, k, rep)
                 cur_dist = dist(cur, ref)
-                if cur_dist > best_dist:
-                    best_dist = cur_dist
-                    line = cur 
+                if cur_dist > local_best_dist:
+                    local_best_dist = cur_dist
+                    local_best = cur
+            line = local_best
+            best_dist = local_best_dist
     return line
 
 
