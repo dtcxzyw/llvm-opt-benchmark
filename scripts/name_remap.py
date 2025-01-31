@@ -74,7 +74,8 @@ for file in patch:
                         mapping[b[1]].add(a[1])
     if len(mapping) == 0:
         continue
-    with open(file.source_file, "r") as f:
+    path = file.source_file.removeprefix('a/')
+    with open(path, "r") as f:
         lines = f.readlines()
     for i in range(len(lines)):
         val = lines[i]
@@ -82,6 +83,6 @@ for file in patch:
         if stripped not in pairs:
             continue
         lines[i] = remap(val, pairs[stripped], mapping)
-    with open(file.source_file, "w") as f:
+    with open(path, "w") as f:
         f.writelines(lines)
-    subprocess.check_call(['git', 'add', file.source_file])
+    subprocess.check_call(['git', 'add', path])
