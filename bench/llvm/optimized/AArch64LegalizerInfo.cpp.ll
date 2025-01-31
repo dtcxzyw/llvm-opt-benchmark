@@ -23445,53 +23445,36 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   br i1 %.not.i.i.i, label %18, label %_ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet30widenVectorEltsToVectorMinSizeEjjEUlRKNS0_13LegalityQueryEE_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
 
 18:                                               ; preds = %14
-  %19 = and i64 %9, 6
-  %20 = icmp eq i64 %19, 2
-  %21 = and i64 %9, 1
-  %22 = icmp ne i64 %21, 0
-  %or.cond14.i.i.i.i = or i1 %22, %20
-  br i1 %or.cond14.i.i.i.i, label %23, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i
-
-23:                                               ; preds = %18
-  %.not.i1.i.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i1.i.i.i.i, label %26, label %24
-
-24:                                               ; preds = %23
-  %25 = lshr i64 %9, 3
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-
-26:                                               ; preds = %23
-  %27 = lshr i64 %9, 19
-  %28 = and i64 %27, 65535
-  %spec.select.i.i2.i.i.i = select i1 %.not.i.i.i.i, i64 %27, i64 %28
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  %19 = and i64 %9, 1
+  %.not5.i.i.i = icmp eq i64 %19, 0
+  %20 = lshr i64 %9, 3
+  br i1 %.not5.i.i.i, label %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
 _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i: ; preds = %18
-  %29 = lshr i64 %9, 3
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %29, 65535
-  %30 = lshr i64 %9, 19
-  %31 = and i64 %30, 65535
-  %spec.select.i10.i.i.i.i = select i1 %.not.i.i.i.i, i64 %30, i64 %31
-  %32 = mul nuw nsw i64 %spec.select.i10.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %20, 65535
+  %21 = lshr i64 %9, 19
+  %22 = and i64 %21, 65535
+  %spec.select.i10.i.i.i.i = select i1 %.not.i.i.i.i, i64 %21, i64 %22
+  %23 = mul nuw nsw i64 %spec.select.i10.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i, %26, %24
-  %.sroa.012.0.in.i.i.i.i = phi i64 [ %32, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i ], [ %25, %24 ], [ %spec.select.i.i2.i.i.i, %26 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i, %18
+  %.sroa.012.0.in.i.i.i.i = phi i64 [ %23, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i.i.i.i ], [ %20, %18 ]
   %.sroa.012.0.i.i.i.i = and i64 %.sroa.012.0.in.i.i.i.i, 4294967295
   store i64 %.sroa.012.0.i.i.i.i, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %33 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #20
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = zext i32 %35 to i64
-  %37 = icmp ult i64 %33, %36
+  %24 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = zext i32 %26 to i64
+  %28 = icmp ult i64 %24, %27
   br label %_ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet30widenVectorEltsToVectorMinSizeEjjEUlRKNS0_13LegalityQueryEE_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit
 
 _ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet30widenVectorEltsToVectorMinSizeEjjEUlRKNS0_13LegalityQueryEE_JS4_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit: ; preds = %2, %14, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %38 = phi i1 [ false, %14 ], [ false, %2 ], [ %37, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
+  %29 = phi i1 [ false, %14 ], [ false, %2 ], [ %28, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  ret i1 %38
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
