@@ -415,11 +415,9 @@ do.end:                                           ; preds = %entry, %if.then
   br i1 %tobool.i.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %do.end
-  %5 = and i8 %call2.val, -2
-  %cmp.not.i = icmp eq i8 %call2.val, %5
-  %6 = or i8 %5, 2
-  %storemerge7.i = select i1 %cmp.not.i, i8 %5, i8 %6
-  store i8 %storemerge7.i, ptr %3, align 8
+  %5 = and i8 %call2.val, -4
+  %6 = or disjoint i8 %5, 2
+  store i8 %6, ptr %3, align 8
   %notify_slot_change.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 75010
   store i8 1, ptr %notify_slot_change.i, align 2
   %intr.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 5864
