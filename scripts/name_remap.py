@@ -29,27 +29,40 @@ def dist(src, tgt):
     return difflib.SequenceMatcher(lambda x: x.isspace(), src, tgt).ratio()
 
 def replace(line: str, src: str, tgt: str):
-    line = line.replace(src + ' ', tgt + ' ')
-    line = line.replace(src + ',', tgt + ',')
-    line = line.replace(src + ':', tgt + ':')
-    line = line.replace(src + ')', tgt + ')')
-    line = line.replace(src + '\n', tgt + '\n')
-    return line
+    res = line.replace(src + ' ', tgt + ' ', count=1)
+    if line != res:
+        return res
+    res = line.replace(src + ',', tgt + ',', count=1)
+    if line != res:
+        return res
+    res = line.replace(src + ':', tgt + ':', count=1)
+    if line != res:
+        return res
+    res = line.replace(src + ')', tgt + ')', count=1)
+    if line != res:
+        return res
+    return line.replace(src + '\n', tgt + '\n', count=1)
 
 def remap(line, ref, mapping):
     best_dist = dist(line, ref)
-    for k, v in mapping.items():
-        if k in line:
-            local_best_dist = best_dist
-            local_best = line
-            for rep in v:
-                cur = replace(line, k, rep)
-                cur_dist = dist(cur, ref)
-                if cur_dist > local_best_dist:
-                    local_best_dist = cur_dist
-                    local_best = cur
-            line = local_best
-            best_dist = local_best_dist
+    while True:
+        changed = False
+        for k, v in mapping.items():
+            if k in line:
+                local_best_dist = best_dist
+                local_best = line
+                for rep in v:
+                    cur = replace(line, k, rep)
+                    cur_dist = dist(cur, ref)
+                    if cur_dist > local_best_dist:
+                        local_best_dist = cur_dist
+                        local_best = cur
+                if local_best != line:
+                    changed = True
+                line = local_best
+                best_dist = local_best_dist
+        if not changed:
+            break
     return line
 
 
