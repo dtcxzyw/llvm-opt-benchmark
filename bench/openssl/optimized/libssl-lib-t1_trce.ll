@@ -732,7 +732,7 @@ if.end38:                                         ; preds = %sw.bb
 for.body.i65:                                     ; preds = %for.inc.i, %if.end38
   %i.06.i = phi i64 [ 0, %if.end38 ], [ %inc.i66, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_version_tbl, %if.end38 ], [ %incdec.ptr.i, %for.inc.i ]
-  %8 = load i32, ptr %tbl.addr.05.i, align 8
+  %8 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %8, %or
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -803,7 +803,7 @@ if.end79:                                         ; preds = %if.then53, %do_ssl_
 for.body.i68:                                     ; preds = %for.inc.i72, %if.end79
   %i.06.i69 = phi i64 [ 0, %if.end79 ], [ %inc.i73, %for.inc.i72 ]
   %tbl.addr.05.i70 = phi ptr [ @ssl_content_tbl, %if.end79 ], [ %incdec.ptr.i74, %for.inc.i72 ]
-  %22 = load i32, ptr %tbl.addr.05.i70, align 8
+  %22 = load i32, ptr %tbl.addr.05.i70, align 16
   %cmp1.i71 = icmp eq i32 %22, %conv81
   br i1 %cmp1.i71, label %if.then.i77, label %for.inc.i72
 
@@ -840,7 +840,7 @@ sw.bb93:                                          ; preds = %if.end28
 for.body.i80:                                     ; preds = %for.inc.i84, %sw.bb93
   %i.06.i81 = phi i64 [ 0, %sw.bb93 ], [ %inc.i85, %for.inc.i84 ]
   %tbl.addr.05.i82 = phi ptr [ @ssl_content_tbl, %sw.bb93 ], [ %incdec.ptr.i86, %for.inc.i84 ]
-  %28 = load i32, ptr %tbl.addr.05.i82, align 8
+  %28 = load i32, ptr %tbl.addr.05.i82, align 16
   %cmp1.i83 = icmp eq i32 %28, %conv95
   br i1 %cmp1.i83, label %if.then.i89, label %for.inc.i84
 
@@ -895,7 +895,7 @@ if.end.i:                                         ; preds = %sw.bb100
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i
   %i.06.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i, %for.inc.i.i ]
   %tbl.addr.05.i.i = phi ptr [ @ssl_handshake_tbl, %if.end.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %35 = load i32, ptr %tbl.addr.05.i.i, align 8
+  %35 = load i32, ptr %tbl.addr.05.i.i, align 16
   %cmp1.i.i = icmp eq i32 %35, %conv9.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -1228,7 +1228,7 @@ if.end.i:                                         ; preds = %entry
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i
   %i.06.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i, %for.inc.i.i ]
   %tbl.addr.05.i.i = phi ptr [ @ssl_version_tbl, %if.end.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %2 = load i32, ptr %tbl.addr.05.i.i, align 8
+  %2 = load i32, ptr %tbl.addr.05.i.i, align 16
   %cmp1.i.i = icmp eq i32 %2, %or.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -1387,7 +1387,7 @@ while.body:                                       ; preds = %while.cond.preheade
 for.body.i:                                       ; preds = %for.inc.i, %while.body
   %i.06.i = phi i64 [ 0, %while.body ], [ %inc.i, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_ciphers_tbl, %while.body ], [ %incdec.ptr.i, %for.inc.i ]
-  %21 = load i32, ptr %tbl.addr.05.i, align 8
+  %21 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %21, %or37
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -1447,7 +1447,7 @@ while.body64:                                     ; preds = %if.end57, %do_ssl_t
 for.body.i64:                                     ; preds = %for.inc.i68, %while.body64
   %i.06.i65 = phi i64 [ 0, %while.body64 ], [ %inc.i69, %for.inc.i68 ]
   %tbl.addr.05.i66 = phi ptr [ @ssl_comp_tbl, %while.body64 ], [ %incdec.ptr.i70, %for.inc.i68 ]
-  %26 = load i32, ptr %tbl.addr.05.i66, align 8
+  %26 = load i32, ptr %tbl.addr.05.i66, align 16
   %cmp1.i67 = icmp eq i32 %26, %conv68
   br i1 %cmp1.i67, label %if.then.i73, label %for.inc.i68
 
@@ -1507,7 +1507,7 @@ if.end.i:                                         ; preds = %entry
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i
   %i.06.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i, %for.inc.i.i ]
   %tbl.addr.05.i.i = phi ptr [ @ssl_version_tbl, %if.end.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %2 = load i32, ptr %tbl.addr.05.i.i, align 8
+  %2 = load i32, ptr %tbl.addr.05.i.i, align 16
   %cmp1.i.i = icmp eq i32 %2, %or.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -1585,7 +1585,7 @@ if.end.i:                                         ; preds = %entry
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i
   %i.06.i.i = phi i64 [ 0, %if.end.i ], [ %inc.i.i, %for.inc.i.i ]
   %tbl.addr.05.i.i = phi ptr [ @ssl_version_tbl, %if.end.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %2 = load i32, ptr %tbl.addr.05.i.i, align 8
+  %2 = load i32, ptr %tbl.addr.05.i.i, align 16
   %cmp1.i.i = icmp eq i32 %2, %or.i
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -1682,7 +1682,7 @@ if.end11:                                         ; preds = %if.end8.if.end11_cr
 for.body.i:                                       ; preds = %for.inc.i, %if.end11
   %i.06.i = phi i64 [ 0, %if.end11 ], [ %inc.i, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_ciphers_tbl, %if.end11 ], [ %incdec.ptr.i, %for.inc.i ]
-  %14 = load i32, ptr %tbl.addr.05.i, align 8
+  %14 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %14, %or
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -1719,7 +1719,7 @@ if.end27:                                         ; preds = %if.then23
 for.body.i23:                                     ; preds = %for.inc.i27, %if.end27
   %i.06.i24 = phi i64 [ 0, %if.end27 ], [ %inc.i28, %for.inc.i27 ]
   %tbl.addr.05.i25 = phi ptr [ @ssl_comp_tbl, %if.end27 ], [ %incdec.ptr.i29, %for.inc.i27 ]
-  %17 = load i32, ptr %tbl.addr.05.i25, align 8
+  %17 = load i32, ptr %tbl.addr.05.i25, align 16
   %cmp1.i26 = icmp eq i32 %17, %conv30
   br i1 %cmp1.i26, label %if.then.i32, label %for.inc.i27
 
@@ -2111,7 +2111,7 @@ if.end57:                                         ; preds = %if.then53
 for.body.i:                                       ; preds = %for.inc.i, %if.end57
   %i.06.i = phi i64 [ 0, %if.end57 ], [ %inc.i, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_groups_tbl, %if.end57 ], [ %incdec.ptr.i, %for.inc.i ]
-  %25 = load i32, ptr %tbl.addr.05.i, align 8
+  %25 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %25, %or
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -2802,7 +2802,7 @@ if.end28:                                         ; preds = %if.end
 for.body.i:                                       ; preds = %for.inc.i, %if.end28
   %i.06.i = phi i64 [ 0, %if.end28 ], [ %inc.i, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_comp_cert_tbl, %if.end28 ], [ %incdec.ptr.i, %for.inc.i ]
-  %8 = load i32, ptr %tbl.addr.05.i, align 8
+  %8 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %8, %or
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -2880,7 +2880,7 @@ if.then1:                                         ; preds = %if.end
 for.body.i:                                       ; preds = %for.inc.i, %if.then1
   %i.06.i = phi i64 [ 0, %if.then1 ], [ %inc.i, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_sigalg_tbl, %if.then1 ], [ %incdec.ptr.i, %for.inc.i ]
-  %7 = load i32, ptr %tbl.addr.05.i, align 8
+  %7 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %7, %or
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -3046,7 +3046,7 @@ while.body.i:                                     ; preds = %if.end20, %do_ssl_t
 for.body.i.i62:                                   ; preds = %for.inc.i.i, %while.body.i
   %i.06.i.i = phi i64 [ 0, %while.body.i ], [ %inc.i.i63, %for.inc.i.i ]
   %tbl.addr.05.i.i = phi ptr [ @ssl_ctype_tbl, %while.body.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %8 = load i32, ptr %tbl.addr.05.i.i, align 8
+  %8 = load i32, ptr %tbl.addr.05.i.i, align 16
   %cmp1.i.i = icmp eq i32 %8, %conv.i61
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -3128,7 +3128,7 @@ while.body:                                       ; preds = %if.end53, %do_ssl_t
 for.body.i:                                       ; preds = %for.inc.i, %while.body
   %i.06.i = phi i64 [ 0, %while.body ], [ %inc.i, %for.inc.i ]
   %tbl.addr.05.i = phi ptr [ @ssl_sigalg_tbl, %while.body ], [ %incdec.ptr.i, %for.inc.i ]
-  %17 = load i32, ptr %tbl.addr.05.i, align 8
+  %17 = load i32, ptr %tbl.addr.05.i, align 16
   %cmp1.i = icmp eq i32 %17, %or69
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
@@ -3554,7 +3554,7 @@ if.end47:                                         ; preds = %if.end25
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end47
   %i.06.i.i = phi i64 [ 0, %if.end47 ], [ %inc.i.i, %for.inc.i.i ]
   %tbl.addr.05.i.i = phi ptr [ @ssl_exts_tbl, %if.end47 ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %8 = load i32, ptr %tbl.addr.05.i.i, align 8
+  %8 = load i32, ptr %tbl.addr.05.i.i, align 16
   %cmp1.i.i = icmp eq i32 %8, %or31
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
@@ -3628,7 +3628,7 @@ while.body.us.i.i:                                ; preds = %do_ssl_trace_str.ex
 for.body.i.us.i.i:                                ; preds = %for.inc.i.us.i.i, %while.body.us.i.i
   %i.06.i.us.i.i = phi i64 [ 0, %while.body.us.i.i ], [ %inc.i.us.i.i, %for.inc.i.us.i.i ]
   %tbl.addr.05.i.us.i.i = phi ptr [ @ssl_comp_cert_tbl, %while.body.us.i.i ], [ %incdec.ptr.i.us.i.i, %for.inc.i.us.i.i ]
-  %13 = load i32, ptr %tbl.addr.05.i.us.i.i, align 8
+  %13 = load i32, ptr %tbl.addr.05.i.us.i.i, align 16
   %cmp1.i.us.i.i = icmp eq i32 %13, %or.us.i.i
   br i1 %cmp1.i.us.i.i, label %if.then.i.us.i.i, label %for.inc.i.us.i.i
 
@@ -3666,7 +3666,7 @@ while.body.i.i:                                   ; preds = %sw.bb11.i, %do_ssl_
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %while.body.i.i
   %i.06.i.i.i = phi i64 [ 0, %while.body.i.i ], [ %inc.i.i.i, %for.inc.i.i.i ]
   %tbl.addr.05.i.i.i = phi ptr [ @ssl_mfl_tbl, %while.body.i.i ], [ %incdec.ptr.i.i.i, %for.inc.i.i.i ]
-  %16 = load i32, ptr %tbl.addr.05.i.i.i, align 8
+  %16 = load i32, ptr %tbl.addr.05.i.i.i, align 16
   %cmp1.i.i.i = icmp eq i32 %16, %conv.i.i
   br i1 %cmp1.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
@@ -3716,7 +3716,7 @@ while.body.i198.i:                                ; preds = %if.end29.i, %do_ssl
 for.body.i.i203.i:                                ; preds = %for.inc.i.i207.i, %while.body.i198.i
   %i.06.i.i204.i = phi i64 [ 0, %while.body.i198.i ], [ %inc.i.i208.i, %for.inc.i.i207.i ]
   %tbl.addr.05.i.i205.i = phi ptr [ @ssl_point_tbl, %while.body.i198.i ], [ %incdec.ptr.i.i209.i, %for.inc.i.i207.i ]
-  %20 = load i32, ptr %tbl.addr.05.i.i205.i, align 8
+  %20 = load i32, ptr %tbl.addr.05.i.i205.i, align 16
   %cmp1.i.i206.i = icmp eq i32 %20, %conv.i201.i
   br i1 %cmp1.i.i206.i, label %if.then.i.i217.i, label %for.inc.i.i207.i
 
@@ -3843,7 +3843,7 @@ while.body107.i:                                  ; preds = %while.cond104.prehe
 for.body.i220.i:                                  ; preds = %for.inc.i224.i, %while.body107.i
   %i.06.i221.i = phi i64 [ 0, %while.body107.i ], [ %inc.i225.i, %for.inc.i224.i ]
   %tbl.addr.05.i222.i = phi ptr [ @ssl_sigalg_tbl, %while.body107.i ], [ %incdec.ptr.i226.i, %for.inc.i224.i ]
-  %31 = load i32, ptr %tbl.addr.05.i222.i, align 8
+  %31 = load i32, ptr %tbl.addr.05.i222.i, align 16
   %cmp1.i223.i = icmp eq i32 %31, %or115.i
   br i1 %cmp1.i223.i, label %if.then.i229.i, label %for.inc.i224.i
 
@@ -3947,7 +3947,7 @@ if.then163.i:                                     ; preds = %sw.bb159.i
 for.body.i237.i:                                  ; preds = %for.inc.i241.i, %if.then163.i
   %i.06.i238.i = phi i64 [ 0, %if.then163.i ], [ %inc.i242.i, %for.inc.i241.i ]
   %tbl.addr.05.i239.i = phi ptr [ @ssl_groups_tbl, %if.then163.i ], [ %incdec.ptr.i243.i, %for.inc.i241.i ]
-  %37 = load i32, ptr %tbl.addr.05.i239.i, align 8
+  %37 = load i32, ptr %tbl.addr.05.i239.i, align 16
   %cmp1.i240.i = icmp eq i32 %37, %or169.i
   br i1 %cmp1.i240.i, label %if.then.i246.i, label %for.inc.i241.i
 
@@ -4030,7 +4030,7 @@ if.end221.i:                                      ; preds = %if.end202.i
 for.body.i249.i:                                  ; preds = %for.inc.i253.i, %if.end221.i
   %i.06.i250.i = phi i64 [ 0, %if.end221.i ], [ %inc.i254.i, %for.inc.i253.i ]
   %tbl.addr.05.i251.i = phi ptr [ @ssl_groups_tbl, %if.end221.i ], [ %incdec.ptr.i255.i, %for.inc.i253.i ]
-  %45 = load i32, ptr %tbl.addr.05.i251.i, align 8
+  %45 = load i32, ptr %tbl.addr.05.i251.i, align 16
   %cmp1.i252.i = icmp eq i32 %45, %or208.i
   br i1 %cmp1.i252.i, label %if.then.i258.i, label %for.inc.i253.i
 
@@ -4092,7 +4092,7 @@ if.end235.i:                                      ; preds = %if.then231.i
 for.body.i274.i:                                  ; preds = %for.inc.i278.i, %if.end235.i
   %i.06.i275.i = phi i64 [ 0, %if.end235.i ], [ %inc.i279.i, %for.inc.i278.i ]
   %tbl.addr.05.i276.i = phi ptr [ @ssl_version_tbl, %if.end235.i ], [ %incdec.ptr.i280.i, %for.inc.i278.i ]
-  %50 = load i32, ptr %tbl.addr.05.i276.i, align 8
+  %50 = load i32, ptr %tbl.addr.05.i276.i, align 16
   %cmp1.i277.i = icmp eq i32 %50, %or241.i
   br i1 %cmp1.i277.i, label %if.then.i283.i, label %for.inc.i278.i
 
@@ -4155,7 +4155,7 @@ while.body.i293.i:                                ; preds = %if.end272.i, %do_ss
 for.body.i.i298.i:                                ; preds = %for.inc.i.i302.i, %while.body.i293.i
   %i.06.i.i299.i = phi i64 [ 0, %while.body.i293.i ], [ %inc.i.i303.i, %for.inc.i.i302.i ]
   %tbl.addr.05.i.i300.i = phi ptr [ @ssl_psk_kex_modes_tbl, %while.body.i293.i ], [ %incdec.ptr.i.i304.i, %for.inc.i.i302.i ]
-  %55 = load i32, ptr %tbl.addr.05.i.i300.i, align 8
+  %55 = load i32, ptr %tbl.addr.05.i.i300.i, align 16
   %cmp1.i.i301.i = icmp eq i32 %55, %conv.i296.i
   br i1 %cmp1.i.i301.i, label %if.then.i.i312.i, label %for.inc.i.i302.i
 
@@ -4222,7 +4222,7 @@ if.end309.i:                                      ; preds = %if.then305.i
 for.body.i.i322.i:                                ; preds = %for.inc.i.i326.i, %if.end309.i
   %i.06.i.i323.i = phi i64 [ 0, %if.end309.i ], [ %inc.i.i327.i, %for.inc.i.i326.i ]
   %tbl.addr.05.i.i324.i = phi ptr [ @ssl_cert_type_tbl, %if.end309.i ], [ %incdec.ptr.i.i328.i, %for.inc.i.i326.i ]
-  %62 = load i32, ptr %tbl.addr.05.i.i324.i, align 8
+  %62 = load i32, ptr %tbl.addr.05.i.i324.i, align 16
   %cmp1.i.i325.i = icmp eq i32 %62, %conv.i320.i
   br i1 %cmp1.i.i325.i, label %if.then.i.i337.i, label %for.inc.i.i326.i
 

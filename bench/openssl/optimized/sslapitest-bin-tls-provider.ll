@@ -2059,7 +2059,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -2080,7 +2080,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -2126,7 +2126,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -2599,7 +2599,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -2620,7 +2620,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -2666,7 +2666,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -2893,7 +2893,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -2914,7 +2914,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -2960,7 +2960,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3116,7 +3116,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -3137,7 +3137,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3183,7 +3183,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3339,7 +3339,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -3360,7 +3360,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3406,7 +3406,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3631,7 +3631,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -3652,7 +3652,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3698,7 +3698,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -3864,7 +3864,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -3885,7 +3885,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -3931,7 +3931,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4052,7 +4052,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -4073,7 +4073,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4119,7 +4119,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4240,7 +4240,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -4261,7 +4261,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4307,7 +4307,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4463,7 +4463,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -4484,7 +4484,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4530,7 +4530,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4686,7 +4686,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -4707,7 +4707,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4753,7 +4753,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i
@@ -4900,7 +4900,7 @@ xor_prov_get_keymgmt_new.exit.i:
 
 for.cond.i9.i:                                    ; preds = %for.inc.i14.i, %xor_prov_get_keymgmt_new.exit.i
   %fns.addr.0.i10.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_new.exit.i ], [ %incdec.ptr.i15.i, %for.inc.i14.i ]
-  %0 = load i32, ptr %fns.addr.0.i10.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i10.i, align 16
   switch i32 %0, label %for.inc.i14.i [
     i32 0, label %xor_prov_get_keymgmt_free.exit.i
     i32 10, label %if.then.i11.i
@@ -4921,7 +4921,7 @@ xor_prov_get_keymgmt_free.exit.i:                 ; preds = %for.cond.i9.i, %if.
 
 for.cond.i16.i:                                   ; preds = %for.inc.i21.i, %xor_prov_get_keymgmt_free.exit.i
   %fns.addr.0.i17.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %xor_prov_get_keymgmt_free.exit.i ], [ %incdec.ptr.i22.i, %for.inc.i21.i ]
-  %2 = load i32, ptr %fns.addr.0.i17.i, align 8
+  %2 = load i32, ptr %fns.addr.0.i17.i, align 16
   switch i32 %2, label %for.inc.i21.i [
     i32 0, label %xor_prov_import_key.exit
     i32 40, label %xor_prov_get_keymgmt_import.exit.i
@@ -4967,7 +4967,7 @@ entry:
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %entry
   %fns.addr.0.i.i = phi ptr [ @xor_xorhmacsha2sig_keymgmt_functions, %entry ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %0 = load i32, ptr %fns.addr.0.i.i, align 8
+  %0 = load i32, ptr %fns.addr.0.i.i, align 16
   switch i32 %0, label %for.inc.i.i [
     i32 0, label %xor_prov_free_key.exit
     i32 10, label %xor_prov_get_keymgmt_free.exit.i

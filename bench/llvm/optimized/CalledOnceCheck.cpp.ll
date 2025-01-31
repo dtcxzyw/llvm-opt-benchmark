@@ -2875,12 +2875,12 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i: ; preds = %559
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 16
   br label %571
 
-571:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i
-  %.025.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i ], [ %624, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.02924.i.i.i.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i ], [ %.02924.i.i.i.i.i.i.i.add11.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_128KNOWN_CALLED_ONCE_PARAMETERSE, i64 %.02924.i.i.i.i.i.i.i.idx.i.i.i.i
-  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, align 16
-  %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 8
+571:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i
+  %.023.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i ], [ %624, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.02922.i.i.i.i.i.i.i.idx.i.i.i.i = phi i64 [ 0, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i ], [ %.02922.i.i.i.i.i.i.i.add11.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_128KNOWN_CALLED_ONCE_PARAMETERSE, i64 %.02922.i.i.i.i.i.i.i.idx.i.i.i.i
+  %.sroa.01.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, align 16
+  %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %572
 
@@ -2908,135 +2908,135 @@ _ZNK5clang9NamedDecl7getNameEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %572, %
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %579, %577
   %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %580, %579 ], [ true, %577 ]
-  %581 = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 16
+  %581 = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 16
   %582 = load i32, ptr %581, align 16
   %583 = icmp eq i32 %582, %.sroa.5.025.i.i.i
   %584 = select i1 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 %583, i1 false
   br i1 %584, label %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.02924.i.i.i.i.i.i.i.add.i.i.i.i = or disjoint i64 %.02924.i.i.i.i.i.i.i.idx.i.i.i.i, 24
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_128KNOWN_CALLED_ONCE_PARAMETERSE, i64 %.02924.i.i.i.i.i.i.i.add.i.i.i.i
-  %.sroa.01.0.copyload.i.i43.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.ptr.i.i.i.i, align 8
-  %.sroa.22.0..sroa_idx.i.i44.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 32
-  %.sroa.22.0.copyload.i.i45.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i44.i.i.i.i.i.i.i.i.i.i.i, align 16
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i48.i.i.i.i.i.i.i.i.i.i.i, label %585
+  %.02922.i.i.i.i.i.i.i.add.i.i.i.i = or disjoint i64 %.02922.i.i.i.i.i.i.i.idx.i.i.i.i, 24
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_128KNOWN_CALLED_ONCE_PARAMETERSE, i64 %.02922.i.i.i.i.i.i.i.add.i.i.i.i
+  %.sroa.01.0.copyload.i.i41.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.ptr.i.i.i.i, align 8
+  %.sroa.22.0..sroa_idx.i.i42.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 32
+  %.sroa.22.0.copyload.i.i43.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i42.i.i.i.i.i.i.i.i.i.i.i, align 16
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i46.i.i.i.i.i.i.i.i.i.i.i, label %585
 
 585:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i
   %586 = load ptr, ptr %570, align 8
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 16
   %588 = load i64, ptr %586, align 8
   %589 = and i64 %588, 4294967295
-  br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i48.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i46.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK5clang9NamedDecl7getNameEv.exit.i.i48.i.i.i.i.i.i.i.i.i.i.i: ; preds = %585, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.3.0.i.i.i49.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %589, %585 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i50.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %587, %585 ], [ @.str.10, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.not.i5.i.i51.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i45.i.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i49.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i5.i.i51.i.i.i.i.i.i.i.i.i.i.i, label %590, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i
+_ZNK5clang9NamedDecl7getNameEv.exit.i.i46.i.i.i.i.i.i.i.i.i.i.i: ; preds = %585, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.3.0.i.i.i47.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %589, %585 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i48.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %587, %585 ], [ @.str.10, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.not.i5.i.i49.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i43.i.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i47.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i5.i.i49.i.i.i.i.i.i.i.i.i.i.i, label %590, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i
 
-590:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i48.i.i.i.i.i.i.i.i.i.i.i
-  %591 = icmp eq i64 %.sroa.22.0.copyload.i.i45.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %591, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.i.i.i.i.i.i.i.i.i.i.i, label %592
+590:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i46.i.i.i.i.i.i.i.i.i.i.i
+  %591 = icmp eq i64 %.sroa.22.0.copyload.i.i43.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %591, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.i.i.i.i.i.i.i.i.i.i.i, label %592
 
 592:                                              ; preds = %590
-  %bcmp.i.i.i53.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i43.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %.sroa.0.0.i.i.i50.i.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i45.i.i.i.i.i.i.i.i.i.i.i)
-  %593 = icmp eq i32 %bcmp.i.i.i53.i.i.i.i.i.i.i.i.i.i.i, 0
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.i.i.i.i.i.i.i.i.i.i.i
+  %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i41.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %.sroa.0.0.i.i.i48.i.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i43.i.i.i.i.i.i.i.i.i.i.i)
+  %593 = icmp eq i32 %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i.i.i, 0
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.i.i.i.i.i.i.i.i.i.i.i: ; preds = %592, %590
-  %.0.i.i.i52.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %593, %592 ], [ true, %590 ]
-  %594 = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 40
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.i.i.i.i.i.i.i.i.i.i.i: ; preds = %592, %590
+  %.0.i.i.i50.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %593, %592 ], [ true, %590 ]
+  %594 = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 40
   %595 = load i32, ptr %594, align 8
   %596 = icmp eq i32 %595, %.sroa.5.025.i.i.i
-  %597 = select i1 %.0.i.i.i52.i.i.i.i.i.i.i.i.i.i.i, i1 %596, i1 false
-  br i1 %597, label %.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i
+  %597 = select i1 %.0.i.i.i50.i.i.i.i.i.i.i.i.i.i.i, i1 %596, i1 false
+  br i1 %597, label %.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i48.i.i.i.i.i.i.i.i.i.i.i
-  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 48
-  %.sroa.01.0.copyload.i.i55.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.ptr12.i.i.i.i, align 16
-  %.sroa.22.0..sroa_idx.i.i56.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 56
-  %.sroa.22.0.copyload.i.i57.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i56.i.i.i.i.i.i.i.i.i.i.i, align 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i60.i.i.i.i.i.i.i.i.i.i.i, label %598
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i46.i.i.i.i.i.i.i.i.i.i.i
+  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 48
+  %.sroa.01.0.copyload.i.i53.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.ptr12.i.i.i.i, align 16
+  %.sroa.22.0..sroa_idx.i.i54.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 56
+  %.sroa.22.0.copyload.i.i55.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i54.i.i.i.i.i.i.i.i.i.i.i, align 8
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i58.i.i.i.i.i.i.i.i.i.i.i, label %598
 
-598:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i
+598:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i
   %599 = load ptr, ptr %570, align 8
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 16
   %601 = load i64, ptr %599, align 8
   %602 = and i64 %601, 4294967295
-  br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i60.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i58.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK5clang9NamedDecl7getNameEv.exit.i.i60.i.i.i.i.i.i.i.i.i.i.i: ; preds = %598, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.3.0.i.i.i61.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %602, %598 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i62.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %600, %598 ], [ @.str.10, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.not.i5.i.i63.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i57.i.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i61.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i5.i.i63.i.i.i.i.i.i.i.i.i.i.i, label %603, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i
+_ZNK5clang9NamedDecl7getNameEv.exit.i.i58.i.i.i.i.i.i.i.i.i.i.i: ; preds = %598, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.3.0.i.i.i59.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %602, %598 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i60.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %600, %598 ], [ @.str.10, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.not.i5.i.i61.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i55.i.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i59.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i5.i.i61.i.i.i.i.i.i.i.i.i.i.i, label %603, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i
 
-603:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i60.i.i.i.i.i.i.i.i.i.i.i
-  %604 = icmp eq i64 %.sroa.22.0.copyload.i.i57.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %604, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.i.i.i.i.i.i.i.i.i.i.i, label %605
+603:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i58.i.i.i.i.i.i.i.i.i.i.i
+  %604 = icmp eq i64 %.sroa.22.0.copyload.i.i55.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %604, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.i.i.i.i.i.i.i.i.i.i.i, label %605
 
 605:                                              ; preds = %603
-  %bcmp.i.i.i65.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i55.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %.sroa.0.0.i.i.i62.i.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i57.i.i.i.i.i.i.i.i.i.i.i)
-  %606 = icmp eq i32 %bcmp.i.i.i65.i.i.i.i.i.i.i.i.i.i.i, 0
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.i.i.i.i.i.i.i.i.i.i.i
+  %bcmp.i.i.i63.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i53.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %.sroa.0.0.i.i.i60.i.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i55.i.i.i.i.i.i.i.i.i.i.i)
+  %606 = icmp eq i32 %bcmp.i.i.i63.i.i.i.i.i.i.i.i.i.i.i, 0
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.i.i.i.i.i.i.i.i.i.i.i: ; preds = %605, %603
-  %.0.i.i.i64.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %606, %605 ], [ true, %603 ]
-  %607 = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 64
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.i.i.i.i.i.i.i.i.i.i.i: ; preds = %605, %603
+  %.0.i.i.i62.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %606, %605 ], [ true, %603 ]
+  %607 = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 64
   %608 = load i32, ptr %607, align 16
   %609 = icmp eq i32 %608, %.sroa.5.025.i.i.i
-  %610 = select i1 %.0.i.i.i64.i.i.i.i.i.i.i.i.i.i.i, i1 %609, i1 false
-  br i1 %610, label %.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i
+  %610 = select i1 %.0.i.i.i62.i.i.i.i.i.i.i.i.i.i.i, i1 %609, i1 false
+  br i1 %610, label %.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i60.i.i.i.i.i.i.i.i.i.i.i
-  %.ptr13.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 72
-  %.sroa.01.0.copyload.i.i67.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.ptr13.i.i.i.i, align 8
-  %.sroa.22.0..sroa_idx.i.i68.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 80
-  %.sroa.22.0.copyload.i.i69.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i68.i.i.i.i.i.i.i.i.i.i.i, align 16
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i72.i.i.i.i.i.i.i.i.i.i.i, label %611
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i58.i.i.i.i.i.i.i.i.i.i.i
+  %.ptr13.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 72
+  %.sroa.01.0.copyload.i.i65.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.ptr13.i.i.i.i, align 8
+  %.sroa.22.0..sroa_idx.i.i66.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 80
+  %.sroa.22.0.copyload.i.i67.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i66.i.i.i.i.i.i.i.i.i.i.i, align 16
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i70.i.i.i.i.i.i.i.i.i.i.i, label %611
 
-611:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i
+611:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i
   %612 = load ptr, ptr %570, align 8
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 16
   %614 = load i64, ptr %612, align 8
   %615 = and i64 %614, 4294967295
-  br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i72.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK5clang9NamedDecl7getNameEv.exit.i.i70.i.i.i.i.i.i.i.i.i.i.i
 
-_ZNK5clang9NamedDecl7getNameEv.exit.i.i72.i.i.i.i.i.i.i.i.i.i.i: ; preds = %611, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i
-  %.sroa.3.0.i.i.i73.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %615, %611 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i74.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %613, %611 ], [ @.str.10, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.thread.i.i.i.i.i.i.i.i.i.i.i ]
-  %.not.i5.i.i75.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i69.i.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i73.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i5.i.i75.i.i.i.i.i.i.i.i.i.i.i, label %616, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i
+_ZNK5clang9NamedDecl7getNameEv.exit.i.i70.i.i.i.i.i.i.i.i.i.i.i: ; preds = %611, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i
+  %.sroa.3.0.i.i.i71.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %615, %611 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i72.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %613, %611 ], [ @.str.10, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.thread.i.i.i.i.i.i.i.i.i.i.i ]
+  %.not.i5.i.i73.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i67.i.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i.i.i71.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i5.i.i73.i.i.i.i.i.i.i.i.i.i.i, label %616, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i
 
-616:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i72.i.i.i.i.i.i.i.i.i.i.i
-  %617 = icmp eq i64 %.sroa.22.0.copyload.i.i69.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %617, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.i.i.i.i.i.i.i.i.i.i.i, label %618
+616:                                              ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit.i.i70.i.i.i.i.i.i.i.i.i.i.i
+  %617 = icmp eq i64 %.sroa.22.0.copyload.i.i67.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %617, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.i.i.i.i.i.i.i.i.i.i.i, label %618
 
 618:                                              ; preds = %616
-  %bcmp.i.i.i77.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i67.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %.sroa.0.0.i.i.i74.i.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i69.i.i.i.i.i.i.i.i.i.i.i)
-  %619 = icmp eq i32 %bcmp.i.i.i77.i.i.i.i.i.i.i.i.i.i.i, 0
-  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.i.i.i.i.i.i.i.i.i.i.i
+  %bcmp.i.i.i75.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i65.i.i.i.i.i.i.i.i.i.i.i, ptr nonnull %.sroa.0.0.i.i.i72.i.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.22.0.copyload.i.i67.i.i.i.i.i.i.i.i.i.i.i)
+  %619 = icmp eq i32 %bcmp.i.i.i75.i.i.i.i.i.i.i.i.i.i.i, 0
+  br label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.i.i.i.i.i.i.i.i.i.i.i: ; preds = %618, %616
-  %.0.i.i.i76.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %619, %618 ], [ true, %616 ]
-  %620 = getelementptr inbounds nuw i8, ptr %.02924.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 88
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.i.i.i.i.i.i.i.i.i.i.i: ; preds = %618, %616
+  %.0.i.i.i74.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %619, %618 ], [ true, %616 ]
+  %620 = getelementptr inbounds nuw i8, ptr %.02922.i.i.i.i.i.i.i.ptr.i.i.i.i, i64 88
   %621 = load i32, ptr %620, align 8
   %622 = icmp eq i32 %621, %.sroa.5.025.i.i.i
-  %623 = select i1 %.0.i.i.i76.i.i.i.i.i.i.i.i.i.i.i, i1 %622, i1 false
-  br i1 %623, label %.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i
+  %623 = select i1 %.0.i.i.i74.i.i.i.i.i.i.i.i.i.i.i, i1 %622, i1 false
+  br i1 %623, label %.thread.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i72.i.i.i.i.i.i.i.i.i.i.i
-  %.02924.i.i.i.i.i.i.i.add11.i.i.i.i = add nuw nsw i64 %.02924.i.i.i.i.i.i.i.idx.i.i.i.i, 96
-  %624 = add nsw i64 %.025.i.i.i.i.i.i.i.i.i.i.i, -1
-  %625 = icmp ugt i64 %.025.i.i.i.i.i.i.i.i.i.i.i, 1
+_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.i.i.i.i.i.i.i.i.i.i.i, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i70.i.i.i.i.i.i.i.i.i.i.i
+  %.02922.i.i.i.i.i.i.i.add11.i.i.i.i = add nuw nsw i64 %.02922.i.i.i.i.i.i.i.idx.i.i.i.i, 96
+  %624 = add nsw i64 %.023.i.i.i.i.i.i.i.i.i.i.i, -1
+  %625 = icmp ugt i64 %.023.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %625, label %571, label %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.thread.i.i.i.i, !llvm.loop !44
 
 _ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %.not.i.i.i.i77 = icmp eq i64 %.02924.i.i.i.i.i.i.i.idx.i.i.i.i, 192
+  %.not.i.i.i.i77 = icmp eq i64 %.02922.i.i.i.i.i.i.i.idx.i.i.i.i, 192
   br i1 %.not.i.i.i.i77, label %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.thread.i.i.i.i, label %.thread.i
 
-_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i, %559, %557
+_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.thread.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i, %559, %557
   %626 = load i32, ptr %spec.select.i.i.i.i, align 8
   %627 = lshr i32 %626, 24
   %628 = zext nneg i32 %627 to i64
@@ -3140,7 +3140,7 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang15
   %.not1956.i = icmp eq i32 %674, 0
   br i1 %.not1956.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i, label %.lr.ph58.split.us.i
 
-.thread.i:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit78.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit66.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit54.i.i.i.i.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang15ObjCMessageExprEEEbPKT_PKNS2_4StmtE.exit.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang8CallExprEEEbPKT_PKNS2_4StmtE.exit.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i, %538
+.thread.i:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit76.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit64.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEjEUlRKNS2_24KnownCalledOnceParameterEE_EclIPS9_EEbT_.exit52.i.i.i.i.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang15ObjCMessageExprEEEbPKT_PKNS2_4StmtE.exit.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang8CallExprEEEbPKT_PKNS2_4StmtE.exit.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang12FunctionDeclEj.exit.i.i.i.i, %538
   %677 = load ptr, ptr %157, align 8
   %678 = getelementptr inbounds nuw i8, ptr %387, i64 16
   %679 = load ptr, ptr %678, align 8

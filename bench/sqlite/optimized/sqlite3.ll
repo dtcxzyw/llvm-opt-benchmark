@@ -30676,7 +30676,7 @@ sqlite3VdbeChangeP5.exit:                         ; preds = %sqlite3VdbeAddOp4In
   %.03037.i = phi ptr [ %324, %320 ], [ %353, %343 ]
   %.03136.i = phi i32 [ 0, %320 ], [ %351, %343 ]
   %.03235.i = phi ptr [ @sqlite3_blob_open.openBlob, %320 ], [ %352, %343 ]
-  %326 = load i8, ptr %.03235.i, align 1
+  %326 = load i8, ptr %.03235.i, align 4
   store i8 %326, ptr %.03037.i, align 8
   %327 = getelementptr inbounds nuw i8, ptr %.03235.i, i64 1
   %328 = load i8, ptr %327, align 1
@@ -30684,7 +30684,7 @@ sqlite3VdbeChangeP5.exit:                         ; preds = %sqlite3VdbeAddOp4In
   %330 = getelementptr inbounds nuw i8, ptr %.03037.i, i64 4
   store i32 %329, ptr %330, align 4
   %331 = getelementptr inbounds nuw i8, ptr %.03235.i, i64 2
-  %332 = load i8, ptr %331, align 1
+  %332 = load i8, ptr %331, align 2
   %333 = sext i8 %332 to i32
   %334 = getelementptr inbounds nuw i8, ptr %.03037.i, i64 8
   store i32 %333, ptr %334, align 8
@@ -153840,7 +153840,7 @@ codeTableLocks.exit:                              ; preds = %sqlite3VdbeChangeP4
   %.03037.i.i = phi ptr [ %513, %509 ], [ %542, %532 ]
   %.03136.i.i = phi i32 [ 0, %509 ], [ %540, %532 ]
   %.03235.i.i = phi ptr [ @sqlite3AutoincrementBegin.autoInc, %509 ], [ %541, %532 ]
-  %515 = load i8, ptr %.03235.i.i, align 1
+  %515 = load i8, ptr %.03235.i.i, align 4
   store i8 %515, ptr %.03037.i.i, align 8
   %516 = getelementptr inbounds nuw i8, ptr %.03235.i.i, i64 1
   %517 = load i8, ptr %516, align 1
@@ -153848,7 +153848,7 @@ codeTableLocks.exit:                              ; preds = %sqlite3VdbeChangeP4
   %519 = getelementptr inbounds nuw i8, ptr %.03037.i.i, i64 4
   store i32 %518, ptr %519, align 4
   %520 = getelementptr inbounds nuw i8, ptr %.03235.i.i, i64 2
-  %521 = load i8, ptr %520, align 1
+  %521 = load i8, ptr %520, align 2
   %522 = sext i8 %521 to i32
   %523 = getelementptr inbounds nuw i8, ptr %.03037.i.i, i64 8
   store i32 %522, ptr %523, align 8
@@ -185206,7 +185206,7 @@ sqlite3VdbeChangeP3.exit:                         ; preds = %2707, %2712
 
 sqlite3StrICmp.exit:                              ; preds = %2738
   %2748 = getelementptr inbounds nuw i8, ptr %.013832391, i64 16
-  %2749 = load ptr, ptr %2748, align 8
+  %2749 = load ptr, ptr %2748, align 16
   %.not1546 = icmp eq ptr %2749, null
   br i1 %.not1546, label %.thread2190, label %.preheader2250, !llvm.loop !799
 
@@ -305148,7 +305148,7 @@ sqlite3VdbeAddOp3.exit.i:                         ; preds = %sqlite3DbRealloc.ex
   %.03037.i.i = phi ptr [ %193, %189 ], [ %222, %212 ]
   %.03136.i.i = phi i32 [ 0, %189 ], [ %220, %212 ]
   %.03235.i.i = phi ptr [ @autoIncrementEnd.autoIncEnd, %189 ], [ %221, %212 ]
-  %195 = load i8, ptr %.03235.i.i, align 1
+  %195 = load i8, ptr %.03235.i.i, align 4
   store i8 %195, ptr %.03037.i.i, align 8
   %196 = getelementptr inbounds nuw i8, ptr %.03235.i.i, i64 1
   %197 = load i8, ptr %196, align 1
@@ -305156,7 +305156,7 @@ sqlite3VdbeAddOp3.exit.i:                         ; preds = %sqlite3DbRealloc.ex
   %199 = getelementptr inbounds nuw i8, ptr %.03037.i.i, i64 4
   store i32 %198, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %.03235.i.i, i64 2
-  %201 = load i8, ptr %200, align 1
+  %201 = load i8, ptr %200, align 2
   %202 = sext i8 %201 to i32
   %203 = getelementptr inbounds nuw i8, ptr %.03037.i.i, i64 8
   store i32 %202, ptr %203, align 8

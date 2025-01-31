@@ -1260,7 +1260,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %397 = phi i32 [ %556, %555 ], [ 0, %389 ]
   %398 = load i32, ptr %368, align 4, !tbaa !164
   %399 = icmp eq i32 %398, 0
-  %400 = load float, ptr %395, align 4, !tbaa !22
+  %400 = load float, ptr %395, align 8, !tbaa !22
   br i1 %399, label %401, label %409
 
 401:                                              ; preds = %394
@@ -1318,14 +1318,14 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 439:                                              ; preds = %418
   %440 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  %441 = load float, ptr %440, align 4, !tbaa !22
+  %441 = load float, ptr %440, align 8, !tbaa !22
   %442 = getelementptr inbounds nuw i8, ptr %395, i64 12
   %443 = load float, ptr %442, align 4, !tbaa !22
   br label %456
 
 444:                                              ; preds = %418, %417
   %445 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  %446 = load float, ptr %445, align 4, !tbaa !22
+  %446 = load float, ptr %445, align 8, !tbaa !22
   %447 = tail call float @llvm.fabs.f32(float %446)
   %448 = fcmp ueq float %447, 0x7FF0000000000000
   br i1 %448, label %454, label %449
@@ -1370,14 +1370,14 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 479:                                              ; preds = %456
   %480 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  %481 = load float, ptr %480, align 4, !tbaa !22
+  %481 = load float, ptr %480, align 8, !tbaa !22
   %482 = getelementptr inbounds nuw i8, ptr %395, i64 20
   %483 = load float, ptr %482, align 4, !tbaa !22
   br label %494
 
 484:                                              ; preds = %456, %454
   %485 = getelementptr inbounds nuw i8, ptr %395, i64 16
-  %486 = load float, ptr %485, align 4, !tbaa !22
+  %486 = load float, ptr %485, align 8, !tbaa !22
   %487 = tail call float @llvm.fabs.f32(float %486)
   %488 = fcmp ueq float %487, 0x7FF0000000000000
   br i1 %488, label %514, label %489
@@ -1421,7 +1421,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %518 = load i32, ptr %368, align 4, !tbaa !164
   %519 = icmp eq i32 %518, 0
   %520 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  %521 = load float, ptr %520, align 4, !tbaa !22
+  %521 = load float, ptr %520, align 8, !tbaa !22
   br i1 %519, label %522, label %525
 
 522:                                              ; preds = %517
@@ -1632,7 +1632,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %677 = phi ptr [ %837, %835 ], [ %643, %669 ]
   %678 = load i32, ptr %649, align 4, !tbaa !164
   %679 = icmp eq i32 %678, 0
-  %680 = load float, ptr %677, align 4, !tbaa !22
+  %680 = load float, ptr %677, align 8, !tbaa !22
   br i1 %679, label %681, label %689
 
 681:                                              ; preds = %674
@@ -1690,14 +1690,14 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 719:                                              ; preds = %698
   %720 = getelementptr inbounds nuw i8, ptr %677, i64 8
-  %721 = load float, ptr %720, align 4, !tbaa !22
+  %721 = load float, ptr %720, align 8, !tbaa !22
   %722 = getelementptr inbounds nuw i8, ptr %677, i64 12
   %723 = load float, ptr %722, align 4, !tbaa !22
   br label %736
 
 724:                                              ; preds = %698, %697
   %725 = getelementptr inbounds nuw i8, ptr %677, i64 8
-  %726 = load float, ptr %725, align 4, !tbaa !22
+  %726 = load float, ptr %725, align 8, !tbaa !22
   %727 = tail call float @llvm.fabs.f32(float %726)
   %728 = fcmp ueq float %727, 0x7FF0000000000000
   br i1 %728, label %734, label %729
@@ -1742,14 +1742,14 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 759:                                              ; preds = %736
   %760 = getelementptr inbounds nuw i8, ptr %677, i64 16
-  %761 = load float, ptr %760, align 4, !tbaa !22
+  %761 = load float, ptr %760, align 8, !tbaa !22
   %762 = getelementptr inbounds nuw i8, ptr %677, i64 20
   %763 = load float, ptr %762, align 4, !tbaa !22
   br label %774
 
 764:                                              ; preds = %736, %734
   %765 = getelementptr inbounds nuw i8, ptr %677, i64 16
-  %766 = load float, ptr %765, align 4, !tbaa !22
+  %766 = load float, ptr %765, align 8, !tbaa !22
   %767 = tail call float @llvm.fabs.f32(float %766)
   %768 = fcmp ueq float %767, 0x7FF0000000000000
   br i1 %768, label %794, label %769
@@ -1793,7 +1793,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %798 = load i32, ptr %649, align 4, !tbaa !164
   %799 = icmp eq i32 %798, 0
   %800 = getelementptr inbounds nuw i8, ptr %677, i64 8
-  %801 = load float, ptr %800, align 4, !tbaa !22
+  %801 = load float, ptr %800, align 8, !tbaa !22
   br i1 %799, label %802, label %805
 
 802:                                              ; preds = %797
@@ -3496,7 +3496,7 @@ define void @distort_mask(ptr noundef readnone captures(none) %0, ptr noundef re
   %125 = load i32, ptr %94, align 4, !tbaa !164
   %126 = icmp eq i32 %125, 0
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %128 = load float, ptr %127, align 4, !tbaa !22
+  %128 = load float, ptr %127, align 8, !tbaa !22
   br i1 %126, label %129, label %132
 
 129:                                              ; preds = %120

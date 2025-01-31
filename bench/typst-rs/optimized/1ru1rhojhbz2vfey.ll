@@ -21680,7 +21680,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h27621fdedc855ea1E(ptr noali
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !4772
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4777)
-  %12 = load i8, ptr %11, align 1, !range !421, !alias.scope !4780, !noalias !4781, !noundef !5
+  %12 = load i8, ptr %11, align 4, !range !421, !alias.scope !4780, !noalias !4781, !noundef !5
   %13 = icmp ne i8 %12, 3
   %14 = zext i1 %13 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !4783
@@ -21733,7 +21733,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h28c47ddfbbbe754eE(ptr noali
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4809)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4810)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4811)
-  %19 = load i32, ptr %.sroa.0.06, align 4, !range !4812, !alias.scope !4804, !noalias !4813, !noundef !5
+  %19 = load i32, ptr %.sroa.0.06, align 8, !range !4812, !alias.scope !4804, !noalias !4813, !noundef !5
   %20 = zext nneg i32 %19 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4814)
   tail call void %11(ptr noundef nonnull align 1 %7, i64 noundef %20), !noalias !4807
@@ -30591,7 +30591,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
 49:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbeeafbdbffaf5aeE.llvm.13383457361836014260.exit.i.i"
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 144
   call void @llvm.experimental.noalias.scope.decl(metadata !7162)
-  %51 = load i64, ptr %50, align 8, !range !523, !alias.scope !7165, !noalias !7166, !noundef !5
+  %51 = load i64, ptr %50, align 16, !range !523, !alias.scope !7165, !noalias !7166, !noundef !5
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 152
   switch i64 %51, label %default.unreachable [
     i64 0, label %53
@@ -30641,7 +30641,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
 68:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdbeeafbdbffaf5aeE.llvm.13383457361836014260.exit.i.i"
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 144
   call void @llvm.experimental.noalias.scope.decl(metadata !7183)
-  %70 = load ptr, ptr %69, align 8, !alias.scope !7186, !noalias !7166, !nonnull !5, !noundef !5
+  %70 = load ptr, ptr %69, align 16, !alias.scope !7186, !noalias !7166, !nonnull !5, !noundef !5
   %71 = atomicrmw add ptr %70, i64 1 monotonic, align 8, !noalias !7187
   %72 = icmp slt i64 %71, 0
   br i1 %72, label %73, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haef86d195db82d6bE.llvm.13383457361836014260.exit.i.i.i"
@@ -30737,7 +30737,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
 111:                                              ; preds = %24
   call void @llvm.experimental.noalias.scope.decl(metadata !7208)
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 80
-  %113 = load i32, ptr %112, align 8, !range !7149, !alias.scope !7211, !noalias !7212, !noundef !5
+  %113 = load i32, ptr %112, align 16, !range !7149, !alias.scope !7211, !noalias !7212, !noundef !5
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 84
   %115 = load i16, ptr %114, align 4, !range !7214, !alias.scope !7211, !noalias !7212, !noundef !5
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 86
@@ -30745,17 +30745,17 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 56
   %119 = load double, ptr %118, align 8, !alias.scope !7211, !noalias !7212, !noundef !5
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 64
-  %121 = load double, ptr %120, align 8, !alias.scope !7211, !noalias !7212, !noundef !5
+  %121 = load double, ptr %120, align 16, !alias.scope !7211, !noalias !7212, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !7215)
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 24
   %.val.i.i.i = load double, ptr %122, align 8, !alias.scope !7218, !noalias !7221, !noundef !5
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 32
-  %.val1.i.i.i = load double, ptr %123, align 8, !alias.scope !7223, !noalias !7221, !noundef !5
-  %124 = load i64, ptr %.sroa.013.080, align 8, !range !11, !alias.scope !7226, !noalias !7221, !noundef !5
+  %.val1.i.i.i = load double, ptr %123, align 16, !alias.scope !7223, !noalias !7221, !noundef !5
+  %124 = load i64, ptr %.sroa.013.080, align 16, !range !11, !alias.scope !7226, !noalias !7221, !noundef !5
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 8
   %126 = load double, ptr %125, align 8, !alias.scope !7226, !noalias !7221
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 16
-  %.val2.i.i.i = load ptr, ptr %127, align 8, !alias.scope !7226, !noalias !7221, !nonnull !5, !noundef !5
+  %.val2.i.i.i = load ptr, ptr %127, align 16, !alias.scope !7226, !noalias !7221, !nonnull !5, !noundef !5
   %128 = atomicrmw add ptr %.val2.i.i.i, i64 1 monotonic, align 8, !noalias !7227
   %129 = icmp slt i64 %128, 0
   br i1 %129, label %130, label %"_ZN77_$LT$typst..math..fragment..VariantFragment$u20$as$u20$core..clone..Clone$GT$5clone17hed2aa97f1c4d7afdE.exit.i"
@@ -30777,7 +30777,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 90
   %138 = load i8, ptr %137, align 2, !range !421, !alias.scope !7211, !noalias !7212, !noundef !5
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 48
-  %140 = load i64, ptr %139, align 8, !range !1375, !alias.scope !7211, !noalias !7212, !noundef !5
+  %140 = load i64, ptr %139, align 16, !range !1375, !alias.scope !7211, !noalias !7212, !noundef !5
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 88
   %142 = load i8, ptr %141, align 8, !range !435, !alias.scope !7211, !noalias !7212, !noundef !5
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 89
@@ -30810,12 +30810,12 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 24
   %.val.i.i1.i = load double, ptr %148, align 8, !alias.scope !7234, !noalias !7237, !noundef !5
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 32
-  %.val1.i.i2.i = load double, ptr %149, align 8, !alias.scope !7240, !noalias !7237, !noundef !5
-  %150 = load i64, ptr %.sroa.013.080, align 8, !range !11, !alias.scope !7243, !noalias !7237, !noundef !5
+  %.val1.i.i2.i = load double, ptr %149, align 16, !alias.scope !7240, !noalias !7237, !noundef !5
+  %150 = load i64, ptr %.sroa.013.080, align 16, !range !11, !alias.scope !7243, !noalias !7237, !noundef !5
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 8
   %152 = load double, ptr %151, align 8, !alias.scope !7243, !noalias !7237
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 16
-  %.val2.i.i3.i = load ptr, ptr %153, align 8, !alias.scope !7243, !noalias !7237, !nonnull !5, !noundef !5
+  %.val2.i.i3.i = load ptr, ptr %153, align 16, !alias.scope !7243, !noalias !7237, !nonnull !5, !noundef !5
   %154 = atomicrmw add ptr %.val2.i.i3.i, i64 1 monotonic, align 8, !noalias !7244
   %155 = icmp slt i64 %154, 0
   br i1 %155, label %156, label %"_ZN75_$LT$typst..math..fragment..FrameFragment$u20$as$u20$core..clone..Clone$GT$5clone17h0480998175a40f5eE.exit.i"
@@ -30830,7 +30830,7 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 40
   %158 = load i8, ptr %157, align 8, !range !4, !alias.scope !7243, !noalias !7237, !noundef !5
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 48
-  %160 = load i64, ptr %159, align 8, !alias.scope !7245, !noalias !7246, !noundef !5
+  %160 = load i64, ptr %159, align 16, !alias.scope !7245, !noalias !7246, !noundef !5
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 84
   %162 = load i8, ptr %161, align 4, !range !7189, !alias.scope !7245, !noalias !7246, !noundef !5
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 83
@@ -30838,11 +30838,11 @@ default.unreachable.i.i:                          ; preds = %"_ZN68_$LT$alloc..s
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 82
   %166 = load i8, ptr %165, align 2, !range !435, !alias.scope !7245, !noalias !7246, !noundef !5
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 80
-  %168 = load i8, ptr %167, align 8, !range !4, !alias.scope !7245, !noalias !7246, !noundef !5
+  %168 = load i8, ptr %167, align 16, !range !4, !alias.scope !7245, !noalias !7246, !noundef !5
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 56
   %170 = load double, ptr %169, align 8, !alias.scope !7245, !noalias !7246, !noundef !5
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 64
-  %172 = load double, ptr %171, align 8, !alias.scope !7245, !noalias !7246, !noundef !5
+  %172 = load double, ptr %171, align 16, !alias.scope !7245, !noalias !7246, !noundef !5
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 72
   %174 = load double, ptr %173, align 8, !alias.scope !7245, !noalias !7246, !noundef !5
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.013.080, i64 81

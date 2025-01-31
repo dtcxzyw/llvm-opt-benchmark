@@ -3601,8 +3601,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit302: ;
 .lr.ph.i.i.i.i.i:                                 ; preds = %427, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %.011.i.i.i.i.i = phi ptr [ %463, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %80, %427 ]
   %.0810.i.i.i.i.i = phi ptr [ %462, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %75, %427 ]
-  %430 = load i32, ptr %.0810.i.i.i.i.i, align 4
-  store i32 %430, ptr %.011.i.i.i.i.i, align 4
+  %430 = load i32, ptr %.0810.i.i.i.i.i, align 8
+  store i32 %430, ptr %.011.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %430, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i, label %431
 
@@ -3626,8 +3626,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i: ; pred
   store i32 %444, ptr %442, align 4
   %445 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
   %446 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
-  %447 = load i32, ptr %446, align 4
-  store i32 %447, ptr %445, align 4
+  %447 = load i32, ptr %446, align 8
+  store i32 %447, ptr %445, align 8
   %.not.i.i3.i.i.i.i.i.i.i = icmp eq i32 %447, 0
   br i1 %.not.i.i3.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %448
 
@@ -3872,8 +3872,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit321: ;
 .lr.ph.i.i.i.i.i325:                              ; preds = %532, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i331
   %.011.i.i.i.i.i326 = phi ptr [ %568, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i331 ], [ %89, %532 ]
   %.0810.i.i.i.i.i327 = phi ptr [ %567, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i331 ], [ %84, %532 ]
-  %535 = load i32, ptr %.0810.i.i.i.i.i327, align 4
-  store i32 %535, ptr %.011.i.i.i.i.i326, align 4
+  %535 = load i32, ptr %.0810.i.i.i.i.i327, align 8
+  store i32 %535, ptr %.011.i.i.i.i.i326, align 8
   %.not.i.i.i.i.i.i.i.i.i328 = icmp eq i32 %535, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i328, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i329, label %536
 
@@ -3897,8 +3897,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i329: ; p
   store i32 %549, ptr %547, align 4
   %550 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i326, i64 8
   %551 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i327, i64 8
-  %552 = load i32, ptr %551, align 4
-  store i32 %552, ptr %550, align 4
+  %552 = load i32, ptr %551, align 8
+  store i32 %552, ptr %550, align 8
   %.not.i.i3.i.i.i.i.i.i.i330 = icmp eq i32 %552, 0
   br i1 %.not.i.i3.i.i.i.i.i.i.i330, label %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i331, label %553
 
@@ -4098,8 +4098,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit347: ;
 .lr.ph.i.i.i.i.i351:                              ; preds = %619, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i357
   %.011.i.i.i.i.i352 = phi ptr [ %655, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i357 ], [ %96, %619 ]
   %.0810.i.i.i.i.i353 = phi ptr [ %654, %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i357 ], [ %91, %619 ]
-  %622 = load i32, ptr %.0810.i.i.i.i.i353, align 4
-  store i32 %622, ptr %.011.i.i.i.i.i352, align 4
+  %622 = load i32, ptr %.0810.i.i.i.i.i353, align 8
+  store i32 %622, ptr %.011.i.i.i.i.i352, align 8
   %.not.i.i.i.i.i.i.i.i.i354 = icmp eq i32 %622, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i354, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i355, label %623
 
@@ -4123,8 +4123,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i355: ; p
   store i32 %636, ptr %634, align 4
   %637 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i352, i64 8
   %638 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i353, i64 8
-  %639 = load i32, ptr %638, align 4
-  store i32 %639, ptr %637, align 4
+  %639 = load i32, ptr %638, align 8
+  store i32 %639, ptr %637, align 8
   %.not.i.i3.i.i.i.i.i.i.i356 = icmp eq i32 %639, 0
   br i1 %.not.i.i3.i.i.i.i.i.i.i356, label %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i357, label %640
 
@@ -5845,7 +5845,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMa
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit
   %.05 = phi ptr [ %43, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit ], [ %0, %.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %.05, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 8
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, label %8
 
@@ -5876,7 +5876,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMa
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %21, %8, %.lr.ph
-  %25 = load i32, ptr %.05, align 4
+  %25 = load i32, ptr %.05, align 8
   %.not.i.i1.i = icmp eq i32 %25, 0
   br i1 %.not.i.i1.i, label %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit, label %26
 

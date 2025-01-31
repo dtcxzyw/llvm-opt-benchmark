@@ -14647,7 +14647,7 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %88), !noalias !1107
   %273 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 368
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1024
-  %.val.i = load float, ptr %274, align 4, !alias.scope !1109, !noalias !1104, !noundef !4
+  %.val.i = load float, ptr %274, align 8, !alias.scope !1109, !noalias !1104, !noundef !4
   %275 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1028
   %.val752.i = load float, ptr %275, align 4, !alias.scope !1112, !noalias !1104, !noundef !4
   store float %.val.i, ptr %124, align 8, !noalias !1107
@@ -14836,7 +14836,7 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
   %332 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1036
   %.val753.i = load float, ptr %332, align 4, !alias.scope !1109, !noalias !1104, !noundef !4
   %333 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1040
-  %.val754.i = load float, ptr %333, align 4, !alias.scope !1112, !noalias !1104, !noundef !4
+  %.val754.i = load float, ptr %333, align 8, !alias.scope !1112, !noalias !1104, !noundef !4
   store float %.val753.i, ptr %129, align 8, !noalias !1107
   store float %.val754.i, ptr %130, align 4, !noalias !1107
   store i64 22, ptr %80, align 8, !noalias !1107
@@ -15755,7 +15755,7 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !1107
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %42), !noalias !1107
   %634 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1048
-  %635 = load i32, ptr %634, align 4, !alias.scope !1101, !noalias !1104, !noundef !4
+  %635 = load i32, ptr %634, align 8, !alias.scope !1101, !noalias !1104, !noundef !4
   %636 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1052
   %637 = load i32, ptr %636, align 4, !alias.scope !1101, !noalias !1104, !noundef !4
   store i32 %635, ptr %149, align 8, !noalias !1107
@@ -15928,7 +15928,7 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
   %688 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1196
   %689 = load i32, ptr %688, align 4, !alias.scope !1101, !noalias !1104, !noundef !4
   %690 = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1200
-  %691 = load i32, ptr %690, align 4, !alias.scope !1101, !noalias !1104, !noundef !4
+  %691 = load i32, ptr %690, align 8, !alias.scope !1101, !noalias !1104, !noundef !4
   store i32 %689, ptr %154, align 8, !noalias !1107
   store i32 %691, ptr %155, align 4, !noalias !1107
   store i64 10, ptr %33, align 8, !noalias !1107
@@ -16434,7 +16434,7 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
 
 866:                                              ; preds = %863, %860
   %.0659.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0937, i64 1416
-  %.0659.i = load float, ptr %.0659.in.i, align 4, !alias.scope !1101, !noalias !1104, !noundef !4
+  %.0659.i = load float, ptr %.0659.in.i, align 8, !alias.scope !1101, !noalias !1104, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !1107
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %13), !noalias !1107
   store float %.0659.i, ptr %165, align 8, !noalias !1107

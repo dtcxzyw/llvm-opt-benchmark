@@ -181,7 +181,7 @@ define dso_local noundef i32 @_ZN5clang19CudaStringToVersionERKN4llvm5TwineE(ptr
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.067, i64 32
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 16
   %10 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %9) #8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -242,56 +242,56 @@ define dso_local noundef ptr @_ZN5clang19OffloadArchToStringENS_11OffloadArchE(i
   br label %2
 
 2:                                                ; preds = %13, %1
-  %.018.i.i.i = phi i64 [ 18, %1 ], [ %15, %13 ]
-  %.02917.i.i.i = phi ptr [ @_ZN5clangL10arch_namesE, %1 ], [ %14, %13 ]
-  %.029.val.i.i.i = load i32, ptr %.02917.i.i.i, align 8
+  %.017.i.i.i = phi i64 [ 18, %1 ], [ %15, %13 ]
+  %.02916.i.i.i = phi ptr [ @_ZN5clangL10arch_namesE, %1 ], [ %14, %13 ]
+  %.029.val.i.i.i = load i32, ptr %.02916.i.i.i, align 16
   %3 = icmp eq i32 %0, %.029.val.i.i.i
   br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 24
   %.val31.i.i.i = load i32, ptr %5, align 8
   %6 = icmp eq i32 %0, %.val31.i.i.i
   br i1 %6, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
-  %.val33.i.i.i = load i32, ptr %8, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 48
+  %.val33.i.i.i = load i32, ptr %8, align 16
   %9 = icmp eq i32 %0, %.val33.i.i.i
   br i1 %9, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 72
   %.val35.i.i.i = load i32, ptr %11, align 8
   %12 = icmp eq i32 %0, %.val35.i.i.i
   br i1 %12, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 96
-  %15 = add nsw i64 %.018.i.i.i, -1
-  %16 = icmp ugt i64 %.018.i.i.i, 1
+  %14 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 96
+  %15 = add nsw i64 %.017.i.i.i, -1
+  %16 = icmp ugt i64 %.017.i.i.i, 1
   br i1 %16, label %2, label %17, !llvm.loop !8
 
 17:                                               ; preds = %13
   %switch.selectcmp.i.i.i = icmp eq i32 %0, 74
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), ptr getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
-  %switch.selectcmp31.i.i.i = icmp eq i32 %0, 73
-  br i1 %switch.selectcmp31.i.i.i, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
+  %switch.selectcmp30.i.i.i = icmp eq i32 %0, 73
+  br i1 %switch.selectcmp30.i.i.i, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit": ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 24
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18": ; preds = %7
-  %19 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 48
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20": ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 72
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit": ; preds = %2, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", %17
-  %.028.i.i.i = phi ptr [ %switch.select.i.i.i, %17 ], [ %18, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit" ], [ %19, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18" ], [ %20, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20" ], [ %.02917.i.i.i, %2 ]
+  %.028.i.i.i = phi ptr [ %switch.select.i.i.i, %17 ], [ %18, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit" ], [ %19, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18" ], [ %20, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20" ], [ %.02916.i.i.i, %2 ]
   %21 = icmp eq ptr %.028.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
   br i1 %21, label %24, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread"
 
@@ -311,56 +311,56 @@ define dso_local noundef ptr @_ZN5clang30OffloadArchToVirtualArchStringENS_11Off
   br label %2
 
 2:                                                ; preds = %13, %1
-  %.018.i.i.i = phi i64 [ 18, %1 ], [ %15, %13 ]
-  %.02917.i.i.i = phi ptr [ @_ZN5clangL10arch_namesE, %1 ], [ %14, %13 ]
-  %.029.val.i.i.i = load i32, ptr %.02917.i.i.i, align 8
+  %.017.i.i.i = phi i64 [ 18, %1 ], [ %15, %13 ]
+  %.02916.i.i.i = phi ptr [ @_ZN5clangL10arch_namesE, %1 ], [ %14, %13 ]
+  %.029.val.i.i.i = load i32, ptr %.02916.i.i.i, align 16
   %3 = icmp eq i32 %0, %.029.val.i.i.i
   br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 24
   %.val31.i.i.i = load i32, ptr %5, align 8
   %6 = icmp eq i32 %0, %.val31.i.i.i
   br i1 %6, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
-  %.val33.i.i.i = load i32, ptr %8, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 48
+  %.val33.i.i.i = load i32, ptr %8, align 16
   %9 = icmp eq i32 %0, %.val33.i.i.i
   br i1 %9, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 72
   %.val35.i.i.i = load i32, ptr %11, align 8
   %12 = icmp eq i32 %0, %.val35.i.i.i
   br i1 %12, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 96
-  %15 = add nsw i64 %.018.i.i.i, -1
-  %16 = icmp ugt i64 %.018.i.i.i, 1
+  %14 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 96
+  %15 = add nsw i64 %.017.i.i.i, -1
+  %16 = icmp ugt i64 %.017.i.i.i, 1
   br i1 %16, label %2, label %17, !llvm.loop !9
 
 17:                                               ; preds = %13
   %switch.selectcmp.i.i.i = icmp eq i32 %0, 74
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), ptr getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
-  %switch.selectcmp31.i.i.i = icmp eq i32 %0, 73
-  br i1 %switch.selectcmp31.i.i.i, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
+  %switch.selectcmp30.i.i.i = icmp eq i32 %0, 73
+  br i1 %switch.selectcmp30.i.i.i, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit": ; preds = %4
-  %18 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 24
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18": ; preds = %7
-  %19 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 48
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20": ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.02916.i.i.i, i64 72
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit": ; preds = %2, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", %17
-  %.028.i.i.i = phi ptr [ %switch.select.i.i.i, %17 ], [ %18, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit" ], [ %19, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18" ], [ %20, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20" ], [ %.02917.i.i.i, %2 ]
+  %.028.i.i.i = phi ptr [ %switch.select.i.i.i, %17 ], [ %18, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit" ], [ %19, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18" ], [ %20, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20" ], [ %.02916.i.i.i, %2 ]
   %21 = icmp eq ptr %.028.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
   br i1 %21, label %24, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread"
 
@@ -380,11 +380,11 @@ define dso_local noundef i32 @_ZN5clang19StringToOffloadArchEN4llvm9StringRefE(p
   %3 = icmp eq i64 %1, 0
   br label %4
 
-4:                                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i", %2
-  %.050.i.i.i = phi i64 [ 18, %2 ], [ %29, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i" ]
-  %.02949.i.i.i.idx = phi i64 [ 0, %2 ], [ %.02949.i.i.i.add14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i" ]
-  %.02949.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.02949.i.i.i.idx
-  %5 = getelementptr i8, ptr %.02949.i.i.i.ptr, i64 8
+4:                                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i", %2
+  %.046.i.i.i = phi i64 [ 18, %2 ], [ %29, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i" ]
+  %.02945.i.i.i.idx = phi i64 [ 0, %2 ], [ %.02945.i.i.i.add14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i" ]
+  %.02945.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.02945.i.i.i.idx
+  %5 = getelementptr i8, ptr %.02945.i.i.i.ptr, i64 8
   %.029.val.i.i.i = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %6
@@ -396,7 +396,7 @@ define dso_local noundef i32 @_ZN5clang19StringToOffloadArchEN4llvm9StringRefE(p
 _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i:          ; preds = %6, %4
   %8 = phi i64 [ %7, %6 ], [ 0, %4 ]
   %.not.i2.i.i.i.i.i = icmp eq i64 %1, %8
-  br i1 %.not.i2.i.i.i.i.i, label %9, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread8.i.i.i"
+  br i1 %.not.i2.i.i.i.i.i, label %9, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread7.i.i.i"
 
 9:                                                ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i
   br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i"
@@ -404,133 +404,133 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i:          ; preds = %6, %4
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i": ; preds = %9
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.029.val.i.i.i, i64 %1)
   %10 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %10, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread8.i.i.i"
+  br i1 %10, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread7.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread8.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i
-  %11 = getelementptr i8, ptr %.02949.i.i.i.ptr, i64 32
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread7.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i
+  %11 = getelementptr i8, ptr %.02945.i.i.i.ptr, i64 32
   %.val33.i.i.i = load ptr, ptr %11, align 16
-  %.not.i.i.i47.i.i.i = icmp eq ptr %.val33.i.i.i, null
-  br i1 %.not.i.i.i47.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i48.i.i.i, label %12
+  %.not.i.i.i46.i.i.i = icmp eq ptr %.val33.i.i.i, null
+  br i1 %.not.i.i.i46.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i47.i.i.i, label %12
 
-12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread8.i.i.i"
+12:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread7.i.i.i"
   %13 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val33.i.i.i) #8
-  br label %_ZN4llvm9StringRefC2EPKc.exit.i.i48.i.i.i
+  br label %_ZN4llvm9StringRefC2EPKc.exit.i.i47.i.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i48.i.i.i:        ; preds = %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread8.i.i.i"
-  %14 = phi i64 [ %13, %12 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread8.i.i.i" ]
-  %.not.i2.i.i49.i.i.i = icmp eq i64 %1, %14
-  br i1 %.not.i2.i.i49.i.i.i, label %15, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.thread11.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i47.i.i.i:        ; preds = %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread7.i.i.i"
+  %14 = phi i64 [ %13, %12 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread7.i.i.i" ]
+  %.not.i2.i.i48.i.i.i = icmp eq i64 %1, %14
+  br i1 %.not.i2.i.i48.i.i.i, label %15, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.thread10.i.i.i"
 
-15:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i48.i.i.i
-  br i1 %3, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.i.i.i"
+15:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i47.i.i.i
+  br i1 %3, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.i.i.i": ; preds = %15
-  %bcmp.i.i.i51.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.val33.i.i.i, i64 %1)
-  %16 = icmp eq i32 %bcmp.i.i.i51.i.i.i, 0
-  br i1 %16, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.thread11.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.i.i.i": ; preds = %15
+  %bcmp.i.i.i50.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.val33.i.i.i, i64 %1)
+  %16 = icmp eq i32 %bcmp.i.i.i50.i.i.i, 0
+  br i1 %16, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit25.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.thread10.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.thread11.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i48.i.i.i
-  %17 = getelementptr i8, ptr %.02949.i.i.i.ptr, i64 56
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.thread10.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i47.i.i.i
+  %17 = getelementptr i8, ptr %.02945.i.i.i.ptr, i64 56
   %.val36.i.i.i = load ptr, ptr %17, align 8
-  %.not.i.i.i53.i.i.i = icmp eq ptr %.val36.i.i.i, null
-  br i1 %.not.i.i.i53.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i, label %18
+  %.not.i.i.i52.i.i.i = icmp eq ptr %.val36.i.i.i, null
+  br i1 %.not.i.i.i52.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i53.i.i.i, label %18
 
-18:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.thread11.i.i.i"
+18:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.thread10.i.i.i"
   %19 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val36.i.i.i) #8
-  br label %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i
+  br label %_ZN4llvm9StringRefC2EPKc.exit.i.i53.i.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i:        ; preds = %18, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.thread11.i.i.i"
-  %20 = phi i64 [ %19, %18 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.thread11.i.i.i" ]
-  %.not.i2.i.i55.i.i.i = icmp eq i64 %1, %20
-  br i1 %.not.i2.i.i55.i.i.i, label %21, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.thread14.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i53.i.i.i:        ; preds = %18, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.thread10.i.i.i"
+  %20 = phi i64 [ %19, %18 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.thread10.i.i.i" ]
+  %.not.i2.i.i54.i.i.i = icmp eq i64 %1, %20
+  br i1 %.not.i2.i.i54.i.i.i, label %21, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.thread13.i.i.i"
 
-21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i
-  br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.i.i.i"
+21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i53.i.i.i
+  br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.i.i.i": ; preds = %21
-  %bcmp.i.i.i57.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.val36.i.i.i, i64 %1)
-  %22 = icmp eq i32 %bcmp.i.i.i57.i.i.i, 0
-  br i1 %22, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.thread14.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.i.i.i": ; preds = %21
+  %bcmp.i.i.i56.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.val36.i.i.i, i64 %1)
+  %22 = icmp eq i32 %bcmp.i.i.i56.i.i.i, 0
+  br i1 %22, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.thread13.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.thread14.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i54.i.i.i
-  %23 = getelementptr i8, ptr %.02949.i.i.i.ptr, i64 80
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.thread13.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i53.i.i.i
+  %23 = getelementptr i8, ptr %.02945.i.i.i.ptr, i64 80
   %.val39.i.i.i = load ptr, ptr %23, align 16
-  %.not.i.i.i59.i.i.i = icmp eq ptr %.val39.i.i.i, null
-  br i1 %.not.i.i.i59.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i60.i.i.i, label %24
+  %.not.i.i.i58.i.i.i = icmp eq ptr %.val39.i.i.i, null
+  br i1 %.not.i.i.i58.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i59.i.i.i, label %24
 
-24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.thread14.i.i.i"
+24:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.thread13.i.i.i"
   %25 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val39.i.i.i) #8
-  br label %_ZN4llvm9StringRefC2EPKc.exit.i.i60.i.i.i
+  br label %_ZN4llvm9StringRefC2EPKc.exit.i.i59.i.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i60.i.i.i:        ; preds = %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.thread14.i.i.i"
-  %26 = phi i64 [ %25, %24 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.thread14.i.i.i" ]
-  %.not.i2.i.i61.i.i.i = icmp eq i64 %1, %26
-  br i1 %.not.i2.i.i61.i.i.i, label %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i59.i.i.i:        ; preds = %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.thread13.i.i.i"
+  %26 = phi i64 [ %25, %24 ], [ 0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.thread13.i.i.i" ]
+  %.not.i2.i.i60.i.i.i = icmp eq i64 %1, %26
+  br i1 %.not.i2.i.i60.i.i.i, label %27, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i"
 
-27:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i60.i.i.i
-  br i1 %3, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit41.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.i.i.i"
+27:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i59.i.i.i
+  br i1 %3, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.i.i.i": ; preds = %27
-  %bcmp.i.i.i63.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.val39.i.i.i, i64 %1)
-  %28 = icmp eq i32 %bcmp.i.i.i63.i.i.i, 0
-  br i1 %28, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.i.i.i": ; preds = %27
+  %bcmp.i.i.i62.i.i.i = tail call i32 @bcmp(ptr readonly %0, ptr readonly %.val39.i.i.i, i64 %1)
+  %28 = icmp eq i32 %bcmp.i.i.i62.i.i.i, 0
+  br i1 %28, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i60.i.i.i
-  %.02949.i.i.i.add14 = add nuw nsw i64 %.02949.i.i.i.idx, 96
-  %29 = add nsw i64 %.050.i.i.i, -1
-  %30 = icmp ugt i64 %.050.i.i.i, 1
-  br i1 %30, label %4, label %_ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i, !llvm.loop !10
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i59.i.i.i
+  %.02945.i.i.i.add14 = add nuw nsw i64 %.02945.i.i.i.idx, 96
+  %29 = add nsw i64 %.046.i.i.i, -1
+  %30 = icmp ugt i64 %.046.i.i.i, 1
+  br i1 %30, label %4, label %_ZN4llvm9StringRefC2EPKc.exit.i.i65.i.i.i, !llvm.loop !10
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i:        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i"
+_ZN4llvm9StringRefC2EPKc.exit.i.i65.i.i.i:        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.thread16.i.i.i"
   switch i64 %1, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7" [
-    i64 11, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i"
-    i64 7, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i"
+    i64 11, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit69.i.i.i"
+    i64 7, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit75.i.i.i"
   ]
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i
-  %bcmp.i.i.i75.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %0, ptr noundef nonnull readonly dereferenceable(11) @.str.119, i64 11)
-  %31 = icmp eq i32 %bcmp.i.i.i75.i.i.i, 0
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit69.i.i.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i65.i.i.i
+  %bcmp.i.i.i68.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(11) %0, ptr noundef nonnull readonly dereferenceable(11) @.str.119, i64 11)
+  %31 = icmp eq i32 %bcmp.i.i.i68.i.i.i, 0
   br i1 %31, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i
-  %bcmp.i.i.i81.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %0, ptr noundef nonnull readonly dereferenceable(7) @.str.120, i64 7)
-  %32 = icmp eq i32 %bcmp.i.i.i81.i.i.i, 0
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit75.i.i.i": ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i65.i.i.i
+  %bcmp.i.i.i74.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %0, ptr noundef nonnull readonly dereferenceable(7) @.str.120, i64 7)
+  %32 = icmp eq i32 %bcmp.i.i.i74.i.i.i, 0
   br i1 %32, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit52.i.i.i"
-  %.02949.i.i.i.add13 = or disjoint i64 %.02949.i.i.i.idx, 24
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit25.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit51.i.i.i"
+  %.02945.i.i.i.add13 = or disjoint i64 %.02945.i.i.i.idx, 24
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.i.i.i"
-  %.02949.i.i.i.add11 = add nuw nsw i64 %.02949.i.i.i.idx, 72
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit63.i.i.i"
+  %.02945.i.i.i.add11 = add nuw nsw i64 %.02945.i.i.i.idx, 72
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i": ; preds = %15
-  %.02949.i.i.i.add10 = or disjoint i64 %.02949.i.i.i.idx, 24
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i": ; preds = %15
+  %.02945.i.i.i.add10 = or disjoint i64 %.02945.i.i.i.idx, 24
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit41.i.i.i": ; preds = %27
-  %.02949.i.i.i.add = add nuw nsw i64 %.02949.i.i.i.idx, 72
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i": ; preds = %27
+  %.02945.i.i.i.add = add nuw nsw i64 %.02945.i.i.i.idx, 72
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35"
 
-"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i", %9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit41.i.i.i"
-  %.028.i.i.i.idx.ph = phi i64 [ %.02949.i.i.i.add, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit41.i.i.i" ], [ %.02949.i.i.i.add10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i" ], [ %.02949.i.i.i.add11, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i" ], [ %.02949.i.i.i.add13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i" ], [ %.02949.i.i.i.idx, %9 ], [ %.02949.i.i.i.idx, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i" ]
+"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i", %9, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit25.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i"
+  %.028.i.i.i.idx.ph = phi i64 [ %.02945.i.i.i.add, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit37.i.i.i" ], [ %.02945.i.i.i.add10, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit33.i.i.i" ], [ %.02945.i.i.i.add11, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit29.i.i.i" ], [ %.02945.i.i.i.add13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.thread.loopexit.split.loop.exit25.i.i.i" ], [ %.02945.i.i.i.idx, %9 ], [ %.02945.i.i.i.idx, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit.i.i.i" ]
   %.028.i.i.i.ptr37 = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.028.i.i.i.idx.ph
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread"
 
-"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit": ; preds = %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.i.i.i"
-  %.02949.i.i.i.add12 = add nuw nsw i64 %.02949.i.i.i.idx, 48
-  %.028.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.02949.i.i.i.add12
-  %33 = icmp eq i64 %.02949.i.i.i.add12, 1776
+"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit": ; preds = %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit57.i.i.i"
+  %.02945.i.i.i.add12 = add nuw nsw i64 %.02945.i.i.i.idx, 48
+  %.028.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.02945.i.i.i.add12
+  %33 = icmp eq i64 %.02945.i.i.i.add12, 1776
   br i1 %33, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread"
 
-"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread": ; preds = %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit"
-  %.028.i.i.i6 = phi ptr [ %.028.i.i.i.ptr, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1728), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i" ], [ %.028.i.i.i.ptr37, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35" ]
+"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread": ; preds = %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit75.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit69.i.i.i", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit"
+  %.028.i.i.i6 = phi ptr [ %.028.i.i.i.ptr, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit75.i.i.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1728), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit69.i.i.i" ], [ %.028.i.i.i.ptr37, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35" ]
   %34 = load i32, ptr %.028.i.i.i6, align 8
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7"
 
-"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread"
-  %.0 = phi i32 [ %34, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread" ], [ 1, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit" ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i" ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i" ]
+"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit75.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit69.i.i.i", %_ZN4llvm9StringRefC2EPKc.exit.i.i65.i.i.i, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread"
+  %.0 = phi i32 [ %34, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread" ], [ 1, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit" ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit.i.i65.i.i.i ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit69.i.i.i" ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit75.i.i.i" ]
   ret i32 %.0
 }
 

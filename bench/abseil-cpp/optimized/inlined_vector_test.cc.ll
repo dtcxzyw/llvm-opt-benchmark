@@ -117898,7 +117898,7 @@ for.inc.i.i:                                      ; preds = %_ZN4absl23inlined_v
   %i.02.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_129MoveConstructibleOnlyInstanceELm2ESaIS3_EE21DeallocateIfAllocatedEv.exit.i ]
   %other_values.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %other_values.sroa.0.0.pn.i, i64 8
   %add.ptr.i.i = getelementptr inbounds nuw %"class.(anonymous namespace)::MoveConstructibleOnlyInstance", ptr %0, i64 %i.02.i.i
-  %4 = load i32, ptr %other_values.sroa.0.0.i, align 4
+  %4 = load i32, ptr %other_values.sroa.0.0.i, align 8
   store i32 %4, ptr %add.ptr.i.i, align 8
   %is_live_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   %is_live_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %other_values.sroa.0.0.pn.i, i64 12
@@ -123087,18 +123087,18 @@ _ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i: ; preds = %if.then7.i, %
   %i.033.i.i.i = phi i64 [ %inc.i.i.i, %_ZN12_GLOBAL__N_120NonSwappableInstanceD2Ev.exit.i.i.i ], [ 0, %if.then7.i ]
   %a.0.i.i.i = getelementptr inbounds nuw i8, ptr %this.pn35.i.i.i, i64 8
   %b.0.i.i.i = getelementptr inbounds nuw i8, ptr %other.pn34.i.i.i, i64 8
-  %2 = load i32, ptr %a.0.i.i.i, align 4
+  %2 = load i32, ptr %a.0.i.i.i, align 8
   %is_live_3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.pn35.i.i.i, i64 12
   %3 = load i8, ptr %is_live_3.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i = and i8 %3, 1
   store i8 0, ptr %is_live_3.i.i.i.i.i, align 4
-  %4 = load i32, ptr %b.0.i.i.i, align 4
-  store i32 %4, ptr %a.0.i.i.i, align 4
+  %4 = load i32, ptr %b.0.i.i.i, align 8
+  store i32 %4, ptr %a.0.i.i.i, align 8
   %is_live_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %other.pn34.i.i.i, i64 12
   %5 = load i8, ptr %is_live_3.i.i.i.i.i.i.i, align 4
   %frombool.i.i.i.i.i.i.i = and i8 %5, 1
   store i8 %frombool.i.i.i.i.i.i.i, ptr %is_live_3.i.i.i.i.i, align 4
-  store i32 %2, ptr %b.0.i.i.i, align 4
+  store i32 %2, ptr %b.0.i.i.i, align 8
   store i8 %frombool.i.i.i.i.i, ptr %is_live_3.i.i.i.i.i.i.i, align 4
   %inc.i.i.i = add nuw nsw i64 %i.033.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %shr.i10.i.i
@@ -123123,7 +123123,7 @@ for.inc.i.i.i:                                    ; preds = %_ZN4absl23inlined_v
   %move_values.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i ], [ %add.ptr.i.i, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i ]
   %i.02.i.i.i = phi i64 [ %inc.i13.i.i, %for.inc.i.i.i ], [ 0, %_ZN4absl23inlined_vector_internal7StorageIN12_GLOBAL__N_120NonSwappableInstanceELm2ESaIS3_EE5SwapNENS5_26ElementwiseConstructPolicyEPS5_m.exit.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::NonSwappableInstance", ptr %add.ptr8.i.i, i64 %i.02.i.i.i
-  %9 = load i32, ptr %move_values.sroa.0.0.i.i, align 4
+  %9 = load i32, ptr %move_values.sroa.0.0.i.i, align 8
   store i32 %9, ptr %add.ptr.i.i.i, align 8
   %is_live_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %is_live_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.0.i.i, i64 4
@@ -123185,7 +123185,7 @@ for.inc.i.i:                                      ; preds = %invoke.cont17.i, %f
   %move_values.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i ], [ %data_.i.i, %invoke.cont17.i ]
   %i.02.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %invoke.cont17.i ]
   %add.ptr.i26.i = getelementptr inbounds nuw %"class.(anonymous namespace)::NonSwappableInstance", ptr %14, i64 %i.02.i.i
-  %16 = load i32, ptr %move_values.sroa.0.0.i, align 4
+  %16 = load i32, ptr %move_values.sroa.0.0.i, align 8
   store i32 %16, ptr %add.ptr.i26.i, align 8
   %is_live_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i26.i, i64 4
   %is_live_3.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.0.i, i64 4
@@ -132147,18 +132147,18 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %__first1.addr.06.i.pn.i.i = phi ptr [ %__first1.addr.06.i.i.i, %for.body.i.i.i ], [ %a, %for.body.i.preheader.i.i ]
   %__first1.addr.06.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i.pn.i.i, i64 8
   %__first2.addr.07.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i.pn.i.i, i64 8
-  %78 = load i32, ptr %__first1.addr.06.i.i.i, align 4
-  %79 = load i32, ptr %__first2.addr.07.i.i.i, align 4
-  store i32 %79, ptr %__first1.addr.06.i.i.i, align 4
-  store i32 %78, ptr %__first2.addr.07.i.i.i, align 4
+  %78 = load i32, ptr %__first1.addr.06.i.i.i, align 8
+  %79 = load i32, ptr %__first2.addr.07.i.i.i, align 8
+  store i32 %79, ptr %__first1.addr.06.i.i.i, align 8
+  store i32 %78, ptr %__first2.addr.07.i.i.i, align 8
   %is_live_.i.i.i.i.i.i693 = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i.pn.i.i, i64 12
   %is_live_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i.pn.i.i, i64 12
-  %80 = load i8, ptr %is_live_.i.i.i.i.i.i693, align 1
+  %80 = load i8, ptr %is_live_.i.i.i.i.i.i693, align 4
   %frombool.i.i.i.i.i.i.i694 = and i8 %80, 1
-  %81 = load i8, ptr %is_live_2.i.i.i.i.i.i, align 1
+  %81 = load i8, ptr %is_live_2.i.i.i.i.i.i, align 4
   %frombool2.i.i.i.i.i.i.i = and i8 %81, 1
-  store i8 %frombool2.i.i.i.i.i.i.i, ptr %is_live_.i.i.i.i.i.i693, align 1
-  store i8 %frombool.i.i.i.i.i.i.i694, ptr %is_live_2.i.i.i.i.i.i, align 1
+  store i8 %frombool2.i.i.i.i.i.i.i, ptr %is_live_.i.i.i.i.i.i693, align 4
+  store i8 %frombool.i.i.i.i.i.i.i694, ptr %is_live_2.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i695 = icmp eq ptr %__first1.addr.06.i.i.i, %76
   br i1 %cmp.not.i.i.i695, label %_ZSt11swap_rangesIPN4absl13test_internal20CopyableOnlyInstanceES3_ET0_T_S5_S4_.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !3128
 
@@ -132190,7 +132190,7 @@ for.body.i.i699:                                  ; preds = %for.body.i.i699.pre
   %move_values.sroa.0.0.i700 = phi ptr [ %incdec.ptr.i.i.i.i709, %for.inc.i.i707 ], [ %add.ptr.i697, %for.body.i.i699.preheader ]
   %i.09.i.i701 = phi i64 [ %inc.i.i710, %for.inc.i.i707 ], [ 0, %for.body.i.i699.preheader ]
   %add.ptr.i.i702 = getelementptr inbounds %"class.absl::test_internal::CopyableOnlyInstance", ptr %add.ptr8.i, i64 %i.09.i.i701
-  %86 = load i32, ptr %move_values.sroa.0.0.i700, align 4
+  %86 = load i32, ptr %move_values.sroa.0.0.i700, align 8
   store i32 %86, ptr %add.ptr.i.i702, align 8
   %is_live_.i.i.i.i.i.i.i703 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i702, i64 4
   %is_live_3.i.i.i.i.i.i.i704 = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.0.i700, i64 4
@@ -134796,18 +134796,18 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %__first1.addr.06.i.pn.i.i = phi ptr [ %__first1.addr.06.i.i.i, %for.body.i.i.i ], [ %a, %for.body.i.preheader.i.i ]
   %__first1.addr.06.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i.pn.i.i, i64 8
   %__first2.addr.07.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i.pn.i.i, i64 8
-  %79 = load i32, ptr %__first1.addr.06.i.i.i, align 4
-  %80 = load i32, ptr %__first2.addr.07.i.i.i, align 4
-  store i32 %80, ptr %__first1.addr.06.i.i.i, align 4
-  store i32 %79, ptr %__first2.addr.07.i.i.i, align 4
+  %79 = load i32, ptr %__first1.addr.06.i.i.i, align 8
+  %80 = load i32, ptr %__first2.addr.07.i.i.i, align 8
+  store i32 %80, ptr %__first1.addr.06.i.i.i, align 8
+  store i32 %79, ptr %__first2.addr.07.i.i.i, align 8
   %is_live_.i.i.i.i.i.i675 = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i.pn.i.i, i64 12
   %is_live_2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i.pn.i.i, i64 12
-  %81 = load i8, ptr %is_live_.i.i.i.i.i.i675, align 1
+  %81 = load i8, ptr %is_live_.i.i.i.i.i.i675, align 4
   %frombool.i.i.i.i.i.i.i676 = and i8 %81, 1
-  %82 = load i8, ptr %is_live_2.i.i.i.i.i.i, align 1
+  %82 = load i8, ptr %is_live_2.i.i.i.i.i.i, align 4
   %frombool2.i.i.i.i.i.i.i = and i8 %82, 1
-  store i8 %frombool2.i.i.i.i.i.i.i, ptr %is_live_.i.i.i.i.i.i675, align 1
-  store i8 %frombool.i.i.i.i.i.i.i676, ptr %is_live_2.i.i.i.i.i.i, align 1
+  store i8 %frombool2.i.i.i.i.i.i.i, ptr %is_live_.i.i.i.i.i.i675, align 4
+  store i8 %frombool.i.i.i.i.i.i.i676, ptr %is_live_2.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i677 = icmp eq ptr %__first1.addr.06.i.i.i, %77
   br i1 %cmp.not.i.i.i677, label %_ZSt11swap_rangesIPN4absl13test_internal23CopyableMovableInstanceES3_ET0_T_S5_S4_.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !3152
 
@@ -134837,7 +134837,7 @@ for.inc.i.i681:                                   ; preds = %for.inc.i.i681.preh
   %move_values.sroa.0.0.i682 = phi ptr [ %incdec.ptr.i.i.i.i689, %for.inc.i.i681 ], [ %add.ptr.i679, %for.inc.i.i681.preheader ]
   %i.08.i.i683 = phi i64 [ %inc.i.i690, %for.inc.i.i681 ], [ 0, %for.inc.i.i681.preheader ]
   %add.ptr.i.i684 = getelementptr inbounds %"class.absl::test_internal::CopyableMovableInstance", ptr %add.ptr8.i, i64 %i.08.i.i683
-  %87 = load i32, ptr %move_values.sroa.0.0.i682, align 4
+  %87 = load i32, ptr %move_values.sroa.0.0.i682, align 8
   store i32 %87, ptr %add.ptr.i.i684, align 8
   %is_live_.i.i.i.i.i.i.i685 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i684, i64 4
   %is_live_3.i.i.i.i.i.i.i686 = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.0.i682, i64 4
@@ -148843,7 +148843,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %i.09.i.i = phi i64 [ %inc.i.i108, %for.inc.i.i ], [ 0, %for.body.i.i.preheader ]
   %other_values.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %other_values.sroa.0.0.pn.i, i64 8
   %add.ptr.i.i = getelementptr inbounds nuw %"class.absl::test_internal::CopyableOnlyInstance", ptr %data_.i9.i, i64 %i.09.i.i
-  %65 = load i32, ptr %other_values.sroa.0.0.i, align 4
+  %65 = load i32, ptr %other_values.sroa.0.0.i, align 8
   store i32 %65, ptr %add.ptr.i.i, align 8
   %is_live_.i.i.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   %is_live_3.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %other_values.sroa.0.0.pn.i, i64 12
@@ -150734,7 +150734,7 @@ for.inc.i.i:                                      ; preds = %for.inc.i.i.prehead
   %i.08.i.i = phi i64 [ %inc.i.i107, %for.inc.i.i ], [ 0, %for.inc.i.i.preheader ]
   %other_values.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %other_values.sroa.0.0.pn.i, i64 8
   %add.ptr.i.i = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %data_.i9.i, i64 %i.08.i.i
-  %65 = load i32, ptr %other_values.sroa.0.0.i, align 4
+  %65 = load i32, ptr %other_values.sroa.0.0.i, align 8
   store i32 %65, ptr %add.ptr.i.i, align 8
   %is_live_.i.i.i.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   %is_live_3.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %other_values.sroa.0.0.pn.i, i64 12
@@ -159555,7 +159555,7 @@ for.body.i.i836:                                  ; preds = %if.end25.i, %_ZN4ab
   %values.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i.i.i842, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i ], [ %data_.i1.i.i.i.i, %if.end25.i ]
   %i.04.i.i = phi i64 [ %inc.i.i843, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i ], [ 0, %if.end25.i ]
   %add.ptr.i.i837 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i.i833, i64 %i.04.i.i
-  %104 = load i32, ptr %values.sroa.0.0.i, align 4
+  %104 = load i32, ptr %values.sroa.0.0.i, align 8
   store i32 %104, ptr %add.ptr.i.i837, align 4
   %is_live_.i.i.i.i.i838 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i837, i64 4
   %105 = load i8, ptr %is_live_.i.i.i.i.i838, align 4
@@ -159798,7 +159798,7 @@ for.body.i.i902:                                  ; preds = %if.end25.i895, %_ZN
   %values.sroa.0.0.i903 = phi ptr [ %incdec.ptr.i.i.i.i912, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i908 ], [ %data_.i1.i.i.i.i66, %if.end25.i895 ]
   %i.04.i.i904 = phi i64 [ %inc.i.i913, %_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_13test_internal23CopyableMovableInstanceEESt13move_iteratorIPS3_EE10AssignNextES6_.exit.i.i908 ], [ 0, %if.end25.i895 ]
   %add.ptr.i.i905 = getelementptr inbounds nuw %"class.absl::test_internal::CopyableMovableInstance", ptr %.sink3.i.i886, i64 %i.04.i.i904
-  %122 = load i32, ptr %values.sroa.0.0.i903, align 4
+  %122 = load i32, ptr %values.sroa.0.0.i903, align 8
   store i32 %122, ptr %add.ptr.i.i905, align 4
   %is_live_.i.i.i.i.i906 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i905, i64 4
   %123 = load i8, ptr %is_live_.i.i.i.i.i906, align 4
