@@ -2,9 +2,13 @@ import sys
 import os
 
 bench_dir = sys.argv[1]
+max_size = 40 * 1000000
 removed = 0
 
 def is_trivial(file):
+    if os.path.getsize(file) > max_size:
+        return True
+
     with open(file) as f:
         for line in f.readlines():
             if line.startswith("define "):
