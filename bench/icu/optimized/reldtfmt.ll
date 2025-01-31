@@ -308,7 +308,7 @@ lpad4:                                            ; preds = %invoke.cont3
           cleanup
   br label %ehcleanup
 
-lpad6:                                            ; preds = %call3.i.noexc, %if.then.i, %invoke.cont75, %if.then43, %if.then36, %if.end30, %if.end20
+lpad6:                                            ; preds = %call3.i.noexc, %if.then.i, %invoke.cont75, %if.then43, %if.then36, %if.end30, %if.then23
   %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #15
@@ -320,14 +320,14 @@ if.end:                                           ; preds = %invoke.cont5
   %4 = add i32 %timeStyle, -4
   %or.cond4 = icmp ult i32 %4, -5
   %or.cond = or i1 %or.cond2, %or.cond4
-  br i1 %or.cond, label %invoke.cont77.sink.split, label %if.end20
+  br i1 %or.cond, label %invoke.cont77.sink.split, label %if.then23
 
-if.end20:                                         ; preds = %if.end
+if.then23:                                        ; preds = %if.end
   %and = and i32 %dateStyle, 3
   %call25 = invoke noundef ptr @_ZN6icu_7510DateFormat18createDateInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef %and, ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont24 unwind label %lpad6
 
-invoke.cont24:                                    ; preds = %if.end20
+invoke.cont24:                                    ; preds = %if.then23
   %5 = icmp eq ptr %call25, null
   br i1 %5, label %dynamic_cast.end.thread, label %dynamic_cast.end
 

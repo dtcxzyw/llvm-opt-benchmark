@@ -24797,17 +24797,13 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inp
   %c.sroa.0.1.i.i.i = or <4 x i64> %c.sroa.22.01221.pn.i.i.i, %c.sroa.0.01219.i.i.i
   %add.i58.i.i.i = add nuw i64 %reader.sroa.11.01218.i.i.i, 64
   %cmp.i16.i.i.i = icmp ult i64 %add.i58.i.i.i, %spec.select.i.i.i
-  br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !239
+  br i1 %cmp.i16.i.i.i, label %while.body.i.i.i, label %if.end.i.i.i.i, !llvm.loop !239
 
-while.end.i.i.i:                                  ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i
-  %cmp.i63.i.i.i = icmp eq i64 %length, %add.i58.i.i.i
-  br i1 %cmp.i63.i.i.i, label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %if.else, %while.end.i.i.i
-  %c.sroa.22.0.lcssa.i.i.i24 = phi <4 x i64> [ %c.sroa.22.1.i.i.i, %while.end.i.i.i ], [ zeroinitializer, %if.else ]
-  %c.sroa.17.0.lcssa.i.i.i22 = phi <4 x i64> [ %c.sroa.17.1.i.i.i, %while.end.i.i.i ], [ zeroinitializer, %if.else ]
-  %c.sroa.0.0.lcssa.i.i.i20 = phi <4 x i64> [ %c.sroa.0.1.i.i.i, %while.end.i.i.i ], [ zeroinitializer, %if.else ]
-  %reader.sroa.11.0.lcssa.i.i.i19 = phi i64 [ %add.i58.i.i.i, %while.end.i.i.i ], [ 0, %if.else ]
+if.end.i.i.i.i:                                   ; preds = %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i, %if.else
+  %c.sroa.22.0.lcssa.i.i.i24 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.22.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
+  %c.sroa.17.0.lcssa.i.i.i22 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.17.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
+  %c.sroa.0.0.lcssa.i.i.i20 = phi <4 x i64> [ zeroinitializer, %if.else ], [ %c.sroa.0.1.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
+  %reader.sroa.11.0.lcssa.i.i.i19 = phi i64 [ 0, %if.else ], [ %add.i58.i.i.i, %_ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit51.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block.i.i.i, i8 32, i64 64, i1 false)
   %add.ptr.i64.i.i.i = getelementptr inbounds i8, ptr %input, i64 %reader.sroa.11.0.lcssa.i.i.i19
   %sub.i66.i.i.i = sub i64 %length, %reader.sroa.11.0.lcssa.i.i.i19
@@ -24815,24 +24811,16 @@ if.end.i.i.i.i:                                   ; preds = %if.else, %while.end
   %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i = load <4 x i64>, ptr %block.i.i.i, align 16, !noalias !240
   %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32.add.ptr.i26.sroa_idx = getelementptr inbounds nuw i8, ptr %block.i.i.i, i64 32
   %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i = load <4 x i64>, ptr %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32.add.ptr.i26.sroa_idx, align 16, !noalias !243
-  br label %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i
-
-_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i: ; preds = %if.end.i.i.i.i, %while.end.i.i.i
-  %c.sroa.22.0.lcssa.i.i.i25 = phi <4 x i64> [ %c.sroa.22.1.i.i.i, %while.end.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i24, %if.end.i.i.i.i ]
-  %c.sroa.17.0.lcssa.i.i.i23 = phi <4 x i64> [ %c.sroa.17.1.i.i.i, %while.end.i.i.i ], [ %c.sroa.17.0.lcssa.i.i.i22, %if.end.i.i.i.i ]
-  %c.sroa.0.0.lcssa.i.i.i21 = phi <4 x i64> [ %c.sroa.0.1.i.i.i, %while.end.i.i.i ], [ %c.sroa.0.0.lcssa.i.i.i20, %if.end.i.i.i.i ]
-  %block.32.block.32.block.32..i.i.i = phi <4 x i64> [ zeroinitializer, %while.end.i.i.i ], [ %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i, %if.end.i.i.i.i ]
-  %block.0.block.0.block.0..i.i.i = phi <4 x i64> [ zeroinitializer, %while.end.i.i.i ], [ %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i, %if.end.i.i.i.i ]
-  %or.i.i344.i.i.i = or <4 x i64> %block.0.block.0.block.0..i.i.i, %block.32.block.32.block.32..i.i.i
+  %or.i.i344.i.i.i = or <4 x i64> %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i, %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i
   %170 = bitcast <4 x i64> %or.i.i344.i.i.i to <32 x i8>
   %171 = icmp slt <32 x i8> %170, zeroinitializer
   %172 = bitcast <32 x i1> %171 to i32
   %cmp.i296.i.i.i = icmp eq i32 %172, 0
   br i1 %cmp.i296.i.i.i, label %_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit, label %if.else.i.i.i.i
 
-if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i
-  %173 = bitcast <4 x i64> %block.0.block.0.block.0..i.i.i to <32 x i8>
-  %vperm.i.i.i.i = shufflevector <4 x i64> %c.sroa.17.0.lcssa.i.i.i23, <4 x i64> %block.0.block.0.block.0..i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
+  %173 = bitcast <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i to <32 x i8>
+  %vperm.i.i.i.i = shufflevector <4 x i64> %c.sroa.17.0.lcssa.i.i.i22, <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %174 = bitcast <4 x i64> %vperm.i.i.i.i to <32 x i8>
   %palignr.i.i.i.i = shufflevector <32 x i8> %174, <32 x i8> %173, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
   %175 = bitcast <32 x i8> %palignr.i.i.i.i to <16 x i16>
@@ -24842,7 +24830,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswel
   %179 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %178)
   %180 = and <32 x i8> %palignr.i.i.i.i, splat (i8 15)
   %181 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %180)
-  %182 = bitcast <4 x i64> %block.0.block.0.block.0..i.i.i to <16 x i16>
+  %182 = bitcast <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i to <16 x i16>
   %183 = lshr <16 x i16> %182, splat (i16 4)
   %184 = bitcast <16 x i16> %183 to <32 x i8>
   %185 = and <32 x i8> %184, splat (i8 15)
@@ -24860,8 +24848,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswel
   %187 = bitcast <32 x i8> %sext.i.i.i.i.i to <4 x i64>
   %and.i.i1921.i.i.i = and <4 x i64> %187, splat (i64 -9187201950435737472)
   %xor.i.i7507.i.i.i = xor <4 x i64> %and.i.i1921.i.i.i, %and.i.i2321.i.i.i
-  %188 = bitcast <4 x i64> %block.32.block.32.block.32..i.i.i to <32 x i8>
-  %vperm.i695.i.i.i = shufflevector <4 x i64> %block.0.block.0.block.0..i.i.i, <4 x i64> %block.32.block.32.block.32..i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %188 = bitcast <4 x i64> %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i to <32 x i8>
+  %vperm.i695.i.i.i = shufflevector <4 x i64> %block.i.i.i.0.block.i.i.i.0.block.i.i.i.0.block.i.i.0.block.i.i.0.block.i.0.block.i.0.block.0.block.0.block.0..pre.i.i.i, <4 x i64> %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %189 = bitcast <4 x i64> %vperm.i695.i.i.i to <32 x i8>
   %palignr.i696.i.i.i = shufflevector <32 x i8> %189, <32 x i8> %188, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
   %190 = bitcast <32 x i8> %palignr.i696.i.i.i to <16 x i16>
@@ -24871,7 +24859,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswel
   %194 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <32 x i8> %193)
   %195 = and <32 x i8> %palignr.i696.i.i.i, splat (i8 15)
   %196 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <32 x i8> %195)
-  %197 = bitcast <4 x i64> %block.32.block.32.block.32..i.i.i to <16 x i16>
+  %197 = bitcast <4 x i64> %block.i.i.i.32.block.i.i.i.32.block.i.i.i.32.block.i.i.32.block.i.i.32.block.i.32.block.i.32.block.32.block.32.block.32..pre.i.i.i to <16 x i16>
   %198 = lshr <16 x i16> %197, splat (i16 4)
   %199 = bitcast <16 x i16> %198 to <32 x i8>
   %200 = and <32 x i8> %199, splat (i8 15)
@@ -24894,10 +24882,10 @@ if.else.i.i.i.i:                                  ; preds = %_ZNK7simdutf7haswel
   %204 = bitcast <32 x i8> %elt.sat.i.i.i.i.i to <4 x i64>
   br label %_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit
 
-_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit: ; preds = %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i, %if.else.i.i.i.i
-  %c.sroa.22.0.lcssa.pn.i.i.i = phi <4 x i64> [ %203, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i25, %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i ]
-  %c.sroa.22.2.i.i.i = phi <4 x i64> [ %204, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i25, %_ZNK7simdutf7haswell12_GLOBAL__N_116buf_block_readerILm64EE13get_remainderEPh.exit.i.i.i ]
-  %c.sroa.0.2.i.i.i = or <4 x i64> %c.sroa.22.0.lcssa.pn.i.i.i, %c.sroa.0.0.lcssa.i.i.i21
+_ZNK7simdutf7haswell14implementation13validate_utf8EPKcm.exit: ; preds = %if.end.i.i.i.i, %if.else.i.i.i.i
+  %c.sroa.22.0.lcssa.pn.i.i.i = phi <4 x i64> [ %203, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i24, %if.end.i.i.i.i ]
+  %c.sroa.22.2.i.i.i = phi <4 x i64> [ %204, %if.else.i.i.i.i ], [ %c.sroa.22.0.lcssa.i.i.i24, %if.end.i.i.i.i ]
+  %c.sroa.0.2.i.i.i = or <4 x i64> %c.sroa.22.0.lcssa.pn.i.i.i, %c.sroa.0.0.lcssa.i.i.i20
   %or.i.i610.i.i.i = or <4 x i64> %c.sroa.0.2.i.i.i, %c.sroa.22.2.i.i.i
   %205 = tail call noundef i32 @llvm.x86.avx.ptestz.256(<4 x i64> %or.i.i610.i.i.i, <4 x i64> %or.i.i610.i.i.i)
   %tobool.i.i.i.i.not = icmp ne i32 %205, 0
