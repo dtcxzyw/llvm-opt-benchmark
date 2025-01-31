@@ -365,7 +365,6 @@ define hidden i32 @mbedtls_psa_ecdsa_sign_hash(ptr noundef readonly captures(non
   switch i32 %29, label %switch.early.test [
     i32 100664064, label %31
     i32 100668160, label %31
-    i32 100663808, label %31
     i32 100665600, label %31
   ]
 
@@ -376,7 +375,7 @@ switch.early.test:                                ; preds = %28
     i32 100664320, label %31
   ]
 
-31:                                               ; preds = %28, %28, %28, %28, %switch.early.test, %switch.early.test
+31:                                               ; preds = %28, %28, %28, %switch.early.test, %switch.early.test
   %32 = and i32 %3, 255
   %.not43 = icmp eq i32 %32, 0
   %33 = or disjoint i32 %32, 33554432
