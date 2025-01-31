@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     ninja-build \
     python3-tqdm \
+    python3-unidiff \
     linux-tools-common \
     linux-tools-generic \
     linux-tools-`uname -r` \
