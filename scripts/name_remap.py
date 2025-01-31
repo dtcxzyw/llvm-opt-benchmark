@@ -84,3 +84,4 @@ for file in patch:
         lines[i] = remap(val, pairs[stripped], mapping)
     with open(file.source_file, "w") as f:
         f.writelines(lines)
+    subprocess.check_call(['git', 'add', file.source_file])
