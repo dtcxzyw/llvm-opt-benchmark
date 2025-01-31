@@ -4232,11 +4232,11 @@ if.end23:                                         ; preds = %if.then15, %land.lh
   %host.1 = phi ptr [ null, %if.else ], [ %call163.i.i, %land.lhs.true11 ], [ %call163.i.i, %if.then15 ]
   %cmp24 = icmp sgt i32 %port.46085, -1
   %bf.load46.pre = load i32, ptr %bits.i, align 8
-  br i1 %cmp24, label %if.then26, label %if.end49
+  br i1 %cmp24, label %if.then26, label %if.else44
 
 if.end23.thread:                                  ; preds = %if.then7
   %cmp2490 = icmp sgt i32 %port.0.i.i, -1
-  br i1 %cmp2490, label %if.then26.thread, label %if.end49
+  br i1 %cmp2490, label %if.then26.thread, label %if.else44
 
 if.then26.thread:                                 ; preds = %if.end23.thread
   store i32 %port.0.i.i, ptr %conn_to_port97, align 8
@@ -4260,7 +4260,7 @@ if.then41:                                        ; preds = %land.lhs.true33
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.52, i32 noundef %port.46085) #11
   br label %return
 
-if.end49:                                         ; preds = %if.end23, %if.end23.thread
+if.else44:                                         ; preds = %if.end23, %if.end23.thread
   %bf.load46 = phi i32 [ %bf.set, %if.end23.thread ], [ %bf.load46.pre, %if.end23 ]
   %host.193 = phi ptr [ %call163.i.i, %if.end23.thread ], [ %host.1, %if.end23 ]
   %bf.clear47 = and i32 %bf.load46, -1025
@@ -4268,7 +4268,7 @@ if.end49:                                         ; preds = %if.end23, %if.end23
   %next = getelementptr inbounds nuw i8, ptr %conn_to_host.addr.0123, i64 8
   %44 = load ptr, ptr %next, align 8
   %tobool = icmp eq ptr %44, null
-  %tobool1 = icmp ne ptr %host.193, null
+  %host.192 = icmp ne ptr %host.193, null
   %or.cond = or i1 %tobool1, %tobool
   br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !11
 

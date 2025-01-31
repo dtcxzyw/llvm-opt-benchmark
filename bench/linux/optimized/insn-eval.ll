@@ -783,13 +783,13 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
 106:                                              ; preds = %101
   %107 = tail call i32 @insn_get_modrm(ptr noundef nonnull %0) #7
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %get_eff_addr_reg.exit.thread
+  br i1 %108, label %109, label %166
 
 109:                                              ; preds = %106
   %110 = load i32, ptr %102, align 8
   %111 = and i32 %110, 192
   %112 = icmp eq i32 %111, 192
-  br i1 %112, label %113, label %get_eff_addr_reg.exit.thread
+  br i1 %112, label %113, label %166
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 83
@@ -797,12 +797,12 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   %116 = icmp eq i8 %115, 0
   %117 = select i1 %116, i32 8, i32 16
   %118 = and i32 %110, 7
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %120 = load i32, ptr %119, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %118 = load i32, ptr %117, align 8
   %121 = shl i32 %120, 3
   %122 = and i32 %121, 8
   %123 = or disjoint i32 %122, %118
-  %124 = icmp samesign ult i32 %123, %117
+  %120 = icmp samesign ult i32 %123, %117
   br i1 %124, label %128, label %125
 
 125:                                              ; preds = %113
@@ -822,8 +822,8 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
 128:                                              ; preds = %113
   %129 = zext nneg i32 %123 to i64
   %130 = getelementptr [16 x i32], ptr @pt_regoff, i64 0, i64 %129
-  %131 = load i32, ptr %130, align 4
-  store i32 %131, ptr %8, align 4
+  %132 = load i32, ptr %130, align 4
+  store i32 %132, ptr %8, align 4
   %132 = load i8, ptr %21, align 1
   %133 = zext nneg i32 %131 to i64
   %134 = ptrtoint ptr %1 to i64
@@ -835,7 +835,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
     i8 4, label %140
   ]
 
-138:                                              ; preds = %128
+137:                                              ; preds = %128
   %139 = and i64 %137, 65535
   br label %get_eff_addr_reg.exit
 
@@ -844,54 +844,54 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
   br label %get_eff_addr_reg.exit
 
 get_eff_addr_reg.exit:                            ; preds = %128, %138, %140
-  %142 = phi i64 [ %139, %138 ], [ %141, %140 ], [ %137, %128 ]
-  store i64 %142, ptr %9, align 8
+  %140 = phi i64 [ %139, %138 ], [ %141, %140 ], [ %137, %128 ]
+  store i64 %140, ptr %9, align 8
   br label %153
 
-143:                                              ; preds = %101
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  %145 = load i8, ptr %144, align 1
+142:                                              ; preds = %101
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 45
+  %144 = load i8, ptr %143, align 1
   %146 = icmp eq i8 %145, 0
   br i1 %146, label %150, label %147
 
 147:                                              ; preds = %143
-  %148 = call fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %153, label %get_eff_addr_reg.exit.thread
+  %147 = call fastcc i32 @get_eff_addr_sib(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %152, label %166
 
-150:                                              ; preds = %143
-  %151 = call fastcc i32 @get_eff_addr_modrm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %get_eff_addr_reg.exit.thread
+149:                                              ; preds = %143
+  %150 = call fastcc i32 @get_eff_addr_modrm(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %153, label %166
 
-153:                                              ; preds = %get_eff_addr_reg.exit, %150, %147
-  %154 = load i64, ptr %9, align 8
-  %155 = load i32, ptr %8, align 4
+152:                                              ; preds = %get_eff_addr_reg.exit, %150, %147
+  %153 = load i64, ptr %9, align 8
+  %154 = load i32, ptr %8, align 4
   %156 = call fastcc i32 @get_seg_base_limit(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %155, ptr noundef nonnull %6, ptr noundef nonnull %7), !range !25
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %158, label %get_eff_addr_reg.exit.thread
+  br i1 %157, label %158, label %166
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %160 = load i64, ptr %159, align 8
   %161 = and i64 %160, 3
   %162 = icmp ne i64 %161, 0
-  %163 = icmp ne i64 %160, 51
-  %.not10 = and i1 %163, %162
-  %.pre6 = and i64 %154, 4294967295
+  %160 = icmp ne i64 %160, 51
+  %161 = and i1 %163, %162
+  %162 = and i64 %154, 4294967295
   %164 = load i64, ptr %7, align 8
   %165 = icmp ugt i64 %.pre6, %164
-  %or.cond = select i1 %.not10, i1 %165, i1 false
+  %or.cond = select i1 %161, i1 %165, i1 false
   br i1 %or.cond, label %get_eff_addr_reg.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %158
   %166 = load i64, ptr %6, align 8
   %167 = add i64 %166, %.pre6
-  br label %get_eff_addr_reg.exit.thread
+  br label %166
 
-get_eff_addr_reg.exit.thread:                     ; preds = %158, %125, %127, %109, %106, %._crit_edge, %153, %150, %147
+166:                     ; preds = %158, %125, %127, %109, %106, %._crit_edge, %152, %150, %147
   %168 = phi i64 [ -1, %153 ], [ %167, %._crit_edge ], [ -1, %147 ], [ -1, %150 ], [ -1, %106 ], [ -1, %109 ], [ -1, %127 ], [ -1, %125 ], [ -1, %158 ]
-  %169 = inttoptr i64 %168 to ptr
+  %169 = inttoptr i64 %167 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
@@ -1277,12 +1277,12 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
   %15 = icmp eq i8 %14, 0
   %16 = select i1 %15, i32 8, i32 16
   %17 = and i32 %9, 7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = shl i32 %19, 3
-  %21 = and i32 %20, 8
-  %22 = or disjoint i32 %21, %17
-  %23 = icmp samesign ult i32 %22, %16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8
+  %18 = shl i32 %17, 3
+  %19 = and i32 %18, 8
+  %20 = or disjoint i32 %19, %17
+  %21 = icmp samesign ult i32 %20, %16
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %12
@@ -1305,16 +1305,16 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
 
 27:                                               ; preds = %12
   %28 = zext nneg i32 %22 to i64
-  %29 = getelementptr [16 x i32], ptr @pt_regoff, i64 0, i64 %28
-  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr [16 x i32], ptr @pt_regoff, i64 0, i64 %28
+  %32 = load i32, ptr %31, align 4
   store i32 %30, ptr %2, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %32 = load i8, ptr %31, align 1
-  %33 = zext nneg i32 %30 to i64
-  %34 = ptrtoint ptr %1 to i64
-  %35 = add i64 %33, %34
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load i64, ptr %36, align 8
+  %34 = load i8, ptr %31, align 1
+  %35 = zext nneg i32 %30 to i64
+  %36 = ptrtoint ptr %1 to i64
+  %37 = add i64 %33, %34
+  %38 = inttoptr i64 %37 to ptr
+  %39 = load i64, ptr %36, align 8
   switch i8 %32, label %42 [
     i8 2, label %38
     i8 4, label %40

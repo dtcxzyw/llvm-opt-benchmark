@@ -229,15 +229,15 @@ define internal void @_ZL28module_export_event_callbackP12PackageEntry(ptr nound
 _ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %30, label %_ZNK12PackageEntry11is_exportedEv.exit.thread
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %30, label %_ZNK12PackageEntry11is_exportedEv.exit.thread
 
 _ZNK12PackageEntry11is_exportedEv.exit.thread:    ; preds = %9, %_ZNK12PackageEntry11is_exportedEv.exit
   %15 = icmp ne i32 %11, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp ne ptr %17, null
-  %19 = select i1 %15, i1 %18, i1 false
+  %18 = load ptr, ptr %16, align 8
+  %19 = icmp ne ptr %17, null
+  %19 = select i1 %15, i1 %19, i1 false
   br i1 %19, label %20, label %_ZNK12PackageEntry11is_exportedEv.exit.thread.thread
 
 20:                                               ; preds = %_ZNK12PackageEntry11is_exportedEv.exit.thread
@@ -253,18 +253,18 @@ _ZNK12PackageEntry11is_exportedEv.exit.thread.thread: ; preds = %1, %_ZNK12Packa
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 17
-  store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i8 0, ptr %25, align 2
-  %26 = load i64, ptr @_ZL15invocation_time.0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 17
+  store i8 0, ptr %26, align 1
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  store i8 0, ptr %27, align 2
+  %28 = load i64, ptr @_ZL15invocation_time.0, align 8
   store i64 %26, ptr %2, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %0, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %0, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr null, ptr %31, align 8
   call void @_ZN8JfrEventI17EventModuleExportE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   br label %30

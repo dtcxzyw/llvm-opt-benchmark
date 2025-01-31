@@ -837,9 +837,9 @@ land.lhs.true.i45:                                ; preds = %_ZN5folly6detail17d
   %shr.i31.i = lshr i64 %17, 8
   %add.i = add nuw nsw i64 %shr.i31.i, 200
   %cmp.i55 = icmp samesign ugt i64 %shl.i.i, %add.i
-  br i1 %cmp.i55, label %if.then.i, label %land.lhs.true.i.thread.thread54
+  br i1 %cmp.i55, label %if.then.i, label %land.lhs.true.i.thread.thread55
 
-land.lhs.true.i.thread.thread54:                  ; preds = %land.lhs.true.i45
+land.lhs.true.i.thread.thread55:                  ; preds = %land.lhs.true.i45
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i43)
   br label %if.then5.i
 
@@ -870,14 +870,14 @@ _ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmm
 
 land.lhs.true.i.thread:                           ; preds = %_ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit.us30, %_ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i43)
-  %34 = icmp eq i64 %17, 4
-  br i1 %34, label %cond.false.i, label %if.then5.i
+  %cmp.i6274 = icmp eq i64 %17, 4
+  br i1 %cmp.i6274, label %cond.false.i, label %if.then5.i
 
-if.then5.i:                                       ; preds = %land.lhs.true.i.us, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.us37, %land.lhs.true.i.thread.thread54, %land.lhs.true.i.thread
-  %current.011011 = phi ptr [ %waiter, %land.lhs.true.i.thread ], [ %waiter, %land.lhs.true.i.thread.thread54 ], [ %waiter, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.us37 ], [ %waiter, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ %current.0110.us, %land.lhs.true.i.us ]
-  %futex_7 = phi ptr [ %futex_.us25, %land.lhs.true.i.thread ], [ %futex_.us25, %land.lhs.true.i.thread.thread54 ], [ %futex_.us25, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.us37 ], [ %futex_.us25, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ %futex_.us, %land.lhs.true.i.us ]
-  %35 = getelementptr inbounds nuw i8, ptr %current.011011, i64 144
-  store i64 %waker, ptr %35, align 16, !tbaa !65
+if.then5.i:                                       ; preds = %land.lhs.true.i.us, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.us37, %land.lhs.true.i.thread.thread55, %land.lhs.true.i.thread
+  %current.011011 = phi ptr [ %waiter, %land.lhs.true.i.thread ], [ %waiter, %land.lhs.true.i.thread.thread55 ], [ %waiter, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.us37 ], [ %waiter, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ %current.0110.us, %land.lhs.true.i.us ]
+  %futex_7 = phi ptr [ %futex_.us25, %land.lhs.true.i.thread ], [ %futex_.us25, %land.lhs.true.i.thread.thread55 ], [ %futex_.us25, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit.us37 ], [ %futex_.us25, %_ZN5folly6detail17distributed_mutex10tryCombineISt6atomicEEmPNS1_6WaiterIT_EEmmmlNS0_17InlineFunctionRefIFvvELm48EEE.exit ], [ %futex_.us, %land.lhs.true.i.us ]
+  %34 = getelementptr inbounds nuw i8, ptr %current.011011, i64 144
+  store i64 %waker, ptr %34, align 16, !tbaa !65
   %waiters_.i = getelementptr inbounds nuw i8, ptr %current.011011, i64 152
   %storage.sroa.0.0.copyload.i = load i64, ptr %sleepers, align 8
   store i64 %storage.sroa.0.0.copyload.i, ptr %waiters_.i, align 8, !tbaa !69
@@ -901,7 +901,7 @@ cleanup.action.i:                                 ; preds = %invoke.cont.i
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %cond.false.i
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10.i) #14
   unreachable
@@ -921,7 +921,7 @@ cleanup.action:                                   ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #14
   unreachable

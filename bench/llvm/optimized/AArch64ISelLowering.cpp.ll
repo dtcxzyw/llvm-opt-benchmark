@@ -84625,9 +84625,6 @@ _ZNK4llvm3EVT15isFloatingPointEv.exit.thread:     ; preds = %125, %129
 136:                                              ; preds = %135
   br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
 
-137:                                              ; preds = %135
-  br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
-
 138:                                              ; preds = %135
   br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
 
@@ -84643,14 +84640,17 @@ _ZNK4llvm3EVT15isFloatingPointEv.exit.thread:     ; preds = %125, %129
 142:                                              ; preds = %135
   br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
 
-_ZN4llvm3MVT18getFloatingPointVTEj.exit:          ; preds = %_ZNK4llvm3EVT15isFloatingPointEv.exit.thread, %135, %142, %141, %140, %139, %138, %137, %136
+143:                                              ; preds = %135
+  br label %_ZN4llvm3MVT18getFloatingPointVTEj.exit
+
+144:          ; preds = %_ZNK4llvm3EVT15isFloatingPointEv.exit.thread, %135, %142, %141, %140, %139, %138, %137, %136
   %.sroa.040.0 = phi i16 [ 0, %142 ], [ 9, %141 ], [ 8, %140 ], [ 7, %139 ], [ 6, %138 ], [ 5, %137 ], [ 4, %136 ], [ 3, %135 ], [ %switch.load, %_ZNK4llvm3EVT15isFloatingPointEv.exit.thread ]
   br i1 %.not.i81, label %_ZNK4llvm3EVT16isScalableVectorEv.exit.i, label %143
 
 143:                                              ; preds = %_ZN4llvm3MVT18getFloatingPointVTEj.exit
-  %144 = add i16 %124, -137
-  %spec.select.i.i.i = icmp ult i16 %144, 53
-  br i1 %spec.select.i.i.i, label %146, label %147
+  %switch.shifted = add i16 %124, -137
+  %switch.lobit = icmp ult i16 %switch.shifted, 53
+  br i1 %switch.lobit, label %146, label %147
 
 _ZNK4llvm3EVT16isScalableVectorEv.exit.i:         ; preds = %_ZN4llvm3MVT18getFloatingPointVTEj.exit
   %145 = call noundef zeroext i1 @_ZNK4llvm3EVT24isExtendedScalableVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #34
@@ -84663,26 +84663,26 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit.i:         ; preds = %_ZN4llvm3MVT18getFl
 
 147:                                              ; preds = %146, %143
   %148 = phi i16 [ %124, %143 ], [ %.pr.i, %146 ]
-  %.not.i84 = icmp eq i16 %148, 0
+  %147 = icmp eq i16 %148, 0
   br i1 %.not.i84, label %.thread.i, label %149
 
 149:                                              ; preds = %147
   %150 = add i16 %148, -137
-  %spec.select.i.i1.i = icmp ult i16 %150, 53
-  br i1 %spec.select.i.i1.i, label %151, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i
+  %148 = icmp ult i16 %150, 53
+  br i1 %148, label %149, label %150
 
-151:                                              ; preds = %149
+149:                                              ; preds = %149
   call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.528) #33
   %.pre.i.i = load i16, ptr %7, align 8
   br label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i
 
-_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %151, %149
-  %152 = phi i16 [ %.pre.i.i, %151 ], [ %148, %149 ]
-  %153 = zext i16 %152 to i64
-  %154 = add nsw i64 %153, -1
+150:     ; preds = %149, %149
+  %151 = phi i16 [ %.pre.i.i, %151 ], [ %148, %149 ]
+  %.not.i84 = zext i16 %151 to i64
+  %154 = add nsw i64 %.not.i84, -1
   %155 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %154
   %156 = load i16, ptr %155, align 2
-  %157 = zext i16 %156 to i32
+  %153 = zext i16 %156 to i32
   br label %_ZNK4llvm3EVT20getVectorNumElementsEv.exit
 
 .thread.i:                                        ; preds = %147, %_ZNK4llvm3EVT16isScalableVectorEv.exit.i
@@ -84692,27 +84692,27 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %151, %149
 _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i, %.thread.i
   %159 = phi i32 [ %157, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %158, %.thread.i ]
   %160 = lshr i32 %159, 1
-  %161 = call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %.sroa.040.0, i32 noundef %160)
-  %.not.i85 = icmp eq i16 %161, 0
+  %155 = call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %.sroa.040.0, i32 noundef %160)
+  %156 = icmp eq i16 %155, 0
   br i1 %.not.i85, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %_ZNK4llvm3EVT20getVectorNumElementsEv.exit
-  %162 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 104
-  %165 = zext i16 %161 to i64
-  %166 = getelementptr inbounds nuw [233 x ptr], ptr %164, i64 0, i64 %165
+  %165 = zext i16 %155 to i64
+  %161 = getelementptr inbounds nuw [233 x ptr], ptr %164, i64 0, i64 %165
   %167 = load ptr, ptr %166, align 8
   %.not = icmp eq ptr %167, null
   br i1 %.not, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %168
 
 168:                                              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %169 = call { ptr, i32 } @_ZN4llvm12SelectionDAG10getBitcastENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %161, ptr null, ptr %.sroa.054.0.copyload, i32 %.sroa.455.0.copyload) #33
-  %.fca.0.extract24 = extractvalue { ptr, i32 } %169, 0
+  %164 = call { ptr, i32 } @_ZN4llvm12SelectionDAG10getBitcastENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %161, ptr null, ptr %.sroa.054.0.copyload, i32 %.sroa.455.0.copyload) #33
+  %.not.i85 = extractvalue { ptr, i32 } %164, 0
   %.fca.1.extract25 = extractvalue { ptr, i32 } %169, 1
   %170 = call { ptr, i32 } @_ZN4llvm12SelectionDAG10getBitcastENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %161, ptr null, ptr %.sroa.048.0.copyload, i32 %.sroa.4.0.copyload) #33
   %.fca.0.extract14 = extractvalue { ptr, i32 } %170, 0
-  %.fca.1.extract15 = extractvalue { ptr, i32 } %170, 1
+  %165 = extractvalue { ptr, i32 } %170, 1
   %.sroa.011.0.copyload = load i16, ptr %7, align 8
   %.sroa.213.0.copyload = load ptr, ptr %23, align 8
   store ptr %.fca.0.extract14, ptr %10, align 8
@@ -84720,43 +84720,43 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %_ZNK4llvm3E
   store i32 %.fca.1.extract15, ptr %.sroa.4.0..sroa_idx50, align 8
   %.sroa.6.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx52, align 4
-  %171 = load ptr, ptr %9, align 8
-  store ptr %171, ptr %11, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %173 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #33
-  store i64 %173, ptr %172, align 8
-  %174 = call { ptr, i32 } @_ZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %161, ptr null, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr %.fca.0.extract24, i32 %.fca.1.extract25, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10, ptr noundef nonnull byval(%"class.llvm::ArrayRef.264") align 8 %11) #33
-  %.fca.0.extract2 = extractvalue { ptr, i32 } %174, 0
-  %.fca.1.extract3 = extractvalue { ptr, i32 } %174, 1
-  %175 = call { ptr, i32 } @_ZN4llvm12SelectionDAG10getBitcastENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %.sroa.011.0.copyload, ptr %.sroa.213.0.copyload, ptr %.fca.0.extract2, i32 %.fca.1.extract3) #33
-  %.fca.0.extract = extractvalue { ptr, i32 } %175, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %175, 1
+  %174 = load ptr, ptr %9, align 8
+  store ptr %174, ptr %11, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %176 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #33
+  store i64 %176, ptr %175, align 8
+  %177 = call { ptr, i32 } @_ZN4llvm12SelectionDAG16getVectorShuffleENS_3EVTERKNS_5SDLocENS_7SDValueES5_NS_8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %161, ptr null, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr %.fca.0.extract24, i32 %.fca.1.extract25, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %10, ptr noundef nonnull byval(%"class.llvm::ArrayRef.264") align 8 %11) #33
+  %.fca.0.extract2 = extractvalue { ptr, i32 } %177, 0
+  %.fca.1.extract3 = extractvalue { ptr, i32 } %177, 1
+  %178 = call { ptr, i32 } @_ZN4llvm12SelectionDAG10getBitcastENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %2, i16 %.sroa.011.0.copyload, ptr %.sroa.213.0.copyload, ptr %.fca.0.extract2, i32 %.fca.1.extract3) #33
+  %.fca.0.extract = extractvalue { ptr, i32 } %178, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %178, 1
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %_ZNK4llvm3EVT20getVectorNumElementsEv.exit, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, %_ZL14isWideTypeMaskN4llvm8ArrayRefIiEENS_3EVTERNS_15SmallVectorImplIiEE.exit, %168
   %.sroa.6.1 = phi i32 [ %.fca.1.extract, %168 ], [ 0, %_ZL14isWideTypeMaskN4llvm8ArrayRefIiEENS_3EVTERNS_15SmallVectorImplIiEE.exit ], [ 0, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ 0, %_ZNK4llvm3EVT20getVectorNumElementsEv.exit ]
   %.sroa.096.1 = phi ptr [ %.fca.0.extract, %168 ], [ null, %_ZL14isWideTypeMaskN4llvm8ArrayRefIiEENS_3EVTERNS_15SmallVectorImplIiEE.exit ], [ null, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ null, %_ZNK4llvm3EVT20getVectorNumElementsEv.exit ]
-  %176 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
-  %177 = load ptr, ptr %9, align 8
-  %178 = icmp eq ptr %177, %60
-  br i1 %178, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %179
+  %179 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
+  %180 = load ptr, ptr %9, align 8
+  %181 = icmp eq ptr %180, %60
+  br i1 %181, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %182
 
-179:                                              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
-  call void @free(ptr noundef %177) #33
+182:                                              ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
+  call void @free(ptr noundef %180) #33
   br label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %179, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit
-  %.sroa.6.0 = phi i32 [ 0, %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit ], [ %.sroa.6.1, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread ], [ %.sroa.6.1, %179 ]
-  %.sroa.096.0 = phi ptr [ null, %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit ], [ %.sroa.096.1, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread ], [ %.sroa.096.1, %179 ]
-  %180 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %180, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %181
+_ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %182, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit
+  %.sroa.6.0 = phi i32 [ 0, %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit ], [ %.sroa.6.1, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread ], [ %.sroa.6.1, %182 ]
+  %.sroa.096.0 = phi ptr [ null, %_ZNK4llvm19ShuffleVectorSDNode7getMaskEv.exit ], [ %.sroa.096.1, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread ], [ %.sroa.096.1, %182 ]
+  %183 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %183, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5SDLocD2Ev.exit, label %184
 
-181:                                              ; preds = %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(8) %180) #33
+184:                                              ; preds = %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(8) %183) #33
   br label %_ZN4llvm5SDLocD2Ev.exit
 
-_ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, %181
+_ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, %184
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.096.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.6.0, 1
   ret { ptr, i32 } %.fca.1.insert

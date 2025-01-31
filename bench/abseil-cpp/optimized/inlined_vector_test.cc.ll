@@ -150093,8 +150093,8 @@ ehcleanup341:                                     ; preds = %ehcleanup340, %ehcl
   br label %ehcleanup346
 
 for.end345:                                       ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515
-  %190 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
-  %cmp.not.i516 = icmp eq i32 %190, %71
+  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
+  %cmp.not.i516 = icmp eq i32 %191, %71
   br i1 %cmp.not.i516, label %if.end.i, label %if.then.i517
 
 if.then.i517:                                     ; preds = %for.end345
@@ -150102,8 +150102,8 @@ if.then.i517:                                     ; preds = %for.end345
   unreachable
 
 if.end.i:                                         ; preds = %for.end345
-  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
-  %cmp3.not.i = icmp eq i32 %191, %174
+  %192 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
+  %cmp3.not.i = icmp eq i32 %192, %174
   br i1 %cmp3.not.i, label %_ZN4absl13test_internal15InstanceTrackerD2Ev.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -151966,8 +151966,8 @@ ehcleanup341:                                     ; preds = %ehcleanup340, %ehcl
   br label %ehcleanup346
 
 for.end345:                                       ; preds = %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512
-  %190 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
-  %cmp.not.i513 = icmp eq i32 %190, %71
+  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
+  %cmp.not.i513 = icmp eq i32 %191, %71
   br i1 %cmp.not.i513, label %if.end.i, label %if.then.i514
 
 if.then.i514:                                     ; preds = %for.end345
@@ -151975,8 +151975,8 @@ if.then.i514:                                     ; preds = %for.end345
   unreachable
 
 if.end.i:                                         ; preds = %for.end345
-  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
-  %cmp3.not.i = icmp eq i32 %191, %174
+  %192 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
+  %cmp3.not.i = icmp eq i32 %192, %174
   br i1 %cmp3.not.i, label %_ZN4absl13test_internal15InstanceTrackerD2Ev.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i

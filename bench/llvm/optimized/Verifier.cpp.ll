@@ -12754,7 +12754,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   %.148 = phi i1 [ false, %.critedge175 ], [ false, %400 ], [ false, %394 ], [ false, %_ZNK4llvm5APInteqEm.exit.thread ], [ true, %.critedge ], [ false, %370 ]
   %401 = load ptr, ptr %334, align 8
   %402 = load ptr, ptr %23, align 8
-  %403 = icmp eq ptr %401, %402
+  %.148 = icmp eq ptr %401, %402
   br i1 %403, label %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit, label %404
 
 404:                                              ; preds = %.loopexit

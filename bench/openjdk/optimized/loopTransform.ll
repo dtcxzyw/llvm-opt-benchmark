@@ -23546,39 +23546,39 @@ _ZNK9VectorSet4testEj.exit.thread:                ; preds = %734, %_ZNK9VectorSe
   %756 = load ptr, ptr %13, align 8
   %757 = getelementptr inbounds nuw ptr, ptr %756, i64 %indvars.iv337387
   %758 = load ptr, ptr %757, align 8
-  %759 = load ptr, ptr %2, align 8
-  %760 = icmp eq ptr %758, %759
-  %761 = icmp eq ptr %758, %.0.i.i.i234
-  %or.cond209 = or i1 %761, %760
-  br i1 %or.cond209, label %_ZNK9Node_List8containsEPK4Node.exit.thread, label %762
+  %758 = load ptr, ptr %2, align 8
+  %759 = icmp eq ptr %758, %758
+  %760 = icmp eq ptr %758, %.0.i.i.i234
+  %761 = or i1 %761, %760
+  br i1 %761, label %_ZNK9Node_List8containsEPK4Node.exit.thread, label %762
 
 762:                                              ; preds = %.lr.ph388
   %763 = load ptr, ptr %14, align 8
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 16
   %765 = load ptr, ptr %764, align 8
-  %766 = icmp eq ptr %765, null
+  %765 = icmp eq ptr %765, null
   br i1 %766, label %_ZNK19BaseCountedLoopNode4incrEv.exit272, label %767
 
 767:                                              ; preds = %762
   %768 = getelementptr inbounds nuw i8, ptr %765, i64 8
   %769 = load ptr, ptr %768, align 8
   %770 = load ptr, ptr %769, align 8
-  %771 = getelementptr inbounds nuw i8, ptr %770, i64 44
-  %772 = load i32, ptr %771, align 4
-  %773 = and i32 %772, 63
-  %774 = icmp eq i32 %773, 53
+  %770 = getelementptr inbounds nuw i8, ptr %770, i64 44
+  %771 = load i32, ptr %770, align 4
+  %772 = and i32 %771, 63
+  %773 = icmp eq i32 %772, 53
   br i1 %774, label %775, label %_ZNK19BaseCountedLoopNode4incrEv.exit272
 
 775:                                              ; preds = %767
   %776 = load ptr, ptr %770, align 8
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 208
   %778 = load ptr, ptr %777, align 8
-  %779 = call noundef zeroext i8 %778(ptr noundef nonnull align 8 dereferenceable(60) %770) #11
-  %780 = load ptr, ptr %11, align 8
-  %781 = getelementptr inbounds nuw i8, ptr %780, i64 232
-  %782 = load ptr, ptr %781, align 8
-  %783 = call noundef zeroext i8 %782(ptr noundef nonnull align 8 dereferenceable(72) %11) #11
-  %.not.i.i268 = icmp eq i8 %779, %783
+  %778 = call noundef zeroext i8 %778(ptr noundef nonnull align 8 dereferenceable(60) %770) #11
+  %779 = load ptr, ptr %11, align 8
+  %780 = getelementptr inbounds nuw i8, ptr %779, i64 232
+  %781 = load ptr, ptr %780, align 8
+  %782 = call noundef zeroext i8 %782(ptr noundef nonnull align 8 dereferenceable(72) %11) #11
+  %783 = icmp eq i8 %779, %782
   br i1 %.not.i.i268, label %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i269, label %_ZNK19BaseCountedLoopNode4incrEv.exit272
 
 _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i269: ; preds = %775
@@ -23587,8 +23587,8 @@ _ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i269: ; preds = %775
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 8
   %787 = load ptr, ptr %786, align 8
   %788 = getelementptr inbounds nuw i8, ptr %787, i64 24
-  %789 = load i32, ptr %788, align 8
-  %790 = icmp ugt i32 %789, 1
+  %788 = load i32, ptr %788, align 8
+  %789 = icmp ugt i32 %788, 1
   br i1 %790, label %_ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i270, label %_ZNK19BaseCountedLoopNode4incrEv.exit272
 
 _ZNK22BaseCountedLoopEndNode8cmp_nodeEv.exit.i.i270: ; preds = %_ZNK19BaseCountedLoopNode16loopexit_or_nullEv.exit.i269
@@ -23630,10 +23630,10 @@ _ZNK19BaseCountedLoopNode4incrEv.exit272:         ; preds = %762, %767, %775, %_
   %814 = getelementptr inbounds nuw i8, ptr %758, i64 16
   %815 = load ptr, ptr %814, align 8
   %816 = getelementptr inbounds nuw i8, ptr %758, i64 32
-  %817 = load i32, ptr %816, align 8
-  %818 = zext i32 %817 to i64
-  %819 = getelementptr inbounds nuw ptr, ptr %815, i64 %818
-  %.not325 = icmp eq i32 %817, 0
+  %816 = load i32, ptr %816, align 8
+  %817 = zext i32 %816 to i64
+  %818 = getelementptr inbounds nuw ptr, ptr %815, i64 %818
+  %819 = icmp eq i32 %817, 0
   br i1 %.not325, label %_ZNK9Node_List8containsEPK4Node.exit.thread, label %.lr.ph313
 
 .lr.ph313:                                        ; preds = %813
@@ -23660,7 +23660,7 @@ _ZNK19BaseCountedLoopNode4incrEv.exit272:         ; preds = %762, %767, %775, %_
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %823 ]
   %825 = getelementptr inbounds nuw ptr, ptr %821, i64 %indvars.iv.i
   %826 = load ptr, ptr %825, align 8
-  %827 = icmp eq ptr %826, %822
+  %indvars.iv.i = icmp eq ptr %826, %822
   br i1 %827, label %_ZNK9Node_List8containsEPK4Node.exit, label %823
 
 _ZNK9Node_List8containsEPK4Node.exit:             ; preds = %824

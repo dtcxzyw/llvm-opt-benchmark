@@ -10186,7 +10186,7 @@ if.then67:                                        ; preds = %if.then65
   %call.i208 = invoke noundef zeroext i1 @_ZN5folly11AsyncSocket23updateEventRegistrationEv(ptr noundef nonnull align 8 dereferenceable(1113) %this)
           to label %invoke.cont68 unwind label %terminate.lpad.loopexit
 
-invoke.cont68:                                    ; preds = %if.then67
+if.else.i:                                    ; preds = %if.then67
   br i1 %call.i208, label %if.end71, label %cleanup164
 
 if.end71:                                         ; preds = %invoke.cont68
