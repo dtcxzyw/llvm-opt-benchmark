@@ -61,6 +61,12 @@ def remap(line, ref, mapping):
                     changed = True
                 line = local_best
                 best_dist = local_best_dist
+        cur = line.replace(' ;', ';', 1)
+        cur_dist = dist(cur, ref)
+        if cur_dist > best_dist:
+            best_dist = cur_dist
+            line = cur
+            changed = True
         if not changed:
             break
     return line
