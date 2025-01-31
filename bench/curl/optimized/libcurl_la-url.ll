@@ -4232,64 +4232,53 @@ if.end23:                                         ; preds = %if.then15, %land.lh
   %host.1 = phi ptr [ null, %if.else ], [ %call163.i.i, %land.lhs.true11 ], [ %call163.i.i, %if.then15 ]
   %cmp24 = icmp sgt i32 %port.46085, -1
   %bf.load46.pre = load i32, ptr %bits.i, align 8
-  br i1 %cmp24, label %if.then26, label %if.else44
+  br i1 %cmp24, label %if.then26, label %if.end49
 
 if.end23.thread:                                  ; preds = %if.then7
   %cmp2490 = icmp sgt i32 %port.0.i.i, -1
-  br i1 %cmp2490, label %if.then26.thread, label %if.else44
+  br i1 %cmp2490, label %if.then26.thread, label %if.end49
 
 if.then26.thread:                                 ; preds = %if.end23.thread
   store i32 %port.0.i.i, ptr %conn_to_port97, align 8
   %bf.set30100 = or i32 %bf.load, 1536
   store i32 %bf.set30100, ptr %bits.i, align 8
-  br label %if.end49
+  br label %return
 
 if.then26:                                        ; preds = %if.end23
   store i32 %port.46085, ptr %conn_to_port97, align 8
   %bf.set30 = or i32 %bf.load46.pre, 1024
   store i32 %bf.set30, ptr %bits.i, align 8
-  br i1 %tobool124.not.i.i, label %if.end49, label %land.lhs.true33
+  br i1 %tobool124.not.i.i, label %return, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.then26
   %bf.load36 = load i64, ptr %verbose.i.i, align 2
   %43 = and i64 %bf.load36, 536870912
   %tobool40.not = icmp eq i64 %43, 0
-  br i1 %tobool40.not, label %if.end49, label %if.then41
+  br i1 %tobool40.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true33
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.52, i32 noundef %port.46085) #11
-  br label %if.end49
+  br label %return
 
-if.else44:                                        ; preds = %if.end23.thread, %if.end23
+if.end49:                                         ; preds = %if.end23, %if.end23.thread
   %bf.load46 = phi i32 [ %bf.set, %if.end23.thread ], [ %bf.load46.pre, %if.end23 ]
   %host.193 = phi ptr [ %call163.i.i, %if.end23.thread ], [ %host.1, %if.end23 ]
   %bf.clear47 = and i32 %bf.load46, -1025
   store i32 %bf.clear47, ptr %bits.i, align 8
-  br label %if.end49
-
-if.end49:                                         ; preds = %if.then26.thread, %if.then41, %land.lhs.true33, %if.then26, %if.else44
-  %host.192 = phi ptr [ %host.1, %if.then26 ], [ %host.1, %land.lhs.true33 ], [ %host.1, %if.then41 ], [ %host.193, %if.else44 ], [ %call163.i.i, %if.then26.thread ]
-  %port.1 = phi i32 [ %port.46085, %if.then26 ], [ %port.46085, %land.lhs.true33 ], [ %port.46085, %if.then41 ], [ -1, %if.else44 ], [ %port.0.i.i, %if.then26.thread ]
   %next = getelementptr inbounds nuw i8, ptr %conn_to_host.addr.0123, i64 8
   %44 = load ptr, ptr %next, align 8
   %tobool = icmp eq ptr %44, null
-  %tobool1 = icmp ne ptr %host.192, null
+  %tobool1 = icmp ne ptr %host.193, null
   %or.cond = or i1 %tobool1, %tobool
-  %or.cond.not = xor i1 %or.cond, true
-  %cmp = icmp eq i32 %port.1, -1
-  %or.cond3 = select i1 %or.cond.not, i1 %cmp, i1 false
-  br i1 %or.cond3, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end49, %entry
   %tobool1.lcssa = phi i1 [ false, %entry ], [ %tobool1, %if.end49 ]
-  %cmp.lcssa = phi i1 [ true, %entry ], [ %cmp, %if.end49 ]
   %asi = getelementptr inbounds nuw i8, ptr %data, i64 2736
   %45 = load ptr, ptr %asi, align 8
   %tobool50 = icmp eq ptr %45, null
   %or.cond1 = or i1 %tobool1.lcssa, %tobool50
-  %or.cond1.not = xor i1 %or.cond1, true
-  %or.cond2 = select i1 %or.cond1.not, i1 %cmp.lcssa, i1 false
-  br i1 %or.cond2, label %land.lhs.true56, label %return
+  br i1 %or.cond1, label %return, label %land.lhs.true56
 
 land.lhs.true56:                                  ; preds = %while.end
   %handler = getelementptr inbounds nuw i8, ptr %conn, i64 712
@@ -4379,8 +4368,8 @@ sw.bb122:                                         ; preds = %do.end112
   store i8 30, ptr %httpversion123, align 8
   br label %return
 
-return:                                           ; preds = %parse_connect_to_string.exit.thread77, %parse_connect_to_string.exit.thread71, %parse_connect_to_string.exit.thread61, %while.end, %land.lhs.true56, %sw.bb122, %sw.bb120, %if.then59, %do.end112, %if.then67
-  %retval.0 = phi i32 [ 27, %if.then67 ], [ 0, %do.end112 ], [ 0, %if.then59 ], [ 0, %sw.bb120 ], [ 0, %sw.bb122 ], [ 0, %land.lhs.true56 ], [ 0, %while.end ], [ 27, %parse_connect_to_string.exit.thread61 ], [ 27, %parse_connect_to_string.exit.thread71 ], [ %result.0.i.i.ph, %parse_connect_to_string.exit.thread77 ]
+return:                                           ; preds = %if.then26, %land.lhs.true33, %if.then41, %if.then26.thread, %parse_connect_to_string.exit.thread77, %parse_connect_to_string.exit.thread71, %parse_connect_to_string.exit.thread61, %while.end, %land.lhs.true56, %sw.bb122, %sw.bb120, %if.then59, %do.end112, %if.then67
+  %retval.0 = phi i32 [ 27, %if.then67 ], [ 0, %do.end112 ], [ 0, %if.then59 ], [ 0, %sw.bb120 ], [ 0, %sw.bb122 ], [ 0, %land.lhs.true56 ], [ 0, %while.end ], [ 27, %parse_connect_to_string.exit.thread61 ], [ 27, %parse_connect_to_string.exit.thread71 ], [ %result.0.i.i.ph, %parse_connect_to_string.exit.thread77 ], [ 0, %if.then26.thread ], [ 0, %if.then41 ], [ 0, %land.lhs.true33 ], [ 0, %if.then26 ]
   ret i32 %retval.0
 }
 
