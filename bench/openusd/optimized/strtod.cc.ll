@@ -79,13 +79,13 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_convers
   %45 = bitcast i64 %44 to double
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit
 
-46:                                               ; preds = %39
-  %47 = add nuw i64 %8, 1
-  %48 = bitcast i64 %47 to double
+48:                                               ; preds = %39
+  %49 = add nuw i64 %8, 1
+  %50 = bitcast i64 %49 to double
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %46, %43, %41, %36, %33, %30, %28, %24, %7
-  %.0 = phi double [ %6, %7 ], [ %32, %30 ], [ %35, %33 ], [ 0.000000e+00, %28 ], [ 0x7FF0000000000000, %24 ], [ %6, %36 ], [ %45, %43 ], [ %48, %46 ], [ 0.000000e+00, %41 ], [ %6, %3 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double10NextDoubleEv.exit: ; preds = %3, %48, %43, %41, %36, %33, %30, %28, %24, %7
+  %.0 = phi double [ %6, %7 ], [ %32, %30 ], [ %35, %33 ], [ 0.000000e+00, %28 ], [ 0x7FF0000000000000, %24 ], [ %6, %36 ], [ %45, %43 ], [ %50, %48 ], [ 0.000000e+00, %41 ], [ %6, %3 ]
   ret double %.0
 }
 
@@ -742,13 +742,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6V
   %69 = bitcast i64 %68 to double
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-70:                                               ; preds = %63
-  %71 = add nuw i64 %32, 1
-  %72 = bitcast i64 %71 to double
+72:                                               ; preds = %63
+  %73 = add nuw i64 %32, 1
+  %74 = bitcast i64 %73 to double
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %70
-  %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %72, %70 ], [ 0.000000e+00, %65 ], [ %30, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %72
+  %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %74, %72 ], [ 0.000000e+00, %65 ], [ %30, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret double %.0.i
 }

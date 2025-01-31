@@ -219,7 +219,7 @@ declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 define hidden range(i32 0, 3) i32 @rb_num_get_rounding_option(i64 noundef %0) local_unnamed_addr #2 {
   %2 = alloca i64, align 8
   %3 = icmp eq i64 %0, 4
-  br i1 %3, label %51, label %4
+  br i1 %3, label %53, label %4
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @rb_num_get_rounding_option.round_kwds, align 8
@@ -234,7 +234,7 @@ define hidden range(i32 0, 3) i32 @rb_num_get_rounding_option(i64 noundef %0) lo
 8:                                                ; preds = %6, %4
   %9 = call i32 @rb_get_kwargs(i64 noundef %0, ptr noundef nonnull @rb_num_get_rounding_option.round_kwds, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %2) #23
   %.not30 = icmp eq i32 %9, 0
-  br i1 %.not30, label %51, label %10
+  br i1 %.not30, label %53, label %10
 
 10:                                               ; preds = %8
   %11 = load i64, ptr %2, align 8
@@ -258,11 +258,11 @@ RB_SYMBOL_P.exit:                                 ; preds = %14
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %10, %RB_SYMBOL_P.exit
   %23 = call i64 @rb_sym2str(i64 noundef %11) #23
-  br label %31
+  br label %33
 
 RB_SYMBOL_P.exit.thread31:                        ; preds = %14
   %24 = icmp eq i64 %11, 4
-  br i1 %24, label %51, label %.critedge
+  br i1 %24, label %53, label %.critedge
 
 RB_SYMBOL_P.exit.thread31.thread:                 ; preds = %RB_SYMBOL_P.exit
   %25 = inttoptr i64 %11 to ptr
@@ -272,56 +272,56 @@ RB_SYMBOL_P.exit.thread31.thread:                 ; preds = %RB_SYMBOL_P.exit
   br i1 %28, label %31, label %.critedge
 
 .critedge:                                        ; preds = %RB_SYMBOL_P.exit.thread31, %RB_SYMBOL_P.exit.thread31.thread
-  %29 = call i64 @rb_check_string_type(i64 noundef %11) #23
-  %30 = icmp eq i64 %29, 4
-  br i1 %30, label %48, label %31
+  %31 = call i64 @rb_check_string_type(i64 noundef %11) #23
+  %32 = icmp eq i64 %31, 4
+  br i1 %32, label %50, label %33
 
-31:                                               ; preds = %.critedge, %RB_SYMBOL_P.exit.thread31.thread, %RB_SYMBOL_P.exit.thread
-  %.027 = phi i64 [ %23, %RB_SYMBOL_P.exit.thread ], [ %11, %RB_SYMBOL_P.exit.thread31.thread ], [ %29, %.critedge ]
+33:                                               ; preds = %.critedge, %RB_SYMBOL_P.exit.thread31.thread, %RB_SYMBOL_P.exit.thread
+  %.027 = phi i64 [ %23, %RB_SYMBOL_P.exit.thread ], [ %11, %RB_SYMBOL_P.exit.thread31.thread ], [ %31, %.critedge ]
   call void @rb_must_asciicompat(i64 noundef %.027) #23
-  %32 = inttoptr i64 %.027 to ptr
-  %33 = load i64, ptr %32, align 8, !noalias !7
-  %34 = and i64 %33, 8192
-  %.not.i.i = icmp eq i64 %34, 0
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %36
+  %34 = inttoptr i64 %.027 to ptr
+  %35 = load i64, ptr %34, align 8, !noalias !7
+  %36 = and i64 %35, 8192
+  %.not.i.i = icmp eq i64 %36, 0
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %38
 
-36:                                               ; preds = %31
-  %.sroa.2.0.copyload.i = load ptr, ptr %35, align 8
+38:                                               ; preds = %33
+  %.sroa.2.0.copyload.i = load ptr, ptr %37, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %31, %36
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %36 ], [ %35, %31 ]
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = load i64, ptr %37, align 8
-  switch i64 %38, label %48 [
-    i64 2, label %39
-    i64 4, label %42
+RSTRING_PTR.exit:                                 ; preds = %33, %38
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %38 ], [ %37, %33 ]
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %40 = load i64, ptr %39, align 8
+  switch i64 %40, label %50 [
+    i64 2, label %41
+    i64 4, label %44
   ]
 
-39:                                               ; preds = %RSTRING_PTR.exit
-  %40 = call i32 @rb_memcicmp(ptr noundef %.sroa.2.0.i, ptr noundef nonnull @.str.2, i64 noundef 2) #23
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %51, label %48
+41:                                               ; preds = %RSTRING_PTR.exit
+  %42 = call i32 @rb_memcicmp(ptr noundef %.sroa.2.0.i, ptr noundef nonnull @.str.2, i64 noundef 2) #23
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %53, label %50
 
-42:                                               ; preds = %RSTRING_PTR.exit
-  %43 = call i32 @rb_memcicmp(ptr noundef %.sroa.2.0.i, ptr noundef nonnull @.str.3, i64 noundef 4) #23
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %51, label %45
+44:                                               ; preds = %RSTRING_PTR.exit
+  %45 = call i32 @rb_memcicmp(ptr noundef %.sroa.2.0.i, ptr noundef nonnull @.str.3, i64 noundef 4) #23
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %53, label %47
 
-45:                                               ; preds = %42
-  %46 = call i32 @strncasecmp(ptr noundef %.sroa.2.0.i, ptr noundef nonnull @.str.4, i64 noundef 4) #24
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %51, label %48
+47:                                               ; preds = %44
+  %48 = call i32 @strncasecmp(ptr noundef %.sroa.2.0.i, ptr noundef nonnull @.str.4, i64 noundef 4) #24
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %53, label %50
 
-48:                                               ; preds = %RSTRING_PTR.exit, %39, %45, %.critedge
-  %49 = load i64, ptr @rb_eArgError, align 8
-  %50 = load i64, ptr %2, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %49, ptr noundef nonnull @.str.5, i64 noundef %50) #22
+50:                                               ; preds = %RSTRING_PTR.exit, %41, %47, %.critedge
+  %51 = load i64, ptr @rb_eArgError, align 8
+  %52 = load i64, ptr %2, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.5, i64 noundef %52) #22
   unreachable
 
-51:                                               ; preds = %8, %RB_SYMBOL_P.exit.thread31, %1, %45, %42, %39
-  %.028 = phi i32 [ 0, %39 ], [ 1, %42 ], [ 2, %45 ], [ 0, %1 ], [ 0, %RB_SYMBOL_P.exit.thread31 ], [ 0, %8 ]
+53:                                               ; preds = %8, %RB_SYMBOL_P.exit.thread31, %1, %47, %44, %41
+  %.028 = phi i32 [ 0, %41 ], [ 1, %44 ], [ 2, %47 ], [ 0, %1 ], [ 0, %RB_SYMBOL_P.exit.thread31 ], [ 0, %8 ]
   ret i32 %.028
 }
 

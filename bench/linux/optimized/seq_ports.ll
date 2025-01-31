@@ -198,7 +198,7 @@ define dso_local ptr @snd_seq_port_query_nearest(ptr noundef %0, ptr noundef rea
 define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %85, label %5
+  br i1 %4, label %87, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -210,13 +210,13 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %11) #11
-  br label %85
+  br label %87
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %14, i32 noundef 3520, i64 noundef 336) #12
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %85, label %17
+  br i1 %16, label %87, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -278,9 +278,9 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
 
 50:                                               ; preds = %17
   %51 = icmp slt i32 %1, 0
-  br i1 %51, label %.split.us.preheader, label %.split
+  br i1 %51, label %.split.us, label %.split
 
-.split.us.preheader:                              ; preds = %50, %58
+.split.us:                              ; preds = %50, %58
   %52 = phi ptr [ %60, %58 ], [ %48, %50 ]
   %53 = phi i32 [ %59, %58 ], [ %44, %50 ]
   %54 = getelementptr i8, ptr %52, i64 -79
@@ -289,63 +289,63 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %57 = icmp ult i32 %53, %56
   br i1 %57, label %.loopexit, label %58
 
-58:                                               ; preds = %.split.us.preheader
+58:                                               ; preds = %.split.us
   %59 = add nuw nsw i32 %56, 1
   %60 = load ptr, ptr %52, align 8
   %61 = icmp eq ptr %60, %47
   br i1 %61, label %.loopexit, label %.split.us.preheader, !llvm.loop !10
 
 .split:                                           ; preds = %50, %69
-  %62 = phi ptr [ %70, %69 ], [ %48, %50 ]
-  %63 = getelementptr i8, ptr %62, i64 -79
+  %63 = phi ptr [ %70, %69 ], [ %48, %50 ]
+  %63 = getelementptr i8, ptr %63, i64 -79
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = icmp eq i32 %1, %65
-  br i1 %66, label %.split11.us, label %67
+  %64 = icmp eq i32 %1, %65
+  br i1 %64, label %.split11.us, label %67
 
 .split11.us:                                      ; preds = %.split
   tail call void @kfree(ptr noundef nonnull %15) #10
-  br label %83
+  br label %85
 
-67:                                               ; preds = %.split
-  %68 = icmp samesign ult i32 %44, %65
-  br i1 %68, label %.loopexit, label %69
+69:                                               ; preds = %.split
+  %70 = icmp samesign ult i32 %44, %65
+  br i1 %70, label %.loopexit, label %71
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %62, align 8
-  %71 = icmp eq ptr %70, %47
-  br i1 %71, label %.loopexit, label %.split, !llvm.loop !10
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %62, align 8
+  %73 = icmp eq ptr %72, %47
+  br i1 %73, label %.loopexit, label %.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %67, %69, %58, %.split.us.preheader, %17
-  %72 = phi i32 [ %44, %17 ], [ %53, %.split.us.preheader ], [ %59, %58 ], [ %44, %69 ], [ %44, %67 ]
-  %73 = phi ptr [ %48, %17 ], [ %52, %.split.us.preheader ], [ %60, %58 ], [ %62, %67 ], [ %70, %69 ]
-  %74 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %76 = load ptr, ptr %75, align 8
+.loopexit:                                        ; preds = %69, %69, %58, %.split.us, %17
+  %74 = phi i32 [ %44, %17 ], [ %53, %.split.us ], [ %59, %58 ], [ %44, %71 ], [ %44, %69 ]
+  %75 = phi ptr [ %48, %17 ], [ %52, %.split.us ], [ %60, %58 ], [ %63, %69 ], [ %72, %71 ]
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %78 = load ptr, ptr %77, align 8
   store ptr %74, ptr %75, align 8
   store ptr %73, ptr %74, align 8
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr %76, ptr %77, align 8
   store volatile ptr %74, ptr %76, align 8
-  %78 = load i32, ptr %6, align 4
-  %79 = add i32 %78, 1
+  %79 = load i32, ptr %6, align 4
+  %79 = add i32 %79, 1
   store i32 %79, ptr %6, align 4
   %80 = trunc i32 %72 to i8
   store i8 %80, ptr %21, align 1
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %72) #10
+  %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %74) #10
   store ptr %15, ptr %2, align 8
-  br label %83
-
-83:                                               ; preds = %.loopexit, %.split11.us
-  %84 = phi i32 [ -16, %.split11.us ], [ %72, %.loopexit ]
-  tail call void @_raw_write_unlock_irq(ptr noundef nonnull %46) #10
-  tail call void @mutex_unlock(ptr noundef nonnull %45) #10
   br label %85
 
-85:                                               ; preds = %83, %13, %9, %3
-  %86 = phi i32 [ -22, %9 ], [ %84, %83 ], [ -22, %3 ], [ -12, %13 ]
-  ret i32 %86
+85:                                               ; preds = %.loopexit, %.split11.us
+  %86 = phi i32 [ -16, %.split11.us ], [ %74, %.loopexit ]
+  tail call void @_raw_write_unlock_irq(ptr noundef nonnull %46) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %45) #10
+  br label %87
+
+85:                                               ; preds = %85, %13, %9, %3
+  %88 = phi i32 [ -22, %9 ], [ %86, %85 ], [ -22, %3 ], [ -12, %13 ]
+  ret i32 %88
 }
 
 ; Function Attrs: cold null_pointer_is_valid

@@ -99948,13 +99948,13 @@ define dso_local noundef zeroext i1 @_ZNK5clang10ASTContext28AtomicUsesUnsupport
   switch i32 %8, label %_ZNK4llvm6Triple10isOSDarwinEv.exit [
     i32 26, label %11
     i32 5, label %11
-    i32 27, label %16
-    i32 29, label %16
-    i32 30, label %16
+    i32 27, label %17
+    i32 29, label %17
+    i32 30, label %17
   ]
 
 11:                                               ; preds = %10, %10
-  %12 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
+  %cond = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = trunc i64 %13 to i32
   %15 = icmp ult i32 %14, 7
@@ -99962,75 +99962,75 @@ define dso_local noundef zeroext i1 @_ZNK5clang10ASTContext28AtomicUsesUnsupport
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load i32, ptr %7, align 4
-  br label %16
+  br label %17
 
-16:                                               ; preds = %2, %._crit_edge, %10, %10, %10
-  %17 = phi i32 [ %.pre, %._crit_edge ], [ %8, %10 ], [ %8, %10 ], [ %8, %10 ], [ %8, %2 ]
-  %18 = and i32 %17, -9
-  %spec.select.i14 = icmp eq i32 %18, 1
-  br i1 %spec.select.i14, label %19, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
+17:                                               ; preds = %2, %._crit_edge, %10, %10, %10
+  %18 = phi i32 [ %.pre, %._crit_edge ], [ %8, %10 ], [ %8, %10 ], [ %8, %10 ], [ %8, %2 ]
+  %19 = and i32 %18, -9
+  %spec.select.i14 = icmp eq i32 %19, 1
+  br i1 %spec.select.i14, label %20, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-19:                                               ; preds = %16
-  %20 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
-  %21 = extractvalue { i64, i64 } %20, 0
-  %22 = trunc i64 %21 to i32
-  %23 = icmp ult i32 %22, 10
-  br i1 %23, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
+20:                                               ; preds = %17
+  %21 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #29
+  %22 = extractvalue { i64, i64 } %21, 0
+  %23 = trunc i64 %22 to i32
+  %24 = icmp ult i32 %23, 10
+  br i1 %24, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
 
-_ZNK4llvm6Triple13isOSVersionLTEjjj.exit:         ; preds = %19
-  %24 = icmp eq i32 %22, 10
-  %25 = and i64 %21, 9223372032559808512
-  %26 = icmp samesign ult i64 %25, 38654705664
-  %spec.select.i15 = select i1 %24, i1 %26, i1 false
+_ZNK4llvm6Triple13isOSVersionLTEjjj.exit:         ; preds = %20
+  %25 = icmp eq i32 %23, 10
+  %26 = and i64 %22, 9223372032559808512
+  %27 = icmp samesign ult i64 %26, 38654705664
+  %spec.select.i15 = select i1 %25, i1 %27, i1 false
   br i1 %spec.select.i15, label %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread:  ; preds = %19, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, %11
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %29, align 8
-  %30 = and i64 %.sroa.0.0.copyload.i, -16
-  %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %31, align 16
-  %33 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %32) #29
+_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread:  ; preds = %20, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit, %11
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %30, align 8
+  %31 = and i64 %.sroa.0.0.copyload.i, -16
+  %32 = inttoptr i64 %31 to ptr
+  %33 = load ptr, ptr %32, align 16
+  %34 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %33) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @_ZNK5clang10ASTContext18getTypeInfoInCharsENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::TypeInfoChars") align 8 %3, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %33)
+  call void @_ZNK5clang10ASTContext18getTypeInfoInCharsENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::TypeInfoChars") align 8 %3, ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %34)
   %.sroa.02.0.copyload.i = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %34 = and i64 %33, -16
-  %35 = inttoptr i64 %34 to ptr
-  %36 = load ptr, ptr %35, align 16
-  %37 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %36)
-  %38 = extractvalue { i64, i64 } %37, 1
-  %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 18440
-  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %40, align 8
-  %41 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
-  %42 = inttoptr i64 %41 to ptr
-  %43 = load ptr, ptr %42, align 16
-  %44 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %43)
-  %45 = extractvalue { i64, i64 } %44, 0
-  %46 = udiv i64 %39, %45
-  %.not = icmp eq i64 %.sroa.02.0.copyload.i, %46
-  br i1 %.not, label %47, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
+  %35 = and i64 %34, -16
+  %36 = inttoptr i64 %35 to ptr
+  %37 = load ptr, ptr %36, align 16
+  %38 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %37)
+  %39 = extractvalue { i64, i64 } %38, 1
+  %40 = and i64 %39, 4294967295
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 18440
+  %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %41, align 8
+  %42 = and i64 %.sroa.0.0.copyload.i.i.i.i, -16
+  %43 = inttoptr i64 %42 to ptr
+  %44 = load ptr, ptr %43, align 16
+  %45 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %44)
+  %46 = extractvalue { i64, i64 } %45, 0
+  %47 = udiv i64 %40, %46
+  %.not = icmp eq i64 %.sroa.02.0.copyload.i, %47
+  br i1 %.not, label %48, label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-47:                                               ; preds = %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread
-  %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 287
-  %50 = load i8, ptr %49, align 1
-  %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 8
-  %51 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %52 = inttoptr i64 %51 to ptr
-  %53 = load ptr, ptr %52, align 16
-  %54 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %53)
-  %55 = extractvalue { i64, i64 } %54, 0
-  %56 = mul i64 %55, %.sroa.02.0.copyload.i
-  %57 = zext i8 %50 to i64
-  %58 = icmp sgt i64 %56, %57
+48:                                               ; preds = %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 287
+  %51 = load i8, ptr %50, align 1
+  %.sroa.0.0.copyload.i.i = load i64, ptr %41, align 8
+  %52 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %53 = inttoptr i64 %52 to ptr
+  %54 = load ptr, ptr %53, align 16
+  %55 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096) %0, ptr noundef %54)
+  %56 = extractvalue { i64, i64 } %55, 0
+  %57 = mul i64 %56, %.sroa.02.0.copyload.i
+  %58 = zext i8 %51 to i64
+  %59 = icmp sgt i64 %57, %57
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %10, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread, %47, %16, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit ], [ false, %16 ], [ true, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread ], [ %58, %47 ], [ false, %10 ]
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %10, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread, %48, %17, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit
+  %.0 = phi i1 [ false, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit ], [ false, %17 ], [ true, %_ZNK4llvm6Triple13isOSVersionLTEjjj.exit.thread ], [ %59, %48 ], [ false, %10 ]
   ret i1 %.0
 }
 

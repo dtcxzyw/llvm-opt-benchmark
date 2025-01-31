@@ -1605,36 +1605,36 @@ _find_or_create_conversation.exit.i:              ; preds = %427, %415
   %477 = load ptr, ptr %476, align 8
   %478 = load i8, ptr %477, align 1
   %479 = and i8 %478, -16
-  %.not77.i = icmp eq i8 %479, -32
-  br i1 %.not77.i, label %._crit_edge.i, label %480
+  %480 = icmp eq i8 %479, -32
+  br i1 %480, label %._crit_edge.i, label %480
 
-480:                                              ; preds = %475
-  %481 = zext i8 %478 to i32
-  %482 = shl nuw i32 %481, 24
-  %483 = getelementptr i8, ptr %477, i64 1
-  %484 = load i8, ptr %483, align 1
-  %485 = zext i8 %484 to i32
-  %486 = shl nuw nsw i32 %485, 16
-  %487 = or disjoint i32 %486, %482
-  %488 = getelementptr i8, ptr %477, i64 2
-  %489 = load i8, ptr %488, align 1
-  %490 = zext i8 %489 to i32
-  %491 = shl nuw nsw i32 %490, 8
-  %492 = or disjoint i32 %487, %491
-  %493 = getelementptr i8, ptr %477, i64 3
-  %494 = load i8, ptr %493, align 1
-  %495 = zext i8 %494 to i32
-  %496 = or disjoint i32 %492, %495
-  %497 = icmp eq i32 %496, -1
-  br i1 %497, label %._crit_edge.i, label %500
+481:                                              ; preds = %475
+  %482 = zext i8 %478 to i32
+  %483 = shl nuw i32 %482, 24
+  %484 = getelementptr i8, ptr %477, i64 1
+  %485 = load i8, ptr %484, align 1
+  %486 = zext i8 %485 to i32
+  %487 = shl nuw nsw i32 %486, 16
+  %488 = or disjoint i32 %487, %483
+  %489 = getelementptr i8, ptr %477, i64 2
+  %490 = load i8, ptr %489, align 1
+  %491 = zext i8 %490 to i32
+  %492 = shl nuw nsw i32 %491, 8
+  %493 = or disjoint i32 %488, %492
+  %494 = getelementptr i8, ptr %477, i64 3
+  %495 = load i8, ptr %494, align 1
+  %496 = zext i8 %495 to i32
+  %497 = or disjoint i32 %493, %496
+  %498 = icmp eq i32 %497, -1
+  br i1 %498, label %._crit_edge.i, label %500
 
-._crit_edge.i:                                    ; preds = %480, %475
-  %498 = phi ptr [ @.str.311, %480 ], [ @.str.312, %475 ]
+._crit_edge.i:                                    ; preds = %481, %475
+  %.pre-phi76.i = phi ptr [ @.str.311, %481 ], [ @.str.312, %475 ]
   %499 = load ptr, ptr %23, align 8
-  call void @col_append_str(ptr noundef %499, i32 noundef 25, ptr noundef nonnull %498) #5
+  call void @col_append_str(ptr noundef %499, i32 noundef 25, ptr noundef nonnull %.pre-phi76.i) #5
   br label %transaction_start.exit
 
-500:                                              ; preds = %480, %472
+500:                                              ; preds = %481, %472
   %501 = load ptr, ptr %445, align 8
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 50
   %503 = load i16, ptr %502, align 2

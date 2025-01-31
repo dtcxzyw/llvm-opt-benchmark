@@ -12589,9 +12589,9 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
   store i32 0, ptr %337, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %397
-  %.0160 = phi i8 [ %376, %397 ], [ 0, %.lr.ph.preheader ]
-  %338 = phi ptr [ %398, %397 ], [ %.pr, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %398
+  %.0160 = phi i8 [ %376, %398 ], [ 0, %.lr.ph.preheader ]
+  %338 = phi ptr [ %399, %398 ], [ %.pr, %.lr.ph.preheader ]
   %339 = getelementptr inbounds i8, ptr %338, i64 -16
   %340 = load i64, ptr %339, align 8
   %341 = and i64 %340, 2
@@ -12708,75 +12708,75 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
 
 ._crit_edge:                                      ; preds = %372, %_ZNK4llvm5APInteqEm.exit
   %388 = icmp eq i32 %380, %.sroa.2136.0.extract.trunc
-  br i1 %388, label %396, label %389
+  br i1 %388, label %397, label %389
 
 389:                                              ; preds = %._crit_edge
   %390 = icmp ult i64 %371, 4294967296
-  br i1 %390, label %391, label %393
+  br i1 %390, label %391, label %394
 
 391:                                              ; preds = %389
   %392 = call noundef zeroext i1 @_ZNK4llvm5APInteqEm(ptr noundef nonnull align 8 dereferenceable(12) %22, i64 noundef 0)
-  br i1 %392, label %396, label %394
+  br i1 %392, label %396, label %395
 
-393:                                              ; preds = %389
+394:                                              ; preds = %389
   %.old = icmp eq i64 %.sroa.2136.0.extract.shift, 4294967295
   %or.cond3.old = and i1 %.0.i142145, %.old
-  br i1 %or.cond3.old, label %396, label %394
+  br i1 %or.cond3.old, label %397, label %395
 
-394:                                              ; preds = %391, %393
+395:                                              ; preds = %391, %394
   store ptr %1, ptr %28, align 8
-  %395 = load i32, ptr %326, align 8
-  store i32 %395, ptr %29, align 4
+  %396 = load i32, ptr %326, align 8
+  store i32 %396, ptr %29, align 4
   call void @_ZN4llvm12TBAAVerifier11CheckFailedIJRA55_KcPNS_11InstructionERPKNS_6MDNodeERjjEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(55) @.str.26, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %29)
   br label %.loopexit
 
-396:                                              ; preds = %393, %391, %._crit_edge
+397:                                              ; preds = %394, %391, %._crit_edge
   %brmerge.not = select i1 %.0.i142145, i1 %.not57, i1 false
-  br i1 %brmerge.not, label %.critedge, label %397
+  br i1 %brmerge.not, label %.critedge, label %398
 
-397:                                              ; preds = %396
-  %398 = call noundef ptr @_ZN4llvm12TBAAVerifier28getFieldNodeFromTBAABaseNodeERNS_11InstructionEPKNS_6MDNodeERNS_5APIntEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %352, ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext %.0.i142145)
-  store ptr %398, ptr %12, align 8
-  %.not56 = icmp eq ptr %398, null
+398:                                              ; preds = %397
+  %399 = call noundef ptr @_ZN4llvm12TBAAVerifier28getFieldNodeFromTBAABaseNodeERNS_11InstructionEPKNS_6MDNodeERNS_5APIntEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %352, ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext %.0.i142145)
+  store ptr %399, ptr %12, align 8
+  %.not56 = icmp eq ptr %399, null
   br i1 %.not56, label %.critedge, label %.lr.ph, !llvm.loop !92
 
-.critedge:                                        ; preds = %397, %_ZL14IsRootTBAANodePKN4llvm6MDNodeE.exit, %396
-  %.1.ph = phi i8 [ %376, %397 ], [ %.0160, %_ZL14IsRootTBAANodePKN4llvm6MDNodeE.exit ], [ %376, %396 ]
-  %399 = trunc nuw i8 %.1.ph to i1
-  br i1 %399, label %.loopexit, label %400
+.critedge:                                        ; preds = %398, %_ZL14IsRootTBAANodePKN4llvm6MDNodeE.exit, %397
+  %.1.ph = phi i8 [ %376, %398 ], [ %.0160, %_ZL14IsRootTBAANodePKN4llvm6MDNodeE.exit ], [ %376, %397 ]
+  %400 = trunc nuw i8 %.1.ph to i1
+  br i1 %400, label %.loopexit, label %400
 
-400:                                              ; preds = %.critedge
+401:                                              ; preds = %.critedge
   store ptr %1, ptr %30, align 8
   call void @_ZN4llvm12TBAAVerifier11CheckFailedIJRA40_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 dereferenceable(40) @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %370, %.critedge, %400, %394, %_ZNK4llvm5APInteqEm.exit.thread, %.critedge175
-  %.148 = phi i1 [ false, %.critedge175 ], [ false, %400 ], [ false, %394 ], [ false, %_ZNK4llvm5APInteqEm.exit.thread ], [ true, %.critedge ], [ false, %370 ]
-  %401 = load ptr, ptr %334, align 8
-  %402 = load ptr, ptr %23, align 8
-  %403 = icmp eq ptr %401, %402
-  br i1 %403, label %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit, label %404
+.loopexit:                                        ; preds = %370, %.critedge, %401, %395, %_ZNK4llvm5APInteqEm.exit.thread, %.critedge175
+  %.148 = phi i1 [ false, %.critedge175 ], [ false, %401 ], [ false, %395 ], [ false, %_ZNK4llvm5APInteqEm.exit.thread ], [ true, %.critedge ], [ false, %370 ]
+  %402 = load ptr, ptr %334, align 8
+  %403 = load ptr, ptr %23, align 8
+  %404 = icmp eq ptr %402, %402
+  br i1 %404, label %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit, label %404
 
-404:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %401) #23
+405:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %402) #23
   br label %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit: ; preds = %.loopexit, %404
-  %405 = load i32, ptr %326, align 8
-  %406 = icmp ugt i32 %405, 64
-  br i1 %406, label %407, label %_ZN4llvm5APIntD2Ev.exit
+_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit: ; preds = %.loopexit, %405
+  %406 = load i32, ptr %326, align 8
+  %407 = icmp ugt i32 %406, 64
+  br i1 %407, label %407, label %_ZN4llvm5APIntD2Ev.exit
 
-407:                                              ; preds = %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit
-  %408 = load ptr, ptr %22, align 8
-  %409 = icmp eq ptr %408, null
-  br i1 %409, label %_ZN4llvm5APIntD2Ev.exit, label %410
+408:                                              ; preds = %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit
+  %409 = load ptr, ptr %22, align 8
+  %410 = icmp eq ptr %409, null
+  br i1 %410, label %_ZN4llvm5APIntD2Ev.exit, label %410
 
-410:                                              ; preds = %407
-  call void @_ZdaPv(ptr noundef nonnull %408) #25
+411:                                              ; preds = %408
+  call void @_ZdaPv(ptr noundef nonnull %409) #25
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %410, %407, %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit, %324, %302, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA99_KcPNS_11InstructionERPKNS_6MDNodeERPS7_SC_EEEvDpOT_.exit, %277, %266, %229, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA53_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit, %177, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA66_KcPNS_11InstructionEEEEvDpOT_.exit, %62, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA37_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit
-  %.047 = phi i1 [ false, %324 ], [ false, %302 ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA99_KcPNS_11InstructionERPKNS_6MDNodeERPS7_SC_EEEvDpOT_.exit ], [ false, %277 ], [ false, %266 ], [ false, %229 ], [ false, %177 ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA53_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA66_KcPNS_11InstructionEEEEvDpOT_.exit ], [ false, %62 ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA37_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ %.148, %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit ], [ %.148, %407 ], [ %.148, %410 ]
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %411, %408, %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit, %324, %302, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA99_KcPNS_11InstructionERPKNS_6MDNodeERPS7_SC_EEEvDpOT_.exit, %277, %266, %229, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA53_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit, %177, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA66_KcPNS_11InstructionEEEEvDpOT_.exit, %62, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA37_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit
+  %.047 = phi i1 [ false, %324 ], [ false, %302 ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA99_KcPNS_11InstructionERPKNS_6MDNodeERPS7_SC_EEEvDpOT_.exit ], [ false, %277 ], [ false, %266 ], [ false, %229 ], [ false, %177 ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA53_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA66_KcPNS_11InstructionEEEEvDpOT_.exit ], [ false, %62 ], [ false, %_ZN4llvm12TBAAVerifier11CheckFailedIJRA37_KcPNS_11InstructionERPKNS_6MDNodeEEEEvDpOT_.exit ], [ %.148, %_ZN4llvm11SmallPtrSetIPNS_6MDNodeELj4EED2Ev.exit ], [ %.148, %408 ], [ %.148, %411 ]
   ret i1 %.047
 }
 

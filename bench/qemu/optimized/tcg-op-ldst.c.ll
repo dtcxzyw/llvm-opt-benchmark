@@ -2103,7 +2103,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %a.0.i.i.i = phi i32 [ 3, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.then2.i ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
   %tobool.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %if.then5.i
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %sw.bb10.i.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
@@ -2112,9 +2112,9 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %conv.i.i.i = zext i8 %6 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  br label %if.then5.i
+  br label %sw.bb10.i.i
 
-if.then5.i:                                       ; preds = %do.body.i.i.i, %get_alignment_bits.exit.i.i
+sw.bb10.i.i:                                       ; preds = %do.body.i.i.i, %get_alignment_bits.exit.i.i
   %cmp.i.i = icmp eq i32 %a.0.i.i.i, 3
   %or.i.i = or i32 %memop, 224
   %spec.select.i.i = select i1 %cmp.i.i, i32 %or.i.i, i32 %memop
