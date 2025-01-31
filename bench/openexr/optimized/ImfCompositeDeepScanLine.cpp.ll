@@ -1842,7 +1842,6 @@ for.body.preheader.i.i.i.i.i118:                  ; preds = %for.body.preheader.
 
 _ZNSt12_Vector_baseIPKN7Imf_3_26HeaderESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IjSaIjEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %_M_finish.i.i7.i393 = getelementptr inbounds nuw i8, ptr %counts, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %counts, i8 0, i64 24, i1 false)
   %_M_finish.i.i7.i124399 = getelementptr inbounds nuw i8, ptr %pointers, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pointers, i8 0, i64 24, i1 false)
   br label %invoke.cont12
@@ -2170,7 +2169,6 @@ if.end.i.i.i.i.i.i.i197:                          ; preds = %call5.i.i.i.i2.i.i.
   br label %for.body104.lr.ph
 
 invoke.cont101:                                   ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %total_sizes, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %num_sources, i8 0, i64 24, i1 false)
   br label %for.end128
 
@@ -2300,7 +2298,6 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %if.
 
 for.cond158.preheader.thread:                     ; preds = %_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %_M_finish.i.i7.i228540 = getelementptr inbounds nuw i8, ptr %samples, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %samples, i8 0, i64 24, i1 false)
   br label %for.cond197.preheader
 
 for.body.preheader.i.i.i.i.i222:                  ; preds = %_ZNSt6vectorIS_IfSaIfEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
@@ -2620,11 +2617,7 @@ if.then.i.i300:                                   ; preds = %for.end223
 _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %for.end223
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i290 = icmp eq ptr %126, %127
-  br i1 %cmp.not.i.i.i.i290, label %invoke.cont229.thread, label %if.then.i.i.i.i.i291
-
-invoke.cont229.thread:                            ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
-  br label %for.end242
+  br i1 %cmp.not.i.i.i.i290, label %for.end242, label %if.then.i.i.i.i.i291
 
 if.then.i.i.i.i.i291:                             ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %mul.i.i.i.i.i.i292 = ashr exact i64 %sub.ptr.sub.i287, 2
@@ -2687,9 +2680,9 @@ for.end242.loopexit:                              ; preds = %for.body234
   %.pre535 = load ptr, ptr %_Data, align 8
   br label %for.end242
 
-for.end242:                                       ; preds = %invoke.cont229.thread, %for.end242.loopexit, %invoke.cont229
-  %135 = phi ptr [ %.lcssa423, %invoke.cont229 ], [ %.pre535, %for.end242.loopexit ], [ %.lcssa423, %invoke.cont229.thread ]
-  %.lcssa = phi ptr [ %call5.i.i.i.i2.i.i303, %invoke.cont229 ], [ %133, %for.end242.loopexit ], [ null, %invoke.cont229.thread ]
+for.end242:                                       ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %for.end242.loopexit, %invoke.cont229
+  %135 = phi ptr [ %.lcssa423, %invoke.cont229 ], [ %.pre535, %for.end242.loopexit ], [ %.lcssa423, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.lcssa = phi ptr [ %call5.i.i.i.i2.i.i303, %invoke.cont229 ], [ %133, %for.end242.loopexit ], [ null, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %_zback244 = getelementptr inbounds nuw i8, ptr %135, i64 96
   %136 = load i8, ptr %_zback244, align 8
   %tobool245 = trunc i8 %136 to i1

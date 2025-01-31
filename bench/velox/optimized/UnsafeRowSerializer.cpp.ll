@@ -6332,7 +6332,6 @@ _ZN8facebook5velox3row21UnsafeRowDeserializer13populateNullsERKSt10shared_ptrINS
 
 _ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EEC2EmRKS5_.exit.i.thread: ; preds = %_ZN8facebook5velox3row21UnsafeRowDeserializer13populateNullsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm.exit.i
   %_M_finish.i.i7.i.i250 = getelementptr inbounds nuw i8, ptr %columnVectors.i, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columnVectors.i, i8 0, i64 24, i1 false)
   br label %for.end.i
 
 for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZN8facebook5velox3row21UnsafeRowDeserializer13populateNullsERKSt10shared_ptrINS1_12_GLOBAL__N_126UnsafeRowDataBatchIteratorEEPNS0_6memory10MemoryPoolEm.exit.i

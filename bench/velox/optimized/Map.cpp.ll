@@ -5720,7 +5720,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10shared_
 
 invoke.cont101.thread:                            ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %_M_finish.i.i7.i2799 = getelementptr inbounds nuw i8, ptr %sortedIndices, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sortedIndices, i8 0, i64 24, i1 false)
   br label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
 
 if.then.i.i.i.i.i252:                             ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -21058,11 +21057,7 @@ if.then.i.i250:                                   ; preds = %_ZNSt10shared_ptrIN
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit242
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sortedIndices, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i246 = icmp eq i32 %203, 0
-  br i1 %cmp.not.i.i.i.i246, label %invoke.cont71.thread, label %if.then.i.i.i.i.i247
-
-invoke.cont71.thread:                             ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sortedIndices, i8 0, i64 24, i1 false)
-  br label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
+  br i1 %cmp.not.i.i.i.i246, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, label %if.then.i.i.i.i.i247
 
 if.then.i.i.i.i.i247:                             ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i248 = shl nuw nsw i64 %conv, 2
@@ -21099,7 +21094,7 @@ for.body.i254:                                    ; preds = %for.body.i254.prehe
   %cmp.i.not.i255 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not.i255, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, label %for.body.i254, !llvm.loop !39
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %for.body.i254, %invoke.cont71.thread
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %for.body.i254, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %212 = load ptr, ptr %keysElements66, align 8
   %vtable82 = load ptr, ptr %212, align 8
   %vfn83 = getelementptr inbounds nuw i8, ptr %vtable82, i64 88

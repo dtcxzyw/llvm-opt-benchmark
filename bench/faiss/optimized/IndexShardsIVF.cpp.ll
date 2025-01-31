@@ -1257,7 +1257,6 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i68: ; preds = %.noexc66
   br label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i68.thread
 
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i72: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   br label %158
 

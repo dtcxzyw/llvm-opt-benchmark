@@ -232,11 +232,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
 _ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61: ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i62 = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i.i62, label %.loopexit98.thread, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63
-
-.loopexit98.thread:                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  br label %.preheader95
+  br i1 %.not.i.i.i.i62, label %.preheader95, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61
   %56 = mul nuw nsw i64 %53, 96
@@ -269,9 +265,9 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vector
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %85
 
-.preheader95:                                     ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %.loopexit98.thread
-  %.0.lcssa.i.i.i.i.i68138 = phi ptr [ null, %.loopexit98.thread ], [ %62, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
-  %.pr.i137 = phi ptr [ null, %.loopexit98.thread ], [ %57, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+.preheader95:                                     ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61
+  %.0.lcssa.i.i.i.i.i68138 = phi ptr [ null, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61 ], [ %62, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+  %.pr.i137 = phi ptr [ null, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61 ], [ %57, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8

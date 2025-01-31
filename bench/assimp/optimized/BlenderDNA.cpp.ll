@@ -546,7 +546,6 @@ for.body.i.i.i.i.i131:                            ; preds = %for.body.i.i.i.i.i1
 
 invoke.cont46.for.cond72.preheader_crit_edge:     ; preds = %_ZNSt6vectorI4TypeSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %_M_finish.i144516 = getelementptr inbounds nuw i8, ptr %types, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
   %mCurrent.i.i.promoted474.pre = load ptr, ptr %mCurrent.i.i, align 8
   br label %for.cond72.preheader
 

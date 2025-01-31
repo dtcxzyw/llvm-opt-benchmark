@@ -4062,11 +4062,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %60
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %75, %76
-  br i1 %.not.i.i.i.i, label %.thread, label %.lr.ph.preheader.i.i.i.i.i
-
-.thread:                                          ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #24
@@ -4136,8 +4132,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %.pre = load ptr, ptr %21, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit
-  %115 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %69, %.thread ]
+._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, %._crit_edge.loopexit
+  %115 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %69, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %116 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %22)
           to label %117 unwind label %113
 

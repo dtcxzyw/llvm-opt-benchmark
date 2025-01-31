@@ -338,7 +338,7 @@ invoke.cont:                                      ; preds = %if.end
   %conv5 = zext i32 %mul to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %replaceMeshIndex, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq i32 %mul, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont8, label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv5, 2
@@ -355,12 +355,8 @@ invoke.cont8.thread:                              ; preds = %if.end.i.i.i.i.i.i.
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %for.body.lr.ph
 
-invoke.cont8:                                     ; preds = %invoke.cont
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %replaceMeshIndex, i8 0, i64 24, i1 false)
-  br label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %invoke.cont8, %invoke.cont8.thread
-  %2 = phi ptr [ %call5.i.i.i.i2.i.i236, %invoke.cont8.thread ], [ null, %invoke.cont8 ]
+for.body.lr.ph:                                   ; preds = %invoke.cont, %invoke.cont8.thread
+  %2 = phi ptr [ %call5.i.i.i.i2.i.i236, %invoke.cont8.thread ], [ null, %invoke.cont ]
   %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   %arrayidx77 = getelementptr inbounds nuw i8, ptr %aiNumPerPType, i64 12
   %mConfigRemoveMeshes89 = getelementptr inbounds nuw i8, ptr %this, i64 24

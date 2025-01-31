@@ -14168,11 +14168,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath26TokenizeIdentifierAs
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %6, %7
-  br i1 %.not.i.i.i.i, label %.thread, label %.lr.ph.preheader.i.i.i.i.i
-
-.thread:                                          ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %14 = ashr exact i64 %10, 2
@@ -14237,9 +14233,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %21, %28
   %.pre15 = load ptr, ptr %5, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit
-  %37 = phi ptr [ %.pre15, %._crit_edge.loopexit ], [ %6, %.thread ]
-  %38 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %.thread ]
+._crit_edge:                                      ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %._crit_edge.loopexit
+  %37 = phi ptr [ %.pre15, %._crit_edge.loopexit ], [ %6, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %38 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %.not4.i.i.i.i = icmp eq ptr %38, %37
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

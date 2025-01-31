@@ -64209,7 +64209,6 @@ cgltf_accessor_read_float.exit77:                 ; preds = %89
 120:                                              ; preds = %93
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
   br label %cgltf_accessor_read_float.exit85
 
 123:                                              ; preds = %100, %cgltf_buffer_view_data.exit.thread19.i73

@@ -2996,7 +2996,6 @@ if.end31:                                         ; preds = %lor.lhs.false
   ]
 
 if.then37:                                        ; preds = %if.end31, %if.end31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr_ret, i8 0, i64 16, i1 false)
   %sin_addr39 = getelementptr inbounds nuw i8, ptr %addr_ret, i64 4
   %call40 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %name, ptr noundef nonnull %sin_addr39) #12
   %cmp41 = icmp sgt i32 %call40, 0

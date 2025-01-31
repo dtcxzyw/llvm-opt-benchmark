@@ -436,11 +436,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %37
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt13random_deviceD2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i.i, label %.thread, label %46
-
-.thread:                                          ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEZ13get_rand_dataibE3$_0EvT_S8_T0_.exit"
+  br i1 %.not.i.i.i.i, label %"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEZ13get_rand_dataibE3$_0EvT_S8_T0_.exit", label %46
 
 46:                                               ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   %47 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #31
@@ -507,7 +503,7 @@ _ZNSt13random_deviceD2Ev.exit12:                  ; preds = %58
   call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %43) #28
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEZ13get_rand_dataibE3$_0EvT_S8_T0_.exit": ; preds = %.noexc11, %.thread
+"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEZ13get_rand_dataibE3$_0EvT_S8_T0_.exit": ; preds = %.noexc11, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %5) #27
   ret void

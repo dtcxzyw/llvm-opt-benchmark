@@ -1984,11 +1984,7 @@ invoke.cont127:                                   ; preds = %for.end126
   %conv129 = zext i16 %62 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %groups, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i419 = icmp eq i16 %62, 0
-  br i1 %cmp.not.i.i.i.i419, label %invoke.cont132.thread, label %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i
-
-invoke.cont132.thread:                            ; preds = %invoke.cont127
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %groups, i8 0, i64 24, i1 false)
-  br label %for.end176
+  br i1 %cmp.not.i.i.i.i419, label %for.end176, label %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i
 
 _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i: ; preds = %invoke.cont127
   %mul.i.i.i.i.i.i420 = mul nuw nsw i64 %conv129, 104
@@ -2208,8 +2204,8 @@ invoke.cont167:                                   ; preds = %for.end166
   %exitcond1859.not = icmp eq i64 %indvars.iv.next1857, %wide.trip.count1858
   br i1 %exitcond1859.not, label %for.end176, label %for.body138, !llvm.loop !17
 
-for.end176:                                       ; preds = %invoke.cont167, %invoke.cont132.thread
-  %need_default.0.lcssa = phi i1 [ false, %invoke.cont132.thread ], [ %spec.select, %invoke.cont167 ]
+for.end176:                                       ; preds = %invoke.cont167, %invoke.cont127
+  %need_default.0.lcssa = phi i1 [ false, %invoke.cont127 ], [ %spec.select, %invoke.cont167 ]
   %86 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i.i498 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %87 = load ptr, ptr %mLimit.i.i, align 8
@@ -2233,11 +2229,7 @@ invoke.cont178:                                   ; preds = %for.end176
   %conv180 = zext i16 %89 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %materials, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i510 = icmp eq i16 %89, 0
-  br i1 %cmp.not.i.i.i.i510, label %invoke.cont183.thread, label %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.i
-
-invoke.cont183.thread:                            ; preds = %invoke.cont178
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %materials, i8 0, i64 24, i1 false)
-  br label %for.end218
+  br i1 %cmp.not.i.i.i.i510, label %for.end218, label %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.i
 
 _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.i: ; preds = %invoke.cont178
   %mul.i.i.i.i.i.i511 = mul nuw nsw i64 %conv180, 400
@@ -2458,7 +2450,7 @@ lpad195.loopexit.split-lp:                        ; preds = %invoke.cont.i.i540.
           cleanup
   br label %ehcleanup1077
 
-for.end218:                                       ; preds = %invoke.cont213, %invoke.cont183.thread
+for.end218:                                       ; preds = %invoke.cont213, %invoke.cont178
   %114 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i.i611 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %115 = load ptr, ptr %mLimit.i.i, align 8
@@ -2534,11 +2526,7 @@ invoke.cont225:                                   ; preds = %invoke.cont223
   %conv227 = zext i16 %121 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %joints, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i658 = icmp eq i16 %121, 0
-  br i1 %cmp.not.i.i.i.i658, label %invoke.cont230.thread, label %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i
-
-invoke.cont230.thread:                            ; preds = %invoke.cont225
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %joints, i8 0, i64 24, i1 false)
-  br label %for.end296
+  br i1 %cmp.not.i.i.i.i658, label %for.end296, label %_ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i
 
 _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i: ; preds = %invoke.cont225
   %mul.i.i.i.i.i.i659 = mul nuw nsw i64 %conv227, 176
@@ -2970,7 +2958,7 @@ for.inc294:                                       ; preds = %for.inc291, %for.co
   %exitcond1869.not = icmp eq i64 %indvars.iv.next1866, %wide.trip.count1868
   br i1 %exitcond1869.not, label %for.end296, label %for.body235, !llvm.loop !23
 
-for.end296:                                       ; preds = %for.inc294, %invoke.cont230.thread
+for.end296:                                       ; preds = %for.inc294, %invoke.cont225
   %mEnd.i = getelementptr inbounds nuw i8, ptr %stream, i64 32
   %183 = load ptr, ptr %mEnd.i, align 8
   %184 = load ptr, ptr %mCurrent.i.i, align 8

@@ -62516,7 +62516,6 @@ _ZNSt6vectorIS_IPN7rocksdb16LiveFileMetaDataESaIS2_EESaIS4_EE17_S_check_init_len
 
 invoke.cont7.thread:                              ; preds = %_ZNSt6vectorIS_IPN7rocksdb16LiveFileMetaDataESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %_M_finish.i.i7.i374 = getelementptr inbounds nuw i8, ptr %metadata_files, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %metadata_files, i8 0, i64 24, i1 false)
   br label %for.end33
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IPN7rocksdb16LiveFileMetaDataESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i

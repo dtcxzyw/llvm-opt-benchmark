@@ -2792,11 +2792,7 @@ if.then.i.i886:                                   ; preds = %for.end582
 _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %for.end582
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pLimit, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i882 = icmp eq ptr %v150.sroa.23.0.lcssa, %v150.sroa.0.0.lcssa
-  br i1 %cmp.not.i.i.i.i882, label %for.cond623.preheader.thread, label %for.body.preheader.i.i.i.i.i
-
-for.cond623.preheader.thread:                     ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pLimit, i8 0, i64 24, i1 false)
-  br label %if.end.i
+  br i1 %cmp.not.i.i.i.i882, label %if.end.i, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %mul.i.i.i.i.i.i883 = mul nuw nsw i64 %sub.ptr.div.i, 12
@@ -3156,7 +3152,7 @@ for.body626:                                      ; preds = %for.body626.prehead
   %exitcond2949.not = icmp eq i64 %inc631, %umax2948
   br i1 %exitcond2949.not, label %if.end.i, label %for.body626, !llvm.loop !39
 
-if.end.i:                                         ; preds = %for.body626, %for.cond623.preheader.thread
+if.end.i:                                         ; preds = %for.body626, %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %Ns, i8 0, i64 24, i1 false)
   %_M_end_of_storage.i.i1086 = getelementptr inbounds nuw i8, ptr %Ns, i64 16
   %cmp3.i1090.not = icmp eq ptr %v150.sroa.23.0.lcssa, %v150.sroa.0.0.lcssa

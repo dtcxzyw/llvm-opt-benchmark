@@ -90250,8 +90250,8 @@ invoke.cont.i:                                    ; preds = %init.i
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
   br label %_ZN7easylog6loggerILm0EE8instanceEv.exit
 
-common.resume:                                    ; preds = %lpad.body, %ehcleanup, %ehcleanup99, %lpad123.body, %lpad.i116, %lpad.i69, %lpad.i23, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %25, %lpad.i23 ], [ %59, %lpad.i69 ], [ %85, %lpad.i116 ], [ %.pn5, %ehcleanup ], [ %.pn, %ehcleanup99 ], [ %eh.lpad-body129, %lpad123.body ], [ %eh.lpad-body, %lpad.body ]
+common.resume:                                    ; preds = %lpad.body, %ehcleanup, %ehcleanup99, %lpad123.body, %lpad.i116, %lpad.i69, %lpad.i24, %lpad.i
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i ], [ %25, %lpad.i24 ], [ %59, %lpad.i69 ], [ %85, %lpad.i116 ], [ %.pn5, %ehcleanup ], [ %.pn, %ehcleanup99 ], [ %eh.lpad-body129, %lpad123.body ], [ %eh.lpad-body, %lpad.body ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %init.i
@@ -90263,7 +90263,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN7easylog6loggerILm0EE8instanceEv.exit:         ; preds = %entry, %init.check.i, %invoke.cont.i
   %4 = load i32, ptr @_ZZN7easylog6loggerILm0EE8instanceEvE8instance, align 8
   %cmp.i = icmp slt i32 %4, 4
-  br i1 %cmp.i, label %if.else, label %_ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit
+  br i1 %cmp.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %_ZN7easylog6loggerILm0EE8instanceEv.exit
   %call3 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #27
@@ -90344,7 +90344,7 @@ if.then.i.i2.i:                                   ; preds = %_ZNSt7__cxx1112basi
 
 _ZN7easylog8record_tD2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i, %if.then.i.i2.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_str_.i) #27
-  br label %_ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit
+  br label %if.end
 
 lpad:                                             ; preds = %invoke.cont12, %if.else
   %15 = landingpad { ptr, i32 }
@@ -90356,7 +90356,7 @@ lpad.body:                                        ; preds = %lpad.i12, %lpad
   call void @_ZN7easylog8record_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp) #27
   br label %common.resume
 
-_ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit: ; preds = %_ZN7easylog8record_tD2Ev.exit, %_ZN7easylog6loggerILm0EE8instanceEv.exit
+if.end:                                           ; preds = %_ZN7easylog6loggerILm0EE8instanceEv.exit, %_ZN7easylog8record_tD2Ev.exit
   %port_ = getelementptr inbounds nuw i8, ptr %this, i64 552
   %16 = load atomic i16, ptr %port_ seq_cst, align 8
   %17 = getelementptr inbounds nuw i8, ptr %endpoint, i64 8
@@ -90374,8 +90374,8 @@ _ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit: ; preds = %_ZN7easylog8rec
   call void @_ZN4asio21basic_socket_acceptorINS_2ip3tcpENS_15any_io_executorEE10set_optionINS_6detail13socket_option7booleanILi1ELi2EEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(88) %acceptor_, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23)
   store i32 0, ptr %ec, align 8
   %_M_cat.i = getelementptr inbounds nuw i8, ptr %ec, i64 8
-  %call.i16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #40
-  store ptr %call.i16, ptr %_M_cat.i, align 8
+  %call.i17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #40
+  store ptr %call.i17, ptr %_M_cat.i, align 8
   %implementation_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %20 = load i32, ptr %implementation_.i.i, align 8
   %21 = load i16, ptr %endpoint, align 4
@@ -90383,46 +90383,46 @@ _ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit: ; preds = %_ZN7easylog8rec
   %..i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 28
   %call3.i.i = call noundef i32 @_ZN4asio6detail10socket_ops4bindEiPKvmRSt10error_code(i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(28) %endpoint, i64 noundef %..i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ec)
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %ec, align 8
-  %cmp.i18.not = icmp eq i32 %retval.sroa.0.0.copyload.i.i, 0
-  br i1 %cmp.i18.not, label %if.end64, label %if.then27
+  %cmp.i19.not = icmp eq i32 %retval.sroa.0.0.copyload.i.i, 0
+  br i1 %cmp.i19.not, label %if.end64, label %if.then27
 
-if.then27:                                        ; preds = %_ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit
+if.then27:                                        ; preds = %if.end
   %22 = load atomic i8, ptr @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance acquire, align 8
-  %guard.uninitialized.i19 = icmp eq i8 %22, 0
-  br i1 %guard.uninitialized.i19, label %init.check.i20, label %_ZN7easylog6loggerILm0EE8instanceEv.exit25, !prof !5
+  %guard.uninitialized.i20 = icmp eq i8 %22, 0
+  br i1 %guard.uninitialized.i20, label %init.check.i21, label %_ZN7easylog6loggerILm0EE8instanceEv.exit26, !prof !5
 
-init.check.i20:                                   ; preds = %if.then27
+init.check.i21:                                   ; preds = %if.then27
   %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
-  %tobool.not.i21 = icmp eq i32 %23, 0
-  br i1 %tobool.not.i21, label %_ZN7easylog6loggerILm0EE8instanceEv.exit25, label %init.i22
+  %tobool.not.i22 = icmp eq i32 %23, 0
+  br i1 %tobool.not.i22, label %_ZN7easylog6loggerILm0EE8instanceEv.exit26, label %init.i23
 
-init.i22:                                         ; preds = %init.check.i20
+init.i23:                                         ; preds = %init.check.i21
   invoke void @_ZN7easylog6loggerILm0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7easylog6loggerILm0EE8instanceEvE8instance)
-          to label %invoke.cont.i24 unwind label %lpad.i23
+          to label %invoke.cont.i25 unwind label %lpad.i24
 
-invoke.cont.i24:                                  ; preds = %init.i22
+invoke.cont.i25:                                  ; preds = %init.i23
   %24 = call i32 @__cxa_atexit(ptr nonnull @_ZN7easylog6loggerILm0EED2Ev, ptr nonnull @_ZZN7easylog6loggerILm0EE8instanceEvE8instance, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
-  br label %_ZN7easylog6loggerILm0EE8instanceEv.exit25
+  br label %_ZN7easylog6loggerILm0EE8instanceEv.exit26
 
-lpad.i23:                                         ; preds = %init.i22
+lpad.i24:                                         ; preds = %init.i23
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
   br label %common.resume
 
-_ZN7easylog6loggerILm0EE8instanceEv.exit25:       ; preds = %if.then27, %init.check.i20, %invoke.cont.i24
+_ZN7easylog6loggerILm0EE8instanceEv.exit26:       ; preds = %if.then27, %init.check.i21, %invoke.cont.i25
   %26 = load i32, ptr @_ZZN7easylog6loggerILm0EE8instanceEvE8instance, align 8
-  %cmp.i26 = icmp slt i32 %26, 6
-  br i1 %cmp.i26, label %if.else31, label %if.end57
+  %cmp.i27 = icmp slt i32 %26, 6
+  br i1 %cmp.i27, label %if.else31, label %if.end57
 
-if.else31:                                        ; preds = %_ZN7easylog6loggerILm0EE8instanceEv.exit25
+if.else31:                                        ; preds = %_ZN7easylog6loggerILm0EE8instanceEv.exit26
   %call34 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #27
   store i8 91, ptr %ref.tmp38, align 1, !alias.scope !1278
-  %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i27, ptr noundef nonnull align 1 dereferenceable(23) @__const._ZZN8coro_rpc20coro_rpc_server_baseINS_6config23coro_rpc_default_configEE6listenEvENKUlvE0_clEv.prefix, i64 23, i1 false)
-  %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i28, ptr noundef nonnull align 1 dereferenceable(3) @.str.69, i64 3, i1 false)
+  %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %s.sroa.0.i.sroa.4.0.agg.result.sroa_idx.i28, ptr noundef nonnull align 1 dereferenceable(23) @__const._ZZN8coro_rpc20coro_rpc_server_baseINS_6config23coro_rpc_default_configEE6listenEvENKUlvE0_clEv.prefix, i64 23, i1 false)
+  %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %s.sroa.0.i.sroa.5.0.agg.result.sroa_idx.i29, ptr noundef nonnull align 1 dereferenceable(3) @.str.69, i64 3, i1 false)
   call void @_ZN7easylog8record_tC2INSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEET_NS_8SeverityESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp32, i64 %call34, i32 noundef 5, i64 26, ptr nonnull %ref.tmp38)
   %27 = load atomic i16, ptr %port_ seq_cst, align 8
   store i16 %27, ptr %ref.tmp43, align 2
@@ -90442,30 +90442,30 @@ invoke.cont49:                                    ; preds = %if.else31
 
 invoke.cont52:                                    ; preds = %invoke.cont49
   %32 = load atomic i8, ptr @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance acquire, align 8
-  %guard.uninitialized.i30 = icmp eq i8 %32, 0
-  br i1 %guard.uninitialized.i30, label %init.check.i31, label %invoke.cont54, !prof !5
+  %guard.uninitialized.i31 = icmp eq i8 %32, 0
+  br i1 %guard.uninitialized.i31, label %init.check.i32, label %invoke.cont54, !prof !5
 
-init.check.i31:                                   ; preds = %invoke.cont52
+init.check.i32:                                   ; preds = %invoke.cont52
   %33 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
-  %tobool.not.i32 = icmp eq i32 %33, 0
-  br i1 %tobool.not.i32, label %invoke.cont54, label %init.i33
+  %tobool.not.i33 = icmp eq i32 %33, 0
+  br i1 %tobool.not.i33, label %invoke.cont54, label %init.i34
 
-init.i33:                                         ; preds = %init.check.i31
+init.i34:                                         ; preds = %init.check.i32
   invoke void @_ZN7easylog6loggerILm0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7easylog6loggerILm0EE8instanceEvE8instance)
-          to label %invoke.cont.i35 unwind label %lpad.i34
+          to label %invoke.cont.i36 unwind label %lpad.i35
 
-invoke.cont.i35:                                  ; preds = %init.i33
+invoke.cont.i36:                                  ; preds = %init.i34
   %34 = call i32 @__cxa_atexit(ptr nonnull @_ZN7easylog6loggerILm0EED2Ev, ptr nonnull @_ZZN7easylog6loggerILm0EE8instanceEvE8instance, ptr nonnull @__dso_handle) #27
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
   br label %invoke.cont54
 
-lpad.i34:                                         ; preds = %init.i33
+lpad.i35:                                         ; preds = %init.i34
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance) #27
   br label %lpad51.body
 
-invoke.cont54:                                    ; preds = %invoke.cont.i35, %init.check.i31, %invoke.cont52
+invoke.cont54:                                    ; preds = %invoke.cont.i36, %init.check.i32, %invoke.cont52
   invoke void @_ZN7easylog6loggerILm0EE5writeERNS_8record_tE(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN7easylog6loggerILm0EE8instanceEvE8instance, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp32)
           to label %invoke.cont56 unwind label %lpad51
 
@@ -90488,44 +90488,44 @@ if.then.i.i:                                      ; preds = %invoke.cont56
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #27
-  %ss_.i40 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 48
-  %39 = load ptr, ptr %ss_.i40, align 8
+  %ss_.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 48
+  %39 = load ptr, ptr %ss_.i41, align 8
   %40 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 64
-  %cmp.i.i.i.i41 = icmp eq ptr %39, %40
-  br i1 %cmp.i.i.i.i41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i50, label %if.then.i.i.i42
+  %cmp.i.i.i.i42 = icmp eq ptr %39, %40
+  br i1 %cmp.i.i.i.i42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i51, label %if.then.i.i.i43
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i50: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 56
-  %41 = load i64, ptr %_M_string_length.i.i.i.i51, align 8
-  %cmp3.i.i.i.i52 = icmp ult i64 %41, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i52)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i51: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %_M_string_length.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 56
+  %41 = load i64, ptr %_M_string_length.i.i.i.i52, align 8
+  %cmp3.i.i.i.i53 = icmp ult i64 %41, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i53)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i44
 
-if.then.i.i.i42:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+if.then.i.i.i43:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @_ZdlPv(ptr noundef %39) #35
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i44
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43: ; preds = %if.then.i.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i50
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ss_.i40) #27
-  %file_str_.i44 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 16
-  %42 = load ptr, ptr %file_str_.i44, align 8
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i44: ; preds = %if.then.i.i.i43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i51
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ss_.i41) #27
+  %file_str_.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 16
+  %42 = load ptr, ptr %file_str_.i45, align 8
   %43 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 32
-  %cmp.i.i.i1.i45 = icmp eq ptr %42, %43
-  br i1 %cmp.i.i.i1.i45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i47, label %if.then.i.i2.i46
+  %cmp.i.i.i1.i46 = icmp eq ptr %42, %43
+  br i1 %cmp.i.i.i1.i46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i48, label %if.then.i.i2.i47
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i47: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43
-  %_M_string_length.i.i.i4.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 24
-  %44 = load i64, ptr %_M_string_length.i.i.i4.i48, align 8
-  %cmp3.i.i.i5.i49 = icmp ult i64 %44, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i5.i49)
-  br label %_ZN7easylog8record_tD2Ev.exit53
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i48: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i44
+  %_M_string_length.i.i.i4.i49 = getelementptr inbounds nuw i8, ptr %ref.tmp32, i64 24
+  %44 = load i64, ptr %_M_string_length.i.i.i4.i49, align 8
+  %cmp3.i.i.i5.i50 = icmp ult i64 %44, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i5.i50)
+  br label %_ZN7easylog8record_tD2Ev.exit54
 
-if.then.i.i2.i46:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i43
+if.then.i.i2.i47:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i44
   call void @_ZdlPv(ptr noundef %42) #35
-  br label %_ZN7easylog8record_tD2Ev.exit53
+  br label %_ZN7easylog8record_tD2Ev.exit54
 
-_ZN7easylog8record_tD2Ev.exit53:                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i47, %if.then.i.i2.i46
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_str_.i44) #27
+_ZN7easylog8record_tD2Ev.exit54:                  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i48, %if.then.i.i2.i47
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_str_.i45) #27
   br label %if.end57
 
 lpad48:                                           ; preds = %if.else31
@@ -90538,17 +90538,17 @@ lpad51:                                           ; preds = %invoke.cont54, %inv
           cleanup
   br label %lpad51.body
 
-lpad51.body:                                      ; preds = %lpad.i34, %lpad51
-  %eh.lpad-body36 = phi { ptr, i32 } [ %46, %lpad51 ], [ %35, %lpad.i34 ]
+lpad51.body:                                      ; preds = %lpad.i35, %lpad51
+  %eh.lpad-body37 = phi { ptr, i32 } [ %46, %lpad51 ], [ %35, %lpad.i35 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #27
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad51.body, %lpad48
-  %.pn5 = phi { ptr, i32 } [ %eh.lpad-body36, %lpad51.body ], [ %45, %lpad48 ]
+  %.pn5 = phi { ptr, i32 } [ %eh.lpad-body37, %lpad51.body ], [ %45, %lpad48 ]
   call void @_ZN7easylog8record_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp32) #27
   br label %common.resume
 
-if.end57:                                         ; preds = %_ZN7easylog6loggerILm0EE8instanceEv.exit25, %_ZN7easylog8record_tD2Ev.exit53
+if.end57:                                         ; preds = %_ZN7easylog6loggerILm0EE8instanceEv.exit26, %_ZN7easylog8record_tD2Ev.exit54
   %47 = load i32, ptr %implementation_.i.i, align 8
   %cmp.i.not.i.i = icmp eq i32 %47, -1
   br i1 %cmp.i.not.i.i, label %if.then.i.i59, label %if.end.i.i
@@ -90577,16 +90577,16 @@ if.end.i.i:                                       ; preds = %if.end57
   br label %_ZN4asio21basic_socket_acceptorINS_2ip3tcpENS_15any_io_executorEE6cancelERSt10error_code.exit
 
 _ZN4asio21basic_socket_acceptorINS_2ip3tcpENS_15any_io_executorEE6cancelERSt10error_code.exit: ; preds = %if.then.i.i59, %init.check.i.i.i.i.i.i, %init.i.i.i.i.i.i, %if.end.i.i
-  %.sink.i.i56 = phi i32 [ 0, %if.end.i.i ], [ 9, %if.then.i.i59 ], [ 9, %init.check.i.i.i.i.i.i ], [ 9, %init.i.i.i.i.i.i ]
-  %call.i.sink.i.i = phi ptr [ %call.i16, %if.end.i.i ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i.i59 ], [ @_ZZN4asio15system_categoryEvE8instance, %init.check.i.i.i.i.i.i ], [ @_ZZN4asio15system_categoryEvE8instance, %init.i.i.i.i.i.i ]
-  store i32 %.sink.i.i56, ptr %ec, align 8
+  %.sink.i.i = phi i32 [ 0, %if.end.i.i ], [ 9, %if.then.i.i59 ], [ 9, %init.check.i.i.i.i.i.i ], [ 9, %init.i.i.i.i.i.i ]
+  %call.i.sink.i.i = phi ptr [ %call.i17, %if.end.i.i ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i.i59 ], [ @_ZZN4asio15system_categoryEvE8instance, %init.check.i.i.i.i.i.i ], [ @_ZZN4asio15system_categoryEvE8instance, %init.i.i.i.i.i.i ]
+  store i32 %.sink.i.i, ptr %ec, align 8
   store ptr %call.i.sink.i.i, ptr %_M_cat.i, align 8
   %53 = load ptr, ptr %acceptor_, align 8
   %add.ptr.i60 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %call4.i = call { i32, ptr } @_ZN4asio6detail28reactive_socket_service_base5closeERNS1_24base_implementation_typeERSt10error_code(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i60, ptr noundef nonnull align 8 dereferenceable(16) %implementation_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ec)
   br label %return
 
-if.end64:                                         ; preds = %_ZN4asio2ip14basic_endpointINS0_3tcpEEC2ERKS2_t.exit
+if.end64:                                         ; preds = %if.end
   call void @_ZN4asio21basic_socket_acceptorINS_2ip3tcpENS_15any_io_executorEE6listenEi(ptr noundef nonnull align 8 dereferenceable(88) %acceptor_, i32 noundef 4096)
   %54 = load ptr, ptr %acceptor_, align 8, !noalias !1284
   call void @_ZNK4asio6detail23reactive_socket_serviceINS_2ip3tcpEE14local_endpointERKNS4_19implementation_typeERSt10error_code(ptr nonnull sret(%"class.asio::ip::basic_endpoint") align 4 %end_point, ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(20) %implementation_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ec)

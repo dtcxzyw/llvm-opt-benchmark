@@ -3140,7 +3140,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv2ml19DTreesImplForRTrees5tr
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i64 %sext, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread, label %76
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, label %76
 
 76:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %77 = ashr exact i64 %sext, 30
@@ -3180,10 +3180,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc185
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %90, i8 0, i64 %87, i1 false)
   br label %91
 
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
-
 91:                                               ; preds = %.noexc189, %89
   %92 = ashr exact i64 %sext, 29
   %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %92) #22
@@ -3202,10 +3198,10 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread: ; preds = %_ZNS
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %96, i8 0, i64 %98, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
-_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc200, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread
-  %.sroa.0293.0379 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread ], [ %93, %.noexc200 ]
-  %.sroa.0324.0363367 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread ], [ %86, %.noexc200 ]
-  %.sroa.0284.0 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i193.thread ], [ %96, %.noexc200 ]
+_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc200
+  %.sroa.0293.0379 = phi ptr [ %93, %.noexc200 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0324.0363367 = phi ptr [ %86, %.noexc200 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0284.0 = phi ptr [ %96, %.noexc200 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %sext152 = mul i64 %sext, %63
   %99 = icmp slt i64 %sext152, 0
   br i1 %99, label %100, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i201

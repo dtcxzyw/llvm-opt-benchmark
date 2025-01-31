@@ -1789,11 +1789,7 @@ _ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit: ; preds = %_ZNSt6vectorIiSa
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i39 = icmp eq ptr %.sroa.speculated85, %.sroa.speculated114
-  br i1 %.not.i.i.i.i39, label %.loopexit.thread, label %70
-
-.loopexit.thread:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i39, label %._crit_edge, label %70
 
 70:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %71 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %67) #19
@@ -1946,7 +1942,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   %122 = icmp ugt i64 %121, %indvars.iv.next
   br i1 %122, label %98, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %116, %95, %.loopexit.thread
+._crit_edge:                                      ; preds = %116, %95, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit unwind label %126
 

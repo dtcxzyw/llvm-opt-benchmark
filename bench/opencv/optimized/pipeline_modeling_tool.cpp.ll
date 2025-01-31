@@ -22673,7 +22673,11 @@ _ZNSt6vectorISt10shared_ptrI8PipelineESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt1
   %617 = load ptr, ptr %616, align 8
   %618 = load ptr, ptr %111, align 8
   %.not727 = icmp eq ptr %617, %618
-  br i1 %.not727, label %.thread803, label %.lr.ph714
+  br i1 %.not727, label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread, label %.lr.ph714
+
+_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread: ; preds = %.preheader612
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, i8 0, i64 24, i1 false)
+  br label %.thread803
 
 619:                                              ; preds = %.lr.ph, %_ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit425
   %.sroa.0507.0712 = phi ptr [ %577, %.lr.ph ], [ %1230, %_ZNSt10unique_ptrI13StopCriterionSt14default_deleteIS0_EED2Ev.exit425 ]
@@ -24886,8 +24890,7 @@ _ZNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EEC2EmRKS2_.exit.i
   %1287 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1284) #35
           to label %.lr.ph.preheader.i.i.i.i.i unwind label %1321
 
-.thread803:                                       ; preds = %.preheader612, %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, i8 0, i64 24, i1 false)
+.thread803:                                       ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread
   %1288 = getelementptr inbounds nuw i8, ptr %180, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, i8 0, i64 24, i1 false)
   br label %._crit_edge721

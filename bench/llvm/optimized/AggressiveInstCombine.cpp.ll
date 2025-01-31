@@ -9537,7 +9537,7 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit135: ; preds = %_ZNK4llvm8LoadI
   %311 = load i64, ptr %310, align 8
   %312 = icmp ugt i64 %311, 4611686018427387899
   %313 = select i1 %312, i64 -4611686018427387906, i64 %311
-  br label %.sink.split
+  br label %315
 
 314:                                              ; preds = %301
   call void @_ZN4llvm14MemoryLocation3getEPKNS_8LoadInstE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %12, ptr noundef nonnull %.0343) #17
@@ -9545,22 +9545,14 @@ _ZNK4llvm8LoadInst22getPointerAddressSpaceEv.exit135: ; preds = %_ZNK4llvm8LoadI
   %.sroa.6203.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.6203.0.copyload205 = load i64, ptr %.sroa.6203.0..sroa_idx204, align 8
   %.sroa.9.0..sroa_idx208 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %314, %309
-  %.sroa.9.0..sroa_idx.sink = phi ptr [ %.sroa.9.0..sroa_idx, %309 ], [ %.sroa.9.0..sroa_idx208, %314 ]
-  %.sroa.0200.0.ph = phi ptr [ %.sroa.0200.0.copyload, %309 ], [ %.sroa.0200.0.copyload201, %314 ]
-  %.sroa.6203.0.ph = phi i64 [ %313, %309 ], [ %.sroa.6203.0.copyload205, %314 ]
-  %.0311.ph = phi ptr [ %.sroa.speculated, %309 ], [ %spec.select.i.i129, %314 ]
-  %.0310.ph = phi ptr [ %spec.select.i.i129, %309 ], [ %.sroa.speculated, %314 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx.sink, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.9.0..sroa_idx208, i64 32, i1 false)
   br label %315
 
-315:                                              ; preds = %.sink.split, %306
-  %.sroa.0200.0 = phi ptr [ %.sroa.0200.0.copyload, %306 ], [ %.sroa.0200.0.ph, %.sink.split ]
-  %.sroa.6203.0 = phi i64 [ %.sroa.6203.0.copyload, %306 ], [ %.sroa.6203.0.ph, %.sink.split ]
-  %.0311 = phi ptr [ %.sroa.speculated, %306 ], [ %.0311.ph, %.sink.split ]
-  %.0310 = phi ptr [ %spec.select.i.i129, %306 ], [ %.0310.ph, %.sink.split ]
+315:                                              ; preds = %306, %309, %314
+  %.sroa.0200.0 = phi ptr [ %.sroa.0200.0.copyload201, %314 ], [ %.sroa.0200.0.copyload, %309 ], [ %.sroa.0200.0.copyload, %306 ]
+  %.sroa.6203.0 = phi i64 [ %.sroa.6203.0.copyload205, %314 ], [ %313, %309 ], [ %.sroa.6203.0.copyload, %306 ]
+  %.0311 = phi ptr [ %spec.select.i.i129, %314 ], [ %.sroa.speculated, %309 ], [ %.sroa.speculated, %306 ]
+  %.0310 = phi ptr [ %.sroa.speculated, %314 ], [ %spec.select.i.i129, %309 ], [ %spec.select.i.i129, %306 ]
   %316 = getelementptr inbounds nuw i8, ptr %.0311, i64 24
   %.not326328 = icmp eq ptr %.sroa.speculated, %.0343
   br i1 %.not326328, label %._crit_edge, label %.lr.ph

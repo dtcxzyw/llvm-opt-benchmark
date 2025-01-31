@@ -1519,7 +1519,6 @@ invoke.cont12:                                    ; preds = %for.body.preheader.
 
 invoke.cont12.thread:                             ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %_M_finish.i.i7.i97 = getelementptr inbounds nuw i8, ptr %channeldata, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %channeldata, i8 0, i64 24, i1 false)
   br label %for.cond93.preheader
 
 for.body46.lr.ph:                                 ; preds = %invoke.cont12

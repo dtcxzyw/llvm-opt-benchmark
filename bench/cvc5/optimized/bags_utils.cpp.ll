@@ -16601,7 +16601,6 @@ if.end.i.i.i.i.i.i.i29:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %for.body.preheader
 
 invoke.cont11:                                    ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %indices1, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %indices2, i8 0, i64 24, i1 false)
   br label %for.end
 

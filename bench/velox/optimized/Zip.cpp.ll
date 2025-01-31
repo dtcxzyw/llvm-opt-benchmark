@@ -5617,7 +5617,6 @@ if.end.i.i.i.i.i.i.i382:                          ; preds = %call5.i.i.i.i2.i.i.
 
 invoke.cont145:                                   ; preds = %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %_M_finish.i.i7.i3361315 = getelementptr inbounds nuw i8, ptr %nestedResultIndices, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nestedResultIndices, i8 0, i64 24, i1 false)
   %_M_finish.i.i7.i3511321 = getelementptr inbounds nuw i8, ptr %nestedResultNulls, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nestedResultNulls, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rawNestedResultIndices, i8 0, i64 24, i1 false)
@@ -6792,7 +6791,6 @@ _ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE17_S_check_ini
 
 invoke.cont193.thread:                            ; preds = %_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %_M_finish.i.i7.i7661412 = getelementptr inbounds nuw i8, ptr %resultDictionaryVectors, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %resultDictionaryVectors, i8 0, i64 24, i1 false)
   br label %for.end226
 
 for.body.preheader.i.i.i.i.i759:                  ; preds = %_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i

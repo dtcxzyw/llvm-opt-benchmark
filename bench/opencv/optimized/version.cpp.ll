@@ -17377,12 +17377,12 @@ define internal noundef nonnull ptr @_ZN5zxing6qrcodeL8intArrayEmz(i64 noundef r
   %3 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %.not.i.i.i.i, label %12, label %4
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %4
 
 4:                                                ; preds = %1
   %5 = shl nuw nsw i64 %0, 2
   %6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #17
-          to label %.noexc unwind label %25
+          to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %4
   store ptr %6, ptr %3, align 8
@@ -17399,58 +17399,54 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 %11, i1 false)
   br label %.lr.ph
 
-12:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %._crit_edge
-
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc
   %.0.i.i.i.i.i.ph = phi ptr [ %7, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %9, %.noexc ]
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.0.i.i.i.i.i.ph, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load ptr, ptr %15, align 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.0.i.i.i.i.i.ph, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = load ptr, ptr %14, align 16
   %.promoted = load i32, ptr %2, align 16
-  %.promoted12 = load ptr, ptr %14, align 8
-  br label %17
+  %.promoted12 = load ptr, ptr %13, align 8
+  br label %16
 
-17:                                               ; preds = %.lr.ph, %29
-  %18 = phi ptr [ %.promoted12, %.lr.ph ], [ %30, %29 ]
-  %19 = phi i32 [ %.promoted, %.lr.ph ], [ %31, %29 ]
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %35, %29 ]
-  %20 = icmp ult i32 %19, 41
-  br i1 %20, label %21, label %27
+16:                                               ; preds = %.lr.ph, %28
+  %17 = phi ptr [ %.promoted12, %.lr.ph ], [ %29, %28 ]
+  %18 = phi i32 [ %.promoted, %.lr.ph ], [ %30, %28 ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %34, %28 ]
+  %19 = icmp ult i32 %18, 41
+  br i1 %19, label %20, label %26
 
-21:                                               ; preds = %17
-  %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr i8, ptr %16, i64 %22
-  %24 = add nuw nsw i32 %19, 8
-  store i32 %24, ptr %2, align 16
-  br label %29
+20:                                               ; preds = %16
+  %21 = zext nneg i32 %18 to i64
+  %22 = getelementptr i8, ptr %15, i64 %21
+  %23 = add nuw nsw i32 %18, 8
+  store i32 %23, ptr %2, align 16
+  br label %28
 
-25:                                               ; preds = %4
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %3) #18
-  resume { ptr, i32 } %26
+  resume { ptr, i32 } %25
 
-27:                                               ; preds = %17
-  %28 = getelementptr i8, ptr %18, i64 8
-  store ptr %28, ptr %14, align 8
-  br label %29
+26:                                               ; preds = %16
+  %27 = getelementptr i8, ptr %17, i64 8
+  store ptr %27, ptr %13, align 8
+  br label %28
 
-29:                                               ; preds = %27, %21
-  %30 = phi ptr [ %18, %21 ], [ %28, %27 ]
-  %31 = phi i32 [ %24, %21 ], [ %19, %27 ]
-  %32 = phi ptr [ %23, %21 ], [ %18, %27 ]
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.010
-  store i32 %33, ptr %34, align 4
-  %35 = add nuw nsw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %35, %0
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !18
+28:                                               ; preds = %26, %20
+  %29 = phi ptr [ %17, %20 ], [ %27, %26 ]
+  %30 = phi i32 [ %23, %20 ], [ %18, %26 ]
+  %31 = phi ptr [ %22, %20 ], [ %17, %26 ]
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %.010
+  store i32 %32, ptr %33, align 4
+  %34 = add nuw nsw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %34, %0
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %29, %12
+._crit_edge:                                      ; preds = %28, %1
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret ptr %3
 }

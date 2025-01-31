@@ -2672,7 +2672,6 @@ _ZN2cv3PtrINS_3ORBEED2Ev.exit:                    ; preds = %_ZNSt16_Sp_counted_
   br i1 %.not.i.i.i.i459, label %.thread, label %_ZNSt12_Vector_baseIN2cv6detail13ImageFeaturesESaIS2_EEC2EmRKS3_.exit.i
 
 .thread:                                          ; preds = %_ZN2cv3PtrINS_3ORBEED2Ev.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   br label %.lr.ph
 

@@ -4388,7 +4388,6 @@ _ZNSt6vectorIS_IN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EESaIS3_EE7rese
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %81, ptr %80, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EED2Ev.exit

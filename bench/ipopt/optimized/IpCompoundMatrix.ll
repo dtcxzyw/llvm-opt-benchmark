@@ -259,7 +259,6 @@ _ZNSt6vectorIN5Ipopt8SmartPtrINS0_6MatrixEEESaIS3_EE17_S_check_init_lenEmRKS4_.e
 
 _ZNSt12_Vector_baseIN5Ipopt8SmartPtrIKNS0_6MatrixEEESaIS4_EEC2EmRKS5_.exit.thread.i: ; preds = %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_6MatrixEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i64 0, ptr %4, align 8
   br label %46
 

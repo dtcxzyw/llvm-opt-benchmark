@@ -30242,7 +30242,6 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i.i, label %invoke.cont7.thread, label %if.end.i.i.i.i.i.i.i
 
 invoke.cont7.thread:                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %counts, i8 0, i64 24, i1 false)
   store i32 0, ptr %inserted_count, align 4
   store i64 0, ptr %v, align 8
   br label %invoke.cont33

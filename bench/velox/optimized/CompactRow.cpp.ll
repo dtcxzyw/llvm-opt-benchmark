@@ -14208,7 +14208,6 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt17ba
           to label %if.end.i.i.i.i.i.i.i535 unwind label %lpad6.i
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nestedData.i, i8 0, i64 24, i1 false)
   %_M_finish.i.i4.i = getelementptr inbounds nuw i8, ptr %nestedOffsets.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nestedOffsets.i, i8 0, i64 24, i1 false)
   br label %invoke.cont12.i

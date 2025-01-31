@@ -12733,11 +12733,7 @@ _ZN6casadi11GenericTypeaSEOS0_.exit58:            ; preds = %126
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %151
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %154, %155
-  br i1 %.not.i.i.i.i, label %.thread, label %161
-
-.thread:                                          ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  br label %._crit_edge112
+  br i1 %.not.i.i.i.i, label %._crit_edge112, label %161
 
 161:                                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %162 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #29
@@ -12840,7 +12836,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %151
           cleanup
   br label %205
 
-._crit_edge112:                                   ; preds = %179, %.thread, %166
+._crit_edge112:                                   ; preds = %179, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %166
   invoke void @_ZN6casadi11GenericTypeC1ERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %195 unwind label %.loopexit68
 

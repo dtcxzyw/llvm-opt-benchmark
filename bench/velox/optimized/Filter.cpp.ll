@@ -5092,6 +5092,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont6.i
   unreachable
 
 _ZNSt6vectorInSaInEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %invoke.cont6.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !alias.scope !56
   %cmp.not.i.i.i.i.i = icmp eq i64 %call7.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont9.i, label %if.then.i.i.i.i.i.i
 
@@ -5116,7 +5117,6 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i.
   br label %for.body.preheader.i
 
 invoke.cont9.i:                                   ; preds = %_ZNSt6vectorInSaInEE17_S_check_init_lenEmRKS0_.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !alias.scope !56
   store i32 0, ptr %i.i, align 4, !noalias !56
   br label %_ZN8facebook5velox6common12_GLOBAL__N_124deserializeHugeintValuesERKN5folly7dynamicE.exit
 

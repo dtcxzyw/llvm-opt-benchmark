@@ -4078,11 +4078,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %282
 _ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %.not.i.i.i.i165 = icmp eq i64 %sext, 0
-  br i1 %.not.i.i.i.i165, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i168.thread, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
-
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i168.thread: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit175
+  br i1 %.not.i.i.i.i165, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit175, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %294 = mul nuw nsw i64 %291, 96
@@ -4123,9 +4119,9 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170: ; preds = %.noexc174
   call void @llvm.memset.p0.i64(ptr align 4 %304, i8 0, i64 %305, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit175
 
-_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit175:            ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170, %.noexc174, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i168.thread
-  %.pr.i = phi ptr [ %295, %.noexc174 ], [ %295, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i168.thread ]
-  %.sroa.0.0 = phi ptr [ %302, %.noexc174 ], [ %302, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i168.thread ]
+_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit175:            ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170, %.noexc174
+  %.pr.i = phi ptr [ %295, %.noexc174 ], [ %295, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170 ], [ null, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.sroa.0.0 = phi ptr [ %302, %.noexc174 ], [ %302, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i170 ], [ null, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %306 = icmp sgt i32 %250, 0
   br i1 %306, label %.lr.ph272, label %.preheader244
 

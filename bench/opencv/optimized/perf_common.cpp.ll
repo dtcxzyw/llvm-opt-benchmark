@@ -1372,11 +1372,7 @@ _ZN7testing15AssertionResultD2Ev.exit65:          ; preds = %_ZN7testing7Message
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %_ZN7testing15AssertionResultD2Ev.exit65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %171, 0
-  br i1 %.not.i.i.i.i, label %.thread, label %.lr.ph
-
-.thread:                                          ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %174 = shl nuw nsw i64 %172, 5
@@ -1486,7 +1482,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = 
   %221 = icmp slt i64 %indvars.iv.next, %220
   br i1 %221, label %182, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %199, %.thread
+._crit_edge:                                      ; preds = %199, %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   ret void
 
 222:                                              ; preds = %189, %198

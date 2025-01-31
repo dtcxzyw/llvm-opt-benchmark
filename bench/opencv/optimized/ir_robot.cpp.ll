@@ -659,7 +659,6 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 212:                                              ; preds = %209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %210, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %213 = load ptr, ptr %203, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
   store ptr %214, ptr %203, align 8

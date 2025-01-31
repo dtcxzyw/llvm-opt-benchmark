@@ -38982,7 +38982,6 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %invoke.cont16
   br label %invoke.cont28
 
 for.end50.thread:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %has_bit_indices, i8 0, i64 24, i1 false)
   %_M_finish.i.i.i39232 = getelementptr inbounds nuw i8, ptr %inlined_string_indices, i64 8
   %_M_end_of_storage.i.i.i41234 = getelementptr inbounds nuw i8, ptr %inlined_string_indices, i64 16
   store i64 0, ptr %inlined_string_indices, align 8

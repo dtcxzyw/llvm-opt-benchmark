@@ -9310,11 +9310,7 @@ if.then.i.i:                                      ; preds = %cond.end
 _ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %cond.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %6, %7
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont19.thread, label %if.then.i.i.i.i.i
-
-invoke.cont19.thread:                             ; preds = %_ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regions, i8 0, i64 24, i1 false)
-  br label %for.end
+  br i1 %cmp.not.i.i.i.i, label %for.end, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %call5.i.i.i.i2.i.i54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #25
@@ -9561,7 +9557,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
 _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup63, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
   br i1 %cmp.i.i60, label %for.cond, label %cleanup67
 
-for.end:                                          ; preds = %for.cond, %invoke.cont19.thread
+for.end:                                          ; preds = %for.cond, %_ZNSt6vectorIN5arrow8internal12MemoryRegionESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   invoke void @_ZN5arrow8internal20MemoryAdviseWillNeedERKSt6vectorINS0_12MemoryRegionESaIS2_EE(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %regions)
           to label %cleanup67 unwind label %lpad25.loopexit.split-lp
 

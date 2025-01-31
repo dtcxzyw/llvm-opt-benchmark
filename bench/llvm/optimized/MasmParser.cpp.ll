@@ -39841,7 +39841,6 @@ _ZN4llvm8AsmTokenaSERKS0_.exit:                   ; preds = %77, %79
   br i1 %.not.i, label %_ZNSt5dequeIN4llvm10MCAsmMacroESaIS1_EE12emplace_backIJNS0_9StringRefERS5_St6vectorINS0_19MCAsmMacroParameterESaIS8_EEEEERS1_DpOT_.exit, label %_ZSt8_DestroyIPN4llvm19MCAsmMacroParameterES1_EvT_S3_RSaIT0_E.exit.i.thread
 
 _ZSt8_DestroyIPN4llvm19MCAsmMacroParameterES1_EvT_S3_RSaIT0_E.exit.i.thread: ; preds = %108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, i8 0, i64 16, i1 false)
   store ptr %109, ptr %120, align 8

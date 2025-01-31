@@ -122938,7 +122938,6 @@ _ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE17_S_check_init_lenEmRKS3_.e
   br i1 %.not.i.i.i.i49, label %.thread93, label %.lr.ph.preheader.i.i.i.i.i50
 
 .thread93:                                        ; preds = %_ZNSt6vectorIN7xgboost4tree14CPUExpandEntryESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   br label %.loopexit

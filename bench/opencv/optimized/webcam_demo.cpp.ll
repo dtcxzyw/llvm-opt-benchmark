@@ -3501,7 +3501,6 @@ _ZNSt6vectorIS_IN2cv5Rect_IiEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i:
           to label %.lr.ph.preheader.i.i.i.i.i508 unwind label %1358
 
 _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIS_IN2cv5Rect_IiEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, i8 0, i64 24, i1 false)
   store i64 0, ptr %109, align 8
   br label %1348

@@ -6975,11 +6975,7 @@ _ZNK6casadi11GenericType23is_string_vector_vectorEv.exit: ; preds = %_ZNK6casadi
 _ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i123: ; preds = %216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i124 = icmp eq ptr %219, %220
-  br i1 %.not.i.i.i.i124, label %.thread234, label %.lr.ph.preheader.i.i.i.i.i125
-
-.thread234:                                       ; preds = %_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %._crit_edge213
+  br i1 %.not.i.i.i.i124, label %._crit_edge213, label %.lr.ph.preheader.i.i.i.i.i125
 
 .lr.ph.preheader.i.i.i.i.i125:                    ; preds = %_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i123
   %227 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %223) #25
@@ -7114,9 +7110,9 @@ _ZN6casadi11GenericTypeaSEOS0_.exit141:           ; preds = %264
   %292 = icmp ult i64 %286, %291
   br i1 %292, label %.lr.ph212, label %._crit_edge213, !llvm.loop !56
 
-._crit_edge213:                                   ; preds = %._crit_edge209, %.thread234
-  %.lcssa172 = phi ptr [ %219, %.thread234 ], [ %287, %._crit_edge209 ]
-  %.lcssa = phi ptr [ %220, %.thread234 ], [ %285, %._crit_edge209 ]
+._crit_edge213:                                   ; preds = %._crit_edge209, %_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i123
+  %.lcssa172 = phi ptr [ %219, %_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i123 ], [ %287, %._crit_edge209 ]
+  %.lcssa = phi ptr [ %220, %_ZNSt6vectorIS_IN6casadi11GenericTypeESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i123 ], [ %285, %._crit_edge209 ]
   %.not4.i.i.i.i142 = icmp eq ptr %.lcssa, %.lcssa172
   br i1 %.not4.i.i.i.i142, label %_ZSt8_DestroyIPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES8_EvT_SA_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i143
 

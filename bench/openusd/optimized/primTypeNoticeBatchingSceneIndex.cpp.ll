@@ -3212,7 +3212,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS0_20HdSceneInd
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS0_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS0_20HdSceneIndexObserver14AddedPrimEntryELj16EEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   br label %.loopexit119
 

@@ -3721,15 +3721,11 @@ _ZNSt6vectorIhSaIhEED2Ev.exit17.i:                ; preds = %31, %29
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.us: ; preds = %.lr.ph93.split.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.us = icmp eq i32 %.017.us, 0
-  br i1 %.not.i.i.i.i.us, label %.thread, label %64
+  br i1 %.not.i.i.i.i.us, label %._crit_edge.us, label %64
 
 64:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.us
   %65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #28
           to label %.lr.ph.us.preheader unwind label %.loopexit.split.us
-
-.thread:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.us
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  br label %._crit_edge.us
 
 .lr.ph.us.preheader:                              ; preds = %64
   store ptr %65, ptr %5, align 8
@@ -3740,7 +3736,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.us: ; preds = %.lr.ph93.sp
   %wide.trip.count112 = zext nneg i32 %.017.us to i64
   br label %.lr.ph.us
 
-._crit_edge.us:                                   ; preds = %_ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit.us, %.thread
+._crit_edge.us:                                   ; preds = %_ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit.us, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #27
           to label %.noexc39 unwind label %.loopexit.split-lp77
@@ -3806,11 +3802,7 @@ _ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit.us:   ; preds = %69
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph93.split
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %.017, 0
-  br i1 %.not.i.i.i.i, label %.thread115, label %86
-
-.thread115:                                       ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  br label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i35
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i35, label %86
 
 86:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %87 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #28
@@ -3866,8 +3858,8 @@ _ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit:      ; preds = %91
           cleanup
   br label %.body
 
-_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i35: ; preds = %_ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit, %.thread115
-  %.1.lcssa = phi i32 [ %.07590, %.thread115 ], [ %97, %_ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit ]
+_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i35: ; preds = %_ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %.1.lcssa = phi i32 [ %.07590, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ], [ %97, %_ZN2cvL7getBitsEiRKSt6vectorIhSaIhEERi.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i36, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i38, label %102

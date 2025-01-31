@@ -4283,14 +4283,7 @@ if.end:                                           ; preds = %invoke.cont
   %conv = zext i32 %sub to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sample_ranges, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq i32 %sub, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont2.thread, label %if.then.i.i.i.i.i
-
-invoke.cont2.thread:                              ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sample_ranges, i8 0, i64 24, i1 false)
-  %2 = load i32, ptr %flags, align 4
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp7.i)
-  br label %cond.false.i
+  br i1 %cmp.not.i.i.i.i, label %for.end.thread, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2
@@ -4308,8 +4301,8 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %call5.i.i.i.i2.i.i.noexc
-  %3 = add nsw i64 %mul.i.i.i.i.i.i, -4
-  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false)
+  %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
+  call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont2
@@ -4321,20 +4314,20 @@ for.body.preheader:                               ; preds = %call5.i.i.i.i2.i.i.
 for.cond:                                         ; preds = %invoke.cont8
   %inc = add i32 %i.024, 1
   %conv3 = zext i32 %inc to i64
-  %4 = load ptr, ptr %_M_finish.i.i7.i, align 8
-  %5 = load ptr, ptr %sample_ranges, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %3 = load ptr, ptr %_M_finish.i.i7.i, align 8
+  %4 = load ptr, ptr %sample_ranges, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv3
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !41
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %6 = phi ptr [ %5, %for.cond ], [ %call5.i.i.i.i2.i.i6, %for.body.preheader ]
+  %5 = phi ptr [ %4, %for.cond ], [ %call5.i.i.i.i2.i.i6, %for.body.preheader ]
   %conv325 = phi i64 [ %conv3, %for.cond ], [ 0, %for.body.preheader ]
   %i.024 = phi i32 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %6, i64 %conv325
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %5, i64 %conv325
   %call9 = invoke noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24) %iter, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont8 unwind label %lpad7.loopexit
 
@@ -4342,7 +4335,7 @@ invoke.cont8:                                     ; preds = %for.body
   br i1 %call9, label %for.cond, label %cleanup
 
 lpad1:                                            ; preds = %if.then.i.i.i.i.i
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4358,19 +4351,25 @@ lpad7.loopexit.split-lp:                          ; preds = %cond.false.i, %clea
 
 lpad7:                                            ; preds = %lpad7.loopexit.split-lp, %lpad7.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
-  %8 = load ptr, ptr %sample_ranges, align 8
-  %tobool.not.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %sample_ranges, align 8
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad7
-  call void @_ZdlPv(ptr noundef nonnull %8) #24
+  call void @_ZdlPv(ptr noundef nonnull %7) #24
   br label %ehcleanup
+
+for.end.thread:                                   ; preds = %if.end
+  %8 = load i32, ptr %flags, align 4
+  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp7.i)
+  br label %cond.false.i
 
 for.end:                                          ; preds = %for.cond
   %9 = load i32, ptr %flags, align 4
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp7.i)
-  %cmp6.not.i.i = icmp eq ptr %4, %5
+  %cmp6.not.i.i = icmp eq ptr %3, %4
   br i1 %cmp6.not.i.i, label %cond.false.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end
@@ -4381,7 +4380,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %conv9.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %if.end.i.i ]
   %i.08.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end.i.i ]
   %has_valid_range.07.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end.i.i ]
-  %add.ptr.i.i.i7 = getelementptr inbounds nuw i32, ptr %5, i64 %conv9.i.i
+  %add.ptr.i.i.i7 = getelementptr inbounds nuw i32, ptr %4, i64 %conv9.i.i
   %11 = load i32, ptr %add.ptr.i.i.i7, align 4
   %cmp3.i.i = icmp sgt i32 %11, -1
   %cmp4.not.i.i = icmp slt i32 %11, %10
@@ -4399,8 +4398,8 @@ if.end.i.i:                                       ; preds = %for.body.i.i
 _ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i: ; preds = %if.end.i.i
   br i1 %spec.select.i.i, label %cleanup.done.i, label %cond.false.i
 
-cond.false.i:                                     ; preds = %for.body.i.i, %invoke.cont2.thread, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i, %for.end
-  %12 = phi i32 [ %2, %invoke.cont2.thread ], [ %9, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i ], [ %9, %for.end ], [ %9, %for.body.i.i ]
+cond.false.i:                                     ; preds = %for.body.i.i, %for.end.thread, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i, %for.end
+  %12 = phi i32 [ %8, %for.end.thread ], [ %9, %_ZN4base15CustomHistogram20ValidateCustomRangesERKSt6vectorIiSaIiEE.exit.i ], [ %9, %for.end ], [ %9, %for.body.i.i ]
   invoke void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp1.i, ptr noundef nonnull @.str, i32 noundef 1057, ptr noundef nonnull @.str.19)
           to label %.noexc unwind label %lpad7.loopexit.split-lp
 
@@ -4456,7 +4455,7 @@ cleanup18:                                        ; preds = %if.then.i.i.i10, %c
   ret ptr %retval.0
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad7, %lpad1, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad1 ], [ %0, %lpad ], [ %lpad.phi, %lpad7 ], [ %lpad.phi, %if.then.i.i.i ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad1 ], [ %0, %lpad ], [ %lpad.phi, %lpad7 ], [ %lpad.phi, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %histogram_name) #21
   resume { ptr, i32 } %.pn
 }

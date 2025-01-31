@@ -786,11 +786,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %31, %34
 _ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %.val41, %.val
-  br i1 %.not.i.i.i.i, label %.loopexit51.thread, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
-
-.loopexit51.thread:                               ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %55 = mul nuw nsw i64 %52, 96
@@ -1183,9 +1179,9 @@ _ZN2cv3Mat2atIfEERT_i.exit.i:                     ; preds = %206, %200, %193
           cleanup
   br label %.body
 
-._crit_edge:                                      ; preds = %.loopexit, %.loopexit51.thread, %.loopexit51
-  %247 = phi ptr [ %56, %.loopexit51 ], [ null, %.loopexit51.thread ], [ %233, %.loopexit ]
-  %.024.lcssa = phi i32 [ 0, %.loopexit51 ], [ 0, %.loopexit51.thread ], [ %236, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.loopexit51
+  %247 = phi ptr [ %56, %.loopexit51 ], [ null, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %233, %.loopexit ]
+  %.024.lcssa = phi i32 [ 0, %.loopexit51 ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %236, %.loopexit ]
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.024.lcssa, i32 noundef 1, i32 noundef 5, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %248 unwind label %245
 

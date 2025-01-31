@@ -24614,11 +24614,7 @@ define void @_ZNK6casadi16SparsityInternal7_resizeExx(ptr dead_on_unwind noalias
 _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i.i.i, label %.loopexit39.thread, label %10
-
-.loopexit39.thread:                               ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  br label %.preheader
+  br i1 %.not.i.i.i.i, label %.preheader, label %10
 
 10:                                               ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = shl nuw nsw i64 %7, 3
@@ -24657,11 +24653,11 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %31 = ptrtoint ptr %95 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.loopexit39.thread, %.preheader.loopexit, %.loopexit39
-  %32 = phi ptr [ %12, %.loopexit39 ], [ %12, %.preheader.loopexit ], [ null, %.loopexit39.thread ]
-  %33 = phi i64 [ 0, %.loopexit39 ], [ %31, %.preheader.loopexit ], [ 0, %.loopexit39.thread ]
-  %34 = phi i64 [ 0, %.loopexit39 ], [ %30, %.preheader.loopexit ], [ 0, %.loopexit39.thread ]
-  %.025.lcssa = phi i64 [ 0, %.loopexit39 ], [ %48, %.preheader.loopexit ], [ 0, %.loopexit39.thread ]
+.preheader:                                       ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i, %.preheader.loopexit, %.loopexit39
+  %32 = phi ptr [ %12, %.loopexit39 ], [ %12, %.preheader.loopexit ], [ null, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %33 = phi i64 [ 0, %.loopexit39 ], [ %31, %.preheader.loopexit ], [ 0, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %34 = phi i64 [ 0, %.loopexit39 ], [ %30, %.preheader.loopexit ], [ 0, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.025.lcssa = phi i64 [ 0, %.loopexit39 ], [ %48, %.preheader.loopexit ], [ 0, %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.not49 = icmp sgt i64 %.025.lcssa, %3
   br i1 %.not49, label %._crit_edge, label %.lr.ph51
 
@@ -28695,7 +28691,6 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i99: ; preds = %.noexc103
   br i1 %4, label %101, label %168
 
 .thread166:                                       ; preds = %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br i1 %4, label %.thread169, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEES6_ET0_T_S8_S7_.exit
 

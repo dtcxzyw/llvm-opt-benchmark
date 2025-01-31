@@ -1480,11 +1480,7 @@ _ZN2cv3PtrINS_4text8ERFilter8CallbackEED2Ev.exit427: ; preds = %311, %329, %342,
 _ZNSt6vectorIS_IN2cv4text6ERStatESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i: ; preds = %_ZN2cv3PtrINS_4text8ERFilter8CallbackEED2Ev.exit427
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %.not.i.i.i.i428 = icmp eq ptr %347, %348
-  br i1 %.not.i.i.i.i428, label %.thread1547, label %.lr.ph.preheader.i.i.i.i.i
-
-.thread1547:                                      ; preds = %_ZNSt6vectorIS_IN2cv4text6ERStatESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
-  br label %._crit_edge1205
+  br i1 %.not.i.i.i.i428, label %._crit_edge1205, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIS_IN2cv4text6ERStatESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %355 = mul nuw nsw i64 %352, 24
@@ -1668,7 +1664,7 @@ _ZNSt6vectorIS_IN2cv4text6ERStatESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit
           cleanup
   br label %_ZNSt6vectorIS_IN2cv3VecIiLi2EEESaIS2_EESaIS4_EED2Ev.exit627
 
-._crit_edge1205:                                  ; preds = %378, %.thread1547, %357
+._crit_edge1205:                                  ; preds = %378, %_ZNSt6vectorIS_IN2cv4text6ERStatESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i, %357
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store i32 0, ptr %143, align 8

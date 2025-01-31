@@ -2985,7 +2985,6 @@ _ZNK5clang7CodeGen11CGBlockInfo10getCaptureEPKNS_7VarDeclE.exit: ; preds = %486,
   br i1 %.not709, label %527, label %525
 
 525:                                              ; preds = %499
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   %526 = and i8 %.sroa.2401.0732, -64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.4402.7..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !87
   store i8 %526, ptr %438, align 8

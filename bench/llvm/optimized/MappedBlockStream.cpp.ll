@@ -462,11 +462,7 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i:       ; preds = %32, %29, %_ZNSt6vec
   store i32 %.0.copyload.i.i.i, ptr %36, align 8, !noalias !10
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 0, ptr %37, align 8
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit.i.i.i.i.thread.i, label %38
-
-_ZNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit.i.i.i.i.thread.i: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i
-  store i64 0, ptr %37, align 8
-  br label %_ZN4llvm3msf15MSFStreamLayoutC2ERKS1_.exit.i.i.i
+  br i1 %.not.i.i.i.i, label %_ZN4llvm3msf15MSFStreamLayoutC2ERKS1_.exit.i.i.i, label %38
 
 38:                                               ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i
   %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #15, !noalias !10
@@ -474,8 +470,8 @@ _ZNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %.sroa.07.0, i64 %.idx.i, i1 false), !noalias !10
   br label %_ZN4llvm3msf15MSFStreamLayoutC2ERKS1_.exit.i.i.i
 
-_ZN4llvm3msf15MSFStreamLayoutC2ERKS1_.exit.i.i.i: ; preds = %38, %_ZNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit.i.i.i.i.thread.i
-  %.pn = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit.i.i.i.i.thread.i ], [ %39, %38 ]
+_ZN4llvm3msf15MSFStreamLayoutC2ERKS1_.exit.i.i.i: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i, %38
+  %.pn = phi ptr [ %39, %38 ], [ null, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit.i.i ]
   %.sink = getelementptr inbounds nuw i8, ptr %.pn, i64 %.idx.i
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %.sink, ptr %40, align 8, !noalias !10

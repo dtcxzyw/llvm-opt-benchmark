@@ -3392,7 +3392,6 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit: ; preds = %3
 
 _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %19
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit
@@ -4328,11 +4327,7 @@ _ZNSt6vectorIS_IcSaIcEESaIS1_EED2Ev.exit208:      ; preds = %_ZSt8_DestroyIPSt6v
 _ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209: ; preds = %_ZNSt6vectorIS_IcSaIcEESaIS1_EED2Ev.exit208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %.not.i.i.i.i210 = icmp eq ptr %191, %192
-  br i1 %.not.i.i.i.i210, label %.loopexit391.thread, label %_ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EEC2EmRKS3_.exit.i211
-
-.loopexit391.thread:                              ; preds = %_ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  br label %_ZNSt6vectorIS_I9ObdObjectSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  br i1 %.not.i.i.i.i210, label %_ZNSt6vectorIS_I9ObdObjectSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, label %_ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EEC2EmRKS3_.exit.i211
 
 _ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EEC2EmRKS3_.exit.i211: ; preds = %_ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209
   %199 = mul nuw nsw i64 %196, 24
@@ -4376,10 +4371,10 @@ _ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EEC2EmRKS3_.exit.i211: ; preds = %_ZN
 .noexc223:                                        ; preds = %207
   unreachable
 
-_ZNSt6vectorIS_I9ObdObjectSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %.loopexit391.thread, %.loopexit391
-  %208 = phi ptr [ %191, %.loopexit391.thread ], [ %.pre, %.loopexit391 ]
-  %209 = phi ptr [ %192, %.loopexit391.thread ], [ %.pre464, %.loopexit391 ]
-  %.pre-phi475504 = phi i64 [ 0, %.loopexit391.thread ], [ %.pre474, %.loopexit391 ]
+_ZNSt6vectorIS_I9ObdObjectSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %_ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209, %.loopexit391
+  %208 = phi ptr [ %.pre, %.loopexit391 ], [ %191, %_ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209 ]
+  %209 = phi ptr [ %.pre464, %.loopexit391 ], [ %192, %_ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209 ]
+  %.pre-phi475504 = phi i64 [ %.pre474, %.loopexit391 ], [ 0, %_ZNSt6vectorIS_IcSaIcEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i209 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %.not.i.i.i.i221 = icmp eq ptr %208, %209
   br i1 %.not.i.i.i.i221, label %.preheader385.thread, label %.lr.ph.preheader.i.i.i.i.i
@@ -4417,7 +4412,6 @@ _ZNSt6vectorIS_I9ObdObjectSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; p
 
 .preheader385.thread:                             ; preds = %_ZNSt6vectorIS_I9ObdObjectSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %220 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %221 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   %222 = getelementptr inbounds nuw i8, ptr %21, i64 8

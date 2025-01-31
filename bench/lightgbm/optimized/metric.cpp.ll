@@ -19542,11 +19542,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28: ; preds = %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i29 = icmp eq ptr %71, %72
-  br i1 %.not.i.i.i.i29, label %.loopexit.thread, label %79
-
-.loopexit.thread:                                 ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %._crit_edge50
+  br i1 %.not.i.i.i.i29, label %._crit_edge50, label %79
 
 79:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28
   %80 = shl nuw nsw i64 %75, 1
@@ -19623,7 +19619,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28: ; preds = %70
           cleanup
   br label %116
 
-._crit_edge50:                                    ; preds = %.preheader, %._crit_edge48.us, %.loopexit.thread, %.loopexit
+._crit_edge50:                                    ; preds = %.preheader, %._crit_edge48.us, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28, %.loopexit
   %106 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %107
@@ -21614,11 +21610,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28: ; preds = %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i29 = icmp eq ptr %71, %72
-  br i1 %.not.i.i.i.i29, label %.loopexit.thread, label %79
-
-.loopexit.thread:                                 ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %._crit_edge50
+  br i1 %.not.i.i.i.i29, label %._crit_edge50, label %79
 
 79:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28
   %80 = shl nuw nsw i64 %75, 1
@@ -21695,7 +21687,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28: ; preds = %70
           cleanup
   br label %116
 
-._crit_edge50:                                    ; preds = %.preheader, %._crit_edge48.us, %.loopexit.thread, %.loopexit
+._crit_edge50:                                    ; preds = %.preheader, %._crit_edge48.us, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i28, %.loopexit
   %106 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %107

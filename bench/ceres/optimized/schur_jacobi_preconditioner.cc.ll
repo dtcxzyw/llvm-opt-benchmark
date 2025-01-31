@@ -366,11 +366,7 @@ _ZN6google12Check_GTImplB5cxx11EiiPKc.exit32:     ; preds = %_ZN6google22MakeChe
 _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %.critedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %73, %81
-  br i1 %.not.i.i.i.i, label %.thread, label %.lr.ph.preheader.i.i.i.i.i
-
-.thread:                                          ; preds = %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  br label %._crit_edge
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %117 = shl nuw nsw i64 %114, 3
@@ -420,7 +416,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ;
           cleanup
   br label %.body
 
-._crit_edge:                                      ; preds = %.lr.ph, %.thread
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %138 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
           to label %.noexc35 unwind label %151
 
