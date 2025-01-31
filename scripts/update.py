@@ -374,8 +374,7 @@ def update_pr():
         if not os_do("git commit -m 'pre-commit: Update'"):
             return False
         if os_do("./scripts/name_remap.py"):
-            if not os_do("git commit -m 'pre-commit: Remap'"):
-                return False
+            os_do("git commit -a -m 'pre-commit: Remap'")
 
         if not os_do("git push"):
             return False
