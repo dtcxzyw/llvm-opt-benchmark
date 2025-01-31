@@ -2103,7 +2103,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
   %a.0.i.i.i = phi i32 [ 3, %if.then2.i.i.i ], [ %shr.i.i.i, %if.else4.i.i.i ], [ 0, %if.then2.i ]
   %5 = load i8, ptr @tcg_use_softmmu, align 1
   %tobool.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %sw.bb10.i.i
+  br i1 %tobool.i.i.i, label %do.body.i.i.i, label %if.then5.i
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
@@ -2112,17 +2112,13 @@ do.body.i.i.i:                                    ; preds = %get_alignment_bits.
   %conv.i.i.i = zext i8 %6 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  br label %sw.bb10.i.i
+  br label %if.then5.i
 
-sw.bb10.i.i:                                      ; preds = %do.body.i.i.i, %get_alignment_bits.exit.i.i
+if.then5.i:                                       ; preds = %do.body.i.i.i, %get_alignment_bits.exit.i.i
   %cmp.i.i = icmp eq i32 %a.0.i.i.i, 3
   %or.i.i = or i32 %memop, 224
   %spec.select.i.i = select i1 %cmp.i.i, i32 %or.i.i, i32 %memop
   %and3.i = and i32 %spec.select.i.i, 19
-  %.not.i = icmp eq i32 %and3.i, 16
-  br i1 %.not.i, label %if.end9.i, label %if.then5.i
-
-if.then5.i:                                       ; preds = %sw.bb10.i.i
   %idxprom.i = zext nneg i32 %and3.i to i64
   %arrayidx.i = getelementptr [24 x ptr], ptr @table_cmpxchg, i64 0, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i, align 8
@@ -2165,14 +2161,6 @@ if.then.i34.i:                                    ; preds = %maybe_extend_addr64
   tail call void @tcg_temp_free_i64(ptr noundef %retval.0.i.i) #5
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
-if.end9.i:                                        ; preds = %sw.bb10.i.i
-  %14 = load ptr, ptr @tcg_env, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %1, i64 %15
-  tail call void @tcg_gen_call1(ptr noundef nonnull @helper_info_exit_atomic, ptr noundef null, ptr noundef %add.ptr.i.i.i.i) #5
-  tail call void @tcg_gen_movi_i64(ptr noundef %retv, i64 noundef 0) #5
-  br label %tcg_gen_atomic_cmpxchg_i64_int.exit
-
 if.end10.i:                                       ; preds = %if.end.i
   %call11.i = tail call ptr @tcg_temp_ebb_new_i32() #5
   %call12.i = tail call ptr @tcg_temp_ebb_new_i32() #5
@@ -2193,7 +2181,7 @@ if.then17.i:                                      ; preds = %if.end10.i
   tail call void @tcg_gen_ext_i64(ptr noundef %retv, ptr noundef %retv, i32 noundef %memop)
   br label %tcg_gen_atomic_cmpxchg_i64_int.exit
 
-tcg_gen_atomic_cmpxchg_i64_int.exit:              ; preds = %if.then.i, %maybe_extend_addr64.exit.i, %if.then.i34.i, %if.end9.i, %if.end10.i, %if.then17.i
+tcg_gen_atomic_cmpxchg_i64_int.exit:              ; preds = %if.then.i, %maybe_extend_addr64.exit.i, %if.then.i34.i, %if.end10.i, %if.then17.i
   ret void
 }
 
