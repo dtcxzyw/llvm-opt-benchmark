@@ -4651,14 +4651,14 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %97, %.noexc50
 
 _ZSt7advanceIPKhmEvRT_T0_.exit.i:                 ; preds = %99
   %.not.i.i.i.i.i17.i = icmp eq ptr %101, %88
-  br i1 %.not.i.i.i.i.i17.i, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i, label %108
+  br i1 %.not.i.i.i.i.i17.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i, label %108
 
 108:                                              ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %88, ptr noundef nonnull align 2 dereferenceable(1) %10, i64 %103, i1 false)
   %.pre26.i = load ptr, ptr %100, align 8
-  br label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i
+  br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i
 
-_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %108, %_ZSt7advanceIPKhmEvRT_T0_.exit.i
+_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i:             ; preds = %108, %_ZSt7advanceIPKhmEvRT_T0_.exit.i
   %109 = phi ptr [ %101, %_ZSt7advanceIPKhmEvRT_T0_.exit.i ], [ %.pre26.i, %108 ]
   %.sink.i.i25.i.idx.sroa.phi = phi ptr [ %10, %_ZSt7advanceIPKhmEvRT_T0_.exit.i ], [ %.sink.i.i25.i.idx.sroa.gep91, %108 ]
   %gepdiff = sub nuw nsw i64 2, %103
@@ -4667,7 +4667,7 @@ _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %108, 
   store ptr %110, ptr %100, align 8
   br label %_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit
 
-_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit: ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i, %104, %107, %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i
+_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit: ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i, %104, %107, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i
   %111 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %112 = load i8, ptr %111, align 1
   store i8 %112, ptr %11, align 2
@@ -4729,14 +4729,14 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i66: ; preds = %127, %.noexc
 
 _ZSt7advanceIPKhmEvRT_T0_.exit.i56:               ; preds = %129
   %.not.i.i.i.i.i17.i57 = icmp eq ptr %131, %118
-  br i1 %.not.i.i.i.i.i17.i57, label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i63, label %138
+  br i1 %.not.i.i.i.i.i17.i57, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i60, label %138
 
 138:                                              ; preds = %_ZSt7advanceIPKhmEvRT_T0_.exit.i56
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %118, ptr noundef nonnull align 2 dereferenceable(1) %11, i64 %133, i1 false)
   %.pre26.i59 = load ptr, ptr %130, align 8
-  br label %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i63
+  br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i60
 
-_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i63: ; preds = %138, %_ZSt7advanceIPKhmEvRT_T0_.exit.i56
+_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i60:           ; preds = %138, %_ZSt7advanceIPKhmEvRT_T0_.exit.i56
   %139 = phi ptr [ %131, %_ZSt7advanceIPKhmEvRT_T0_.exit.i56 ], [ %.pre26.i59, %138 ]
   %.sink.i.i25.i61.idx.sroa.phi = phi ptr [ %11, %_ZSt7advanceIPKhmEvRT_T0_.exit.i56 ], [ %.sink.i.i25.i61.idx.sroa.gep90, %138 ]
   %gepdiff89 = sub nuw nsw i64 2, %133
@@ -4745,7 +4745,7 @@ _ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i63: ; preds = %138
   store ptr %140, ptr %130, align 8
   br label %_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit22
 
-_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit22: ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i66, %134, %137, %_ZSt22__uninitialized_copy_aIPKhPhhET0_T_S4_S3_RSaIT1_E.exit.i63
+_ZNSt6vectorIhSaIhEEaSESt16initializer_listIhE.exit22: ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i66, %134, %137, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit18.i60
   invoke void @_ZN8WasmEdge6Loader6Loader13loadComponentERNS_3AST9Component9ComponentE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %12, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(96) %79)
           to label %141 unwind label %149
 

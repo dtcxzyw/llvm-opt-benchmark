@@ -126,23 +126,23 @@ define internal void @lv_obj_event(ptr readnone captures(none) %0, ptr noundef %
   switch i32 %13, label %.critedge [
     i32 1, label %15
     i32 11, label %20
-    i32 3, label %40
-    i32 50, label %45
-    i32 17, label %53
-    i32 19, label %116
-    i32 12, label %147
-    i32 14, label %152
-    i32 20, label %160
-    i32 49, label %165
-    i32 42, label %183
-    i32 44, label %201
-    i32 27, label %205
-    i32 32, label %207
-    i32 29, label %207
-    i32 26, label %207
-    i32 23, label %396
-    i32 24, label %404
-    i32 25, label %409
+    i32 3, label %39
+    i32 50, label %44
+    i32 17, label %52
+    i32 19, label %115
+    i32 12, label %146
+    i32 14, label %151
+    i32 20, label %159
+    i32 49, label %164
+    i32 42, label %182
+    i32 44, label %200
+    i32 27, label %204
+    i32 32, label %206
+    i32 29, label %206
+    i32 26, label %206
+    i32 23, label %395
+    i32 24, label %403
+    i32 25, label %408
   ]
 
 15:                                               ; preds = %2
@@ -192,281 +192,277 @@ lv_obj_remove_state.exit:                         ; preds = %20, %24
 
 36:                                               ; preds = %32
   %37 = and i16 %33, -2
-  %.not.i188 = icmp eq i16 %33, %37
-  br i1 %.not.i188, label %lv_obj_remove_state.exit189, label %38
-
-38:                                               ; preds = %36
   tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %37)
   br label %lv_obj_remove_state.exit189
 
-lv_obj_remove_state.exit189:                      ; preds = %38, %36, %35
-  %39 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %14, i32 noundef 35, ptr noundef null) #8
+lv_obj_remove_state.exit189:                      ; preds = %36, %35
+  %38 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %14, i32 noundef 35, ptr noundef null) #8
   br label %.critedge
 
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %42 = load i16, ptr %41, align 4, !tbaa !24
-  %43 = and i16 %42, -33
-  %.not.i190 = icmp eq i16 %42, %43
-  br i1 %.not.i190, label %.critedge, label %44
+39:                                               ; preds = %2
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %41 = load i16, ptr %40, align 4, !tbaa !24
+  %42 = and i16 %41, -33
+  %.not.i190 = icmp eq i16 %41, %42
+  br i1 %.not.i190, label %.critedge, label %43
 
-44:                                               ; preds = %40
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %43)
+43:                                               ; preds = %39
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %42)
   br label %.critedge
 
-45:                                               ; preds = %2
-  %46 = tail call i32 @lv_obj_get_child_count(ptr noundef %14) #8
-  %.not231 = icmp eq i32 %46, 0
+44:                                               ; preds = %2
+  %45 = tail call i32 @lv_obj_get_child_count(ptr noundef %14) #8
+  %.not231 = icmp eq i32 %45, 0
   br i1 %.not231, label %.critedge, label %.lr.ph229
 
-.lr.ph229:                                        ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %wide.trip.count237 = zext i32 %46 to i64
-  br label %48
+.lr.ph229:                                        ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %wide.trip.count237 = zext i32 %45 to i64
+  br label %47
 
-48:                                               ; preds = %.lr.ph229, %48
-  %indvars.iv234 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next235, %48 ]
-  %49 = load ptr, ptr %47, align 8, !tbaa !16
-  %50 = load ptr, ptr %49, align 8, !tbaa !23
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv234
-  %52 = load ptr, ptr %51, align 8, !tbaa !25
-  tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %52) #8
+47:                                               ; preds = %.lr.ph229, %47
+  %indvars.iv234 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next235, %47 ]
+  %48 = load ptr, ptr %46, align 8, !tbaa !16
+  %49 = load ptr, ptr %48, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv234
+  %51 = load ptr, ptr %50, align 8, !tbaa !25
+  tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %51) #8
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count237
-  br i1 %exitcond238.not, label %.critedge, label %48, !llvm.loop !26
+  br i1 %exitcond238.not, label %.critedge, label %47, !llvm.loop !26
 
-53:                                               ; preds = %2
-  %54 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %55 = load i32, ptr %54, align 8, !tbaa !15
-  %56 = and i32 %55, 8
-  %.not224 = icmp eq i32 %56, 0
-  br i1 %.not224, label %68, label %57
+52:                                               ; preds = %2
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %54 = load i32, ptr %53, align 8, !tbaa !15
+  %55 = and i32 %54, 8
+  %.not224 = icmp eq i32 %55, 0
+  br i1 %.not224, label %67, label %56
 
-57:                                               ; preds = %53
-  %58 = tail call i32 @lv_event_get_key(ptr noundef %1) #8
-  %59 = and i32 %58, -3
-  %or.cond = icmp eq i32 %59, 17
-  br i1 %or.cond, label %60, label %61
+56:                                               ; preds = %52
+  %57 = tail call i32 @lv_event_get_key(ptr noundef %1) #8
+  %58 = and i32 %57, -3
+  %or.cond = icmp eq i32 %58, 17
+  br i1 %or.cond, label %59, label %60
 
-60:                                               ; preds = %57
+59:                                               ; preds = %56
   tail call void @lv_obj_add_state(ptr noundef nonnull %14, i16 noundef zeroext 1)
   br label %lv_obj_remove_state.exit193
 
-61:                                               ; preds = %57
-  switch i32 %58, label %lv_obj_remove_state.exit193 [
-    i32 20, label %62
-    i32 18, label %62
+60:                                               ; preds = %56
+  switch i32 %57, label %lv_obj_remove_state.exit193 [
+    i32 20, label %61
+    i32 18, label %61
     i32 10, label %.critedge
   ]
 
-62:                                               ; preds = %61, %61
-  %63 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %64 = load i16, ptr %63, align 4, !tbaa !24
-  %65 = and i16 %64, -2
-  %.not.i192 = icmp eq i16 %64, %65
-  br i1 %.not.i192, label %lv_obj_remove_state.exit193, label %66
+61:                                               ; preds = %60, %60
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %63 = load i16, ptr %62, align 4, !tbaa !24
+  %64 = and i16 %63, -2
+  %.not.i192 = icmp eq i16 %63, %64
+  br i1 %.not.i192, label %lv_obj_remove_state.exit193, label %65
 
-66:                                               ; preds = %62
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %65)
+65:                                               ; preds = %61
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %64)
   br label %lv_obj_remove_state.exit193
 
-lv_obj_remove_state.exit193:                      ; preds = %60, %62, %66, %61
-  %67 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %14, i32 noundef 35, ptr noundef null) #8
+lv_obj_remove_state.exit193:                      ; preds = %59, %61, %65, %60
+  %66 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %14, i32 noundef 35, ptr noundef null) #8
   br label %.critedge
 
-68:                                               ; preds = %53
-  %69 = and i32 %55, 2064
-  %70 = icmp eq i32 %69, 2064
-  br i1 %70, label %71, label %.critedge
+67:                                               ; preds = %52
+  %68 = and i32 %54, 2064
+  %69 = icmp eq i32 %68, 2064
+  br i1 %69, label %70, label %.critedge
 
-71:                                               ; preds = %68
-  %72 = tail call zeroext i1 @lv_obj_is_editable(ptr noundef nonnull %14) #8
-  br i1 %72, label %.critedge, label %73
+70:                                               ; preds = %67
+  %71 = tail call zeroext i1 @lv_obj_is_editable(ptr noundef nonnull %14) #8
+  br i1 %71, label %.critedge, label %72
 
-73:                                               ; preds = %71
-  %74 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %14) #8
-  %75 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %14) #8
-  %76 = tail call i32 @lv_event_get_key(ptr noundef %1) #8
-  switch i32 %76, label %.critedge [
-    i32 18, label %77
-    i32 17, label %82
-    i32 19, label %86
-    i32 20, label %102
+72:                                               ; preds = %70
+  %73 = tail call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %14) #8
+  %74 = tail call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %14) #8
+  %75 = tail call i32 @lv_event_get_key(ptr noundef %1) #8
+  switch i32 %75, label %.critedge [
+    i32 18, label %76
+    i32 17, label %81
+    i32 19, label %85
+    i32 20, label %101
   ]
 
-77:                                               ; preds = %73
-  %78 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
-  %79 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
-  %80 = sdiv i32 %79, 4
-  %81 = add nsw i32 %80, %78
-  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %81, i32 noundef 0) #8
+76:                                               ; preds = %72
+  %77 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
+  %78 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
+  %79 = sdiv i32 %78, 4
+  %80 = add nsw i32 %79, %77
+  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %80, i32 noundef 0) #8
   br label %.critedge
 
-82:                                               ; preds = %73
-  %83 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
-  %84 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
-  %.neg180 = sdiv i32 %84, -4
-  %85 = add i32 %.neg180, %83
-  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %85, i32 noundef 0) #8
+81:                                               ; preds = %72
+  %82 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
+  %83 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
+  %.neg180 = sdiv i32 %83, -4
+  %84 = add i32 %.neg180, %82
+  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %84, i32 noundef 0) #8
   br label %.critedge
 
-86:                                               ; preds = %73
-  %87 = tail call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %14) #8
-  %88 = and i32 %87, 3
-  %.not179 = icmp eq i32 %88, 0
-  br i1 %.not179, label %92, label %89
+85:                                               ; preds = %72
+  %86 = tail call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %14) #8
+  %87 = and i32 %86, 3
+  %.not179 = icmp eq i32 %87, 0
+  br i1 %.not179, label %91, label %88
 
-89:                                               ; preds = %86
+88:                                               ; preds = %85
+  %89 = icmp sgt i32 %73, 0
   %90 = icmp sgt i32 %74, 0
-  %91 = icmp sgt i32 %75, 0
-  %or.cond8 = select i1 %90, i1 true, i1 %91
-  br i1 %or.cond8, label %97, label %92
+  %or.cond8 = select i1 %89, i1 true, i1 %90
+  br i1 %or.cond8, label %96, label %91
 
-92:                                               ; preds = %89, %86
-  %93 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
-  %94 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
-  %95 = sdiv i32 %94, 4
-  %96 = add nsw i32 %95, %93
-  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %96, i32 noundef 0) #8
+91:                                               ; preds = %88, %85
+  %92 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
+  %93 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
+  %94 = sdiv i32 %93, 4
+  %95 = add nsw i32 %94, %92
+  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %95, i32 noundef 0) #8
   br label %.critedge
 
-97:                                               ; preds = %89
-  %98 = tail call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %14) #8
-  %99 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %14) #8
-  %100 = sdiv i32 %99, 4
-  %101 = add nsw i32 %100, %98
-  tail call void @lv_obj_scroll_to_x(ptr noundef nonnull %14, i32 noundef %101, i32 noundef 0) #8
+96:                                               ; preds = %88
+  %97 = tail call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %14) #8
+  %98 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %14) #8
+  %99 = sdiv i32 %98, 4
+  %100 = add nsw i32 %99, %97
+  tail call void @lv_obj_scroll_to_x(ptr noundef nonnull %14, i32 noundef %100, i32 noundef 0) #8
   br label %.critedge
 
-102:                                              ; preds = %73
-  %103 = tail call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %14) #8
-  %104 = and i32 %103, 3
-  %.not = icmp eq i32 %104, 0
-  br i1 %.not, label %108, label %105
+101:                                              ; preds = %72
+  %102 = tail call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %14) #8
+  %103 = and i32 %102, 3
+  %.not = icmp eq i32 %103, 0
+  br i1 %.not, label %107, label %104
 
-105:                                              ; preds = %102
+104:                                              ; preds = %101
+  %105 = icmp sgt i32 %73, 0
   %106 = icmp sgt i32 %74, 0
-  %107 = icmp sgt i32 %75, 0
-  %or.cond10 = select i1 %106, i1 true, i1 %107
-  br i1 %or.cond10, label %112, label %108
+  %or.cond10 = select i1 %105, i1 true, i1 %106
+  br i1 %or.cond10, label %111, label %107
 
-108:                                              ; preds = %105, %102
-  %109 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
-  %110 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
-  %.neg = sdiv i32 %110, -4
-  %111 = add i32 %.neg, %109
-  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %111, i32 noundef 0) #8
+107:                                              ; preds = %104, %101
+  %108 = tail call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %14) #8
+  %109 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %14) #8
+  %.neg = sdiv i32 %109, -4
+  %110 = add i32 %.neg, %108
+  tail call void @lv_obj_scroll_to_y(ptr noundef nonnull %14, i32 noundef %110, i32 noundef 0) #8
   br label %.critedge
 
-112:                                              ; preds = %105
-  %113 = tail call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %14) #8
-  %114 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %14) #8
-  %.neg178 = sdiv i32 %114, -4
-  %115 = add i32 %.neg178, %113
-  tail call void @lv_obj_scroll_to_x(ptr noundef nonnull %14, i32 noundef %115, i32 noundef 0) #8
+111:                                              ; preds = %104
+  %112 = tail call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %14) #8
+  %113 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %14) #8
+  %.neg178 = sdiv i32 %113, -4
+  %114 = add i32 %.neg178, %112
+  tail call void @lv_obj_scroll_to_x(ptr noundef nonnull %14, i32 noundef %114, i32 noundef 0) #8
   br label %.critedge
 
-116:                                              ; preds = %2
-  %117 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %118 = load i32, ptr %117, align 8, !tbaa !15
-  %119 = and i32 %118, 1024
-  %.not223 = icmp eq i32 %119, 0
-  br i1 %.not223, label %121, label %120
+115:                                              ; preds = %2
+  %116 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %117 = load i32, ptr %116, align 8, !tbaa !15
+  %118 = and i32 %117, 1024
+  %.not223 = icmp eq i32 %118, 0
+  br i1 %.not223, label %120, label %119
 
-120:                                              ; preds = %116
+119:                                              ; preds = %115
   tail call void @lv_obj_scroll_to_view_recursive(ptr noundef nonnull %14, i32 noundef 1) #8
-  br label %121
+  br label %120
 
-121:                                              ; preds = %120, %116
-  %122 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !16
-  %.not.i194 = icmp eq ptr %123, null
-  br i1 %.not.i194, label %lv_obj_get_group.exit, label %124
+120:                                              ; preds = %119, %115
+  %121 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %122 = load ptr, ptr %121, align 8, !tbaa !16
+  %.not.i194 = icmp eq ptr %122, null
+  br i1 %.not.i194, label %lv_obj_get_group.exit, label %123
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !17
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %125 = load ptr, ptr %124, align 8, !tbaa !17
   br label %lv_obj_get_group.exit
 
-lv_obj_get_group.exit:                            ; preds = %121, %124
-  %.0.i = phi ptr [ %126, %124 ], [ null, %121 ]
-  %127 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %.0.i) #8
-  %128 = tail call ptr @lv_indev_active() #8
-  %129 = icmp eq ptr %128, null
-  br i1 %129, label %130, label %132
+lv_obj_get_group.exit:                            ; preds = %120, %123
+  %.0.i = phi ptr [ %125, %123 ], [ null, %120 ]
+  %126 = tail call zeroext i1 @lv_group_get_editing(ptr noundef %.0.i) #8
+  %127 = tail call ptr @lv_indev_active() #8
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %131
 
-130:                                              ; preds = %lv_obj_get_group.exit
-  %131 = tail call ptr @lv_event_get_indev(ptr noundef %1) #8
-  br label %132
+129:                                              ; preds = %lv_obj_get_group.exit
+  %130 = tail call ptr @lv_event_get_indev(ptr noundef %1) #8
+  br label %131
 
-132:                                              ; preds = %130, %lv_obj_get_group.exit
-  %.0172 = phi ptr [ %131, %130 ], [ %128, %lv_obj_get_group.exit ]
-  %133 = tail call i32 @lv_indev_get_type(ptr noundef %.0172) #8
-  %134 = add i32 %133, -2
-  %switch.and = and i32 %134, -3
+131:                                              ; preds = %129, %lv_obj_get_group.exit
+  %.0172 = phi ptr [ %130, %129 ], [ %127, %lv_obj_get_group.exit ]
+  %132 = tail call i32 @lv_indev_get_type(ptr noundef %.0172) #8
+  %133 = add i32 %132, -2
+  %switch.and = and i32 %133, -3
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %135 = select i1 %switch.selectcmp, i16 6, i16 2
-  %136 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %137 = load i16, ptr %136, align 4, !tbaa !24
-  %138 = or i16 %135, %137
-  br i1 %127, label %139, label %142
+  %134 = select i1 %switch.selectcmp, i16 6, i16 2
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %136 = load i16, ptr %135, align 4, !tbaa !24
+  %137 = or i16 %134, %136
+  br i1 %126, label %138, label %141
 
-139:                                              ; preds = %132
-  %140 = or i16 %138, 8
-  %.not.i195 = icmp eq i16 %137, %140
-  br i1 %.not.i195, label %.critedge, label %141
+138:                                              ; preds = %131
+  %139 = or i16 %137, 8
+  %.not.i195 = icmp eq i16 %136, %139
+  br i1 %.not.i195, label %.critedge, label %140
 
-141:                                              ; preds = %139
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %140)
+140:                                              ; preds = %138
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %139)
   br label %.critedge
 
-142:                                              ; preds = %132
-  %.not.i198 = icmp eq i16 %137, %138
-  br i1 %.not.i198, label %lv_obj_add_state.exit200, label %143
+141:                                              ; preds = %131
+  %.not.i198 = icmp eq i16 %136, %137
+  br i1 %.not.i198, label %lv_obj_add_state.exit200, label %142
 
-143:                                              ; preds = %142
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %138)
-  %.pre239 = load i16, ptr %136, align 4, !tbaa !24
+142:                                              ; preds = %141
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %137)
+  %.pre239 = load i16, ptr %135, align 4, !tbaa !24
   br label %lv_obj_add_state.exit200
 
-lv_obj_add_state.exit200:                         ; preds = %142, %143
-  %144 = phi i16 [ %137, %142 ], [ %.pre239, %143 ]
-  %145 = and i16 %144, -9
-  %.not.i201 = icmp eq i16 %144, %145
-  br i1 %.not.i201, label %.critedge, label %146
+lv_obj_add_state.exit200:                         ; preds = %141, %142
+  %143 = phi i16 [ %136, %141 ], [ %.pre239, %142 ]
+  %144 = and i16 %143, -9
+  %.not.i201 = icmp eq i16 %143, %144
+  br i1 %.not.i201, label %.critedge, label %145
 
-146:                                              ; preds = %lv_obj_add_state.exit200
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %145)
+145:                                              ; preds = %lv_obj_add_state.exit200
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %144)
   br label %.critedge
 
-147:                                              ; preds = %2
-  %148 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %149 = load i16, ptr %148, align 4, !tbaa !24
-  %150 = or i16 %149, 64
-  %.not.i203 = icmp eq i16 %149, %150
-  br i1 %.not.i203, label %.critedge, label %151
+146:                                              ; preds = %2
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %148 = load i16, ptr %147, align 4, !tbaa !24
+  %149 = or i16 %148, 64
+  %.not.i203 = icmp eq i16 %148, %149
+  br i1 %.not.i203, label %.critedge, label %150
 
-151:                                              ; preds = %147
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %150)
+150:                                              ; preds = %146
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %149)
   br label %.critedge
 
-152:                                              ; preds = %2
-  %153 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %154 = load i16, ptr %153, align 4, !tbaa !24
-  %155 = and i16 %154, -65
-  %.not.i206 = icmp eq i16 %154, %155
-  br i1 %.not.i206, label %lv_obj_remove_state.exit207, label %156
+151:                                              ; preds = %2
+  %152 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %153 = load i16, ptr %152, align 4, !tbaa !24
+  %154 = and i16 %153, -65
+  %.not.i206 = icmp eq i16 %153, %154
+  br i1 %.not.i206, label %lv_obj_remove_state.exit207, label %155
 
-156:                                              ; preds = %152
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %155)
+155:                                              ; preds = %151
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %154)
   br label %lv_obj_remove_state.exit207
 
-lv_obj_remove_state.exit207:                      ; preds = %152, %156
-  %157 = tail call i32 @lv_obj_get_scrollbar_mode(ptr noundef nonnull %14) #8
-  %158 = icmp eq i32 %157, 2
-  br i1 %158, label %159, label %.critedge
+lv_obj_remove_state.exit207:                      ; preds = %151, %155
+  %156 = tail call i32 @lv_obj_get_scrollbar_mode(ptr noundef nonnull %14) #8
+  %157 = icmp eq i32 %156, 2
+  br i1 %157, label %158, label %.critedge
 
-159:                                              ; preds = %lv_obj_remove_state.exit207
+158:                                              ; preds = %lv_obj_remove_state.exit207
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
   call void @lv_obj_get_scrollbar_area(ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
@@ -476,523 +472,523 @@ lv_obj_remove_state.exit207:                      ; preds = %152, %156
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
   br label %.critedge
 
-160:                                              ; preds = %2
-  %161 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %162 = load i16, ptr %161, align 4, !tbaa !24
-  %163 = and i16 %162, -15
-  %.not.i208 = icmp eq i16 %162, %163
-  br i1 %.not.i208, label %.critedge, label %164
+159:                                              ; preds = %2
+  %160 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %161 = load i16, ptr %160, align 4, !tbaa !24
+  %162 = and i16 %161, -15
+  %.not.i208 = icmp eq i16 %161, %162
+  br i1 %.not.i208, label %.critedge, label %163
 
-164:                                              ; preds = %160
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %163)
+163:                                              ; preds = %159
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %162)
   br label %.critedge
 
-165:                                              ; preds = %2
-  %166 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 10) #8
-  %167 = ptrtoint ptr %166 to i64
-  %168 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 22) #8
-  %169 = ptrtoint ptr %168 to i64
-  %170 = and i64 %169, 65535
-  %171 = icmp ne i64 %170, 0
-  %172 = and i64 %167, 4294967295
-  %173 = icmp ne i64 %172, 0
-  %or.cond14 = select i1 %171, i1 true, i1 %173
-  br i1 %or.cond14, label %174, label %175
+164:                                              ; preds = %2
+  %165 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 10) #8
+  %166 = ptrtoint ptr %165 to i64
+  %167 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 22) #8
+  %168 = ptrtoint ptr %167 to i64
+  %169 = and i64 %168, 65535
+  %170 = icmp ne i64 %169, 0
+  %171 = and i64 %166, 4294967295
+  %172 = icmp ne i64 %171, 0
+  %or.cond14 = select i1 %170, i1 true, i1 %172
+  br i1 %or.cond14, label %173, label %174
 
-174:                                              ; preds = %165
+173:                                              ; preds = %164
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %14) #8
-  br label %175
+  br label %174
 
-175:                                              ; preds = %165, %174
-  %176 = tail call i32 @lv_obj_get_child_count(ptr noundef %14) #8
-  %.not230 = icmp eq i32 %176, 0
+174:                                              ; preds = %164, %173
+  %175 = tail call i32 @lv_obj_get_child_count(ptr noundef %14) #8
+  %.not230 = icmp eq i32 %175, 0
   br i1 %.not230, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %175
-  %177 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %wide.trip.count = zext i32 %176 to i64
-  br label %178
+.lr.ph:                                           ; preds = %174
+  %176 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %wide.trip.count = zext i32 %175 to i64
+  br label %177
 
-178:                                              ; preds = %.lr.ph, %178
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %178 ]
-  %179 = load ptr, ptr %177, align 8, !tbaa !16
-  %180 = load ptr, ptr %179, align 8, !tbaa !23
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv
-  %182 = load ptr, ptr %181, align 8, !tbaa !25
-  tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %182) #8
+177:                                              ; preds = %.lr.ph, %177
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %177 ]
+  %178 = load ptr, ptr %176, align 8, !tbaa !16
+  %179 = load ptr, ptr %178, align 8, !tbaa !23
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv
+  %181 = load ptr, ptr %180, align 8, !tbaa !25
+  tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %181) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %178, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %177, !llvm.loop !28
 
-183:                                              ; preds = %2
-  %184 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 1) #8
-  %185 = ptrtoint ptr %184 to i64
-  %186 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 2) #8
-  %187 = ptrtoint ptr %186 to i64
-  %188 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 10) #8
-  %189 = ptrtoint ptr %188 to i64
-  %190 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 22) #8
-  %191 = ptrtoint ptr %190 to i64
-  %192 = and i64 %191, 65535
-  %193 = icmp ne i64 %192, 0
-  %194 = and i64 %189, 4294967295
-  %195 = icmp ne i64 %194, 0
-  %or.cond16 = select i1 %193, i1 true, i1 %195
-  %196 = and i64 %185, 4294967295
-  %197 = icmp eq i64 %196, 1073741823
-  %or.cond18 = select i1 %or.cond16, i1 true, i1 %197
-  %198 = and i64 %187, 4294967295
-  %199 = icmp eq i64 %198, 1073741823
-  %or.cond20 = select i1 %or.cond18, i1 true, i1 %199
-  br i1 %or.cond20, label %200, label %.critedge
+182:                                              ; preds = %2
+  %183 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 1) #8
+  %184 = ptrtoint ptr %183 to i64
+  %185 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 2) #8
+  %186 = ptrtoint ptr %185 to i64
+  %187 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 10) #8
+  %188 = ptrtoint ptr %187 to i64
+  %189 = tail call ptr @lv_obj_get_style_prop(ptr noundef %14, i32 noundef 0, i8 noundef zeroext 22) #8
+  %190 = ptrtoint ptr %189 to i64
+  %191 = and i64 %190, 65535
+  %192 = icmp ne i64 %191, 0
+  %193 = and i64 %188, 4294967295
+  %194 = icmp ne i64 %193, 0
+  %or.cond16 = select i1 %192, i1 true, i1 %194
+  %195 = and i64 %184, 4294967295
+  %196 = icmp eq i64 %195, 1073741823
+  %or.cond18 = select i1 %or.cond16, i1 true, i1 %196
+  %197 = and i64 %186, 4294967295
+  %198 = icmp eq i64 %197, 1073741823
+  %or.cond20 = select i1 %or.cond18, i1 true, i1 %198
+  br i1 %or.cond20, label %199, label %.critedge
 
-200:                                              ; preds = %183
+199:                                              ; preds = %182
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %14) #8
   br label %.critedge
 
-201:                                              ; preds = %2
-  %202 = getelementptr inbounds nuw i8, ptr %14, i64 62
-  %203 = load i16, ptr %202, align 2
-  %204 = or i16 %203, 2
-  store i16 %204, ptr %202, align 2
+200:                                              ; preds = %2
+  %201 = getelementptr inbounds nuw i8, ptr %14, i64 62
+  %202 = load i16, ptr %201, align 2
+  %203 = or i16 %202, 2
+  store i16 %203, ptr %201, align 2
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %14) #8
   br label %.critedge
 
-205:                                              ; preds = %2
-  %206 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %14, i32 noundef 0) #8
-  tail call void @lv_event_set_ext_draw_size(ptr noundef %1, i32 noundef %206) #8
+204:                                              ; preds = %2
+  %205 = tail call i32 @lv_obj_calculate_ext_draw_size(ptr noundef %14, i32 noundef 0) #8
+  tail call void @lv_event_set_ext_draw_size(ptr noundef %1, i32 noundef %205) #8
   br label %.critedge
 
-207:                                              ; preds = %2, %2, %2
-  %208 = tail call i32 @lv_event_get_code(ptr noundef %1) #8
-  %209 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
-  switch i32 %208, label %.critedge [
-    i32 26, label %210
-    i32 29, label %267
-    i32 32, label %292
+206:                                              ; preds = %2, %2, %2
+  %207 = tail call i32 @lv_event_get_code(ptr noundef %1) #8
+  %208 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #8
+  switch i32 %207, label %.critedge [
+    i32 26, label %209
+    i32 29, label %266
+    i32 32, label %291
   ]
 
-210:                                              ; preds = %207
-  %211 = tail call ptr @lv_event_get_param(ptr noundef %1) #8
-  %212 = load i32, ptr %211, align 8, !tbaa !29
-  %213 = icmp eq i32 %212, 2
-  br i1 %213, label %.critedge, label %214
+209:                                              ; preds = %206
+  %210 = tail call ptr @lv_event_get_param(ptr noundef %1) #8
+  %211 = load i32, ptr %210, align 8, !tbaa !29
+  %212 = icmp eq i32 %211, 2
+  br i1 %212, label %.critedge, label %213
 
-214:                                              ; preds = %210
-  %215 = tail call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 45) #8
-  %216 = ptrtoint ptr %215 to i64
-  %217 = and i64 %216, 4294967295
-  %.not75.i = icmp eq i64 %217, 0
-  br i1 %.not75.i, label %219, label %218
+213:                                              ; preds = %209
+  %214 = tail call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 45) #8
+  %215 = ptrtoint ptr %214 to i64
+  %216 = and i64 %215, 4294967295
+  %.not75.i = icmp eq i64 %216, 0
+  br i1 %.not75.i, label %218, label %217
 
-218:                                              ; preds = %214
-  store i32 2, ptr %211, align 8, !tbaa !29
+217:                                              ; preds = %213
+  store i32 2, ptr %210, align 8, !tbaa !29
   br label %.critedge
 
-219:                                              ; preds = %214
-  %220 = tail call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 12) #8
-  %221 = ptrtoint ptr %220 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %221 to i32
-  %222 = tail call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 104) #8
-  %223 = ptrtoint ptr %222 to i64
-  %.sroa.0.0.extract.trunc.i65.i = trunc i64 %223 to i32
-  %224 = tail call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 105) #8
-  %225 = ptrtoint ptr %224 to i64
-  %.sroa.0.0.extract.trunc.i66.i = trunc i64 %225 to i32
+218:                                              ; preds = %213
+  %219 = tail call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 12) #8
+  %220 = ptrtoint ptr %219 to i64
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %220 to i32
+  %221 = tail call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 104) #8
+  %222 = ptrtoint ptr %221 to i64
+  %.sroa.0.0.extract.trunc.i65.i = trunc i64 %222 to i32
+  %223 = tail call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 105) #8
+  %224 = ptrtoint ptr %223 to i64
+  %.sroa.0.0.extract.trunc.i66.i = trunc i64 %224 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
-  %226 = getelementptr inbounds nuw i8, ptr %209, i64 40
-  %227 = load i32, ptr %226, align 4, !tbaa !31
-  store i32 %227, ptr %6, align 4, !tbaa !31
-  %228 = getelementptr inbounds nuw i8, ptr %209, i64 44
-  %229 = load i32, ptr %228, align 4, !tbaa !32
-  %230 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %229, ptr %230, align 4, !tbaa !32
-  %231 = getelementptr inbounds nuw i8, ptr %209, i64 48
-  %232 = load i32, ptr %231, align 4, !tbaa !33
-  %233 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %232, ptr %233, align 4, !tbaa !33
-  %234 = getelementptr inbounds nuw i8, ptr %209, i64 52
-  %235 = load i32, ptr %234, align 4, !tbaa !34
-  %236 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %235, ptr %236, align 4, !tbaa !34
+  %225 = getelementptr inbounds nuw i8, ptr %208, i64 40
+  %226 = load i32, ptr %225, align 4, !tbaa !31
+  store i32 %226, ptr %6, align 4, !tbaa !31
+  %227 = getelementptr inbounds nuw i8, ptr %208, i64 44
+  %228 = load i32, ptr %227, align 4, !tbaa !32
+  %229 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %228, ptr %229, align 4, !tbaa !32
+  %230 = getelementptr inbounds nuw i8, ptr %208, i64 48
+  %231 = load i32, ptr %230, align 4, !tbaa !33
+  %232 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %231, ptr %232, align 4, !tbaa !33
+  %233 = getelementptr inbounds nuw i8, ptr %208, i64 52
+  %234 = load i32, ptr %233, align 4, !tbaa !34
+  %235 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 %234, ptr %235, align 4, !tbaa !34
   call void @lv_area_increase(ptr noundef nonnull %6, i32 noundef %.sroa.0.0.extract.trunc.i65.i, i32 noundef %.sroa.0.0.extract.trunc.i66.i) #8
-  %237 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  %238 = load ptr, ptr %237, align 8, !tbaa !35
-  %239 = call zeroext i1 @lv_area_is_in(ptr noundef %238, ptr noundef nonnull %6, i32 noundef %.sroa.0.0.extract.trunc.i.i) #8
-  br i1 %239, label %240, label %.critedge.i
+  %236 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %237 = load ptr, ptr %236, align 8, !tbaa !35
+  %238 = call zeroext i1 @lv_area_is_in(ptr noundef %237, ptr noundef nonnull %6, i32 noundef %.sroa.0.0.extract.trunc.i.i) #8
+  br i1 %238, label %239, label %.critedge.i
 
-240:                                              ; preds = %219
-  %241 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %209, i32 noundef 0, i8 noundef zeroext 29) #8
-  %242 = ptrtoint ptr %241 to i64
-  %243 = trunc i64 %242 to i8
-  %244 = icmp ult i8 %243, -3
-  br i1 %244, label %.critedge.i, label %245
+239:                                              ; preds = %218
+  %240 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %208, i32 noundef 0, i8 noundef zeroext 29) #8
+  %241 = ptrtoint ptr %240 to i64
+  %242 = trunc i64 %241 to i8
+  %243 = icmp ult i8 %242, -3
+  br i1 %243, label %.critedge.i, label %244
 
-245:                                              ; preds = %240
-  %246 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %209, i32 noundef 0, i8 noundef zeroext 95) #8
-  %247 = ptrtoint ptr %246 to i64
-  %248 = trunc i64 %247 to i8
-  %249 = icmp ult i8 %248, -3
-  br i1 %249, label %.critedge.i, label %250
+244:                                              ; preds = %239
+  %245 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %208, i32 noundef 0, i8 noundef zeroext 95) #8
+  %246 = ptrtoint ptr %245 to i64
+  %247 = trunc i64 %246 to i8
+  %248 = icmp ult i8 %247, -3
+  br i1 %248, label %.critedge.i, label %249
 
-250:                                              ; preds = %245
-  %251 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %209, i32 noundef 0, i8 noundef zeroext 32) #8
-  %252 = ptrtoint ptr %251 to i64
-  %253 = and i64 %252, 4294967295
-  %.not60.i = icmp eq i64 %253, 0
-  br i1 %.not60.i, label %259, label %254
+249:                                              ; preds = %244
+  %250 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %208, i32 noundef 0, i8 noundef zeroext 32) #8
+  %251 = ptrtoint ptr %250 to i64
+  %252 = and i64 %251, 4294967295
+  %.not60.i = icmp eq i64 %252, 0
+  br i1 %.not60.i, label %258, label %253
 
-254:                                              ; preds = %250
-  %255 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %209, i32 noundef 0, i8 noundef zeroext 37) #8
-  %256 = ptrtoint ptr %255 to i64
-  %257 = trunc i64 %256 to i8
-  %258 = icmp ult i8 %257, -3
-  br i1 %258, label %.critedge.i, label %259
+253:                                              ; preds = %249
+  %254 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %208, i32 noundef 0, i8 noundef zeroext 37) #8
+  %255 = ptrtoint ptr %254 to i64
+  %256 = trunc i64 %255 to i8
+  %257 = icmp ult i8 %256, -3
+  br i1 %257, label %.critedge.i, label %258
 
-259:                                              ; preds = %254, %250
-  %260 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %209, i32 noundef 0, i8 noundef zeroext 38) #8
-  %.not61.i = icmp eq ptr %260, null
+258:                                              ; preds = %253, %249
+  %259 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %208, i32 noundef 0, i8 noundef zeroext 38) #8
+  %.not61.i = icmp eq ptr %259, null
   br i1 %.not61.i, label %.critedge.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %259
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 10
-  %262 = load i8, ptr %261, align 2, !tbaa !36
-  %.not6276.not.i = icmp eq i8 %262, 0
+.preheader.i:                                     ; preds = %258
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 10
+  %261 = load i8, ptr %260, align 2, !tbaa !36
+  %.not6276.not.i = icmp eq i8 %261, 0
   br i1 %.not6276.not.i, label %.critedge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext i8 %262 to i64
+  %wide.trip.count.i = zext i8 %261 to i64
   br label %.lr.ph.i
 
-263:                                              ; preds = %.lr.ph.i
+262:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !38
 
-.lr.ph.i:                                         ; preds = %263, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %263 ]
-  %264 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %260, i64 0, i64 %indvars.iv.i, i32 1
-  %265 = load i8, ptr %264, align 1, !tbaa !39
-  %266 = icmp ult i8 %265, -3
-  br i1 %266, label %.critedge.i, label %263
+.lr.ph.i:                                         ; preds = %262, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %262 ]
+  %263 = getelementptr inbounds nuw [2 x %struct.lv_gradient_stop_t], ptr %259, i64 0, i64 %indvars.iv.i, i32 1
+  %264 = load i8, ptr %263, align 1, !tbaa !39
+  %265 = icmp ult i8 %264, -3
+  br i1 %265, label %.critedge.i, label %262
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %263, %.preheader.i, %259, %254, %245, %240, %219
-  %.sink.i = phi i32 [ 1, %219 ], [ 1, %240 ], [ 1, %245 ], [ 1, %254 ], [ 0, %.preheader.i ], [ 0, %259 ], [ 0, %263 ], [ 1, %.lr.ph.i ]
-  store i32 %.sink.i, ptr %211, align 8, !tbaa !29
+.critedge.i:                                      ; preds = %.lr.ph.i, %262, %.preheader.i, %258, %253, %244, %239, %218
+  %.sink.i = phi i32 [ 1, %218 ], [ 1, %239 ], [ 1, %244 ], [ 1, %253 ], [ 0, %.preheader.i ], [ 0, %258 ], [ 0, %262 ], [ 1, %.lr.ph.i ]
+  store i32 %.sink.i, ptr %210, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
   br label %.critedge
 
-267:                                              ; preds = %207
-  %268 = tail call ptr @lv_event_get_layer(ptr noundef %1) #8
+266:                                              ; preds = %206
+  %267 = tail call ptr @lv_event_get_layer(ptr noundef %1) #8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %7) #8
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef %209, i32 noundef 0, ptr noundef nonnull %7) #8
-  %269 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 53) #8
-  %270 = ptrtoint ptr %269 to i64
-  %271 = and i64 %270, 4294967295
-  %.not74.i = icmp eq i64 %271, 0
-  br i1 %.not74.i, label %276, label %272
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef %208, i32 noundef 0, ptr noundef nonnull %7) #8
+  %268 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 53) #8
+  %269 = ptrtoint ptr %268 to i64
+  %270 = and i64 %269, 4294967295
+  %.not74.i = icmp eq i64 %270, 0
+  br i1 %.not74.i, label %275, label %271
 
-272:                                              ; preds = %267
-  %273 = getelementptr inbounds nuw i8, ptr %7, i64 105
-  %274 = load i8, ptr %273, align 1
-  %275 = or i8 %274, 32
-  store i8 %275, ptr %273, align 1
-  br label %276
+271:                                              ; preds = %266
+  %272 = getelementptr inbounds nuw i8, ptr %7, i64 105
+  %273 = load i8, ptr %272, align 1
+  %274 = or i8 %273, 32
+  store i8 %274, ptr %272, align 1
+  br label %275
 
-276:                                              ; preds = %272, %267
-  %277 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 104) #8
-  %278 = ptrtoint ptr %277 to i64
-  %.sroa.0.0.extract.trunc.i68.i = trunc i64 %278 to i32
-  %279 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 105) #8
-  %280 = ptrtoint ptr %279 to i64
-  %.sroa.0.0.extract.trunc.i69.i = trunc i64 %280 to i32
+275:                                              ; preds = %271, %266
+  %276 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 104) #8
+  %277 = ptrtoint ptr %276 to i64
+  %.sroa.0.0.extract.trunc.i68.i = trunc i64 %277 to i32
+  %278 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 105) #8
+  %279 = ptrtoint ptr %278 to i64
+  %.sroa.0.0.extract.trunc.i69.i = trunc i64 %279 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  %281 = getelementptr inbounds nuw i8, ptr %209, i64 40
-  %282 = load i32, ptr %281, align 4, !tbaa !31
-  store i32 %282, ptr %8, align 4, !tbaa !31
-  %283 = getelementptr inbounds nuw i8, ptr %209, i64 44
-  %284 = load i32, ptr %283, align 4, !tbaa !32
-  %285 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %284, ptr %285, align 4, !tbaa !32
-  %286 = getelementptr inbounds nuw i8, ptr %209, i64 48
-  %287 = load i32, ptr %286, align 4, !tbaa !33
-  %288 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %287, ptr %288, align 4, !tbaa !33
-  %289 = getelementptr inbounds nuw i8, ptr %209, i64 52
-  %290 = load i32, ptr %289, align 4, !tbaa !34
-  %291 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %290, ptr %291, align 4, !tbaa !34
+  %280 = getelementptr inbounds nuw i8, ptr %208, i64 40
+  %281 = load i32, ptr %280, align 4, !tbaa !31
+  store i32 %281, ptr %8, align 4, !tbaa !31
+  %282 = getelementptr inbounds nuw i8, ptr %208, i64 44
+  %283 = load i32, ptr %282, align 4, !tbaa !32
+  %284 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %283, ptr %284, align 4, !tbaa !32
+  %285 = getelementptr inbounds nuw i8, ptr %208, i64 48
+  %286 = load i32, ptr %285, align 4, !tbaa !33
+  %287 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %286, ptr %287, align 4, !tbaa !33
+  %288 = getelementptr inbounds nuw i8, ptr %208, i64 52
+  %289 = load i32, ptr %288, align 4, !tbaa !34
+  %290 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 %289, ptr %290, align 4, !tbaa !34
   call void @lv_area_increase(ptr noundef nonnull %8, i32 noundef %.sroa.0.0.extract.trunc.i68.i, i32 noundef %.sroa.0.0.extract.trunc.i69.i) #8
-  call void @lv_draw_rect(ptr noundef %268, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void @lv_draw_rect(ptr noundef %267, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
   br label %.critedge
 
-292:                                              ; preds = %207
-  %293 = tail call ptr @lv_event_get_layer(ptr noundef %1) #8
+291:                                              ; preds = %206
+  %292 = tail call ptr @lv_event_get_layer(ptr noundef %1) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
-  call void @lv_obj_get_scrollbar_area(ptr noundef %209, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  %294 = call i32 @lv_area_get_size(ptr noundef nonnull %3) #8
-  %295 = icmp eq i32 %294, 0
-  br i1 %295, label %296, label %299
+  call void @lv_obj_get_scrollbar_area(ptr noundef %208, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %293 = call i32 @lv_area_get_size(ptr noundef nonnull %3) #8
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %295, label %298
 
-296:                                              ; preds = %292
-  %297 = call i32 @lv_area_get_size(ptr noundef nonnull %4) #8
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %draw_scrollbar.exit.i, label %299
+295:                                              ; preds = %291
+  %296 = call i32 @lv_area_get_size(ptr noundef nonnull %4) #8
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %draw_scrollbar.exit.i, label %298
 
-299:                                              ; preds = %296, %292
+298:                                              ; preds = %295, %291
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #8
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %5) #8
-  %300 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 29) #8
-  %301 = ptrtoint ptr %300 to i64
-  %302 = trunc i64 %301 to i8
-  %303 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i8 %302, ptr %303, align 4, !tbaa !42
-  %304 = icmp ugt i8 %302, 2
-  br i1 %304, label %305, label %309
+  %299 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 29) #8
+  %300 = ptrtoint ptr %299 to i64
+  %301 = trunc i64 %300 to i8
+  %302 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i8 %301, ptr %302, align 4, !tbaa !42
+  %303 = icmp ugt i8 %301, 2
+  br i1 %303, label %304, label %308
 
-305:                                              ; preds = %299
-  %306 = getelementptr inbounds nuw i8, ptr %5, i64 53
-  %307 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 28) #8
-  %308 = ptrtoint ptr %307 to i64
-  %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %308 to i24
-  store i24 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %306, align 1
-  br label %309
+304:                                              ; preds = %298
+  %305 = getelementptr inbounds nuw i8, ptr %5, i64 53
+  %306 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 28) #8
+  %307 = ptrtoint ptr %306 to i64
+  %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %307 to i24
+  store i24 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %305, align 1
+  br label %308
 
-309:                                              ; preds = %305, %299
-  %310 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 50) #8
-  %311 = ptrtoint ptr %310 to i64
-  %312 = trunc i64 %311 to i8
-  %313 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i8 %312, ptr %313, align 8, !tbaa !46
-  %314 = icmp ugt i8 %312, 2
-  br i1 %314, label %315, label %325
+308:                                              ; preds = %304, %298
+  %309 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 50) #8
+  %310 = ptrtoint ptr %309 to i64
+  %311 = trunc i64 %310 to i8
+  %312 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store i8 %311, ptr %312, align 8, !tbaa !46
+  %313 = icmp ugt i8 %311, 2
+  br i1 %313, label %314, label %324
 
-315:                                              ; preds = %309
-  %316 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 48) #8
-  %317 = ptrtoint ptr %316 to i64
-  %.sroa.0.0.extract.trunc.i46.i.i.i = trunc i64 %317 to i32
-  %318 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  store i32 %.sroa.0.0.extract.trunc.i46.i.i.i, ptr %318, align 4, !tbaa !47
-  %319 = icmp sgt i32 %.sroa.0.0.extract.trunc.i46.i.i.i, 0
-  br i1 %319, label %320, label %324
+314:                                              ; preds = %308
+  %315 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 48) #8
+  %316 = ptrtoint ptr %315 to i64
+  %.sroa.0.0.extract.trunc.i46.i.i.i = trunc i64 %316 to i32
+  %317 = getelementptr inbounds nuw i8, ptr %5, i64 100
+  store i32 %.sroa.0.0.extract.trunc.i46.i.i.i, ptr %317, align 4, !tbaa !47
+  %318 = icmp sgt i32 %.sroa.0.0.extract.trunc.i46.i.i.i, 0
+  br i1 %318, label %319, label %323
 
-320:                                              ; preds = %315
-  %321 = getelementptr inbounds nuw i8, ptr %5, i64 94
-  %322 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 49) #8
-  %323 = ptrtoint ptr %322 to i64
-  %.sroa.0.0.extract.trunc.i47.i.i.i = trunc i64 %323 to i24
-  store i24 %.sroa.0.0.extract.trunc.i47.i.i.i, ptr %321, align 2
-  br label %325
+319:                                              ; preds = %314
+  %320 = getelementptr inbounds nuw i8, ptr %5, i64 94
+  %321 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 49) #8
+  %322 = ptrtoint ptr %321 to i64
+  %.sroa.0.0.extract.trunc.i47.i.i.i = trunc i64 %322 to i24
+  store i24 %.sroa.0.0.extract.trunc.i47.i.i.i, ptr %320, align 2
+  br label %324
 
-324:                                              ; preds = %315
-  store i8 0, ptr %313, align 8, !tbaa !46
-  br label %325
+323:                                              ; preds = %314
+  store i8 0, ptr %312, align 8, !tbaa !46
+  br label %324
 
-325:                                              ; preds = %324, %320, %309
-  %326 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 62) #8
-  %327 = ptrtoint ptr %326 to i64
-  %328 = trunc i64 %327 to i8
-  %329 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  store i8 %328, ptr %329, align 4, !tbaa !48
-  %330 = icmp ugt i8 %328, 2
-  br i1 %330, label %331, label %344
+324:                                              ; preds = %323, %319, %308
+  %325 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 62) #8
+  %326 = ptrtoint ptr %325 to i64
+  %327 = trunc i64 %326 to i8
+  %328 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  store i8 %327, ptr %328, align 4, !tbaa !48
+  %329 = icmp ugt i8 %327, 2
+  br i1 %329, label %330, label %343
 
-331:                                              ; preds = %325
-  %332 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 60) #8
-  %333 = ptrtoint ptr %332 to i64
-  %.sroa.0.0.extract.trunc.i48.i.i.i = trunc i64 %333 to i32
-  %334 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  store i32 %.sroa.0.0.extract.trunc.i48.i.i.i, ptr %334, align 4, !tbaa !49
-  %335 = icmp sgt i32 %.sroa.0.0.extract.trunc.i48.i.i.i, 0
-  br i1 %335, label %336, label %343
+330:                                              ; preds = %324
+  %331 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 60) #8
+  %332 = ptrtoint ptr %331 to i64
+  %.sroa.0.0.extract.trunc.i48.i.i.i = trunc i64 %332 to i32
+  %333 = getelementptr inbounds nuw i8, ptr %5, i64 124
+  store i32 %.sroa.0.0.extract.trunc.i48.i.i.i, ptr %333, align 4, !tbaa !49
+  %334 = icmp sgt i32 %.sroa.0.0.extract.trunc.i48.i.i.i, 0
+  br i1 %334, label %335, label %342
 
-336:                                              ; preds = %331
-  %337 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 66) #8
-  %338 = ptrtoint ptr %337 to i64
-  %.sroa.0.0.extract.trunc.i49.i.i.i = trunc i64 %338 to i32
-  %339 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store i32 %.sroa.0.0.extract.trunc.i49.i.i.i, ptr %339, align 8, !tbaa !50
-  %340 = getelementptr inbounds nuw i8, ptr %5, i64 121
-  %341 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 61) #8
-  %342 = ptrtoint ptr %341 to i64
-  %.sroa.0.0.extract.trunc.i50.i.i.i = trunc i64 %342 to i24
-  store i24 %.sroa.0.0.extract.trunc.i50.i.i.i, ptr %340, align 1
-  br label %344
+335:                                              ; preds = %330
+  %336 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 66) #8
+  %337 = ptrtoint ptr %336 to i64
+  %.sroa.0.0.extract.trunc.i49.i.i.i = trunc i64 %337 to i32
+  %338 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  store i32 %.sroa.0.0.extract.trunc.i49.i.i.i, ptr %338, align 8, !tbaa !50
+  %339 = getelementptr inbounds nuw i8, ptr %5, i64 121
+  %340 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 61) #8
+  %341 = ptrtoint ptr %340 to i64
+  %.sroa.0.0.extract.trunc.i50.i.i.i = trunc i64 %341 to i24
+  store i24 %.sroa.0.0.extract.trunc.i50.i.i.i, ptr %339, align 1
+  br label %343
 
-343:                                              ; preds = %331
-  store i8 0, ptr %329, align 4, !tbaa !48
-  br label %344
+342:                                              ; preds = %330
+  store i8 0, ptr %328, align 4, !tbaa !48
+  br label %343
 
-344:                                              ; preds = %343, %336, %325
-  %345 = call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %209, i32 noundef 65536) #8
-  %346 = icmp ult i8 %345, -3
-  br i1 %346, label %347, label %thread-pre-split.i.i.i
+343:                                              ; preds = %342, %335, %324
+  %344 = call zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef %208, i32 noundef 65536) #8
+  %345 = icmp ult i8 %344, -3
+  br i1 %345, label %346, label %thread-pre-split.i.i.i
 
-347:                                              ; preds = %344
-  %348 = zext i8 %345 to i16
-  %349 = load i8, ptr %303, align 4, !tbaa !42
-  %350 = zext i8 %349 to i16
-  %351 = mul nuw i16 %350, %348
-  %352 = lshr i16 %351, 8
-  %353 = trunc nuw i16 %352 to i8
-  store i8 %353, ptr %303, align 4, !tbaa !42
-  store i8 %353, ptr %313, align 8, !tbaa !46
-  store i8 %353, ptr %329, align 4, !tbaa !48
-  br label %354
+346:                                              ; preds = %343
+  %347 = zext i8 %344 to i16
+  %348 = load i8, ptr %302, align 4, !tbaa !42
+  %349 = zext i8 %348 to i16
+  %350 = mul nuw i16 %349, %347
+  %351 = lshr i16 %350, 8
+  %352 = trunc nuw i16 %351 to i8
+  store i8 %352, ptr %302, align 4, !tbaa !42
+  store i8 %352, ptr %312, align 8, !tbaa !46
+  store i8 %352, ptr %328, align 4, !tbaa !48
+  br label %353
 
-thread-pre-split.i.i.i:                           ; preds = %344
-  %.pr.i.i.i = load i8, ptr %303, align 4, !tbaa !42
-  %.pre.i.i = load i8, ptr %313, align 8
-  %.pre8.i.i = load i8, ptr %329, align 4
-  br label %354
+thread-pre-split.i.i.i:                           ; preds = %343
+  %.pr.i.i.i = load i8, ptr %302, align 4, !tbaa !42
+  %.pre.i.i = load i8, ptr %312, align 8
+  %.pre8.i.i = load i8, ptr %328, align 4
+  br label %353
 
-354:                                              ; preds = %thread-pre-split.i.i.i, %347
-  %355 = phi i8 [ %.pre8.i.i, %thread-pre-split.i.i.i ], [ %353, %347 ]
-  %356 = phi i8 [ %.pre.i.i, %thread-pre-split.i.i.i ], [ %353, %347 ]
-  %357 = phi i8 [ %.pr.i.i.i, %thread-pre-split.i.i.i ], [ %353, %347 ]
-  %.not.i.i.i = icmp eq i8 %357, 0
-  %.not44.i.i.i = icmp eq i8 %356, 0
+353:                                              ; preds = %thread-pre-split.i.i.i, %346
+  %354 = phi i8 [ %.pre8.i.i, %thread-pre-split.i.i.i ], [ %352, %346 ]
+  %355 = phi i8 [ %.pre.i.i, %thread-pre-split.i.i.i ], [ %352, %346 ]
+  %356 = phi i8 [ %.pr.i.i.i, %thread-pre-split.i.i.i ], [ %352, %346 ]
+  %.not.i.i.i = icmp eq i8 %356, 0
+  %.not44.i.i.i = icmp eq i8 %355, 0
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %.not44.i.i.i, i1 false
-  %.not45.i.i.i = icmp eq i8 %355, 0
+  %.not45.i.i.i = icmp eq i8 %354, 0
   %or.cond7.i.i = select i1 %or.cond.i.i, i1 %.not45.i.i.i, i1 false
-  br i1 %or.cond7.i.i, label %scrollbar_init_draw_dsc.exit.thread.i.i, label %358
+  br i1 %or.cond7.i.i, label %scrollbar_init_draw_dsc.exit.thread.i.i, label %357
 
-358:                                              ; preds = %354
-  %359 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 65536, i8 noundef zeroext 12) #8
-  %360 = ptrtoint ptr %359 to i64
-  %.sroa.0.0.extract.trunc.i51.i.i.i = trunc i64 %360 to i32
-  %361 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %.sroa.0.0.extract.trunc.i51.i.i.i, ptr %361, align 8, !tbaa !51
-  %362 = call i32 @lv_area_get_size(ptr noundef nonnull %3) #8
-  %.not.i.i = icmp eq i32 %362, 0
-  br i1 %.not.i.i, label %365, label %363
+357:                                              ; preds = %353
+  %358 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 65536, i8 noundef zeroext 12) #8
+  %359 = ptrtoint ptr %358 to i64
+  %.sroa.0.0.extract.trunc.i51.i.i.i = trunc i64 %359 to i32
+  %360 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 %.sroa.0.0.extract.trunc.i51.i.i.i, ptr %360, align 8, !tbaa !51
+  %361 = call i32 @lv_area_get_size(ptr noundef nonnull %3) #8
+  %.not.i.i = icmp eq i32 %361, 0
+  br i1 %.not.i.i, label %364, label %362
 
-363:                                              ; preds = %358
-  %364 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %364, align 4, !tbaa !52
-  call void @lv_draw_rect(ptr noundef %293, ptr noundef nonnull %5, ptr noundef nonnull %3) #8
-  br label %365
+362:                                              ; preds = %357
+  %363 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 0, ptr %363, align 4, !tbaa !52
+  call void @lv_draw_rect(ptr noundef %292, ptr noundef nonnull %5, ptr noundef nonnull %3) #8
+  br label %364
 
-365:                                              ; preds = %363, %358
-  %366 = call i32 @lv_area_get_size(ptr noundef nonnull %4) #8
-  %.not4.i.i = icmp eq i32 %366, 0
-  br i1 %.not4.i.i, label %scrollbar_init_draw_dsc.exit.thread.i.i, label %367
+364:                                              ; preds = %362, %357
+  %365 = call i32 @lv_area_get_size(ptr noundef nonnull %4) #8
+  %.not4.i.i = icmp eq i32 %365, 0
+  br i1 %.not4.i.i, label %scrollbar_init_draw_dsc.exit.thread.i.i, label %366
 
-367:                                              ; preds = %365
-  %368 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 1, ptr %368, align 4, !tbaa !52
-  call void @lv_draw_rect(ptr noundef %293, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
+366:                                              ; preds = %364
+  %367 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 1, ptr %367, align 4, !tbaa !52
+  call void @lv_draw_rect(ptr noundef %292, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
   br label %scrollbar_init_draw_dsc.exit.thread.i.i
 
-scrollbar_init_draw_dsc.exit.thread.i.i:          ; preds = %367, %365, %354
+scrollbar_init_draw_dsc.exit.thread.i.i:          ; preds = %366, %364, %353
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #8
   br label %draw_scrollbar.exit.i
 
-draw_scrollbar.exit.i:                            ; preds = %scrollbar_init_draw_dsc.exit.thread.i.i, %296
+draw_scrollbar.exit.i:                            ; preds = %scrollbar_init_draw_dsc.exit.thread.i.i, %295
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
-  %369 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 48) #8
-  %370 = ptrtoint ptr %369 to i64
-  %371 = and i64 %370, 4294967295
-  %.not.i213 = icmp eq i64 %371, 0
-  br i1 %.not.i213, label %.critedge, label %372
+  %368 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 48) #8
+  %369 = ptrtoint ptr %368 to i64
+  %370 = and i64 %369, 4294967295
+  %.not.i213 = icmp eq i64 %370, 0
+  br i1 %.not.i213, label %.critedge, label %371
 
-372:                                              ; preds = %draw_scrollbar.exit.i
-  %373 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 53) #8
-  %374 = ptrtoint ptr %373 to i64
-  %375 = and i64 %374, 4294967295
-  %.not73.i = icmp eq i64 %375, 0
-  br i1 %.not73.i, label %.critedge, label %376
+371:                                              ; preds = %draw_scrollbar.exit.i
+  %372 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 53) #8
+  %373 = ptrtoint ptr %372 to i64
+  %374 = and i64 %373, 4294967295
+  %.not73.i = icmp eq i64 %374, 0
+  br i1 %.not73.i, label %.critedge, label %375
 
-376:                                              ; preds = %372
+375:                                              ; preds = %371
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #8
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %9) #8
-  %377 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 0, ptr %377, align 4, !tbaa !42
-  %378 = getelementptr inbounds nuw i8, ptr %9, i64 91
-  store i8 0, ptr %378, align 1, !tbaa !53
-  %379 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store i8 0, ptr %379, align 8, !tbaa !54
-  %380 = getelementptr inbounds nuw i8, ptr %9, i64 140
-  store i8 0, ptr %380, align 4, !tbaa !48
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef %209, i32 noundef 0, ptr noundef nonnull %9) #8
-  %381 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 104) #8
-  %382 = ptrtoint ptr %381 to i64
-  %.sroa.0.0.extract.trunc.i71.i = trunc i64 %382 to i32
-  %383 = call ptr @lv_obj_get_style_prop(ptr noundef %209, i32 noundef 0, i8 noundef zeroext 105) #8
-  %384 = ptrtoint ptr %383 to i64
-  %.sroa.0.0.extract.trunc.i72.i = trunc i64 %384 to i32
+  %376 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  store i8 0, ptr %376, align 4, !tbaa !42
+  %377 = getelementptr inbounds nuw i8, ptr %9, i64 91
+  store i8 0, ptr %377, align 1, !tbaa !53
+  %378 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  store i8 0, ptr %378, align 8, !tbaa !54
+  %379 = getelementptr inbounds nuw i8, ptr %9, i64 140
+  store i8 0, ptr %379, align 4, !tbaa !48
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef %208, i32 noundef 0, ptr noundef nonnull %9) #8
+  %380 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 104) #8
+  %381 = ptrtoint ptr %380 to i64
+  %.sroa.0.0.extract.trunc.i71.i = trunc i64 %381 to i32
+  %382 = call ptr @lv_obj_get_style_prop(ptr noundef %208, i32 noundef 0, i8 noundef zeroext 105) #8
+  %383 = ptrtoint ptr %382 to i64
+  %.sroa.0.0.extract.trunc.i72.i = trunc i64 %383 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
-  %385 = getelementptr inbounds nuw i8, ptr %209, i64 40
-  %386 = load i32, ptr %385, align 4, !tbaa !31
-  store i32 %386, ptr %10, align 4, !tbaa !31
-  %387 = getelementptr inbounds nuw i8, ptr %209, i64 44
-  %388 = load i32, ptr %387, align 4, !tbaa !32
-  %389 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %388, ptr %389, align 4, !tbaa !32
-  %390 = getelementptr inbounds nuw i8, ptr %209, i64 48
-  %391 = load i32, ptr %390, align 4, !tbaa !33
-  %392 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %391, ptr %392, align 4, !tbaa !33
-  %393 = getelementptr inbounds nuw i8, ptr %209, i64 52
-  %394 = load i32, ptr %393, align 4, !tbaa !34
-  %395 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %394, ptr %395, align 4, !tbaa !34
+  %384 = getelementptr inbounds nuw i8, ptr %208, i64 40
+  %385 = load i32, ptr %384, align 4, !tbaa !31
+  store i32 %385, ptr %10, align 4, !tbaa !31
+  %386 = getelementptr inbounds nuw i8, ptr %208, i64 44
+  %387 = load i32, ptr %386, align 4, !tbaa !32
+  %388 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %387, ptr %388, align 4, !tbaa !32
+  %389 = getelementptr inbounds nuw i8, ptr %208, i64 48
+  %390 = load i32, ptr %389, align 4, !tbaa !33
+  %391 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 %390, ptr %391, align 4, !tbaa !33
+  %392 = getelementptr inbounds nuw i8, ptr %208, i64 52
+  %393 = load i32, ptr %392, align 4, !tbaa !34
+  %394 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 %393, ptr %394, align 4, !tbaa !34
   call void @lv_area_increase(ptr noundef nonnull %10, i32 noundef %.sroa.0.0.extract.trunc.i71.i, i32 noundef %.sroa.0.0.extract.trunc.i72.i) #8
-  call void @lv_draw_rect(ptr noundef %293, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  call void @lv_draw_rect(ptr noundef %292, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #8
   br label %.critedge
 
-396:                                              ; preds = %2
-  %397 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %398 = load i16, ptr %397, align 4, !tbaa !24
-  %399 = and i16 %398, -33
-  %.not.i214 = icmp eq i16 %398, %399
-  br i1 %.not.i214, label %lv_obj_remove_state.exit215, label %400
+395:                                              ; preds = %2
+  %396 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %397 = load i16, ptr %396, align 4, !tbaa !24
+  %398 = and i16 %397, -33
+  %.not.i214 = icmp eq i16 %397, %398
+  br i1 %.not.i214, label %lv_obj_remove_state.exit215, label %399
 
-400:                                              ; preds = %396
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %399)
-  %.pre = load i16, ptr %397, align 4, !tbaa !24
+399:                                              ; preds = %395
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %398)
+  %.pre = load i16, ptr %396, align 4, !tbaa !24
   br label %lv_obj_remove_state.exit215
 
-lv_obj_remove_state.exit215:                      ; preds = %396, %400
-  %401 = phi i16 [ %398, %396 ], [ %.pre, %400 ]
-  %402 = and i16 %401, -65
-  %.not.i216 = icmp eq i16 %401, %402
-  br i1 %.not.i216, label %.critedge, label %403
+lv_obj_remove_state.exit215:                      ; preds = %395, %399
+  %400 = phi i16 [ %397, %395 ], [ %.pre, %399 ]
+  %401 = and i16 %400, -65
+  %.not.i216 = icmp eq i16 %400, %401
+  br i1 %.not.i216, label %.critedge, label %402
 
-403:                                              ; preds = %lv_obj_remove_state.exit215
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %402)
+402:                                              ; preds = %lv_obj_remove_state.exit215
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %401)
   br label %.critedge
 
-404:                                              ; preds = %2
-  %405 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %406 = load i16, ptr %405, align 4, !tbaa !24
-  %407 = or i16 %406, 16
-  %.not.i218 = icmp eq i16 %406, %407
-  br i1 %.not.i218, label %.critedge, label %408
+403:                                              ; preds = %2
+  %404 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %405 = load i16, ptr %404, align 4, !tbaa !24
+  %406 = or i16 %405, 16
+  %.not.i218 = icmp eq i16 %405, %406
+  br i1 %.not.i218, label %.critedge, label %407
 
-408:                                              ; preds = %404
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %407)
+407:                                              ; preds = %403
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %406)
   br label %.critedge
 
-409:                                              ; preds = %2
-  %410 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  %411 = load i16, ptr %410, align 4, !tbaa !24
-  %412 = and i16 %411, -17
-  %.not.i221 = icmp eq i16 %411, %412
-  br i1 %.not.i221, label %.critedge, label %413
+408:                                              ; preds = %2
+  %409 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  %410 = load i16, ptr %409, align 4, !tbaa !24
+  %411 = and i16 %410, -17
+  %.not.i221 = icmp eq i16 %410, %411
+  br i1 %.not.i221, label %.critedge, label %412
 
-413:                                              ; preds = %409
-  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %412)
+412:                                              ; preds = %408
+  tail call fastcc void @update_obj_state(ptr noundef nonnull %14, i16 noundef zeroext %411)
   br label %.critedge
 
-.critedge:                                        ; preds = %178, %48, %175, %45, %413, %409, %408, %404, %403, %lv_obj_remove_state.exit215, %376, %372, %draw_scrollbar.exit.i, %276, %.critedge.i, %218, %210, %207, %164, %160, %151, %147, %146, %lv_obj_add_state.exit200, %141, %139, %44, %40, %19, %15, %lv_obj_remove_state.exit193, %lv_obj_remove_state.exit189, %2, %61, %lv_obj_remove_state.exit, %28, %68, %71, %205, %201, %lv_obj_remove_state.exit207, %159, %73, %82, %112, %108, %92, %97, %77, %183, %200
+.critedge:                                        ; preds = %177, %47, %174, %44, %412, %408, %407, %403, %402, %lv_obj_remove_state.exit215, %375, %371, %draw_scrollbar.exit.i, %275, %.critedge.i, %217, %209, %206, %163, %159, %150, %146, %145, %lv_obj_add_state.exit200, %140, %138, %43, %39, %19, %15, %lv_obj_remove_state.exit193, %lv_obj_remove_state.exit189, %2, %60, %lv_obj_remove_state.exit, %28, %67, %70, %204, %200, %lv_obj_remove_state.exit207, %158, %72, %81, %111, %107, %91, %96, %76, %182, %199
   ret void
 }
 

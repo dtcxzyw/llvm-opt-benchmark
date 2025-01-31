@@ -2534,8 +2534,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %gep.us.us.i.i = getelementptr { i8, [7 x i8], { { { i64, ptr, {} }, i64 } } }, ptr %invariant.gep.i.i, i64 %26
   %.val4.i.us.us.i.i = load i8, ptr %gep.us.us.i.i, align 1, !range !77, !alias.scope !78, !noalias !83, !noundef !4
   %27 = add nsw i8 %.val4.i.us.us.i.i, -16
-  %narrow3.i.i.i.i.us.us.i.i = tail call i8 @llvm.umin.i8(i8 %27, i8 4)
-  %28 = icmp eq i8 %narrow.i.i.i.i.i.i, %narrow3.i.i.i.i.us.us.i.i
+  %28 = icmp eq i8 %27, %narrow.i.i.i.i.i.i
   br i1 %28, label %.split.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.us.us.i.i": ; preds = %.lr.ph.us.i.i
@@ -3888,8 +3887,7 @@ _ZN13deltalake_gcp6config13GcpCredential4keys17ha05719f7f5dfb74eE.exit.i75: ; pr
 370:                                              ; preds = %.noexc126
   %371 = load i8, ptr %374, align 1, !range !77, !alias.scope !300, !noalias !303, !noundef !4
   %372 = add nsw i8 %371, -16
-  %narrow.i.i.us.i.i = call i8 @llvm.umin.i8(i8 %372, i8 4)
-  %373 = icmp eq i8 %narrow.i.i.us.i.i, %narrow3.i.i.i.i
+  %373 = icmp eq i8 %372, %narrow3.i.i.i.i
   br i1 %373, label %.thread258, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i.i"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i.i": ; preds = %.lr.ph.split.us.i.i, %370

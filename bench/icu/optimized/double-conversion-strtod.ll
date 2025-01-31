@@ -65,13 +65,9 @@ if.else.i:                                        ; preds = %if.end.i
 if.else10:                                        ; preds = %if.else
   %and = and i64 %1, 1
   %cmp13 = icmp eq i64 %and, 0
-  br i1 %cmp13, label %return, label %if.else15
+  br i1 %cmp13, label %return, label %if.end.i11
 
-if.else15:                                        ; preds = %if.else10
-  %cmp.i10 = icmp eq i64 %1, 9218868437227405312
-  br i1 %cmp.i10, label %return, label %if.end.i11
-
-if.end.i11:                                       ; preds = %if.else15
+if.end.i11:                                       ; preds = %if.else10
   %cmp3.i12 = icmp slt i64 %1, 0
   br i1 %cmp3.i12, label %land.lhs.true.i16, label %if.else.i13
 
@@ -89,8 +85,8 @@ if.else.i13:                                      ; preds = %if.end.i11
   %9 = bitcast i64 %add.i14 to double
   br label %return
 
-return:                                           ; preds = %entry, %if.else.i13, %if.then10.i18, %land.lhs.true.i16, %if.else15, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
-  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i18 ], [ %9, %if.else.i13 ], [ 0.000000e+00, %land.lhs.true.i16 ], [ 0x7FF0000000000000, %if.else15 ], [ %0, %entry ]
+return:                                           ; preds = %entry, %if.else.i13, %if.then10.i18, %land.lhs.true.i16, %if.else10, %if.else.i, %if.then10.i, %land.lhs.true.i, %if.then7, %if.end
+  %retval.0 = phi double [ %0, %if.end ], [ %6, %if.then10.i ], [ %7, %if.else.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0x7FF0000000000000, %if.then7 ], [ %0, %if.else10 ], [ %8, %if.then10.i18 ], [ %9, %if.else.i13 ], [ 0.000000e+00, %land.lhs.true.i16 ], [ %0, %entry ]
   ret double %retval.0
 }
 
@@ -735,13 +731,9 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 if.else10.i:                                      ; preds = %if.else.i4
   %and.i = and i64 %7, 1
   %cmp13.i = icmp eq i64 %and.i, 0
-  br i1 %cmp13.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.else15.i
+  br i1 %cmp13.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i11.i
 
-if.else15.i:                                      ; preds = %if.else10.i
-  %cmp.i10.i = icmp eq i64 %7, 9218868437227405312
-  br i1 %cmp.i10.i, label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %if.end.i11.i
-
-if.end.i11.i:                                     ; preds = %if.else15.i
+if.end.i11.i:                                     ; preds = %if.else10.i
   %cmp3.i12.i = icmp slt i64 %7, 0
   br i1 %cmp3.i12.i, label %land.lhs.true.i16.i, label %if.else.i13.i
 
@@ -759,8 +751,8 @@ if.else.i13.i:                                    ; preds = %if.end.i11.i
   %15 = bitcast i64 %add.i14.i to double
   br label %_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit
 
-_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %if.else15.i, %land.lhs.true.i16.i, %if.then10.i18.i, %if.else.i13.i
-  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i18.i ], [ %15, %if.else.i13.i ], [ 0.000000e+00, %land.lhs.true.i16.i ], [ 0x7FF0000000000000, %if.else15.i ], [ %6, %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
+_ZN6icu_7517double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %if.end.i, %if.then7.i, %land.lhs.true.i.i, %if.then10.i.i, %if.else.i.i, %if.else10.i, %land.lhs.true.i16.i, %if.then10.i18.i, %if.else.i13.i
+  %retval.0.i = phi double [ %6, %if.end.i ], [ %12, %if.then10.i.i ], [ %13, %if.else.i.i ], [ 0.000000e+00, %land.lhs.true.i.i ], [ 0x7FF0000000000000, %if.then7.i ], [ %6, %if.else10.i ], [ %14, %if.then10.i18.i ], [ %15, %if.else.i13.i ], [ 0.000000e+00, %land.lhs.true.i16.i ], [ %6, %_ZN6icu_7517double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %guess.i)
   ret double %retval.0.i
 }

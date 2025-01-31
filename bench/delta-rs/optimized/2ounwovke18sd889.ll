@@ -5295,8 +5295,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 11:                                               ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i"
   %12 = load i8, ptr %15, align 1, !range !963, !alias.scope !981, !noalias !984, !noundef !5
   %13 = add nsw i8 %12, -16
-  %narrow.i.i.us.i = tail call i8 @llvm.umin.i8(i8 %13, i8 4)
-  %14 = icmp eq i8 %narrow.i.i.us.i, %narrow3.i.i.i
+  %14 = icmp eq i8 %13, %narrow3.i.i.i
   br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6bc89ac644945227E.llvm.11953678010571242332.exit", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us.i": ; preds = %.lr.ph.split.us.i, %11
@@ -10475,8 +10474,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %14 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %15 = load i8, ptr %18, align 1, !range !963, !alias.scope !1920, !noalias !1923, !noundef !5
   %16 = add nsw i8 %15, -16
-  %narrow.i.i.us = tail call i8 @llvm.umin.i8(i8 %16, i8 4)
-  %17 = icmp eq i8 %narrow.i.i.us, %narrow3.i.i
+  %17 = icmp eq i8 %16, %narrow3.i.i
   br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99d5c854c2573e17E.llvm.11953678010571242332.exit.sink.split", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us"
 
 "_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hf0219b63a9d8d06bE.llvm.11953678010571242332.exit.backedge.us": ; preds = %.lr.ph.split.us, %13
