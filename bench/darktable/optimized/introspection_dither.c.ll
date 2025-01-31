@@ -2296,32 +2296,32 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %1684 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %1683)
   %1685 = fmul reassoc nsz arcp contract afn float %1684, %489
   %1686 = shufflevector <2 x float> %1675, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
-  %1687 = insertelement <4 x float> %1686, float %1681, i64 3
-  %1688 = shufflevector <2 x float> %1679, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
-  %1689 = insertelement <4 x float> %1688, float %1685, i64 3
-  %1690 = fsub reassoc nsz arcp contract afn <4 x float> %1687, %1689
-  %1691 = fmul reassoc nsz arcp contract afn float %489, %1673
-  store float %1691, ptr %1669, align 4, !tbaa !41, !alias.scope !433, !noalias !436
+  %1687 = shufflevector <2 x float> %1679, <2 x float> poison, <4 x i32> <i32 poison, i32 0, i32 1, i32 poison>
+  %1688 = fmul reassoc nsz arcp contract afn float %489, %1673
+  store float %1688, ptr %1669, align 4, !tbaa !41, !alias.scope !433, !noalias !436
   store float %1685, ptr %1680, align 4, !tbaa !41, !alias.scope !433, !noalias !436
-  %1692 = fsub reassoc nsz arcp contract afn float %1670, %1691
-  %1693 = getelementptr inbounds float, ptr %1669, i64 %710
-  %1694 = getelementptr float, ptr %1645, i64 %1668
+  %1689 = getelementptr inbounds float, ptr %1669, i64 %710
+  %1690 = getelementptr float, ptr %1645, i64 %1668
   tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
-  %1695 = load <4 x float>, ptr %1694, align 4, !tbaa !41, !alias.scope !441, !noalias !438
-  %1696 = fcmp reassoc nsz arcp contract afn ult <4 x float> %1695, zeroinitializer
-  %1697 = fcmp reassoc nsz arcp contract afn olt <4 x float> %1695, splat (float 1.000000e+00)
-  %1698 = select <4 x i1> %1697, <4 x float> %1695, <4 x float> splat (float 1.000000e+00)
-  %1699 = fcmp ord <4 x float> %1695, zeroinitializer
-  %1700 = select <4 x i1> %1699, <4 x float> zeroinitializer, <4 x float> splat (float 5.000000e-01)
-  %1701 = select <4 x i1> %1696, <4 x float> %1700, <4 x float> %1698
-  store <4 x float> %1701, ptr %1693, align 4, !tbaa !41, !alias.scope !438, !noalias !441
-  %1702 = getelementptr inbounds nuw i8, ptr %1669, i64 16
-  %1703 = insertelement <4 x float> %1690, float %1692, i64 0
+  %1691 = load <4 x float>, ptr %1690, align 4, !tbaa !41, !alias.scope !441, !noalias !438
+  %1692 = fcmp reassoc nsz arcp contract afn ult <4 x float> %1691, zeroinitializer
+  %1693 = fcmp reassoc nsz arcp contract afn olt <4 x float> %1691, splat (float 1.000000e+00)
+  %1694 = select <4 x i1> %1693, <4 x float> %1691, <4 x float> splat (float 1.000000e+00)
+  %1695 = fcmp ord <4 x float> %1691, zeroinitializer
+  %1696 = select <4 x i1> %1695, <4 x float> zeroinitializer, <4 x float> splat (float 5.000000e-01)
+  %1697 = select <4 x i1> %1692, <4 x float> %1696, <4 x float> %1694
+  store <4 x float> %1697, ptr %1689, align 4, !tbaa !41, !alias.scope !438, !noalias !441
+  %1698 = getelementptr inbounds nuw i8, ptr %1669, i64 16
+  %1699 = insertelement <4 x float> %1686, float %1670, i64 0
+  %1700 = insertelement <4 x float> %1699, float %1681, i64 3
+  %1701 = insertelement <4 x float> %1687, float %1688, i64 0
+  %1702 = insertelement <4 x float> %1701, float %1685, i64 3
+  %1703 = fsub reassoc nsz arcp contract afn <4 x float> %1700, %1702
   %1704 = fmul reassoc nsz arcp contract afn <4 x float> %1703, splat (float 4.375000e-01)
-  %1705 = load <4 x float>, ptr %1702, align 4, !tbaa !41, !alias.scope !443, !noalias !446
+  %1705 = load <4 x float>, ptr %1698, align 4, !tbaa !41, !alias.scope !443, !noalias !446
   %1706 = fadd reassoc nsz arcp contract afn <4 x float> %1705, %1704
-  store <4 x float> %1706, ptr %1702, align 4, !tbaa !41, !alias.scope !443, !noalias !446
+  store <4 x float> %1706, ptr %1698, align 4, !tbaa !41, !alias.scope !443, !noalias !446
   %1707 = getelementptr inbounds nuw float, ptr %1669, i64 %708
   %1708 = fmul reassoc nsz arcp contract afn <4 x float> %1703, splat (float 1.875000e-01)
   %1709 = load <4 x float>, ptr %1707, align 4, !tbaa !41, !alias.scope !448, !noalias !451
@@ -2333,9 +2333,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %1714 = fadd reassoc nsz arcp contract afn <4 x float> %1713, %1712
   store <4 x float> %1714, ptr %1711, align 4, !tbaa !41, !alias.scope !453, !noalias !456
   %1715 = fmul reassoc nsz arcp contract afn <4 x float> %1703, splat (float 6.250000e-02)
-  %1716 = load <4 x float>, ptr %1693, align 4, !tbaa !41, !alias.scope !458, !noalias !461
+  %1716 = load <4 x float>, ptr %1689, align 4, !tbaa !41, !alias.scope !458, !noalias !461
   %1717 = fadd reassoc nsz arcp contract afn <4 x float> %1716, %1715
-  store <4 x float> %1717, ptr %1693, align 4, !tbaa !41, !alias.scope !458, !noalias !461
+  store <4 x float> %1717, ptr %1689, align 4, !tbaa !41, !alias.scope !458, !noalias !461
   %1718 = add nuw nsw i64 %1667, 1
   %1719 = icmp eq i64 %1718, %712
   br i1 %1719, label %.split45.us, label %.split.us
