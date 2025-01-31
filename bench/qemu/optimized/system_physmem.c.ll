@@ -10006,8 +10006,8 @@ for.body60.lr.ph:                                 ; preds = %for.end
   %nodes = getelementptr inbounds nuw i8, ptr %d, i64 48
   br label %for.body60
 
-for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc104
-  %i.178 = phi i32 [ 0, %for.body60.lr.ph ], [ %inc105, %for.inc104 ]
+for.body60:                                       ; preds = %for.body60.lr.ph, %mtree_print_phys_entries.exit71
+  %i.178 = phi i32 [ 0, %for.body60.lr.ph ], [ %inc105, %mtree_print_phys_entries.exit71 ]
   %15 = load ptr, ptr %nodes, align 8
   %idx.ext62 = sext i32 %i.178 to i64
   %add.ptr63 = getelementptr [512 x %struct.PhysPageEntry], ptr %15, i64 %idx.ext62
@@ -10079,13 +10079,9 @@ for.inc92:                                        ; preds = %land.lhs.true, %mtr
   %prev.sroa.0.1 = phi i32 [ %prev.sroa.0.075, %land.lhs.true ], [ %prev.sroa.0.0.copyload7, %mtree_print_phys_entries.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %for.end94, label %for.body70, !llvm.loop !85
+  br i1 %exitcond.not, label %if.then98, label %for.body70, !llvm.loop !85
 
-for.end94:                                        ; preds = %for.inc92
-  %cmp96.not = icmp eq i32 %jprev.1, 512
-  br i1 %cmp96.not, label %for.inc104, label %if.then98
-
-if.then98:                                        ; preds = %for.end94
+if.then98:                                        ; preds = %for.inc92
   %bf.clear100 = and i32 %prev.sroa.0.1, 63
   %bf.lshr102 = lshr i32 %prev.sroa.0.1, 6
   %cmp.i54 = icmp eq i32 %jprev.1, 511
@@ -10122,15 +10118,12 @@ if.else10.i62:                                    ; preds = %if.else7.i60
 
 mtree_print_phys_entries.exit71:                  ; preds = %if.then5.i67, %if.then8.i65, %if.else10.i62
   %call14.i64 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.75) #28
-  br label %for.inc104
-
-for.inc104:                                       ; preds = %for.end94, %mtree_print_phys_entries.exit71
   %inc105 = add nuw i32 %i.178, 1
   %21 = load i32, ptr %nodes_nb, align 8
   %cmp58 = icmp ult i32 %inc105, %21
   br i1 %cmp58, label %for.body60, label %for.end106, !llvm.loop !86
 
-for.end106:                                       ; preds = %for.inc104, %for.end
+for.end106:                                       ; preds = %mtree_print_phys_entries.exit71, %for.end
   ret void
 }
 
