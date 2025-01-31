@@ -72,13 +72,15 @@ for file in patch:
                         mapping[b[1]] = {a[1]}
                     else:
                         mapping[b[1]].add(a[1])
+    if len(mapping) == 0:
+        continue
     with open(file.source_file, "r") as f:
         lines = f.readlines()
     for i in range(len(lines)):
         val = lines[i]
         stripped = val.strip()
-        if tgt not in pairs:
+        if stripped not in pairs:
             continue
-        lines[i] = remap(val, pairs[tgt], mapping)
+        lines[i] = remap(val, pairs[stripped], mapping)
     with open(file.source_file, "w") as f:
         f.writelines(lines)
