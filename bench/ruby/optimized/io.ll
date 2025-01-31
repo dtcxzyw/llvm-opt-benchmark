@@ -11485,7 +11485,7 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   %76 = call i64 @rb_protect(ptr noundef nonnull @io_new_instance, i64 noundef %26, ptr noundef nonnull %5) #24
   %77 = load i32, ptr %5, align 4
   %.not22 = icmp eq i32 %77, 0
-  br i1 %.not22, label %83, label %78
+  br i1 %.not22, label %86, label %78
 
 78:                                               ; preds = %72
   %79 = load i32, ptr %66, align 4
@@ -11495,163 +11495,163 @@ rb_io_check_closed.exit:                          ; preds = %rb_io_check_initial
   call void @rb_jump_tag(i32 noundef %82) #26
   unreachable
 
-83:                                               ; preds = %72
-  %84 = and i64 %76, 7
-  %85 = icmp ne i64 %84, 0
-  %86 = icmp eq i64 %76, 0
-  %87 = or i1 %86, %85
-  br i1 %87, label %RB_OBJ_FROZEN.exit.thread.i.i26, label %88
+86:                                               ; preds = %72
+  %87 = and i64 %76, 7
+  %88 = icmp ne i64 %87, 0
+  %89 = icmp eq i64 %76, 0
+  %90 = or i1 %89, %88
+  br i1 %90, label %RB_OBJ_FROZEN.exit.thread.i.i26, label %91
 
-88:                                               ; preds = %83
-  %89 = inttoptr i64 %76 to ptr
-  %90 = load i64, ptr %89, align 8
-  %91 = and i64 %90, 31
-  %92 = icmp eq i64 %91, 27
-  %93 = and i64 %90, 2048
-  %94 = icmp ne i64 %93, 0
-  %or.cond.i.i25 = or i1 %92, %94
+91:                                               ; preds = %86
+  %92 = inttoptr i64 %76 to ptr
+  %93 = load i64, ptr %92, align 8
+  %94 = and i64 %93, 31
+  %95 = icmp eq i64 %94, 27
+  %96 = and i64 %93, 2048
+  %97 = icmp ne i64 %96, 0
+  %or.cond.i.i25 = or i1 %95, %97
   br i1 %or.cond.i.i25, label %RB_OBJ_FROZEN.exit.thread.i.i26, label %rb_io_taint_check.exit27
 
-RB_OBJ_FROZEN.exit.thread.i.i26:                  ; preds = %88, %83
+RB_OBJ_FROZEN.exit.thread.i.i26:                  ; preds = %91, %86
   call void @rb_error_frozen_object(i64 noundef %76) #26
   unreachable
 
-rb_io_taint_check.exit27:                         ; preds = %88
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %.not.i.i28 = icmp eq ptr %96, null
-  br i1 %.not.i.i28, label %97, label %rb_io_check_initialized.exit.i29
+rb_io_taint_check.exit27:                         ; preds = %91
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %.not.i.i28 = icmp eq ptr %99, null
+  br i1 %.not.i.i28, label %100, label %rb_io_check_initialized.exit.i29
 
-97:                                               ; preds = %rb_io_taint_check.exit27
-  %98 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %98, ptr noundef nonnull @.str.4) #26
+100:                                              ; preds = %rb_io_taint_check.exit27
+  %101 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %101, ptr noundef nonnull @.str.4) #26
   unreachable
 
 rb_io_check_initialized.exit.i29:                 ; preds = %rb_io_taint_check.exit27
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %100 = load i32, ptr %99, align 8
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %rb_io_synchronized.exit
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %103 = load i32, ptr %102, align 8
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %rb_io_synchronized.exit
 
-102:                                              ; preds = %rb_io_check_initialized.exit.i29
+105:                                              ; preds = %rb_io_check_initialized.exit.i29
   call void @rb_thread_check_ints() #24
-  %103 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %103, ptr noundef nonnull @closed_stream) #26
+  %106 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %106, ptr noundef nonnull @closed_stream) #26
   unreachable
 
 rb_io_synchronized.exit:                          ; preds = %rb_io_check_initialized.exit.i29
-  %104 = getelementptr inbounds nuw i8, ptr %96, i64 20
-  %105 = load i32, ptr %104, align 4
-  %106 = or i32 %105, 8
-  store i32 %106, ptr %104, align 4
-  %107 = load i64, ptr %9, align 8
-  call fastcc void @extract_binmode(i64 noundef %107, ptr noundef %11)
-  %108 = load i32, ptr %11, align 4
-  %109 = and i32 %108, 4
-  %.not23 = icmp ne i32 %109, 0
-  %110 = load i64, ptr %7, align 8
-  %111 = icmp eq i64 %110, 4
-  %or.cond = select i1 %.not23, i1 %111, i1 false
-  br i1 %or.cond, label %112, label %140
+  %107 = getelementptr inbounds nuw i8, ptr %99, i64 20
+  %108 = load i32, ptr %107, align 4
+  %109 = or i32 %108, 8
+  store i32 %109, ptr %107, align 4
+  %110 = load i64, ptr %9, align 8
+  call fastcc void @extract_binmode(i64 noundef %110, ptr noundef %11)
+  %111 = load i32, ptr %11, align 4
+  %112 = and i32 %111, 4
+  %.not23 = icmp ne i32 %112, 0
+  %113 = load i64, ptr %7, align 8
+  %114 = icmp eq i64 %113, 4
+  %or.cond = select i1 %.not23, i1 %114, i1 false
+  br i1 %or.cond, label %115, label %143
 
-112:                                              ; preds = %rb_io_synchronized.exit
-  %113 = load i64, ptr %42, align 8
-  %114 = and i64 %113, 31
-  %115 = icmp eq i64 %114, 27
-  %116 = and i64 %113, 2048
-  %117 = icmp ne i64 %116, 0
-  %or.cond.i.i.i = or i1 %115, %117
+115:                                              ; preds = %rb_io_synchronized.exit
+  %116 = load i64, ptr %42, align 8
+  %117 = and i64 %116, 31
+  %118 = icmp eq i64 %117, 27
+  %119 = and i64 %116, 2048
+  %120 = icmp ne i64 %119, 0
+  %or.cond.i.i.i = or i1 %118, %120
   br i1 %or.cond.i.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i.i, label %rb_io_taint_check.exit.i
 
-RB_OBJ_FROZEN.exit.thread.i.i.i:                  ; preds = %112
+RB_OBJ_FROZEN.exit.thread.i.i.i:                  ; preds = %115
   call void @rb_error_frozen_object(i64 noundef %27) #26
   unreachable
 
-rb_io_taint_check.exit.i:                         ; preds = %112
-  %118 = load ptr, ptr %48, align 8
-  %.not.i.i.i = icmp eq ptr %118, null
-  br i1 %.not.i.i.i, label %119, label %rb_io_check_initialized.exit.i.i
+rb_io_taint_check.exit.i:                         ; preds = %115
+  %121 = load ptr, ptr %48, align 8
+  %.not.i.i.i = icmp eq ptr %121, null
+  br i1 %.not.i.i.i, label %122, label %rb_io_check_initialized.exit.i.i
 
-119:                                              ; preds = %rb_io_taint_check.exit.i
-  %120 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %120, ptr noundef nonnull @.str.4) #26
+122:                                              ; preds = %rb_io_taint_check.exit.i
+  %123 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %123, ptr noundef nonnull @.str.4) #26
   unreachable
 
 rb_io_check_initialized.exit.i.i:                 ; preds = %rb_io_taint_check.exit.i
-  %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %124, label %126
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp slt i32 %125, 0
+  br i1 %126, label %127, label %126
 
-124:                                              ; preds = %rb_io_check_initialized.exit.i.i
+127:                                              ; preds = %rb_io_check_initialized.exit.i.i
   call void @rb_thread_check_ints() #24
-  %125 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %125, ptr noundef nonnull @closed_stream) #26
+  %128 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %128, ptr noundef nonnull @closed_stream) #26
   unreachable
 
-126:                                              ; preds = %rb_io_check_initialized.exit.i.i
-  call fastcc void @io_ascii8bit_binmode(ptr noundef nonnull %118)
-  %127 = load i64, ptr %89, align 8
-  %128 = and i64 %127, 31
-  %129 = icmp eq i64 %128, 27
-  %130 = and i64 %127, 2048
-  %131 = icmp ne i64 %130, 0
-  %or.cond.i.i.i33 = or i1 %129, %131
+129:                                              ; preds = %rb_io_check_initialized.exit.i.i
+  call fastcc void @io_ascii8bit_binmode(ptr noundef nonnull %121)
+  %130 = load i64, ptr %92, align 8
+  %131 = and i64 %130, 31
+  %132 = icmp eq i64 %131, 27
+  %133 = and i64 %130, 2048
+  %134 = icmp ne i64 %133, 0
+  %or.cond.i.i.i33 = or i1 %132, %134
   br i1 %or.cond.i.i.i33, label %RB_OBJ_FROZEN.exit.thread.i.i.i37, label %rb_io_taint_check.exit.i34
 
-RB_OBJ_FROZEN.exit.thread.i.i.i37:                ; preds = %126
+RB_OBJ_FROZEN.exit.thread.i.i.i37:                ; preds = %129
   call void @rb_error_frozen_object(i64 noundef %76) #26
   unreachable
 
-rb_io_taint_check.exit.i34:                       ; preds = %126
-  %132 = load ptr, ptr %95, align 8
-  %.not.i.i.i35 = icmp eq ptr %132, null
-  br i1 %.not.i.i.i35, label %133, label %rb_io_check_initialized.exit.i.i36
+rb_io_taint_check.exit.i34:                       ; preds = %129
+  %135 = load ptr, ptr %98, align 8
+  %.not.i.i.i35 = icmp eq ptr %135, null
+  br i1 %.not.i.i.i35, label %136, label %rb_io_check_initialized.exit.i.i36
 
-133:                                              ; preds = %rb_io_taint_check.exit.i34
-  %134 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %134, ptr noundef nonnull @.str.4) #26
+136:                                              ; preds = %rb_io_taint_check.exit.i34
+  %137 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %137, ptr noundef nonnull @.str.4) #26
   unreachable
 
 rb_io_check_initialized.exit.i.i36:               ; preds = %rb_io_taint_check.exit.i34
-  %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %136 = load i32, ptr %135, align 8
-  %137 = icmp slt i32 %136, 0
-  br i1 %137, label %138, label %rb_io_ascii8bit_binmode.exit38
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %139 = load i32, ptr %138, align 8
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %141, label %rb_io_ascii8bit_binmode.exit38
 
-138:                                              ; preds = %rb_io_check_initialized.exit.i.i36
+141:                                              ; preds = %rb_io_check_initialized.exit.i.i36
   call void @rb_thread_check_ints() #24
-  %139 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %139, ptr noundef nonnull @closed_stream) #26
+  %142 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %142, ptr noundef nonnull @closed_stream) #26
   unreachable
 
 rb_io_ascii8bit_binmode.exit38:                   ; preds = %rb_io_check_initialized.exit.i.i36
-  call fastcc void @io_ascii8bit_binmode(ptr noundef nonnull %132)
-  br label %140
+  call fastcc void @io_ascii8bit_binmode(ptr noundef nonnull %135)
+  br label %143
 
-140:                                              ; preds = %rb_io_ascii8bit_binmode.exit38, %rb_io_synchronized.exit
-  %141 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  %142 = load i32, ptr %141, align 4
-  %143 = or i32 %142, %108
-  store i32 %143, ptr %141, align 4
-  %144 = load i32, ptr %104, align 4
-  %145 = or i32 %144, %108
-  store i32 %145, ptr %104, align 4
-  %146 = call i64 @rb_assoc_new(i64 noundef %27, i64 noundef %76) #24
-  %147 = call i32 @rb_block_given_p() #24
-  %.not24 = icmp eq i32 %147, 0
-  br i1 %.not24, label %152, label %148
+143:                                              ; preds = %rb_io_ascii8bit_binmode.exit38, %rb_io_synchronized.exit
+  %144 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  %145 = load i32, ptr %144, align 4
+  %146 = or i32 %145, %111
+  store i32 %146, ptr %144, align 4
+  %147 = load i32, ptr %107, align 4
+  %148 = or i32 %147, %111
+  store i32 %148, ptr %107, align 4
+  %149 = call i64 @rb_assoc_new(i64 noundef %27, i64 noundef %76) #24
+  %150 = call i32 @rb_block_given_p() #24
+  %.not24 = icmp eq i32 %150, 0
+  br i1 %.not24, label %155, label %151
 
-148:                                              ; preds = %140
+151:                                              ; preds = %143
   store i64 %27, ptr %12, align 16
-  %149 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %76, ptr %149, align 8
-  %150 = ptrtoint ptr %12 to i64
-  %151 = call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef %146, ptr noundef nonnull @pipe_pair_close, i64 noundef %150) #24
-  br label %152
+  %152 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %76, ptr %152, align 8
+  %153 = ptrtoint ptr %12 to i64
+  %154 = call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef %149, ptr noundef nonnull @pipe_pair_close, i64 noundef %153) #24
+  br label %155
 
-152:                                              ; preds = %140, %148
-  %.0 = phi i64 [ %151, %148 ], [ %146, %140 ]
+155:                                              ; preds = %143, %151
+  %.0 = phi i64 [ %154, %151 ], [ %149, %143 ]
   ret i64 %.0
 }
 

@@ -1040,11 +1040,11 @@ if.end8:                                          ; preds = %lor.lhs.false4
   %tobool13.not68 = icmp eq i32 %or.i.i, 0
   br i1 %tobool13.not68, label %while.end, label %PACKET_get_net_2.exit34
 
-PACKET_get_net_2.exit34:                          ; preds = %if.end8, %for.end
-  %srtp_pref.071 = phi i32 [ %srtp_pref.1, %for.end ], [ %call11, %if.end8 ]
-  %subpkt.sroa.0.070 = phi ptr [ %add.ptr.i2.i31, %for.end ], [ %add.ptr.i2.i, %if.end8 ]
+PACKET_get_net_2.exit34:; preds = %if.end8, %for.end
+  %subpkt.sroa.0.0 = phi i32 [ %srtp_pref.1, %for.end ], [ %call11, %if.end8 ]
+  %srtp_pref.0 = phi ptr [ %add.ptr.i2.i31, %for.end ], [ %add.ptr.i2.i, %if.end8 ]
   %subpkt.sroa.5.069 = phi i64 [ %sub.i.i32, %for.end ], [ %conv, %if.end8 ]
-  %4 = load i8, ptr %subpkt.sroa.0.070, align 1
+  %4 = load i8, ptr %srtp_pref.0, align 1
   %conv.i.i26 = zext i8 %4 to i64
   %shl.i.i27 = shl nuw nsw i64 %conv.i.i26, 8
   %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %subpkt.sroa.0.070, i64 1
@@ -1103,10 +1103,10 @@ lor.lhs.false36:                                  ; preds = %if.end32
   br i1 %tobool38.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %lor.lhs.false36, %if.end32, %while.end, %lor.lhs.false, %if.end, %lor.lhs.false4
-  %.sink76 = phi i32 [ 491, %lor.lhs.false4 ], [ 491, %if.end ], [ 491, %lor.lhs.false ], [ 528, %while.end ], [ 534, %if.end32 ], [ 534, %lor.lhs.false36 ]
+  %.sink72 = phi i32 [ 491, %lor.lhs.false4 ], [ 491, %if.end ], [ 491, %lor.lhs.false ], [ 528, %while.end ], [ 534, %if.end32 ], [ 534, %lor.lhs.false36 ]
   %.sink = phi i32 [ 353, %lor.lhs.false4 ], [ 353, %if.end ], [ 353, %lor.lhs.false ], [ 353, %while.end ], [ 352, %if.end32 ], [ 352, %lor.lhs.false36 ]
   tail call void @ERR_new() #10
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink72, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 50, i32 noundef %.sink, ptr noundef null) #10
   br label %return
 

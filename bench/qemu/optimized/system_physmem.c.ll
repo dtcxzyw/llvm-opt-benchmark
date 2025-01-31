@@ -10079,9 +10079,9 @@ for.inc92:                                        ; preds = %land.lhs.true, %mtr
   %prev.sroa.0.1 = phi i32 [ %prev.sroa.0.075, %land.lhs.true ], [ %prev.sroa.0.0.copyload7, %mtree_print_phys_entries.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %if.then98, label %for.body70, !llvm.loop !85
+  br i1 %exitcond.not, label %for.end94, label %for.body70, !llvm.loop !85
 
-if.then98:                                        ; preds = %for.inc92
+for.end94:                                        ; preds = %for.inc92
   %bf.clear100 = and i32 %prev.sroa.0.1, 63
   %bf.lshr102 = lshr i32 %prev.sroa.0.1, 6
   %cmp.i54 = icmp eq i32 %jprev.1, 511

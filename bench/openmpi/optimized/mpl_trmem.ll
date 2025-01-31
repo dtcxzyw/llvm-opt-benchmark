@@ -311,34 +311,34 @@ define internal fastcc ptr @trmalloc(i64 noundef %0, i64 noundef %1, i32 noundef
   %14 = alloca [6 x i64], align 16
   %15 = alloca i64, align 8
   %16 = icmp eq i64 %0, 0
-  br i1 %16, label %is_valid_alignment.exit, label %17
+  br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %5
   %18 = and i64 %0, 7
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %.lr.ph.i, label %is_valid_alignment.exit.thread
+  br i1 %.not.i, label %.lr.ph.i, label %is_valid_alignment.exit
 
 19:                                               ; preds = %.lr.ph.i
   %20 = lshr exact i64 %.09.i, 1
   %21 = icmp ugt i64 %.09.i, 2
-  br i1 %21, label %.lr.ph.i, label %is_valid_alignment.exit, !llvm.loop !4
+  br i1 %21, label %.lr.ph.i, label %.loopexit, !llvm.loop !4
 
 .lr.ph.i:                                         ; preds = %17, %19
   %.09.i = phi i64 [ %20, %19 ], [ %0, %17 ]
   %22 = and i64 %.09.i, 1
   %.not8.i = icmp eq i64 %22, 0
-  br i1 %.not8.i, label %19, label %is_valid_alignment.exit.thread
+  br i1 %.not8.i, label %19, label %is_valid_alignment.exit
 
-is_valid_alignment.exit:                          ; preds = %19, %5
+.loopexit:                          ; preds = %19, %5
   %.b83 = load i1, ptr @TRdebugLevel, align 4
   br i1 %.b83, label %23, label %25
 
-23:                                               ; preds = %is_valid_alignment.exit
+23:                                               ; preds = %.loopexit
   %24 = tail call i32 @MPL_trvalid2(ptr noundef nonnull @.str.29, i32 noundef %3, ptr noundef %4)
   %.not86 = icmp eq i32 %24, 0
-  br i1 %.not86, label %25, label %is_valid_alignment.exit.thread
+  br i1 %.not86, label %25, label %is_valid_alignment.exit
 
-25:                                               ; preds = %23, %is_valid_alignment.exit
+25:                                               ; preds = %23, %.loopexit
   %.biased = add i64 %1, 7
   %.076 = and i64 %.biased, -8
   %26 = load volatile i64, ptr @allocated, align 8
@@ -355,14 +355,14 @@ is_valid_alignment.exit:                          ; preds = %19, %5
 32:                                               ; preds = %30
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 25, i64 1, ptr %33) #19
-  br label %is_valid_alignment.exit.thread
+  br label %is_valid_alignment.exit
 
 35:                                               ; preds = %30, %25
   %36 = add i64 %0, 168
   %37 = add i64 %36, %.076
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #20
   %.not89 = icmp eq ptr %38, null
-  br i1 %.not89, label %is_valid_alignment.exit.thread, label %39
+  br i1 %.not89, label %is_valid_alignment.exit, label %39
 
 39:                                               ; preds = %35
   %.b = load i1, ptr @TRSetBytes, align 4
@@ -407,7 +407,7 @@ is_valid_alignment.exit:                          ; preds = %19, %5
   %59 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 44, i64 1, ptr %58) #19
   %60 = load ptr, ptr %51, align 8
   tail call void @free(ptr noundef %60) #17
-  br label %is_valid_alignment.exit.thread
+  br label %is_valid_alignment.exit
 
 61:                                               ; preds = %55
   %62 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @TRhead, i64 8), align 8
@@ -622,9 +622,9 @@ is_valid_alignment.exit:                          ; preds = %19, %5
   %176 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #17, !srcloc !10
   store volatile i64 %176, ptr %15, align 8
   %.0..0..0..0. = load volatile i64, ptr %15, align 8
-  br label %is_valid_alignment.exit.thread
+  br label %is_valid_alignment.exit
 
-is_valid_alignment.exit.thread:                   ; preds = %.lr.ph.i, %17, %35, %23, %154, %57, %32
+is_valid_alignment.exit:                   ; preds = %.lr.ph.i, %17, %35, %23, %154, %57, %32
   %.075 = phi ptr [ null, %23 ], [ null, %32 ], [ null, %57 ], [ %53, %154 ], [ null, %35 ], [ null, %17 ], [ null, %.lr.ph.i ]
   ret ptr %.075
 }
