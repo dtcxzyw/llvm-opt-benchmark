@@ -57,14 +57,14 @@ for file in patch:
         removed = dict()
         for line in hunk:
             if line.is_added:
-                added[line.target_line_no - hunk.target_start] = line.value
+                added[line.target_line_no - hunk.target_start] = (line.value.strip(), line.target_line_no)
             if line.is_removed:
-                removed[line.source_line_no - hunk.source_start] = line.value
+                removed[line.source_line_no - hunk.source_start] = line.value.strip()
         for k, v in added.items():
+            tgt, tgt_line = v
             if k in removed:
-                src = removed[k].strip()
-                tgt = v.strip()
-                pairs[tgt] = src
+                src = removed[k]
+                pairs[tgt_line - 1] = src
                 a = extract_name(src)
                 b = extract_name(tgt)
                 if a is not None and b is not None and a[0] == b[0] and a[1] != b[1]:
@@ -77,12 +77,8 @@ for file in patch:
     path = file.source_file.removeprefix('a/')
     with open(path, "r") as f:
         lines = f.readlines()
-    for i in range(len(lines)):
-        val = lines[i]
-        stripped = val.strip()
-        if stripped not in pairs:
-            continue
-        lines[i] = remap(val, pairs[stripped], mapping)
+    for k, v in pairs.items():
+        lines[k] = remap(lines[k], v, mapping)
     with open(path, "w") as f:
         f.writelines(lines)
     subprocess.check_call(['git', 'add', path])
