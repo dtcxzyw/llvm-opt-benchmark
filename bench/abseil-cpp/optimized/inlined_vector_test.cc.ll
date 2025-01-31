@@ -150032,10 +150032,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_v
   br label %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit
 
 _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit482, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_13test_internal20CopyableOnlyInstanceEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, %if.then.i.i.i.i
-  switch i64 %68, label %for.body.preheader.i.i.i.i493 [
-    i64 0, label %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515
-    i64 1, label %if.then.i.i.i.i512
-  ]
+  %cmp.i.i486 = icmp eq i64 %68, 0
+  br i1 %cmp.i.i486, label %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515, label %for.body.preheader.i.i.i.i493
 
 for.body.preheader.i.i.i.i493:                    ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit
   %shr.i.i.i.i494 = lshr exact i64 %68, 1
@@ -150066,21 +150064,16 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destro
   %cmp.not.i.i.i.i507 = icmp eq i64 %dec.i.i.i.i501, 0
   br i1 %cmp.not.i.i.i.i507, label %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515.loopexit, label %for.body.i.i.i.i497, !llvm.loop !1329
 
-if.then.i.i.i.i512:                               ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit
-  %189 = load ptr, ptr %data_.i1.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %189) #36
-  br label %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515
-
 _ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515.loopexit: ; preds = %_ZNSt16allocator_traitsISaIN4absl13test_internal20CopyableOnlyInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i505
   store i32 %dec.i.i.i.i.i.i.i.i502, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   br label %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515
 
-_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515: ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515.loopexit, %if.then.i.i.i.i512
+_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515: ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515.loopexit, %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_1124) #33
-  %190 = load i32, ptr %len, align 4
-  %inc344 = add nsw i32 %190, 1
+  %189 = load i32, ptr %len, align 4
+  %inc344 = add nsw i32 %189, 1
   store i32 %inc344, ptr %len, align 4
-  %cmp = icmp slt i32 %190, 19
+  %cmp = icmp slt i32 %189, 19
   br i1 %cmp, label %for.body, label %for.end345, !llvm.loop !3288
 
 ehcleanup339:                                     ; preds = %_ZN7testing7MessageD2Ev.exit478, %lpad327
@@ -150100,8 +150093,8 @@ ehcleanup341:                                     ; preds = %ehcleanup340, %ehcl
   br label %ehcleanup346
 
 for.end345:                                       ; preds = %_ZN4absl13InlinedVectorINS_13test_internal20CopyableOnlyInstanceELm8ESaIS2_EED2Ev.exit515
-  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
-  %cmp.not.i516 = icmp eq i32 %191, %71
+  %190 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
+  %cmp.not.i516 = icmp eq i32 %190, %71
   br i1 %cmp.not.i516, label %if.end.i, label %if.then.i517
 
 if.then.i517:                                     ; preds = %for.end345
@@ -150109,8 +150102,8 @@ if.then.i517:                                     ; preds = %for.end345
   unreachable
 
 if.end.i:                                         ; preds = %for.end345
-  %192 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
-  %cmp3.not.i = icmp eq i32 %192, %174
+  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
+  %cmp3.not.i = icmp eq i32 %191, %174
   br i1 %cmp3.not.i, label %_ZN4absl13test_internal15InstanceTrackerD2Ev.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -151912,10 +151905,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_v
   br label %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit
 
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit479, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_13test_internal23CopyableMovableInstanceEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, %if.then.i.i.i.i
-  switch i64 %68, label %for.body.preheader.i.i.i.i490 [
-    i64 0, label %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512
-    i64 1, label %if.then.i.i.i.i509
-  ]
+  %cmp.i.i483 = icmp eq i64 %68, 0
+  br i1 %cmp.i.i483, label %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512, label %for.body.preheader.i.i.i.i490
 
 for.body.preheader.i.i.i.i490:                    ; preds = %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit
   %shr.i.i.i.i491 = lshr exact i64 %68, 1
@@ -151946,21 +151937,16 @@ _ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7des
   %cmp.not.i.i.i.i504 = icmp eq i64 %dec.i.i.i.i498, 0
   br i1 %cmp.not.i.i.i.i504, label %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512.loopexit, label %for.body.i.i.i.i494, !llvm.loop !1481
 
-if.then.i.i.i.i509:                               ; preds = %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit
-  %189 = load ptr, ptr %data_.i1.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %189) #36
-  br label %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512
-
 _ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512.loopexit: ; preds = %_ZNSt16allocator_traitsISaIN4absl13test_internal23CopyableMovableInstanceEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i502
   store i32 %dec.i.i.i.i.i.i.i.i499, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
   br label %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512
 
-_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512: ; preds = %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit, %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512.loopexit, %if.then.i.i.i.i509
+_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512: ; preds = %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512.loopexit, %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_1124) #33
-  %190 = load i32, ptr %len, align 4
-  %inc344 = add nsw i32 %190, 1
+  %189 = load i32, ptr %len, align 4
+  %inc344 = add nsw i32 %189, 1
   store i32 %inc344, ptr %len, align 4
-  %cmp = icmp slt i32 %190, 19
+  %cmp = icmp slt i32 %189, 19
   br i1 %cmp, label %for.body, label %for.end345, !llvm.loop !3311
 
 ehcleanup339:                                     ; preds = %_ZN7testing7MessageD2Ev.exit475, %lpad327
@@ -151980,8 +151966,8 @@ ehcleanup341:                                     ; preds = %ehcleanup340, %ehcl
   br label %ehcleanup346
 
 for.end345:                                       ; preds = %_ZN4absl13InlinedVectorINS_13test_internal23CopyableMovableInstanceELm8ESaIS2_EED2Ev.exit512
-  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
-  %cmp.not.i513 = icmp eq i32 %191, %71
+  %190 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance14num_instances_E, align 4
+  %cmp.not.i513 = icmp eq i32 %190, %71
   br i1 %cmp.not.i513, label %if.end.i, label %if.then.i514
 
 if.then.i514:                                     ; preds = %for.end345
@@ -151989,8 +151975,8 @@ if.then.i514:                                     ; preds = %for.end345
   unreachable
 
 if.end.i:                                         ; preds = %for.end345
-  %192 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
-  %cmp3.not.i = icmp eq i32 %192, %174
+  %191 = load i32, ptr @_ZN4absl13test_internal19BaseCountedInstance19num_live_instances_E, align 4
+  %cmp3.not.i = icmp eq i32 %191, %174
   br i1 %cmp3.not.i, label %_ZN4absl13test_internal15InstanceTrackerD2Ev.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i

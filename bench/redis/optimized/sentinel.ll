@@ -10568,11 +10568,7 @@ if.else353:                                       ; preds = %if.end346
   %call355 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call351, ptr noundef nonnull @.str.370, i32 noundef %72) #29
   %and356 = and i32 %call347, 1
   %tobool357.not = icmp eq i32 %and356, 0
-  br i1 %tobool357.not, label %if.end360, label %if.end360.thread
-
-if.end360:                                        ; preds = %if.else353
-  %tobool362.not = icmp eq i32 %call347, 1
-  br i1 %tobool362.not, label %if.end370, label %if.end368
+  br i1 %tobool357.not, label %if.end368, label %if.end360.thread
 
 if.end360.thread:                                 ; preds = %if.else353
   %call359 = call ptr @sdscat(ptr noundef %call355, ptr noundef nonnull @.str.371) #29
@@ -10583,13 +10579,13 @@ if.then366:                                       ; preds = %if.end360.thread
   %call367 = call ptr @sdscat(ptr noundef %call359, ptr noundef nonnull @.str.372) #29
   br label %if.end368
 
-if.end368:                                        ; preds = %if.end360, %if.then366
-  %e.2 = phi ptr [ %call367, %if.then366 ], [ %call355, %if.end360 ]
+if.end368:                                        ; preds = %if.else353, %if.then366
+  %e.2 = phi ptr [ %call367, %if.then366 ], [ %call355, %if.else353 ]
   %call369 = call ptr @sdscat(ptr noundef %e.2, ptr noundef nonnull @.str.373) #29
   br label %if.end370
 
-if.end370:                                        ; preds = %if.end360.thread, %if.end368, %if.end360
-  %e.1 = phi ptr [ %call369, %if.end368 ], [ %call355, %if.end360 ], [ %call359, %if.end360.thread ]
+if.end370:                                        ; preds = %if.end360.thread, %if.end368
+  %e.1 = phi ptr [ %call369, %if.end368 ], [ %call359, %if.end360.thread ]
   call void @addReplyErrorSds(ptr noundef nonnull %c, ptr noundef %e.1) #29
   br label %return
 
